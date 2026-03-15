@@ -3218,7 +3218,7 @@ input, select, textarea {
 		background-color: #ffffff;
 		color: #636363;
 		position: absolute;
-		width: 64em;
+		width: 90em;
 		max-width: calc(100% - 4em);
 		padding: 1em;
 		background-color: #f7f7f7;
@@ -3295,6 +3295,7 @@ input, select, textarea {
 					border-radius: 8px;
 					box-shadow: inset 0 0 0 1px transparent;
 					white-space: nowrap;
+					font-size: 0.9em;
 				}
 
 					#nav ul li a:hover {
