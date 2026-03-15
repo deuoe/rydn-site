@@ -3222,7 +3222,8 @@ input, select, textarea {
 transform: translateX(-50%);
 		width: 72em;
 		max-width: calc(100% - 4em);
-		padding: 1em;
+		box-sizing: border-box;
+		padding: 1em 0;
 		background-color: #f7f7f7;
 		border-top-left-radius: 0.25em;
 		border-top-right-radius: 0.25em;
