@@ -3262,12 +3262,16 @@ input, select, textarea {
 		}
 
 		#nav ul {
+			display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
 			margin: 0;
 			padding: 0;
 			list-style: none;
 		}
 
 			#nav ul li {
+				margin: 0 12px;
 				-moz-transition: margin 0.2s ease;
 				-webkit-transition: margin 0.2s ease;
 				-ms-transition: margin 0.2s ease;
