@@ -3220,7 +3220,7 @@ input, select, textarea {
 		position: absolute;
 		left: 50%;
 transform: translateX(-50%);
-		width: 90em;
+		width: 72em;
 		max-width: calc(100% - 4em);
 		padding: 1em;
 		background-color: #f7f7f7;
