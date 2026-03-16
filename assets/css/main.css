@@ -3793,8 +3793,8 @@ transform: translateX(-50%);
 		}
 /* Advisor photos */
 .advisor-photo img {
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
