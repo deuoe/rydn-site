@@ -306,6 +306,20 @@ Many talented young people struggle not because they lack ability, but because t
 
 	<script>
 document.addEventListener("DOMContentLoaded", function () {
+
+    function shuffleAdvisors() {
+        const track = document.querySelector(".advisor-track");
+        const cards = Array.from(track.children);
+
+        for (let i = cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            track.appendChild(cards[j]);
+            cards.splice(j, 1);
+        }
+    }
+
+    shuffleAdvisors();
+
     const track = document.querySelector(".advisor-track");
     const cards = document.querySelectorAll(".advisor-card");
     const nextBtn = document.getElementById("nextBtn");
