@@ -3859,16 +3859,31 @@ transform: translateX(-50%);
 }
 @media screen and (max-width: 736px) {
 	.advisor-slider {
-		gap: 0.5em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.25em;
 	}
 
 	.advisor-window {
+		width: 100%;
 		max-width: 100%;
+		overflow: hidden;
+	}
+
+	.advisor-track {
+		display: flex;
+		align-items: flex-start;
 	}
 
 	.advisor-card {
 		flex: 0 0 100%;
-		padding: 0 1em;
+		width: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+		text-align: center;
 	}
 
 	.advisor-photo img {
@@ -3877,8 +3892,9 @@ transform: translateX(-50%);
 	}
 
 	.slider-btn {
-		width: 36px;
-		height: 36px;
-		font-size: 16px;
+		width: 32px;
+		height: 32px;
+		font-size: 14px;
+		flex: 0 0 auto;
 	}
 }
