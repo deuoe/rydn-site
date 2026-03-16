@@ -434,8 +434,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateSlider() {
         const cardsPerPage = getCardsPerPage();
-        const translatePercent = currentPage * (100 / cardsPerPage);
-        track.style.transform = `translateX(-${translatePercent}%)`;
+        const totalPages = getTotalPages();
+
+        track.style.width = `${totalPages * 100}%`;
+
+        cards.forEach(card => {
+            card.style.flex = `0 0 ${100 / cards.length}%`;
+        });
+
+        const moveAmount = (100 / totalPages) * currentPage;
+        track.style.transform = `translateX(-${moveAmount}%)`;
     }
 
     nextBtn.addEventListener("click", function () {
@@ -454,7 +462,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("resize", function () {
         const maxPage = getTotalPages() - 1;
-        if (currentPage > maxPage) currentPage = maxPage;
+        if (currentPage > maxPage) {
+            currentPage = maxPage;
+        }
         updateSlider();
     });
 
