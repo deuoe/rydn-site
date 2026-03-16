@@ -3846,8 +3846,14 @@ transform: translateX(-50%);
 	cursor: pointer;
 	color: #555;
 	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+	.slider-btn:before,
+.slider-btn:after {
+	display: none;
+}
 }
 
 .slider-btn:hover {
-	background: #f0f0f0;
+	background: #79d6f3;
+	color: white;
+	border-color: #79d6f3;
 }
