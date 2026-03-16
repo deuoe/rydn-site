@@ -3802,11 +3802,11 @@ transform: translateX(-50%);
 }
 
 .logo img {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    transform: scale(1.35);
+    transform: scale(1.45);
 }
 /* Advisor slider */
 
