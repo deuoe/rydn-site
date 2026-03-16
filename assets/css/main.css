@@ -3916,3 +3916,31 @@ transform: translateX(-50%);
 		grid-template-columns: 1fr;
 	}
 }
+.team-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 2em;
+	margin-top: 2em;
+}
+
+.team-card {
+	text-align: center;
+	padding: 1.5em;
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: 1em;
+}
+
+.team-photo img {
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+	object-fit: cover;
+	display: block;
+	margin: 0 auto 1em auto;
+}
+
+@media screen and (max-width: 736px) {
+	.team-grid {
+		grid-template-columns: 1fr;
+	}
+}
