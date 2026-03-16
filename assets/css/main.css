@@ -3830,7 +3830,6 @@ transform: translateX(-50%);
 }
 
 .advisor-card {
-	flex: 0 0 33.3333%;
 	box-sizing: border-box;
 	padding: 0 2.5em;
 	text-align: center;
