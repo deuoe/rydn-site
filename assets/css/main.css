@@ -3814,13 +3814,13 @@ transform: translateX(-50%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 0.5em;
+	gap: 0.2em;
 	margin-top: 2em;
 }
 
 .advisor-window {
 	width: 100%;
-	max-width: 1200px;
+	max-width: 1600px;
 	overflow: hidden;
 }
 
@@ -3840,9 +3840,9 @@ transform: translateX(-50%);
 	background: #ffffff;
 	border: none;
 	border-radius: 50%;
-	width: 36px;
-	height: 36px;
-	font-size: 1.1em;
+	width: 10px;
+	height: 10px;
+	font-size: 0.5em;
 	cursor: pointer;
 	color: #555;
 	box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
