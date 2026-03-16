@@ -3857,3 +3857,28 @@ transform: translateX(-50%);
 	color: white;
 	border-color: #79d6f3;
 }
+@media screen and (max-width: 736px) {
+	.advisor-slider {
+		gap: 0.5em;
+	}
+
+	.advisor-window {
+		max-width: 100%;
+	}
+
+	.advisor-card {
+		flex: 0 0 100%;
+		padding: 0 1em;
+	}
+
+	.advisor-photo img {
+		width: 120px;
+		height: 120px;
+	}
+
+	.slider-btn {
+		width: 36px;
+		height: 36px;
+		font-size: 16px;
+	}
+}
