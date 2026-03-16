@@ -409,9 +409,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (let i = cards.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            track.appendChild(cards[j]);
-            cards.splice(j, 1);
+            [cards[i], cards[j]] = [cards[j], cards[i]];
         }
+
+        cards.forEach(card => track.appendChild(card));
     }
 
     shuffleAdvisors();
@@ -433,8 +434,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateSlider() {
         const cardsPerPage = getCardsPerPage();
-        const moveAmount = currentPage * (100 / cardsPerPage);
-        track.style.transform = "translateX(-" + moveAmount + "%)";
+        const translatePercent = currentPage * (100 / cardsPerPage);
+        track.style.transform = `translateX(-${translatePercent}%)`;
     }
 
     nextBtn.addEventListener("click", function () {
@@ -452,9 +453,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     window.addEventListener("resize", function () {
-        if (currentPage > getTotalPages() - 1) {
-            currentPage = getTotalPages() - 1;
-        }
+        const maxPage = getTotalPages() - 1;
+        if (currentPage > maxPage) currentPage = maxPage;
         updateSlider();
     });
 
