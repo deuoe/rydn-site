@@ -3897,3 +3897,22 @@ transform: translateX(-50%);
 		flex: 0 0 auto;
 	}
 }
+.advisor-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 2em;
+	margin-top: 2em;
+}
+
+.advisor-grid .advisor-card {
+	text-align: center;
+	padding: 1.5em;
+	background: rgba(255,255,255,0.04);
+	border-radius: 1em;
+}
+
+@media screen and (max-width: 736px) {
+	.advisor-grid {
+		grid-template-columns: 1fr;
+	}
+}
