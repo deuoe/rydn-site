@@ -21,7 +21,7 @@ type Inputs = {
   aboutYou: string
 }
 
-const FORMINIT_KEY = "quzlm6lnxyj"
+const FORMINIT_KEY = "qavfvk7sam9"
 const forminit = new Forminit()
 const E164_PHONE_REGEX = /^\+[1-9]\d{1,14}$/
 
