@@ -6,7 +6,7 @@ import "./index.css"
 import BecomeAdvisor from "./BecomeAdvisor.tsx"
 import Workshops from "./Workshops.tsx"
 import Donation from "./Donation.tsx"
-import Navbar from "./Navbar.tsx"
+import Navbar from "./components/Navbar.tsx"
 import AboutUs from "./AboutUs.tsx"
 
 const root = document.getElementById("root")!

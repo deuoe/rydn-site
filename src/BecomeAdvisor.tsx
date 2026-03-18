@@ -97,7 +97,7 @@ export default function BecomeAdvisor() {
       <Heading text="Become an Advisor" />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col w-1/2 mx-auto mt-8 gap-6"
+        className="flex flex-col w-full lg:w-1/2 mx-auto mt-8 gap-6"
         ref={form}
       >
         <div className="flex flex-col">

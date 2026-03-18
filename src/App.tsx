@@ -62,13 +62,13 @@ function App() {
   return (
     <>
       <div
-        className="w-full h-[600px] bg-fixed bg-center bg-no-repeat bg-cover relative flex items-center justify-center"
+        className="w-full h-100 lg:h-150 xl:h-200 2xl:h-200 bg-fixed bg-center bg-no-repeat bg-cover relative flex items-center justify-center"
         style={{ backgroundImage: `url(${homeHero})` }}
       >
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-          <h2 className="text-6xl font-bold mb-4">RooZ Youth Development Network</h2>
-          <p className="text-2xl mb-8">
+          <h2 className="text-4xl lg:text-6xl font-bold mb-4">RooZ Youth Development Network</h2>
+          <p className="text-lg lg:text-2xl mb-8">
             Connect with experienced mentors, explore your passions, and unlock your potential.
             {/* Free mentorship and guidance to help the next generation discover their path */}
           </p>
@@ -77,14 +77,15 @@ function App() {
       </div>
 
       <Container>
+        <div className="mt-8"></div>
         <Heading text="Our Advisors" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {advisors.map((advisor, index) => (
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="p-4 bg-gray-100 rounded-lg shadow-md w-64 flex flex-col justify-content items-center"
+              className="w-full p-4 bg-gray-100 rounded-lg shadow-md flex flex-col justify-content items-center"
               key={index}
             >
               <img
