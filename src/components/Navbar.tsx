@@ -33,7 +33,7 @@ export default function Navbar() {
               className={
                 "px-8 py-4 text-black rounded-md mr-4 lg:text-xl font-bold" +
                 (location.pathname === nav.path
-                  ? " bg-[#6d6dc5] text-white"
+                  ? " bg-[#4facfe] text-white"
                   : " hover:bg-gray-200 hover:shadow-md transition duration-100 hover:cursor-pointer")
               }
               onClick={() => navigate(nav.path)}
@@ -49,7 +49,7 @@ export default function Navbar() {
         {/* Mobile Navbar */}
         <AnimatePresence mode="wait">
           {nav && (
-            <motion.ul className="absolute lg:hidden top-0 left-0 h-screen w-screen flex flex-col items-center justify-center gap-8 bg-[#6d6dc5] z-10">
+            <motion.ul className="absolute lg:hidden top-0 left-0 h-screen w-screen flex flex-col items-center justify-center gap-8 bg-[#4facfe] z-10">
               {navigation.map(nav => (
                 <motion.button
                   className={

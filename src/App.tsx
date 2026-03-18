@@ -103,7 +103,7 @@ function App() {
                 <div className="flex flex-wrap gap-2 mt-2 justify-center">
                   {advisor.advisingTopics.map((topic, idx) => (
                     <>
-                      <span key={idx} className="bg-[#6d6dc5] text-white p-1 rounded">
+                      <span key={idx} className="bg-[#4facfe] text-white p-1 rounded">
                         {topic}
                       </span>{" "}
                     </>
