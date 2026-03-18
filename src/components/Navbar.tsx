@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useNavigate } from "react-router"
+import { useLocation, useNavigate } from "react-router"
 import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
 import logoUrl from "../assets/images/logo.jpeg"
@@ -12,67 +12,62 @@ export default function Navbar() {
   const navigation = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about-us" },
-    { name: "Book with Advisor", path: "/book-with-advisor" },
     { name: "Become an Advisor", path: "/become-advisor" },
     { name: "Workshops", path: "/workshops" },
     { name: "Donation", path: "/donation" },
   ]
 
   return (
-    <>
-      <nav
-        // className="w-full py-8 px-4 bg-[#eaeaea] flex items-center justify-center"
-        className="flex items-center justify-between lg:justify-center w-full mx-auto p-2 lg:pt-4"
-      >
-        <img className="w-44 select-none" src={logoUrl} alt="" />
+    <nav
+      // className="w-full py-8 px-4 bg-[#eaeaea] flex items-center justify-center"
+      className="flex items-center justify-between lg:justify-center w-full mx-auto p-2 lg:pt-4"
+    >
+      <img className="w-44 select-none" src={logoUrl} alt="" />
 
-        {/* Desktop Navbar */}
-        <ul className="hidden lg:flex items-center">
-          {navigation.map(nav => (
-            <button
-              className={
-                "px-8 py-4 text-black rounded-md mr-4 lg:text-xl font-bold" +
-                (location.pathname === nav.path
-                  ? " bg-[#4facfe] text-white"
-                  : " hover:bg-gray-200 hover:shadow-md transition duration-100 hover:cursor-pointer")
-              }
-              onClick={() => navigate(nav.path)}
-            >
-              {nav.name}
-            </button>
-          ))}
-        </ul>
+      {/* Desktop Navbar */}
+      <ul className="hidden lg:flex items-center">
+        {navigation.map(nav => (
+          <button
+            className={
+              "px-8 py-4 text-black rounded-md mr-4 lg:text-xl font-bold" +
+              (location.pathname === nav.path
+                ? " bg-[#4facfe] text-white"
+                : " hover:bg-gray-200 hover:shadow-md transition duration-100 hover:cursor-pointer")
+            }
+            onClick={() => navigate(nav.path)}
+          >
+            {nav.name}
+          </button>
+        ))}
+      </ul>
 
-        {/* Hamburger Menu */}
-        <MenuToggle className="lg:hidden pr-8 z-20" toggle={() => toggle()} isOpen={nav} />
+      {/* Hamburger Menu */}
+      <MenuToggle className="lg:hidden pr-8 z-20" toggle={() => toggle()} isOpen={nav} />
 
-        {/* Mobile Navbar */}
-        <AnimatePresence mode="wait">
-          {nav && (
-            <motion.ul className="absolute lg:hidden top-0 left-0 h-screen w-screen flex flex-col items-center justify-center gap-8 bg-[#4facfe] z-10">
-              {navigation.map(nav => (
-                <motion.button
-                  className={
-                    "px-8 py-4 text-black rounded-md mr-4 text-xl font-bold" +
-                    (location.pathname === nav.path
-                      ? " bg-white"
-                      : " hover:bg-gray-200 hover:shadow-md transition duration-100 hover:cursor-pointer")
-                  }
-                  onClick={() => {
-                    navigate(nav.path)
-                    toggle()
-                  }}
-                >
-                  {nav.name}
-                </motion.button>
-              ))}
-            </motion.ul>
-          )}
-        </AnimatePresence>
-      </nav>
-
-      <Outlet />
-    </>
+      {/* Mobile Navbar */}
+      <AnimatePresence mode="wait">
+        {nav && (
+          <motion.ul className="absolute lg:hidden top-0 left-0 h-screen w-screen flex flex-col items-center justify-center gap-8 bg-[#4facfe] z-10">
+            {navigation.map(nav => (
+              <motion.button
+                className={
+                  "px-8 py-4 text-black rounded-md mr-4 text-xl font-bold" +
+                  (location.pathname === nav.path
+                    ? " bg-white"
+                    : " hover:bg-gray-200 hover:shadow-md transition duration-100 hover:cursor-pointer")
+                }
+                onClick={() => {
+                  navigate(nav.path)
+                  toggle()
+                }}
+              >
+                {nav.name}
+              </motion.button>
+            ))}
+          </motion.ul>
+        )}
+      </AnimatePresence>
+    </nav>
   )
 }
 

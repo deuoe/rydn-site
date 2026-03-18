@@ -8,6 +8,8 @@ import Heading from "./components/Heading"
 import Container from "./components/Container"
 import { motion } from "motion/react"
 import Button from "./components/Button"
+import Appointlet from "@appointlet/appointlet.js"
+import "@appointlet/appointlet.js/dist/appointlet.min.css"
 
 function App() {
   const advisors = [
@@ -16,6 +18,7 @@ function App() {
       photo: leoUrl,
       description: "Ilia is a Bachelor of Commerce student",
       advisingTopics: ["Information Technology", "Soccer", "Business"],
+      appointlet: new Appointlet("https://appt.link/ilia"),
     },
     {
       name: "Sahar",
@@ -27,9 +30,10 @@ function App() {
         "LSAT preparation",
         "University applications",
       ],
+      appointlet: new Appointlet("https://appt.link/sahar-"),
     },
     {
-      name: "Sara",
+      name: "Sara Roozbahani",
       photo: saraUrl,
       description: "Sara is a Bachelor of Science student",
       advisingTopics: [
@@ -40,6 +44,7 @@ function App() {
         "Lab Involvement",
         "Psychology",
       ],
+      appointlet: new Appointlet("https://appt.link/sara-roozbahani"),
     },
     {
       name: "Mandy",
@@ -52,12 +57,14 @@ function App() {
         "Marketing",
         "Client Relations",
       ],
+      appointlet: new Appointlet("https://appt.link/mandy"),
     },
     {
       name: "Sam Sina",
       photo: sinaUrl,
       description: "Add advisor 5 description here.",
       advisingTopics: ["Topic 1", "Topic 2", "Topic 3"],
+      appointlet: new Appointlet("https://appt.link/sam-sina"),
     },
   ]
 
@@ -99,7 +106,6 @@ function App() {
               <p className="mb-4">
                 {advisor.description}
                 <br />
-                {/* {advisor.advisingTopics.join(", ")} */}
                 <div className="flex flex-wrap gap-2 mt-2 justify-center">
                   {advisor.advisingTopics.map((topic, idx) => (
                     <>
@@ -111,78 +117,16 @@ function App() {
                 </div>
               </p>
               <div className="mt-auto w-full">
-                <Button className="w-full">Contact {advisor.name.split(" ")[0]}</Button>
+                <Button
+                  className="w-full"
+                  onClick={async () => await advisor.appointlet.openModal()}
+                >
+                  Contact {advisor.name.split(" ")[0]}
+                </Button>
               </div>
             </motion.div>
           ))}
         </div>
-
-        <footer className="major">
-          <ul className="actions special">
-            <li>
-              <a href="book.html" className="button primary">
-                View All Advisors
-              </a>
-            </li>
-          </ul>
-        </footer>
-
-        <footer>
-          <section>
-            <h2>RooZ Youth Develpment Network</h2>
-            <p>
-              Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing
-              tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra
-              sollicitudin, ligula erat egestas velit, vitae tincidunt odio.
-            </p>
-            <ul className="actions">
-              <li>
-                <a href="generic.html" className="button">
-                  Learn More
-                </a>
-              </li>
-            </ul>
-          </section>
-          <section>
-            <h2>Contact Us</h2>
-            <dl className="alt">
-              <dt>Phone</dt>
-              <dd>(647) 498-3938</dd>
-              <dt>Email</dt>
-              <dd>
-                <a href="#">info@rydn.ca</a>
-              </dd>
-            </dl>
-
-            <h2>Follow Us</h2>
-            <p>Stay connected with RooZ Youth Development Network.</p>
-
-            <ul className="icons">
-              <li>
-                <a href="#" className="icon brands fa-twitter alt">
-                  <span className="label">Twitter</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" className="icon brands fa-facebook-f alt">
-                  <span className="label">Facebook</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com/rydn.ca"
-                  className="icon brands fa-instagram alt"
-                  target="_blank"
-                >
-                  <span className="label">Instagram</span>
-                </a>
-              </li>
-            </ul>
-          </section>
-          <p className="copyright">
-            &copy; 2026 RooZ Youth Development Network. All rights reserved.
-          </p>
-        </footer>
       </Container>
     </>
   )

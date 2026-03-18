@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@appointlet/appointlet.js": "^3.0.7",
     "@tailwindcss/vite": "^4.2.1",
     "forminit": "^0.2.4",
     "motion": "^12.38.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.71.2",
+    "react-icons": "^5.6.0",
     "react-router": "^7.13.1",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.1"
