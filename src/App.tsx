@@ -14,13 +14,13 @@ function App() {
     {
       name: "Ilia Jafari",
       photo: leoUrl,
-      description: "Ilia is a Bachelor of Commerce student and provides advising in",
+      description: "Ilia is a Bachelor of Commerce student",
       advisingTopics: ["Information Technology", "Soccer", "Business"],
     },
     {
       name: "Sahar",
       photo: saharUrl,
-      description: "Sahar is a Bachelor of Art student and provides advising in",
+      description: "Sahar is a Bachelor of Art student",
       advisingTopics: [
         "Psychology",
         "Political science",
@@ -31,24 +31,26 @@ function App() {
     {
       name: "Sara",
       photo: saraUrl,
-      description: "Sara is a Bachelor of Science student and provides advising in",
+      description: "Sara is a Bachelor of Science student",
       advisingTopics: [
-        "Pre-med advising and medical school preparation",
+        "Pre-med advising",
+        "Medical School Preparation",
         "MCAT",
-        "Research experience and getting involved in labs",
+        "Research experience",
+        "Lab Involvement",
         "Psychology",
       ],
     },
     {
       name: "Mandy",
       photo: mandyUrl,
-      description:
-        "Mandy is a Bachelor of Science student and business operator and provides advising in",
+      description: "Mandy is a Bachelor of Science student and business operator",
       advisingTopics: [
         "Psychology",
         "University applications",
         "Business",
-        "Marketing and client relations",
+        "Marketing",
+        "Client Relations",
       ],
     },
     {
@@ -97,7 +99,16 @@ function App() {
               <p className="mb-4">
                 {advisor.description}
                 <br />
-                {advisor.advisingTopics.join(", ")}
+                {/* {advisor.advisingTopics.join(", ")} */}
+                <div className="flex flex-wrap gap-2 mt-2 justify-center">
+                  {advisor.advisingTopics.map((topic, idx) => (
+                    <>
+                      <span key={idx} className="bg-[#6d6dc5] text-white p-1 rounded">
+                        {topic}
+                      </span>{" "}
+                    </>
+                  ))}
+                </div>
               </p>
               <div className="mt-auto w-full">
                 <Button className="w-full">Contact {advisor.name.split(" ")[0]}</Button>

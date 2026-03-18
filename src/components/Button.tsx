@@ -9,7 +9,7 @@ export default function Button({
   className?: HTMLAttributes<HTMLButtonElement>["className"]
 }) {
   const mergedClassName = twMerge(
-    "px-12 py-4 text-[#676767] rounded-lg border-2 border-gray-300 hover:bg-gray-200 cursor-pointer transition duration-75",
+    "px-12 py-4 text-[#676767] rounded-lg border-2 border-gray-400 hover:bg-gray-300 hover:text-black cursor-pointer transition duration-75",
     className
   )
   return <button className={mergedClassName}>{children}</button>
