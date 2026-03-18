@@ -15,8 +15,6 @@ export default function AboutUs() {
         Through one-on-one mentorship and workshops, we help young people navigate university,
         careers, and personal growth with clarity and confidence.
       </Paragraph>
-
-      <Button>Style me daddy</Button>
     </Container>
   )
 }
