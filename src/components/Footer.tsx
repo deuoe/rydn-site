@@ -17,7 +17,7 @@ export default function Footer() {
 
             <div className="mt-6">
               <a
-                href="generic.html"
+                href="/about-us"
                 className="inline-flex items-center rounded-lg bg-[#4facfe] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-[#4facfe] focus:ring-offset-2"
               >
                 Learn More

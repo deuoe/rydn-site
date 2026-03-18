@@ -34,19 +34,19 @@ export default function BecomeAdvisor() {
     reset,
   } = useForm<Inputs>({
     defaultValues: {
-      firstName: "John",
-      lastName: "Doe",
-      email: "john.doe@example.com",
-      phone: "+16471234567",
-      address: "123 Main St",
-      streetAddress: "Unit 4",
-      city: "Ontario",
-      zip: "M5V 2T6",
-      country: "Canada",
-      workType: "Remote",
-      interests: ["Technology", "Education"],
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      streetAddress: "",
+      city: "",
+      zip: "",
+      country: "",
+      workType: "",
+      interests: [],
       cleanCriminalRecord: "Yes",
-      aboutYou: "I am passionate about mentoring students and sharing practical advice.",
+      aboutYou: "",
     },
   })
   const form = useRef<HTMLFormElement>(null)
@@ -335,7 +335,7 @@ export default function BecomeAdvisor() {
         <button
           disabled={status === "loading"}
           type="submit"
-          className="w-fit self-center px-20 py-3 bg-pink-400 text-white rounded-md mr-4 font-semibold text-xl hover:bg-gray-200 hover:shadow-md transition duration-100 hover:cursor-pointer"
+          className="w-full lg:w-64 self-center rounded-lg bg-[#4facfe] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-[#4facfe] focus:ring-offset-2 cursor-pointer"
         >
           {status === "loading" ? "Sending..." : "Send"}
         </button>

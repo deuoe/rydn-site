@@ -81,7 +81,9 @@ function App() {
             Connect with experienced mentors, explore your passions, and unlock your potential.
             {/* Free mentorship and guidance to help the next generation discover their path */}
           </p>
-          <Button className="text-white font-bold text-xl hover:text-black">Get Started</Button>
+          <Button className="text-white font-bold px-8 py-3 lg:px-12 lg:py-4 lg:text-xl hover:text-black">
+            Get Started
+          </Button>
         </div>
       </div>
 
