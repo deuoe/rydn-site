@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router"
+import { useLocation, useNavigate } from "react-router-dom"
 import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
 import logoUrl from "../assets/images/logo.jpeg"
@@ -12,6 +12,7 @@ export default function Navbar() {
   const navigation = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about-us" },
+    { name: "Our Team", path: "/our-team" },
     { name: "Become an Advisor", path: "/become-advisor" },
     { name: "Workshops", path: "/workshops" },
     { name: "Donation", path: "/donation" },
