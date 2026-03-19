@@ -2,7 +2,7 @@ import saraUrl from "./assets/images/Sara.png";
 import sinaUrl from "./assets/images/Sina.jpeg";
 import iliaUrl from "./assets/images/Leo.png";
 import saharUrl from "./assets/images/Sahar.jpeg";
-#import mohsenUrl from "./assets/images/Mohsen.png";
+import mohsenUrl from "./assets/images/Mohsen.png";
 function OurTeam() {
   return (
     <div className="min-h-screen bg-white py-16 px-6">
