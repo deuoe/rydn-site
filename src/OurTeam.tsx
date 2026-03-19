@@ -35,7 +35,8 @@ function OurTeam() {
             <img
   src={sinaUrl}
   alt="Sam Sina Ansari Movahed"
-  className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-white shadow-lg" />
+  className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-white shadow-lg"
+/>
             <h3 className="text-2xl font-semibold">Sam Sina Ansari Movahed</h3>
             <p className="text-sky-600 mt-2">
               Founder & Director of Operations & Technology
@@ -53,7 +54,8 @@ function OurTeam() {
             <img
   src={iliaUrl}
   alt="Ilia"
-  className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-white shadow-lg" />
+  className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-white shadow-lg"
+/>
             <h3 className="text-2xl font-semibold">Ilia</h3>
             <p className="text-sky-600 mt-2">
               Marketing & Outreach Coordinator
