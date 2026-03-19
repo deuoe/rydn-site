@@ -4,7 +4,6 @@ import Workshops from "./Workshops.tsx"
 import Donation from "./Donation.tsx"
 import AboutUs from "./AboutUs.tsx"
 import Layout from "./components/Layout.tsx"
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import "./index.css";
