@@ -1,3 +1,8 @@
+import { Routes, Route } from "react-router-dom"
+import AboutUs from "./AboutUs"
+import BecomeAdvisor from "./BecomeAdvisor"
+import Workshops from "./Workshops"
+import Donation from "./Donation"
 import leoUrl from "./assets/images/Leo.png"
 import saharUrl from "./assets/images/Sahar.jpeg"
 import saraUrl from "./assets/images/Sara.png"
@@ -11,25 +16,12 @@ import Button from "./components/Button"
 import Appointlet from "@appointlet/appointlet.js"
 import "@appointlet/appointlet.js/dist/appointlet.min.css"
 import sadafUrl from "./assets/images/Sadaf.png"
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import "./index.css";
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
-);
 
 function shuffleArray(array: any[]) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
-function App() {
+function HomePage() {
   const advisors = [
     {
       name: "Ilia Jafari",
@@ -159,4 +151,15 @@ function App() {
   )
 }
 
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/become-advisor" element={<BecomeAdvisor />} />
+      <Route path="/workshops" element={<Workshops />} />
+      <Route path="/donation" element={<Donation />} />
+    </Routes>
+  )
+}
 export default App
