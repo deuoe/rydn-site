@@ -11,6 +11,10 @@ import Button from "./components/Button"
 import Appointlet from "@appointlet/appointlet.js"
 import "@appointlet/appointlet.js/dist/appointlet.min.css"
 
+function shuffleArray(array: any[]) {
+  return [...array].sort(() => Math.random() - 0.5);
+}
+
 function App() {
   const advisors = [
     {
@@ -38,7 +42,6 @@ function App() {
       description: "Sara is a Bachelor of Science student",
       advisingTopics: [
         "Pre-med advising",
-        "Medical School Preparation",
         "MCAT",
         "Research experience",
         "Lab Involvement",
@@ -62,11 +65,13 @@ function App() {
     {
       name: "Sam Sina",
       photo: sinaUrl,
-      description: "Add advisor 5 description here.",
-      advisingTopics: ["Topic 1", "Topic 2", "Topic 3"],
+      description: "Sam is a Bachelor of Science student",
+      advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring"],
       appointlet: new Appointlet("https://appt.link/sam-sina"),
     },
   ]
+  
+  const shuffledAdvisors = shuffleArray(advisors);
 
   return (
     <>
@@ -92,7 +97,7 @@ function App() {
         <Heading text="Our Advisors" />
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {advisors.map((advisor, index) => (
+          {shuffledAdvisors.map((advisor, index) => (
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
