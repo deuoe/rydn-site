@@ -114,7 +114,7 @@ function App() {
                 {advisor.description}
                 <br />
                 <div className="flex flex-wrap gap-2 mt-2 justify-center">
-                  {advisor.advisingTopics.map((topic, idx) => (
+                  {advisor.advisingTopics.map((topic: string, idx: number) => (
                     <>
                       <span key={idx} className="bg-[#4facfe] text-white p-1 rounded">
                         {topic}
