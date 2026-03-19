@@ -16,12 +16,14 @@ import Button from "./components/Button"
 import Appointlet from "@appointlet/appointlet.js"
 import "@appointlet/appointlet.js/dist/appointlet.min.css"
 import sadafUrl from "./assets/images/Sadaf.png"
+import { useRef } from "react";
 
 function shuffleArray(array: any[]) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
 function HomePage() {
+  const advisorsRef = useRef<HTMLDivElement>(null);
   const advisors = [
     {
       name: "Ilia Jafari",
@@ -99,12 +101,17 @@ function HomePage() {
             {/* Free mentorship and guidance to help the next generation discover their path */}
           </p>
           <Button className="text-white font-bold px-8 py-3 lg:px-12 lg:py-4 lg:text-xl hover:text-black">
+            onClick={() => {
+    advisorsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }}
+>
             Get Started
           </Button>
         </div>
       </div>
 
-      <Container>
+      <div ref={advisorsRef}>
+  <Container>
         <div className="mt-8"></div>
         <Heading text="Our Advisors" />
 
@@ -147,6 +154,7 @@ function HomePage() {
           ))}
         </div>
       </Container>
+      /</div>
     </>
   )
 }
