@@ -10,6 +10,7 @@ import { motion } from "motion/react"
 import Button from "./components/Button"
 import Appointlet from "@appointlet/appointlet.js"
 import "@appointlet/appointlet.js/dist/appointlet.min.css"
+import sadafUrl from "./assets/images/Sadaf.png"
 
 function shuffleArray(array: any[]) {
   return [...array].sort(() => Math.random() - 0.5);
@@ -66,9 +67,15 @@ function App() {
       name: "Sam Sina",
       photo: sinaUrl,
       description: "Sam is a Bachelor of Science student",
-      advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring"],
+      advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"],
       appointlet: new Appointlet("https://appt.link/sam-sina"),
     },
+    {
+      name: "Sadaf",
+      photo: sadafUrl,
+      description: "Sadaf is a Bacehlor of Science student",
+      advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"]
+    }
   ]
   
   const shuffledAdvisors = shuffleArray(advisors);
