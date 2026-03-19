@@ -1,3 +1,9 @@
+import saraUrl from "./assets/images/Sara.png";
+import sinaUrl from "./assets/images/Sina.jpeg";
+import iliaUrl from "./assets/images/Leo.png";
+import saharUrl from "./assets/images/Sahar.jpeg";
+import mohsenUrl from "./assets/images/Mohsen.png";
+
 function OurTeam() {
   return (
     <div className="min-h-screen bg-white py-16 px-6">
@@ -15,6 +21,11 @@ function OurTeam() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div className="bg-gray-50 rounded-2xl shadow-md p-8 text-center">
+            <img
+  src={saraUrl}
+  alt="Sara Roozbahani"
+  className="w-32 h-32 rounded-full object-cover mx-auto mb-4"
+/>
             <h3 className="text-2xl font-semibold">Sara Roozbahani</h3>
             <p className="text-sky-600 mt-2">
               Founder & Executive Director
