@@ -82,7 +82,7 @@ function OurTeam() {
 />
             <h3 className="text-2xl font-semibold">Sahar</h3>
             <p className="text-sky-600 mt-2">
-              Outrich & Student Coordination Manager
+              Outreach & Student Coordination Manager
             </p>
           </div>
         </div>
