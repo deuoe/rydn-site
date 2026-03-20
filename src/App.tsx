@@ -147,7 +147,7 @@ function HomePage() {
                   className="w-full"
                   onClick={async () => await advisor.appointlet.openModal()}
                 >
-                  Contact {advisor.name.split(" ")[0]}
+                  Book with {advisor.name.split(" ")[0]}
                 </Button>
               </div>
             </motion.div>
