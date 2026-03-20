@@ -58,7 +58,7 @@ function OurTeam() {
 />
             <h3 className="text-2xl font-semibold">Ilia</h3>
             <p className="text-sky-600 mt-2">
-              Marketing & Outreach Coordinator
+              Marketing & Social Media Manager
             </p>
           </div>
 
@@ -82,7 +82,7 @@ function OurTeam() {
 />
             <h3 className="text-2xl font-semibold">Sahar</h3>
             <p className="text-sky-600 mt-2">
-              Administration & Student Coordination
+              Outrich & Student Coordination Manager
             </p>
           </div>
         </div>
