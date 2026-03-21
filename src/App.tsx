@@ -97,13 +97,13 @@ function HomePage() {
   return (
     <>
       <div
-        className="w-full h-100 lg:h-150 xl:h-200 2xl:h-200 bg-fixed bg-center bg-no-repeat bg-cover relative flex items-center justify-center"
+        className="w-full min-h-[70vh] md:min-h-[80vh] lg:min-h-screen bg-center bg-no-repeat bg-cover relative flex items-center justify-center"
         style={{ backgroundImage: `url(${homeHero})` }}
       >
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white">
-          <h2 className="text-4xl lg:text-6xl font-bold mb-4">RooZ Youth Development Network</h2>
-          <p className="text-lg lg:text-2xl mb-8">
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50" />
+        <div className="absolute top-1/2 left-1/2 w-[90%] max-w-4xl -translate-x-1/2 -translate-y-1/2 text-center text-white px-4">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">RooZ Youth Development Network</h2>
+          <p className="text-base md:text-xl lg:text-2xl mb-8">
             Connect with experienced mentors, explore your passions, and unlock your potential.
             {/* Free mentorship and guidance to help the next generation discover their path */}
           </p>
