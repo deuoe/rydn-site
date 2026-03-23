@@ -60,6 +60,7 @@ function HomePage() {
         "Lab Involvement",
         "Psychology",
       ],
+      bookingLink: "https://calendar.app.google/PhgjLmWXbqTu4vCk7"
      
     },
     {
@@ -103,6 +104,7 @@ function HomePage() {
       photo: iliyaUrl,
       description: "Iliya is a Bacehlor of Science student",
       advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"]
+      bookingLink: "https://calendar.app.google/uwVTj6JMZR5sX1M46"
     }
   ]
   
