@@ -35,6 +35,7 @@ function HomePage() {
       photo: leoUrl,
       description: "Ilia is a Bachelor of Commerce student",
       advisingTopics: ["Information Technology", "Soccer", "Business"],
+      bookingLink: "https://calendar.app.google/bpDQ4pKZajR14fgk6"
      
     },
     {
