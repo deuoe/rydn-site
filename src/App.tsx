@@ -14,8 +14,6 @@ import Heading from "./components/Heading"
 import Container from "./components/Container"
 import { motion } from "motion/react"
 import Button from "./components/Button"
-import Appointlet from "@appointlet/appointlet.js"
-import "@appointlet/appointlet.js/dist/appointlet.min.css"
 import sadafUrl from "./assets/images/Sadaf.png"
 import heliaUrl from "./assets/images/Helia.png"
 import iliyaUrl from "./assets/images/Iliya.png"
@@ -25,7 +23,10 @@ function shuffleArray(array: any[]) {
 }
 
 function HomePage() {
-  const [selectedBookingLink, setSelectedBookingLink] = useState<string | null>(null);
+  const [selectedAdvisor, setSelectedAdvisor] = useState<{
+  name: string
+  bookingLink: string
+} | null>(null)
   const advisorsRef = useRef<HTMLDivElement>(null);
   const advisors = [
     {
@@ -33,7 +34,6 @@ function HomePage() {
       photo: leoUrl,
       description: "Ilia is a Bachelor of Commerce student",
       advisingTopics: ["Information Technology", "Soccer", "Business"],
-      appointlet: new Appointlet("https://appt.link/ilia"),
      
     },
     {
@@ -46,7 +46,6 @@ function HomePage() {
         "LSAT preparation",
         "University applications",
       ],
-      appointlet: new Appointlet("https://appt.link/sahar-"),
 
     },
     {
@@ -60,7 +59,6 @@ function HomePage() {
         "Lab Involvement",
         "Psychology",
       ],
-      appointlet: new Appointlet("https://appt.link/sara-roozbahani"),
      
     },
     {
@@ -74,7 +72,6 @@ function HomePage() {
         "Marketing",
         "Client Relations",
       ],
-      appointlet: new Appointlet("https://appt.link/mandy"),
      
     },
     {
@@ -169,34 +166,60 @@ function HomePage() {
                 <Button
                   className="w-full"
                   onClick={() => {
-    if (advisor.bookingLink) {
-      setSelectedBookingLink(advisor.bookingLink);
-    }
-  }}
->
-                  Book with {advisor.name.split(" ")[0]}
-                </Button>
+      if (advisor.bookingLink) {
+        setSelectedAdvisor({
+          name: advisor.name,
+          bookingLink: advisor.bookingLink,
+        })
+      }
+    }}
+  >
+    {advisor.bookingLink
+      ? `Book with ${advisor.name.split(" ")[0]}`
+      : "Booking coming soon"}
+  </Button>
               </div>
             </motion.div>
           ))}
         </div>
       </Container>
       </div>
-      {selectedBookingLink && (
+      {selectedAdvisor && (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-    <div className="relative w-full max-w-5xl h-[85vh] bg-white rounded-2xl shadow-2xl overflow-hidden">
+    <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl p-8 text-center">
       <button
-        className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white text-black px-4 py-2 rounded-lg shadow"
-        onClick={() => setSelectedBookingLink(null)}
+        className="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 text-black px-3 py-1 rounded-lg"
+        onClick={() => setSelectedAdvisor(null)}
       >
         Close
       </button>
 
-      <iframe
-        src={selectedBookingLink}
-        title="Booking"
-        className="w-full h-full border-0"
-      />
+      <h3 className="text-2xl font-bold mb-4">
+        Book with {selectedAdvisor.name.split(" ")[0]}
+      </h3>
+
+      <p className="text-gray-600 mb-6">
+        You’re about to open the booking calendar for {selectedAdvisor.name}.
+        Click below to continue to scheduling.
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <Button
+          className="px-6 py-3"
+          onClick={() => {
+            window.location.href = selectedAdvisor.bookingLink
+          }}
+        >
+          Continue to Booking
+        </Button>
+
+        <Button
+          className="px-6 py-3 bg-gray-200 text-black hover:bg-gray-300"
+          onClick={() => setSelectedAdvisor(null)}
+        >
+          Cancel
+        </Button>
+      </div>
     </div>
   </div>
 )}
