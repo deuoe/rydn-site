@@ -23,6 +23,7 @@ function shuffleArray(array: any[]) {
 }
 
 function HomePage() {
+  const [showConfirmation, setShowConfirmation] = useState(false)
   const [selectedAdvisor, setSelectedAdvisor] = useState<{
   name: string
   bookingLink: string
@@ -151,7 +152,7 @@ function HomePage() {
               <h3 className="text-2xl font-xl text-center mb-4">{advisor.name}</h3>
               <p className="mb-4">
                 {advisor.description}
-                <br />
+                </p>
                 <div className="flex flex-wrap gap-2 mt-2 justify-center">
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
                     <>
@@ -161,7 +162,6 @@ function HomePage() {
                     </>
                   ))}
                 </div>
-              </p>
               <div className="mt-auto w-full">
                 <Button
                   className="w-full"
@@ -201,14 +201,17 @@ function HomePage() {
       <p className="text-gray-600 mb-6">
         You’re about to open the booking calendar for {selectedAdvisor.name}.
         Click below to continue to scheduling.
+        After selecting a time, you'll receive a confirmation email.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Button
           className="px-6 py-3"
           onClick={() => {
-            window.location.href = selectedAdvisor.bookingLink
-          }}
+  window.open(selectedAdvisor.bookingLink, "_blank", "noopener,noreferrer")
+  setSelectedAdvisor(null)
+  setShowConfirmation(true)
+}}
         >
           Continue to Booking
         </Button>
@@ -220,6 +223,29 @@ function HomePage() {
           Cancel
         </Button>
       </div>
+    </div>
+  </div>
+)}
+{showConfirmation && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+    <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 text-center">
+      
+      <h3 className="text-2xl font-bold mb-4">
+        🎉 You're all set!
+      </h3>
+
+      <p className="text-gray-600 mb-6">
+        Thanks for booking with RooZ.  
+        Please complete your booking in the new tab.  
+        You will receive a confirmation email shortly.
+      </p>
+
+      <Button
+        className="px-6 py-3"
+        onClick={() => setShowConfirmation(false)}
+      >
+        Got it
+      </Button>
     </div>
   </div>
 )}
