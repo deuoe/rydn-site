@@ -18,6 +18,7 @@ import "@appointlet/appointlet.js/dist/appointlet.min.css"
 import sadafUrl from "./assets/images/Sadaf.png"
 import { useRef } from "react";
 import heliaUrl from "./assets/images/Helia.png"
+import iliyaUrl from "./assets/images/Iliya.png"
 
 function shuffleArray(array: any[]) {
   return [...array].sort(() => Math.random() - 0.5);
@@ -89,6 +90,12 @@ function HomePage() {
       photo: heliaUrl,
       description: "Helia is a Bacehlor of Science student",
       advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"]
+    },
+    {
+      name: "Iliya",
+      photo: iliyaUrl,
+      description: "Iliya is a Bacehlor of Science student",
+      advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"]
     }
   ]
   
