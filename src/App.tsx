@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { Routes, Route } from "react-router-dom"
 import AboutUs from "./AboutUs"
 import BecomeAdvisor from "./BecomeAdvisor"
@@ -16,7 +17,6 @@ import Button from "./components/Button"
 import Appointlet from "@appointlet/appointlet.js"
 import "@appointlet/appointlet.js/dist/appointlet.min.css"
 import sadafUrl from "./assets/images/Sadaf.png"
-import { useRef } from "react";
 import heliaUrl from "./assets/images/Helia.png"
 import iliyaUrl from "./assets/images/Iliya.png"
 
@@ -25,6 +25,7 @@ function shuffleArray(array: any[]) {
 }
 
 function HomePage() {
+  const [selectedBookingLink, setSelectedBookingLink] = useState<string | null>(null);
   const advisorsRef = useRef<HTMLDivElement>(null);
   const advisors = [
     {
@@ -33,6 +34,7 @@ function HomePage() {
       description: "Ilia is a Bachelor of Commerce student",
       advisingTopics: ["Information Technology", "Soccer", "Business"],
       appointlet: new Appointlet("https://appt.link/ilia"),
+      bookingLink: null,
     },
     {
       name: "Sahar",
@@ -45,6 +47,7 @@ function HomePage() {
         "University applications",
       ],
       appointlet: new Appointlet("https://appt.link/sahar-"),
+      bookingLink: null,
     },
     {
       name: "Sara Roozbahani",
@@ -58,6 +61,7 @@ function HomePage() {
         "Psychology",
       ],
       appointlet: new Appointlet("https://appt.link/sara-roozbahani"),
+      bookingLink: null,
     },
     {
       name: "Mandy",
@@ -71,6 +75,7 @@ function HomePage() {
         "Client Relations",
       ],
       appointlet: new Appointlet("https://appt.link/mandy"),
+      bookingLink: null,
     },
     {
       name: "Sam Sina",
@@ -78,24 +83,28 @@ function HomePage() {
       description: "Sam is a Bachelor of Science student",
       advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"],
       bookingLink: "https://calendar.app.google/MjX3qXn5fRe5cT566",
+      bookingLink: null,
     },
     {
       name: "Sadaf",
       photo: sadafUrl,
       description: "Sadaf is a Bacehlor of Science student",
       advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"]
+      bookingLink: null,
     },
     {
       name: "Helia",
       photo: heliaUrl,
       description: "Helia is a Bacehlor of Science student",
       advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"]
+      bookingLink: null,
     },
     {
       name: "Iliya",
       photo: iliyaUrl,
       description: "Iliya is a Bacehlor of Science student",
       advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"]
+      bookingLink: null,
     }
   ]
   
@@ -161,7 +170,7 @@ function HomePage() {
                   className="w-full"
                   onClick={() => {
     if (advisor.bookingLink) {
-      window.open(advisor.bookingLink, "_blank");
+      setSelectedBookingLink(advisor.bookingLink);
     }
   }}
 >
@@ -173,6 +182,24 @@ function HomePage() {
         </div>
       </Container>
       </div>
+      {selectedBookingLink && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+    <div className="relative w-full max-w-5xl h-[85vh] bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <button
+        className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white text-black px-4 py-2 rounded-lg shadow"
+        onClick={() => setSelectedBookingLink(null)}
+      >
+        Close
+      </button>
+
+      <iframe
+        src={selectedBookingLink}
+        title="Booking"
+        className="w-full h-full border-0"
+      />
+    </div>
+  </div>
+)}
     </>
   )
 }
