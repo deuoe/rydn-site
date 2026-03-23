@@ -34,7 +34,7 @@ function HomePage() {
       description: "Ilia is a Bachelor of Commerce student",
       advisingTopics: ["Information Technology", "Soccer", "Business"],
       appointlet: new Appointlet("https://appt.link/ilia"),
-      bookingLink: null,
+     
     },
     {
       name: "Sahar",
@@ -47,7 +47,7 @@ function HomePage() {
         "University applications",
       ],
       appointlet: new Appointlet("https://appt.link/sahar-"),
-      bookingLink: null,
+
     },
     {
       name: "Sara Roozbahani",
@@ -61,7 +61,7 @@ function HomePage() {
         "Psychology",
       ],
       appointlet: new Appointlet("https://appt.link/sara-roozbahani"),
-      bookingLink: null,
+     
     },
     {
       name: "Mandy",
@@ -75,7 +75,7 @@ function HomePage() {
         "Client Relations",
       ],
       appointlet: new Appointlet("https://appt.link/mandy"),
-      bookingLink: null,
+     
     },
     {
       name: "Sam Sina",
@@ -83,28 +83,28 @@ function HomePage() {
       description: "Sam is a Bachelor of Science student",
       advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"],
       bookingLink: "https://calendar.app.google/MjX3qXn5fRe5cT566",
-      bookingLink: null,
+     
+
     },
     {
       name: "Sadaf",
       photo: sadafUrl,
       description: "Sadaf is a Bacehlor of Science student",
       advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"]
-      bookingLink: null,
+   
     },
     {
       name: "Helia",
       photo: heliaUrl,
       description: "Helia is a Bacehlor of Science student",
       advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"]
-      bookingLink: null,
+     
     },
     {
       name: "Iliya",
       photo: iliyaUrl,
       description: "Iliya is a Bacehlor of Science student",
       advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"]
-      bookingLink: null,
     }
   ]
   
