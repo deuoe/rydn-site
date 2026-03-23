@@ -28,7 +28,7 @@ function HomePage() {
   const advisorsRef = useRef<HTMLDivElement>(null);
   const advisors = [
     {
-      name: "Ilia Jafari",
+      name: "Ilia",
       photo: leoUrl,
       description: "Ilia is a Bachelor of Commerce student",
       advisingTopics: ["Information Technology", "Soccer", "Business"],
