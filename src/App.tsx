@@ -77,7 +77,7 @@ function HomePage() {
       photo: sinaUrl,
       description: "Sam is a Bachelor of Science student",
       advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"],
-      appointlet: new Appointlet("https://appt.link/sam-sina"),
+      bookingLink: "https://calendar.app.google/MjX3qXn5fRe5cT566",
     },
     {
       name: "Sadaf",
@@ -159,8 +159,12 @@ function HomePage() {
               <div className="mt-auto w-full">
                 <Button
                   className="w-full"
-                  onClick={async () => await advisor.appointlet.openModal()}
-                >
+                  onClick={() => {
+    if (advisor.bookingLink) {
+      window.open(advisor.bookingLink, "_blank");
+    }
+  }}
+>
                   Book with {advisor.name.split(" ")[0]}
                 </Button>
               </div>
