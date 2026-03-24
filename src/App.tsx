@@ -65,7 +65,6 @@ function HomePage() {
         "Research",
         "University applications",
         "Psychology",
-        "Getting started as a first year student",
         "Study strategies"
       ],
       bookingLink: "https://calendar.app.google/PhgjLmWXbqTu4vCk7"
