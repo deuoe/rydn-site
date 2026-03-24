@@ -1,6 +1,7 @@
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import Paragraph from "./components/Paragraph"
+import { Link } from "react-router-dom"
 
 const workshops = [
   {
@@ -15,7 +16,7 @@ const workshops = [
     type: "Online",
   },
   {
-    title: "What You Should Be Doing RIGHT NOW",
+    title: "What You Should Be Doing RIGHT NOW as a High School Student",
     subtitle: "Hosted by a high school teacher (Grades 10–12)",
     date: "June 5",
     type: "Hybrid – Richmond Hill Central Library",
@@ -76,6 +77,17 @@ export default function Workshops() {
           </div>
         ))}
       </div>
+      <Heading text="Partner With Us" />
+
+<Paragraph>
+  RooZ also collaborates with high schools, academies, and educational institutions in Canada and internationally to provide workshops, mentorship sessions, and student guidance focused on Canadian university pathways and future career exploration.
+</Paragraph>
+
+<Link to="/partner-with-us">
+  <button className="mt-4 px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800">
+    Contact Us to Collaborate
+  </button>
+</Link>
     </Container>
   )
 }

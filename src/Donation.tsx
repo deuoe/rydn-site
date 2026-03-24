@@ -33,7 +33,7 @@ export default function Donation() {
           </li>
           <li className="list-disc list-inside text-left ml-4 mb-2">
             informed decisions and reach their full potential. Together, we can turn potential into
-            opportunity. donation button{" "}
+            opportunity.{" "}
           </li>
         </ul>
       </Paragraph>

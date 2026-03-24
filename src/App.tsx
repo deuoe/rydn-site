@@ -19,6 +19,7 @@ import heliaUrl from "./assets/images/Helia.png"
 import iliyaUrl from "./assets/images/Iliya.png"
 import saracUrl from "./assets/images/SaraC.png"
 import jenniferUrl from "./assets/images/Jennifer.jpeg"
+import PartnerWithUs from "./PartnerWithUs"
 
 
 
@@ -281,6 +282,7 @@ function App() {
       <Route path="/become-advisor" element={<BecomeAdvisor />} />
       <Route path="/workshops" element={<Workshops />} />
       <Route path="/donation" element={<Donation />} />
+      <Route path="/partner-with-us" element={<PartnerWithUs />} />
     </Routes>
   )
 }
