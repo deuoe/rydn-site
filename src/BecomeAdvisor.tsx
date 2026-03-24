@@ -158,7 +158,7 @@ export default function BecomeAdvisor() {
 
         <div className="flex flex-col">
           <label className="mb-2 font-semibold">
-            Street Address <small className="text-pink-600">(Required)</small>
+            Street Address <small className="text-pink-600">(Optional)</small>
           </label>
           <input
             className="border-2 border-gray-300 rounded-md p-2 mb-1"
@@ -180,7 +180,7 @@ export default function BecomeAdvisor() {
 
         <div className="flex flex-col">
           <label className="mb-2 font-semibold">
-            Zip/Postal Code <small className="text-pink-600">(Required)</small>
+            Zip/Postal Code <small className="text-pink-600">(Optional)</small>
           </label>
           <input
             className="border-2 border-gray-300 rounded-md p-2 mb-1"
@@ -290,7 +290,7 @@ export default function BecomeAdvisor() {
 
         <div className="flex flex-col">
           <label className="mb-2 font-semibold">
-            Resume <small className="text-pink-600">(Required)</small>
+            Resume <small className="text-pink-600">(Optional)</small>
           </label>
           <input
             type="file"
