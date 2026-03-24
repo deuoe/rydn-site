@@ -62,9 +62,11 @@ function HomePage() {
       advisingTopics: [
         "Pre-med advising",
         "MCAT",
-        "Research experience",
-        "Lab Involvement",
+        "Research",
+        "University applications",
         "Psychology",
+        "Getting started as a first year student",
+        "Study strategies"
       ],
       bookingLink: "https://calendar.app.google/PhgjLmWXbqTu4vCk7"
      
@@ -72,13 +74,10 @@ function HomePage() {
     {
       name: "Mandy",
       photo: mandyUrl,
-      description: "Mandy is a Bachelor of Science student and business operator",
+      description: "Mandy is a Bachelor of Science student",
       advisingTopics: [
         "Psychology",
         "University applications",
-        "Business",
-        "Marketing",
-        "Client Relations",
       ],
      
     },
@@ -116,14 +115,14 @@ function HomePage() {
       name: "Sara",
       photo: saracUrl,
       description: "Sara is a Bacehlor of Arts student",
-      advisingTopics: ["History and English", "Nutrition", "Fitness training"]
+      advisingTopics: ["History", "English", "Nutrition", "Fitness training"]
    
     },
     {
       name: "Jennifer",
       photo: jenniferUrl,
       description: "Jennifer is a Nursing student",
-      advisingTopics: ["Nuesing", "Studying strategies"]
+      advisingTopics: ["Nursing", "Studying strategies"]
    
     }
   ]
