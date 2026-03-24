@@ -17,6 +17,10 @@ import Button from "./components/Button"
 import sadafUrl from "./assets/images/Sadaf.png"
 import heliaUrl from "./assets/images/Helia.png"
 import iliyaUrl from "./assets/images/Iliya.png"
+import saracUrl from "./assets/images/SaraC.png"
+import jenniferUrl from "./assets/images/Jennifer.jpeg"
+
+
 
 function shuffleArray(array: any[]) {
   return [...array].sort(() => Math.random() - 0.5);
@@ -106,6 +110,20 @@ function HomePage() {
       description: "Iliya is a Bacehlor of Science student",
       advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"],
       bookingLink: "https://calendar.app.google/uwVTj6JMZR5sX1M46"
+    },
+    {
+      name: "Sara",
+      photo: saracUrl,
+      description: "Sara is a Bacehlor of Arts student",
+      advisingTopics: ["History and English", "Nutrition", "Fitness training"]
+   
+    },
+    {
+      name: "Jennifer",
+      photo: jenniferUrl,
+      description: "Jennifer is Nursing student",
+      advisingTopics: ["Nuesing", "Studying strategies"]
+   
     }
   ]
   
