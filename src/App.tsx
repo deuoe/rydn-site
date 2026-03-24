@@ -52,6 +52,7 @@ function HomePage() {
         "LSAT preparation",
         "University applications",
       ],
+      bookingLink: "https://calendar.app.google/nXtbKKMhDcfEd8of8"
 
     },
     {
@@ -121,7 +122,7 @@ function HomePage() {
     {
       name: "Jennifer",
       photo: jenniferUrl,
-      description: "Jennifer is Nursing student",
+      description: "Jennifer is a Nursing student",
       advisingTopics: ["Nuesing", "Studying strategies"]
    
     }
