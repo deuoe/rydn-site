@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 import OurTeam from "./OurTeam";
+import PartnerWithUs from "./PartnerWithUs"
 
 const root = document.getElementById("root")!
 
@@ -21,6 +22,7 @@ ReactDOM.createRoot(root).render(
         <Route path="/workshops" element={<Workshops />} />
         <Route path="/donation" element={<Donation />} />
         <Route path="/our-team" element={<OurTeam />} />
+        <Route path="/partner-with-us" element={<PartnerWithUs />} />
       </Route>
     </Routes>
   </BrowserRouter>
