@@ -1,7 +1,6 @@
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import Paragraph from "./components/Paragraph"
-import { Link } from "react-router-dom"
 const FORM_LINK =
   "https://docs.google.com/forms/d/e/1FAIpQLSfWg443BHU5V5UPaNJiSz40sVgpkl4VCeP8sTC9pWn8uLinNw/viewform?usp=dialog"
 
