@@ -9,6 +9,7 @@ import App from "./App";
 import "./index.css";
 import OurTeam from "./OurTeam";
 import PartnerWithUs from "./PartnerWithUs"
+import Verification from "./Verification"
 
 const root = document.getElementById("root")!
 
@@ -23,6 +24,7 @@ ReactDOM.createRoot(root).render(
         <Route path="/donation" element={<Donation />} />
         <Route path="/our-team" element={<OurTeam />} />
         <Route path="/partner-with-us" element={<PartnerWithUs />} />
+        <Route path="/verification" element={<Verification />} />
       </Route>
     </Routes>
   </BrowserRouter>
