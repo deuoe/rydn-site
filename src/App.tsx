@@ -130,7 +130,7 @@ function HomePage() {
       name: "Tina",
       photo: tinaUrl,
       description: "Tina is a Bachelor of Science student",
-      advisingTopics: ["Pre-med advising", "Medical school application", "Biomedical Sceince", "Medical assistance experience"]
+      advisingTopics: ["Pre-med advising", "Biomedical Sceince"]
    
     },
     {
