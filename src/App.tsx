@@ -19,6 +19,8 @@ import heliaUrl from "./assets/images/Helia.png"
 import iliyaUrl from "./assets/images/Iliya.png"
 import saracUrl from "./assets/images/SaraC.png"
 import jenniferUrl from "./assets/images/Jennifer.jpeg"
+import tinaUrl from "./assets/images/Tina.png"
+import valentinaUrl from "./assets/images/Valentina.png"
 
 
 
@@ -122,6 +124,20 @@ function HomePage() {
       photo: jenniferUrl,
       description: "Jennifer is a Nursing student",
       advisingTopics: ["Nursing", "Studying strategies"]
+   
+    },
+    {
+      name: "Tina",
+      photo: tinaUrl,
+      description: "Tina is a Bachelor of Science student",
+      advisingTopics: ["Pre-med advising", "Medical school application", "Biomedical Sceince", "Medical assistance experience"]
+   
+    },
+    {
+      name: "Valentina",
+      photo: valentinaUrl,
+      description: "Valentina is a Bachelor of Science student",
+      advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Academic Exchange"]
    
     }
   ]
