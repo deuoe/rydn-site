@@ -10,6 +10,9 @@ import "./index.css";
 import OurTeam from "./OurTeam";
 import PartnerWithUs from "./PartnerWithUs"
 import Verification from "./Verification"
+import PrivacyPolicy from "./PrivacyPolicy"
+import TermsOfService from "./TermsOfService"
+import ContactUs from "./ContactUs"
 
 const root = document.getElementById("root")!
 
@@ -25,6 +28,9 @@ ReactDOM.createRoot(root).render(
         <Route path="/our-team" element={<OurTeam />} />
         <Route path="/partner-with-us" element={<PartnerWithUs />} />
         <Route path="/verification" element={<Verification />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/contact-us" element={<ContactUs />} />
       </Route>
     </Routes>
   </BrowserRouter>

@@ -1,4 +1,5 @@
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 export default function Footer() {
   return (
@@ -16,12 +17,11 @@ export default function Footer() {
             </p>
 
             <div className="mt-6">
-              <a
-                href="/about-us"
+              <Link to="/about-us"
                 className="inline-flex items-center rounded-lg bg-[#4facfe] px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-[#4facfe] focus:ring-offset-2"
               >
                 Learn More
-              </a>
+              </Link>
             </div>
           </section>
 
@@ -80,12 +80,26 @@ export default function Footer() {
           </section>
         </div>
 
-        <div className="mt-12 border-t border-slate-200 pt-6">
-          <p className="text-sm text-slate-500">
-            © 2026 RooZ Youth Development Network. All rights reserved.
-          </p>
+
+          <div className="mt-12 border-t border-slate-200 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+  <p className="text-sm text-slate-500">
+    © 2026 RooZ Youth Development Network. All rights reserved.
+  </p>
+  <div className="text-sm text-slate-500 flex gap-4 flex-wrap">
+  <Link to="/contact-us" className="hover:text-slate-700 transition">
+    Contact Us
+  </Link>
+  <span>|</span>
+  <Link to="/privacy-policy" className="hover:text-slate-700 transition">
+    Privacy Policy
+  </Link>
+  <span>|</span>
+  <Link to="/terms-of-service" className="hover:text-slate-700 transition">
+    Terms of Service
+  </Link>
+</div>
+</div>
         </div>
-      </div>
     </footer>
   )
 }

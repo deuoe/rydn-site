@@ -166,7 +166,70 @@ function HomePage() {
           </Button>
         </div>
       </div>
+      <p className="text-center text-slate-700 max-w-3xl mx-auto mt-8 px-4">
+  RooZ Youth Development Network / Réseau de développement de la jeunesse RooZ is an incorporated nonprofit organization based in Canada, dedicated to supporting students through mentorship, workshops, and academic and career guidance.
+</p>
+<Container>
+  <div className="mt-16 text-center">
+    <Heading text="What We Do" />
+    <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+      RooZ provides students with accessible mentorship, practical guidance,
+      and educational support to help them navigate their academic and career paths.
+    </p>
+  </div>
 
+  <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+      <h3 className="text-xl font-semibold mb-2">1-on-1 Mentorship</h3>
+      <p className="text-slate-600">
+        Students can connect directly with advisors who provide personalized guidance
+        on academics, university applications, and career decisions.
+      </p>
+    </div>
+
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+      <h3 className="text-xl font-semibold mb-2">Workshops</h3>
+      <p className="text-slate-600">
+        We organize interactive sessions focused on topics such as study strategies,
+        career exploration, and navigating academic pathways.
+      </p>
+    </div>
+
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+      <h3 className="text-xl font-semibold mb-2">Academic & Career Guidance</h3>
+      <p className="text-slate-600">
+        Our advisors help students explore different fields, understand requirements,
+        and build a clear direction for their future.
+      </p>
+    </div>
+  </div>
+</Container>
+<Container>
+  <div className="mt-16 text-center">
+    <Heading text="Why RooZ" />
+    <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+      RooZ was created to make mentorship more accessible, practical, and community-driven for students
+      who are exploring their academic and career futures.
+    </p>
+  </div>
+
+  <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+      <h3 className="text-3xl font-bold text-slate-900">25+</h3>
+      <p className="mt-2 text-slate-600">Advisors and growing</p>
+    </div>
+
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+      <h3 className="text-3xl font-bold text-slate-900">1-on-1</h3>
+      <p className="mt-2 text-slate-600">Personalized mentorship support</p>
+    </div>
+
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 text-center">
+      <h3 className="text-3xl font-bold text-slate-900">Workshops</h3>
+      <p className="mt-2 text-slate-600">Interactive academic and career guidance</p>
+    </div>
+  </div>
+</Container>
       <div ref={advisorsRef}>
   <Container>
         <div className="mt-8"></div>
