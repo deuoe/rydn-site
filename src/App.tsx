@@ -240,8 +240,12 @@ function HomePage() {
 </Container>
       <div ref={advisorsRef}>
   <Container>
-        <div className="mt-8"></div>
-        <Heading text="Our Advisors" />
+       <div className="mt-16 text-center">
+      <Heading text="Our Advisors" />
+      <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+        Meet the advisors who support students through mentorship, academic guidance, and career exploration.
+      </p>
+    </div>
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {shuffledAdvisors.map((advisor, index) => (
