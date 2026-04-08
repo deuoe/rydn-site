@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
 import { useState } from "react"
 import logoUrl from "../assets/images/logo.jpeg"
 
