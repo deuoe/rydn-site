@@ -264,7 +264,7 @@ function HomePage() {
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
                       <span key={idx} className="bg-[#4facfe] text-white p-1 rounded">
                         {topic}
-                      </span>{" "}
+                      </span>
                   ))}
                 </div>
               <div className="mt-auto w-full">
