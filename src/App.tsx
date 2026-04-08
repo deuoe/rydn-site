@@ -166,14 +166,18 @@ function HomePage() {
           </Button>
         </div>
       </div>
-      <p className="text-center text-slate-700 max-w-3xl mx-auto mt-8 px-4">
-  RooZ Youth Development Network / Réseau de développement de la jeunesse RooZ is an incorporated nonprofit organization based in Canada, dedicated to supporting students through mentorship, workshops, and academic and career guidance.
-</p>
+      <Container>
+  <div className="mt-12 text-center">
+    <p className="text-slate-700 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
+      RooZ Youth Development Network / Réseau de développement de la jeunesse RooZ is an incorporated nonprofit organization based in Canada, dedicated to supporting students through mentorship, workshops, and academic and career guidance.
+    </p>
+  </div>
+</Container>
 <Container>
-  <section className="mt-16 rounded-3xl bg-gradient-to-br from-sky-50 via-white to-slate-50 px-6 py-14 md:px-10">
+  <section className="mt-16 rounded-3xl bg-gradient-to-br from-sky-100 via-white to-sky-50 px-8 py-16 md:px-12">
     <div className="text-center">
       <Heading text="What We Do" />
-      <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed">
+      <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
         RooZ provides students with accessible mentorship, practical guidance,
         and educational support to help them navigate their academic and career paths.
       </p>
@@ -207,10 +211,10 @@ function HomePage() {
   </section>
 </Container>
 <Container>
-  <section className="mt-16 rounded-3xl bg-slate-50 px-6 py-14 md:px-10">
+  <section className="mt-16 rounded-3xl bg-slate-50 px-8 py-16 md:px-12">
     <div className="text-center">
       <Heading text="Why RooZ" />
-      <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed">
+      <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
         RooZ was created to make mentorship more accessible, practical, and community-driven for students
         who are exploring their academic and career futures.
       </p>
@@ -252,17 +256,15 @@ function HomePage() {
                 src={advisor.photo}
                 alt={advisor.name}
               />
-              <h3 className="text-2xl font-xl text-center mb-4">{advisor.name}</h3>
+              <h3 className="text-2xl font-semibold text-center mb-4">{advisor.name}</h3>
               <p className="mb-4">
                 {advisor.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mt-2 justify-center">
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
-                    <>
                       <span key={idx} className="bg-[#4facfe] text-white p-1 rounded">
                         {topic}
                       </span>{" "}
-                    </>
                   ))}
                 </div>
               <div className="mt-auto w-full">
