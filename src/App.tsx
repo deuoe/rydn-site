@@ -144,8 +144,8 @@ function HomePage() {
   ]
   
   const getTagHeight = (count: number) => {
-  if (count > 5) return "min-h-[140px]"
-  if (count > 3) return "min-h-[100px]"
+  if (count > 5) return "min-h-[120px]"
+  if (count > 3) return "min-h-[90px]"
   return "min-h-[72px]"
 }
   const shuffledAdvisors = shuffleArray(advisors);
