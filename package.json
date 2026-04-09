@@ -13,6 +13,7 @@
     "@appointlet/appointlet.js": "^3.0.7",
     "@tailwindcss/vite": "^4.2.1",
     "forminit": "^0.2.4",
+    "lucide-react": "^1.8.0",
     "motion": "^12.38.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
