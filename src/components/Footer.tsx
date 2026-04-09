@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa"
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
 export default function Footer() {
@@ -64,11 +64,13 @@ export default function Footer() {
   </a>
 
                 <a
-                  href="#"
-                  className="rounded-md border border-slate-300 bg-white p-2 text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
-                >
-                  <FaFacebookF className="h-5 w-5" />
-                </a>
+                  href="https://www.facebook.com/profile.php?id=61578801275086"
+                 target="_blank"
+  rel="noreferrer noopener"
+  className="rounded-md border border-slate-300 bg-white p-2 text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+>
+  <FaFacebookF className="h-5 w-5" />
+</a>
                 <a
                   href="https://instagram.com/rydn.ca"
                   target="_blank"

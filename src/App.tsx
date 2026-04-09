@@ -182,6 +182,7 @@ function HomePage() {
     </Button>
   </div>
 </div>
+</div>
       <Container>
   <motion.section
     className="mt-20 text-center"
