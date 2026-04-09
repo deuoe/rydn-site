@@ -143,6 +143,11 @@ function HomePage() {
     }
   ]
   
+  const getTagHeight = (count: number) => {
+  if (count > 5) return "min-h-[120px]"
+  if (count > 3) return "min-h-[90px]"
+  return "min-h-[72px]"
+}
   const shuffledAdvisors = shuffleArray(advisors);
 
   return (
@@ -331,7 +336,11 @@ function HomePage() {
               <p className="mb-4 text-slate-600 text-center leading-relaxed">
   {advisor.description}
 </p>
-                <div className="flex flex-wrap gap-2 mt-2 justify-center min-h-[72px]">
+                <div
+  className={`flex flex-wrap gap-2 mt-2 justify-center ${
+    advisor.advisingTopics.length > 4 ? "min-h-[110px]" : "min-h-[72px]"
+  }`}
+>
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
                       <span
   key={idx}
