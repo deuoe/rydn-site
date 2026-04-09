@@ -88,7 +88,7 @@ function HomePage() {
       photo: sinaUrl,
       description: "Sam is a Bachelor of Science student",
       advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"],
-      bookingLink: "https://calendar.app.google/MjX3qXn5fRe5cT566",
+      bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/9b_p31eCcEyWYRkSozwUhw2?ismsaljsauthenabled",
      
 
     },
@@ -312,12 +312,12 @@ function HomePage() {
   </p>
 </motion.div>
 
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 items-stretch">
           {shuffledAdvisors.map((advisor, index) => (
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl hover:-translate-y-1 transition duration-300"
+              className="w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl hover:-translate-y-1 transition duration-300 h-full"
               key={index}
             >
               <img
@@ -341,7 +341,7 @@ function HomePage() {
                       </span>
                     ))}
                 </div>
-              <div className="mt-6 w-full">
+              <div className="mt-auto w-full">
                 <Button
                   className="w-full"
                   onClick={() => {
