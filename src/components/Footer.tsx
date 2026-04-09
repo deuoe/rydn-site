@@ -55,12 +55,14 @@ export default function Footer() {
 
               <div className="mt-4 flex flex-wrap gap-3">
                 <a
-                  href="#"
-                  aria-label="twitter"
-                  className="rounded-md border border-slate-300 bg-white p-2 text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
-                >
-                  <FaTwitter className="h-5 w-5" />
-                </a>
+    href="https://www.linkedin.com/company/rooz-youth-development-network"
+    target="_blank"
+    rel="noreferrer noopener"
+    className="rounded-md border border-slate-300 bg-white p-2 text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
+  >
+    <FaLinkedinIn className="h-5 w-5" />
+  </a>
+
                 <a
                   href="#"
                   className="rounded-md border border-slate-300 bg-white p-2 text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"

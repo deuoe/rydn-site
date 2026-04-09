@@ -21,6 +21,7 @@ import saracUrl from "./assets/images/SaraC.png"
 import jenniferUrl from "./assets/images/Jennifer.jpeg"
 import tinaUrl from "./assets/images/Tina.png"
 import valentinaUrl from "./assets/images/Valentina.png"
+import { Users, BookOpen, Compass } from "lucide-react"
 
 
 
@@ -151,30 +152,57 @@ function HomePage() {
         style={{ backgroundImage: `url(${homeHero})` }}
       >
         <div className="absolute top-0 left-0 w-full h-full bg-black/50" />
-        <div className="absolute top-1/2 left-1/2 w-[90%] max-w-4xl -translate-x-1/2 -translate-y-1/2 text-center text-white px-4">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">RooZ Youth Development Network</h2>
-          <p className="text-base md:text-xl lg:text-2xl mb-8">
-            Connect with experienced mentors, explore your passions, and unlock your potential.
+        <div className="absolute top-1/2 left-1/2 w-[92%] max-w-5xl -translate-x-1/2 -translate-y-1/2 text-center text-white px-4">
+  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
+    RooZ Youth Development Network
+  </h1>
+
+  <p className="max-w-2xl mx-auto text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed mb-10">
+    Connect with experienced mentors, explore your passions, and unlock your potential
+    through accessible guidance, mentorship, and educational support.
             {/* Free mentorship and guidance to help the next generation discover their path */}
           </p>
-          <Button className="text-white font-bold px-8 py-3 lg:px-12 lg:py-4 lg:text-xl hover:text-black"
-            onClick={() => {
-    advisorsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }}
->
-            Get Started
-          </Button>
-        </div>
-      </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <Button
+      className="text-white font-bold px-8 py-3 lg:px-12 lg:py-4 lg:text-xl hover:text-black"
+      onClick={() => {
+        advisorsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }}
+    >
+      Get Started
+    </Button>
+
+    <Button
+      className="bg-white text-slate-900 font-semibold px-8 py-3 lg:px-12 lg:py-4 lg:text-xl hover:bg-slate-100"
+      onClick={() => {
+        window.location.href = "/about-us"
+      }}
+    >
+      Learn More
+    </Button>
+  </div>
+</div>
       <Container>
-  <div className="mt-12 text-center">
-    <p className="text-slate-700 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
+  <motion.section
+    className="mt-20 text-center"
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
+    <p className="text-slate-700 max-w-3xl mx-auto leading-relaxed text-lg md:text-xl font-medium">
       RooZ Youth Development Network / Réseau de développement de la jeunesse RooZ is an incorporated nonprofit organization based in Canada, dedicated to supporting students through mentorship, workshops, and academic and career guidance.
     </p>
-  </div>
+  </motion.section>
 </Container>
 <Container>
-  <section className="mt-16 rounded-3xl bg-gradient-to-br from-sky-100 via-white to-sky-50 px-8 py-16 md:px-12">
+  <motion.section
+    className="mt-20 rounded-3xl bg-gradient-to-br from-sky-100 via-white to-sky-50 px-8 py-16 md:px-12"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
     <div className="text-center">
       <Heading text="What We Do" />
       <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
@@ -183,35 +211,50 @@ function HomePage() {
       </p>
     </div>
 
-    <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
-        <h3 className="text-xl font-semibold mb-3 text-slate-900">1-on-1 Mentorship</h3>
-        <p className="text-slate-600 leading-relaxed">
-          Students can connect directly with advisors who provide personalized guidance
-          on academics, university applications, and career decisions.
-        </p>
-      </div>
-
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
-        <h3 className="text-xl font-semibold mb-3 text-slate-900">Workshops</h3>
-        <p className="text-slate-600 leading-relaxed">
-          We organize interactive sessions focused on topics such as study strategies,
-          career exploration, and navigating academic pathways.
-        </p>
-      </div>
-
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition">
-        <h3 className="text-xl font-semibold mb-3 text-slate-900">Academic & Career Guidance</h3>
-        <p className="text-slate-600 leading-relaxed">
-          Our advisors help students explore different fields, understand requirements,
-          and build a clear direction for their future.
-        </p>
-      </div>
+    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition duration-300 text-center">
+    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-sky-600">
+      <Users size={28} />
     </div>
-  </section>
+    <h3 className="text-xl font-semibold mb-3 text-slate-900">1-on-1 Mentorship</h3>
+    <p className="text-slate-600 leading-relaxed">
+      Students can connect directly with advisors who provide personalized guidance
+      on academics, university applications, and career decisions.
+    </p>
+  </div>
+
+  <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition duration-300 text-center">
+    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-sky-600">
+      <BookOpen size={28} />
+    </div>
+    <h3 className="text-xl font-semibold mb-3 text-slate-900">Workshops</h3>
+    <p className="text-slate-600 leading-relaxed">
+      We organize interactive sessions focused on topics such as study strategies,
+      career exploration, and navigating academic pathways.
+    </p>
+  </div>
+
+  <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition duration-300 text-center">
+    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-sky-100 text-sky-600">
+      <Compass size={28} />
+    </div>
+    <h3 className="text-xl font-semibold mb-3 text-slate-900">Academic & Career Guidance</h3>
+    <p className="text-slate-600 leading-relaxed">
+      Our advisors help students explore different fields, understand requirements,
+      and build a clear direction for their future.
+    </p>
+  </div>
+</div>
+  </motion.section>
 </Container>
 <Container>
-  <section className="mt-16 rounded-3xl bg-slate-50 px-8 py-16 md:px-12">
+  <motion.section
+    className="mt-16 rounded-3xl bg-slate-50 px-8 py-16 md:px-12"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+  >
     <div className="text-center">
       <Heading text="Why RooZ" />
       <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
@@ -220,58 +263,84 @@ function HomePage() {
       </p>
     </div>
 
-    <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center hover:shadow-md transition">
-        <h3 className="text-3xl font-bold text-slate-900">25+</h3>
-        <p className="mt-2 text-slate-600">Advisors and growing</p>
-      </div>
+    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center hover:shadow-lg hover:-translate-y-1 transition duration-300">
+    <p className="text-sm font-medium uppercase tracking-[0.2em] text-sky-600">
+      Community
+    </p>
+    <h3 className="mt-3 text-4xl font-bold text-slate-900">25+</h3>
+    <p className="mt-3 text-slate-600 leading-relaxed">
+      Advisors and mentors forming a growing support network for students.
+    </p>
+  </div>
 
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center hover:shadow-md transition">
-        <h3 className="text-3xl font-bold text-slate-900">1-on-1</h3>
-        <p className="mt-2 text-slate-600">Personalized mentorship support</p>
-      </div>
+  <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center hover:shadow-lg hover:-translate-y-1 transition duration-300">
+    <p className="text-sm font-medium uppercase tracking-[0.2em] text-sky-600">
+      Guidance
+    </p>
+    <h3 className="mt-3 text-4xl font-bold text-slate-900">1-on-1</h3>
+    <p className="mt-3 text-slate-600 leading-relaxed">
+      Personalized mentorship that helps students make clearer academic and career decisions.
+    </p>
+  </div>
 
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center hover:shadow-md transition">
-        <h3 className="text-3xl font-bold text-slate-900">Workshops</h3>
-        <p className="mt-2 text-slate-600">Interactive academic and career guidance</p>
-      </div>
-    </div>
-  </section>
+  <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center hover:shadow-lg hover:-translate-y-1 transition duration-300">
+    <p className="text-sm font-medium uppercase tracking-[0.2em] text-sky-600">
+      Growth
+    </p>
+    <h3 className="mt-3 text-4xl font-bold text-slate-900">Workshops</h3>
+    <p className="mt-3 text-slate-600 leading-relaxed">
+      Interactive sessions designed to build confidence, direction, and opportunity.
+    </p>
+  </div>
+</div>
+  </motion.section>
 </Container>
       <div ref={advisorsRef}>
   <Container>
-       <div className="mt-16 text-center">
-      <Heading text="Our Advisors" />
-      <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
-        Meet the advisors who support students through mentorship, academic guidance, and career exploration.
-      </p>
-    </div>
+       <motion.div
+  className="mt-20 text-center"
+  initial={{ opacity: 0, y: 24 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+>
+  <Heading text="Our Advisors" />
+  <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+    Meet the advisors who support students through mentorship, academic guidance, and career exploration.
+  </p>
+</motion.div>
 
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {shuffledAdvisors.map((advisor, index) => (
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full p-4 bg-gray-100 rounded-lg shadow-md flex flex-col justify-content items-center"
+              className="w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl hover:-translate-y-1 transition duration-300"
               key={index}
             >
               <img
-                className="w-48 h-48 rounded-full object-cover mb-4"
+                className="w-40 h-40 rounded-full object-cover mb-5 shadow-sm"
                 src={advisor.photo}
                 alt={advisor.name}
               />
-              <h3 className="text-2xl font-semibold text-center mb-4">{advisor.name}</h3>
-              <p className="mb-4">
-                {advisor.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mt-2 justify-center">
+              <h3 className="text-xl font-semibold text-center mb-3 text-slate-900">
+  {advisor.name}
+</h3>
+              <p className="mb-4 text-slate-600 text-center leading-relaxed">
+  {advisor.description}
+</p>
+                <div className="flex flex-wrap gap-2 mt-2 justify-center min-h-[72px]">
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
-                      <span key={idx} className="bg-[#4facfe] text-white p-1 rounded">
+                      <span
+  key={idx}
+  className="bg-sky-100 text-sky-700 px-3 py-1 rounded-full text-sm font-medium"
+>
                         {topic}
                       </span>
                     ))}
                 </div>
-              <div className="mt-auto w-full">
+              <div className="mt-6 w-full">
                 <Button
                   className="w-full"
                   onClick={() => {
