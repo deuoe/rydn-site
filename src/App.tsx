@@ -337,9 +337,9 @@ function HomePage() {
   {advisor.description}
 </p>
                 <div
-  className={`flex flex-wrap gap-2 mt-2 justify-center ${
-    advisor.advisingTopics.length > 4 ? "min-h-[110px]" : "min-h-[72px]"
-  }`}
+  className={`flex flex-wrap gap-2 mt-2 justify-center ${getTagHeight(
+    advisor.advisingTopics.length
+  )}`}
 >
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
                       <span
