@@ -55,7 +55,7 @@ function HomePage() {
         "LSAT preparation",
         "University applications",
       ],
-      bookingLink: "https://calendar.app.google/nXtbKKMhDcfEd8of8"
+      bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2"
 
     },
     {
@@ -81,7 +81,7 @@ function HomePage() {
         "Psychology",
         "University applications",
       ],
-     
+     bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WoAyOmLbWUey9RgyK3Odvw2"
     },
     {
       name: "Sam Sina",
@@ -97,14 +97,14 @@ function HomePage() {
       photo: sadafUrl,
       description: "Sadaf is a Bacehlor of Science student",
       advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"]
-   
+   bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2"
     },
     {
       name: "Helia",
       photo: heliaUrl,
       description: "Helia is a Bacehlor of Science student",
       advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"]
-     
+     bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2"
     },
     {
       name: "Iliya",
@@ -125,21 +125,21 @@ function HomePage() {
       photo: jenniferUrl,
       description: "Jennifer is a Nursing student",
       advisingTopics: ["Nursing", "Studying strategies"]
-   
+   bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2"
     },
     {
       name: "Tina",
       photo: tinaUrl,
       description: "Tina is a Bachelor of Science student",
       advisingTopics: ["Pre-med advising", "Biomedical Sceince"]
-   
+   bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2"
     },
     {
       name: "Valentina",
       photo: valentinaUrl,
       description: "Valentina is a Bachelor of Science student",
       advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Academic Exchange"]
-   
+   bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2"
     }
   ]
   
