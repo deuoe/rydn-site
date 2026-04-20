@@ -42,7 +42,7 @@ function HomePage() {
       photo: leoUrl,
       description: "Ilia is a Bachelor of Commerce student",
       advisingTopics: ["Information Technology", "Soccer", "Business"],
-      bookingLink: "https://calendar.app.google/bpDQ4pKZajR14fgk6"
+      bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2"
      
     },
     {
@@ -111,7 +111,7 @@ function HomePage() {
       photo: iliyaUrl,
       description: "Iliya is a Bacehlor of Science student",
       advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"],
-      bookingLink: "https://calendar.app.google/uwVTj6JMZR5sX1M46"
+      bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2"
     },
     {
       name: "Sara",
