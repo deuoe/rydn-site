@@ -70,7 +70,7 @@ function HomePage() {
         "Psychology",
         "Study strategies"
       ],
-      bookingLink: "https://calendar.app.google/PhgjLmWXbqTu4vCk7"
+      bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2"
      
     },
     {
