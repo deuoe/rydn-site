@@ -7,7 +7,6 @@ import Donation from "./Donation"
 import leoUrl from "./assets/images/Leo.png"
 import saharUrl from "./assets/images/Sahar.jpeg"
 import saraUrl from "./assets/images/Sara.png"
-import mandyUrl from "./assets/images/Mandy.png"
 import sinaUrl from "./assets/images/Sina.jpeg"
 import homeHero from "./assets/images/home-hero.png"
 import Heading from "./components/Heading"
@@ -72,16 +71,6 @@ function HomePage() {
       ],
       bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2"
      
-    },
-    {
-      name: "Mandy",
-      photo: mandyUrl,
-      description: "Mandy is a Bachelor of Science student",
-      advisingTopics: [
-        "Psychology",
-        "University applications",
-      ],
-     bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WoAyOmLbWUey9RgyK3Odvw2"
     },
     {
       name: "Sam Sina",
