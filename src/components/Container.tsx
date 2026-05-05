@@ -1,6 +1,12 @@
-export default function Container({ children }: { children: React.ReactNode }) {
+export default function Container({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
   return (
-    <div className="w-full md:max-w-3/4 m-auto p-4 lg:p-8 text-[#676767] flex flex-col justify-center items-center gap-8">
+    <div className={"mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 " + className}>
       {children}
     </div>
   )

@@ -1,3 +1,13 @@
-export default function Paragraph({ children }: { children: React.ReactNode }) {
-  return <h3 className="text-xl font-extralight leading-8 max-w-2xl m-auto">{children}</h3>
+export default function Paragraph({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
+  return (
+    <p className={"max-w-3xl mx-auto text-base sm:text-lg leading-relaxed text-slate-700 " + className}>
+      {children}
+    </p>
+  )
 }

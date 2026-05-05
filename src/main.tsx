@@ -4,34 +4,37 @@ import Workshops from "./Workshops.tsx"
 import Donation from "./Donation.tsx"
 import AboutUs from "./AboutUs.tsx"
 import Layout from "./components/Layout.tsx"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./App";
-import "./index.css";
-import OurTeam from "./OurTeam";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import App from "./App"
+import "./index.css"
+import OurTeam from "./OurTeam"
 import PartnerWithUs from "./PartnerWithUs"
 import Verification from "./Verification"
 import PrivacyPolicy from "./PrivacyPolicy"
 import TermsOfService from "./TermsOfService"
 import ContactUs from "./ContactUs"
+import { LanguageProvider } from "./i18n/LanguageProvider"
 
 const root = document.getElementById("root")!
 
 ReactDOM.createRoot(root).render(
-  <BrowserRouter>
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<App />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/become-advisor" element={<BecomeAdvisor />} />
-        <Route path="/workshops" element={<Workshops />} />
-        <Route path="/donation" element={<Donation />} />
-        <Route path="/our-team" element={<OurTeam />} />
-        <Route path="/partner-with-us" element={<PartnerWithUs />} />
-        <Route path="/verification" element={<Verification />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  <LanguageProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<App />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/become-advisor" element={<BecomeAdvisor />} />
+          <Route path="/workshops" element={<Workshops />} />
+          <Route path="/donation" element={<Donation />} />
+          <Route path="/our-team" element={<OurTeam />} />
+          <Route path="/partner-with-us" element={<PartnerWithUs />} />
+          <Route path="/verification" element={<Verification />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </LanguageProvider>
 )

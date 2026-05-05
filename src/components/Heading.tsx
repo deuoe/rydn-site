@@ -1,8 +1,23 @@
-export default function Heading({ text }: { text: string }) {
+export default function Heading({
+  text,
+  eyebrow,
+  className = "",
+}: {
+  text: string
+  eyebrow?: string
+  className?: string
+}) {
   return (
-    <>
-      <h1 className="text-4xl text-center font-light">{text}</h1>
-      <div className="w-32 m-auto h-0.5 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-600" />
-    </>
+    <div className={"text-center " + className}>
+      {eyebrow && (
+        <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">
+          {eyebrow}
+        </p>
+      )}
+      <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900">
+        {text}
+      </h2>
+      <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />
+    </div>
   )
 }
