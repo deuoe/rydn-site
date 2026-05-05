@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react"
-import { Users, BookOpen, Compass, ArrowRight, Sparkles, ChevronDown, MessageSquare, Calendar, Rocket } from "lucide-react"
+import { Users, BookOpen, ArrowRight, Sparkles, ChevronDown, MessageSquare, Calendar, Rocket, Star, Quote, Handshake, Target, FileText, Plus, Mail } from "lucide-react"
 import Heading from "./components/Heading"
 import Container from "./components/Container"
 import Button from "./components/Button"
@@ -42,6 +42,360 @@ function StatCounter({ value, suffix = "" }: { value: number; suffix?: string })
       <motion.span>{display}</motion.span>
       {suffix}
     </span>
+  )
+}
+
+/* ----------------------------------- */
+/* Testimonials marquee                */
+/* ----------------------------------- */
+type Testimonial = {
+  quote: string
+  name: string
+  role: string
+  initials: string
+  avatarColor: string
+}
+
+// TODO: Replace these placeholder testimonials with real student/parent quotes.
+const TESTIMONIALS: Testimonial[] = [
+  { quote: "Helped me figure out which pre-med path was actually right for me. Wish I'd done it sooner.", name: "Maya K.", role: "Grade 12 student", initials: "MK", avatarColor: "from-pink-400 to-rose-500" },
+  { quote: "My advisor walked me through the entire MCAT timeline. Game changer.", name: "Daniel R.", role: "First-year pre-med", initials: "DR", avatarColor: "from-sky-400 to-blue-500" },
+  { quote: "I thought I had to go to law school. After two sessions, I realized what I actually wanted.", name: "Aria S.", role: "Grade 11 student", initials: "AS", avatarColor: "from-amber-400 to-orange-500" },
+  { quote: "Honestly the best free resource I've used. They listen, then actually help.", name: "Liam T.", role: "First-year university", initials: "LT", avatarColor: "from-emerald-400 to-teal-500" },
+  { quote: "My advisor was a year ahead of me at the same school. The advice was so specific.", name: "Priya N.", role: "Grade 12 student", initials: "PN", avatarColor: "from-violet-400 to-purple-500" },
+  { quote: "Workshop on biomedical careers opened my eyes to fields I didn't know existed.", name: "Nima B.", role: "Grade 11 student", initials: "NB", avatarColor: "from-indigo-400 to-blue-600" },
+  { quote: "Booking was easy. The session was free. The plan I left with felt real.", name: "Sofia G.", role: "First-year university", initials: "SG", avatarColor: "from-fuchsia-400 to-pink-600" },
+  { quote: "I'm a parent and I asked them tough questions. They were honest, not sales-y.", name: "Hassan M.", role: "Parent", initials: "HM", avatarColor: "from-cyan-400 to-sky-600" },
+  { quote: "Best decision was just booking the call. Got accepted to my top choice.", name: "Layla F.", role: "First-year university", initials: "LF", avatarColor: "from-rose-400 to-red-500" },
+  { quote: "I came in confused about everything. Left with a clear plan for the year.", name: "Owen P.", role: "Grade 12 student", initials: "OP", avatarColor: "from-teal-400 to-emerald-600" },
+]
+
+function ReviewCard({ t }: { t: Testimonial }) {
+  return (
+    <article className="flex-shrink-0 w-[320px] sm:w-[380px] rounded-2xl bg-white border border-slate-200 shadow-sm hover:shadow-lg transition p-6 mx-3">
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex gap-1" aria-label="5 out of 5 stars">
+          {[0, 1, 2, 3, 4].map(i => (
+            <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+          ))}
+        </div>
+        <Quote size={20} className="text-slate-200" aria-hidden />
+      </div>
+      <p className="text-slate-800 leading-relaxed mb-5 text-sm sm:text-base">"{t.quote}"</p>
+      <div className="flex items-center gap-3">
+        <div
+          className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${t.avatarColor} text-white font-bold text-sm`}
+          aria-hidden
+        >
+          {t.initials}
+        </div>
+        <div>
+          <p className="font-semibold text-slate-900 text-sm">{t.name}</p>
+          <p className="text-slate-500 text-xs">{t.role}</p>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function MarqueeRow({ items, direction = "left" }: { items: Testimonial[]; direction?: "left" | "right" }) {
+  // Duplicate the items so the loop seams together when transform resets.
+  const doubled = [...items, ...items]
+  return (
+    <div className="relative overflow-hidden">
+      {/* Edge fade-outs so cards drift in/out smoothly */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 z-10 bg-gradient-to-r from-slate-50 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 z-10 bg-gradient-to-l from-slate-50 to-transparent" />
+      <div className={"flex w-max " + (direction === "left" ? "animate-marquee" : "animate-marquee-reverse")}>
+        {doubled.map((t, i) => (
+          <ReviewCard t={t} key={i} />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function Testimonials() {
+  const { t } = useTranslation()
+  // Split testimonials into two rows.
+  const half = Math.ceil(TESTIMONIALS.length / 2)
+  const rowA = TESTIMONIALS.slice(0, half)
+  const rowB = TESTIMONIALS.slice(half)
+
+  return (
+    <section className="py-20 bg-slate-50 overflow-hidden">
+      <Container>
+        <Heading eyebrow={t("testimonials.eyebrow")} text={t("testimonials.title")} />
+        <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+          {t("testimonials.subtitle")}
+        </p>
+      </Container>
+
+      {/* Marquees go full-bleed, outside the Container */}
+      <div className="mt-14 space-y-6">
+        <MarqueeRow items={rowA} direction="left" />
+        <MarqueeRow items={rowB} direction="right" />
+      </div>
+    </section>
+  )
+}
+
+/* ----------------------------------- */
+/* Programs — bento grid               */
+/* ----------------------------------- */
+function ProgramsBento() {
+  const { t } = useTranslation()
+  return (
+    <section className="py-20 bg-rydn-mesh">
+      <Container>
+        <Heading eyebrow={t("programs.eyebrow")} text={t("programs.title")} />
+        <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+          {t("programs.subtitle")}
+        </p>
+
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-4 md:auto-rows-[14rem] gap-4">
+          {/* Card 1 — large feature: Mentorship */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-600 via-sky-700 to-indigo-800 p-8 text-white shadow-lg"
+          >
+            <div className="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+            <div className="absolute bottom-0 right-0 h-32 w-32 rounded-full bg-amber-400/20 blur-2xl" />
+            <div className="relative flex flex-col h-full">
+              <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
+                <Users size={28} />
+              </div>
+              <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">{t("programs.p1Title")}</h3>
+              <p className="mt-4 text-white/85 leading-relaxed text-base md:text-lg max-w-md">{t("programs.p1Body")}</p>
+              <div className="mt-auto pt-8">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-amber-200">
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-300 animate-pulse" />
+                  Most popular
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 2 — Workshops */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            viewport={{ once: true }}
+            className="md:col-span-2 relative overflow-hidden rounded-3xl bg-white border border-slate-200 p-7 hover:shadow-xl transition shadow-sm"
+          >
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-600">
+              <BookOpen size={24} />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900">{t("programs.p2Title")}</h3>
+            <p className="mt-2 text-slate-600 leading-relaxed">{t("programs.p2Body")}</p>
+          </motion.div>
+
+          {/* Card 3 — Exam Prep */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-3xl bg-white border border-slate-200 p-7 hover:shadow-xl transition shadow-sm"
+          >
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+              <Target size={24} />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900">{t("programs.p3Title")}</h3>
+            <p className="mt-2 text-slate-600 leading-relaxed text-sm">{t("programs.p3Body")}</p>
+          </motion.div>
+
+          {/* Card 4 — University apps */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-3xl bg-white border border-slate-200 p-7 hover:shadow-xl transition shadow-sm"
+          >
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-50 text-violet-600">
+              <FileText size={24} />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900">{t("programs.p4Title")}</h3>
+            <p className="mt-2 text-slate-600 leading-relaxed text-sm">{t("programs.p4Body")}</p>
+          </motion.div>
+
+          {/* Card 5 — Partnerships, full width */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="md:col-span-4 relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white p-8 md:p-10 shadow-lg"
+          >
+            <div className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-amber-400/15 to-transparent" />
+            <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div className="md:max-w-xl">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur">
+                  <Handshake size={24} />
+                </div>
+                <h3 className="font-display text-2xl md:text-3xl font-semibold">{t("programs.p5Title")}</h3>
+                <p className="mt-3 text-white/85 leading-relaxed">{t("programs.p5Body")}</p>
+              </div>
+              <Link
+                to="/partner-with-us"
+                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-6 py-3 font-semibold hover:bg-amber-100 transition shrink-0"
+              >
+                Partner with us <ArrowRight size={16} className="ml-2" />
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+/* ----------------------------------- */
+/* Partners — logo marquee             */
+/* ----------------------------------- */
+// TODO: Replace these text placeholders with real partner logos (PNG/SVG) once you have them.
+const PARTNER_NAMES = [
+  "Richmond Hill Public Library",
+  "York Region DSB",
+  "Markham Public Library",
+  "Aurora Public Library",
+  "Toronto Public Library",
+  "Vaughan Public Library",
+  "Newmarket Public Library",
+  "York University",
+]
+
+function PartnerStrip() {
+  const { t } = useTranslation()
+  const doubled = [...PARTNER_NAMES, ...PARTNER_NAMES]
+  return (
+    <section className="py-16 bg-white border-y border-slate-200">
+      <Container className="text-center">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+          {t("partners.eyebrow")}
+        </p>
+        <h2 className="mt-2 font-display text-xl md:text-2xl text-slate-700">
+          {t("partners.title")}
+        </h2>
+      </Container>
+
+      <div className="mt-10 relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-white to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+        <div className="flex w-max animate-marquee">
+          {doubled.map((name, i) => (
+            <div
+              key={i}
+              className="mx-8 flex items-center text-slate-400 hover:text-slate-700 transition"
+            >
+              <span className="font-display text-xl md:text-2xl whitespace-nowrap">{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ----------------------------------- */
+/* FAQ accordion                       */
+/* ----------------------------------- */
+function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+      <button
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        className="w-full flex items-center justify-between gap-4 p-5 md:p-6 text-left"
+      >
+        <span className="font-semibold text-slate-900 text-base md:text-lg">{q}</span>
+        <span
+          className={
+            "flex shrink-0 h-9 w-9 items-center justify-center rounded-full transition " +
+            (isOpen ? "bg-sky-600 text-white rotate-45" : "bg-slate-100 text-slate-600")
+          }
+        >
+          <Plus size={18} />
+        </span>
+      </button>
+      <AnimatePresenceFAQ isOpen={isOpen} answer={a} />
+    </div>
+  )
+}
+
+function AnimatePresenceFAQ({ isOpen, answer }: { isOpen: boolean; answer: string }) {
+  return (
+    <motion.div
+      initial={false}
+      animate={{
+        height: isOpen ? "auto" : 0,
+        opacity: isOpen ? 1 : 0,
+      }}
+      transition={{ duration: 0.25, ease: "easeInOut" }}
+      style={{ overflow: "hidden" }}
+    >
+      <div className="px-5 md:px-6 pb-5 md:pb-6 pt-0 text-slate-600 leading-relaxed">
+        {answer}
+      </div>
+    </motion.div>
+  )
+}
+
+function FAQ() {
+  const { t } = useTranslation()
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const items = [
+    { q: t("faq.q1"), a: t("faq.a1") },
+    { q: t("faq.q2"), a: t("faq.a2") },
+    { q: t("faq.q3"), a: t("faq.a3") },
+    { q: t("faq.q4"), a: t("faq.a4") },
+    { q: t("faq.q5"), a: t("faq.a5") },
+    { q: t("faq.q6"), a: t("faq.a6") },
+  ]
+
+  return (
+    <section className="py-20">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">
+              {t("faq.eyebrow")}
+            </p>
+            <h2 className="mt-3 font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+              {t("faq.title")}
+            </h2>
+            <p className="mt-4 text-slate-600 leading-relaxed">
+              {t("faq.subtitle")}
+            </p>
+            <a
+              href="mailto:info@rydn.ca"
+              className="mt-6 inline-flex items-center gap-2 text-sky-700 font-semibold hover:text-sky-900 transition"
+            >
+              <Mail size={16} />
+              {t("faq.cta")}
+              <ArrowRight size={14} />
+            </a>
+          </div>
+
+          <div className="lg:col-span-8 flex flex-col gap-3">
+            {items.map((item, i) => (
+              <FAQItem
+                key={i}
+                q={item.q}
+                a={item.a}
+                isOpen={openIndex === i}
+                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+              />
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
   )
 }
 
@@ -173,39 +527,9 @@ function HomePage() {
       </Container>
 
       {/* ============================================== */}
-      {/* WHAT WE DO                                      */}
+      {/* PROGRAMS — bento grid                           */}
       {/* ============================================== */}
-      <section className="relative py-20 bg-rydn-mesh">
-        <Container>
-          <Heading eyebrow="What we do" text="Three ways we help" />
-          <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
-            Practical, accessible, student-centered.
-          </p>
-
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { Icon: Users, title: "1-on-1 Mentorship", body: "Connect directly with advisors who provide personalized guidance on academics, university applications, and career decisions." },
-              { Icon: BookOpen, title: "Workshops", body: "Interactive sessions on study strategies, career exploration, and navigating academic pathways." },
-              { Icon: Compass, title: "Academic Guidance", body: "Our advisors help students explore fields, understand requirements, and build a clear direction." },
-            ].map(({ Icon, title, body }, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                viewport={{ once: true }}
-                className="card-ring rounded-3xl bg-white p-8 shadow-sm border border-slate-200 hover:shadow-xl hover:-translate-y-1 transition duration-300"
-              >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-100 to-sky-200 text-sky-700">
-                  <Icon size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900">{title}</h3>
-                <p className="mt-3 text-slate-600 leading-relaxed">{body}</p>
-              </motion.div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProgramsBento />
 
       {/* ============================================== */}
       {/* HOW IT WORKS                                    */}
@@ -283,6 +607,16 @@ function HomePage() {
       </section>
 
       {/* ============================================== */}
+      {/* TESTIMONIALS                                    */}
+      {/* ============================================== */}
+      <Testimonials />
+
+      {/* ============================================== */}
+      {/* PARTNERS                                        */}
+      {/* ============================================== */}
+      <PartnerStrip />
+
+      {/* ============================================== */}
       {/* ADVISORS                                        */}
       {/* ============================================== */}
       <section ref={advisorsRef} className="py-20">
@@ -348,6 +682,11 @@ function HomePage() {
           </div>
         </Container>
       </section>
+
+      {/* ============================================== */}
+      {/* FAQ                                             */}
+      {/* ============================================== */}
+      <FAQ />
 
       {/* ============================================== */}
       {/* CLOSING CTA BANNER                              */}

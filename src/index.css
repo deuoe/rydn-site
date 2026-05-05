@@ -78,12 +78,20 @@ h1, h2, h3, h4, h5 {
 }
 .link-underline:hover { background-size: 100% 2px; }
 
-/* Marquee for partner/badges if ever needed */
+/* Marquee — left-to-right scroll. Track must contain duplicated content so the
+   loop seams together when it resets. */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
-.animate-marquee { animation: marquee 30s linear infinite; }
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.animate-marquee { animation: marquee 40s linear infinite; }
+.animate-marquee-reverse { animation: marquee-reverse 40s linear infinite; }
+.animate-marquee:hover,
+.animate-marquee-reverse:hover { animation-play-state: paused; }
 
 /* Floating blob */
 @keyframes float {
