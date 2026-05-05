@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { AnimatePresence, motion } from "motion/react"
 import { useState } from "react"
-import logoUrl from "../assets/images/logo.jpeg"
+import logoUrl from "../assets/images/logo.svg"
 
 export default function Navbar() {
   const navigate = useNavigate()
@@ -15,15 +15,19 @@ export default function Navbar() {
     { name: "Our Team", path: "/our-team" },
     { name: "Become an Advisor", path: "/become-advisor" },
     { name: "Workshops", path: "/workshops" },
-    { name: "Donation", path: "/donation" },
+    { name: "Support", path: "/donation" },
   ]
 
   return (
     <nav
-      // className="w-full py-8 px-4 bg-[#eaeaea] flex items-center justify-center"
       className="flex items-center justify-between lg:justify-center w-full mx-auto p-2 lg:pt-4"
     >
-      <img className="w-44 select-none" src={logoUrl} alt="" />
+      <img
+        className="w-44 select-none cursor-pointer"
+        src={logoUrl}
+        alt="RooZ Youth Development Network logo"
+        onClick={() => navigate("/")}
+      />
 
       {/* Desktop Navbar */}
       <ul className="hidden lg:flex items-center">
@@ -118,6 +122,7 @@ const MenuToggle = ({
 /**
  * Path Component
  */
-const Path = (props: any) => (
+import type { ComponentProps } from "react"
+const Path = (props: ComponentProps<typeof motion.path>) => (
   <motion.path fill="transparent" strokeWidth="3" stroke="black" strokeLinecap="round" {...props} />
 )

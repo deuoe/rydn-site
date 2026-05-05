@@ -1,9 +1,5 @@
 import { useRef, useState } from "react";
-import { Routes, Route } from "react-router-dom"
-import AboutUs from "./AboutUs"
-import BecomeAdvisor from "./BecomeAdvisor"
-import Workshops from "./Workshops"
-import Donation from "./Donation"
+import { Link } from "react-router-dom"
 import leoUrl from "./assets/images/Leo.png"
 import saharUrl from "./assets/images/Sahar.jpeg"
 import saraUrl from "./assets/images/Sara.png"
@@ -24,7 +20,7 @@ import { Users, BookOpen, Compass } from "lucide-react"
 
 
 
-function shuffleArray(array: any[]) {
+function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
@@ -84,28 +80,28 @@ function HomePage() {
     {
       name: "Sadaf",
       photo: sadafUrl,
-      description: "Sadaf is a Bacehlor of Science student",
+      description: "Sadaf is a Bachelor of Science student",
       advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"],
    bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2"
     },
     {
       name: "Helia",
       photo: heliaUrl,
-      description: "Helia is a Bacehlor of Science student",
+      description: "Helia is a Bachelor of Science student",
       advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"],
      bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2"
     },
     {
       name: "Iliya",
       photo: iliyaUrl,
-      description: "Iliya is a Bacehlor of Science student",
+      description: "Iliya is a Bachelor of Science student",
       advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"],
       bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2"
     },
     {
       name: "Sara",
       photo: saracUrl,
-      description: "Sara is a Bacehlor of Arts student",
+      description: "Sara is a Bachelor of Arts student",
       advisingTopics: ["History", "English", "Nutrition", "Fitness training"]
    
     },
@@ -120,14 +116,14 @@ function HomePage() {
       name: "Tina",
       photo: tinaUrl,
       description: "Tina is a Bachelor of Science student",
-      advisingTopics: ["Pre-med advising", "Biomedical Sceince"],
+      advisingTopics: ["Pre-med advising", "Biomedical Science"],
    bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2"
     },
     {
       name: "Valentina",
       photo: valentinaUrl,
       description: "Valentina is a Bachelor of Science student",
-      advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Academic Exchange"],
+      advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"],
    bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2"
     }
   ]
@@ -166,14 +162,12 @@ function HomePage() {
       Get Started
     </Button>
 
-    <Button
-      className="bg-white text-slate-900 font-semibold px-8 py-3 lg:px-12 lg:py-4 lg:text-xl hover:bg-slate-100"
-      onClick={() => {
-        window.location.href = "/about-us"
-      }}
+    <Link
+      to="/about-us"
+      className="bg-white text-slate-900 font-semibold px-8 py-3 lg:px-12 lg:py-4 lg:text-xl rounded-md inline-flex items-center justify-center hover:bg-slate-100 transition"
     >
       Learn More
-    </Button>
+    </Link>
   </div>
 </div>
 </div>
@@ -431,14 +425,6 @@ function HomePage() {
 }
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/about-us" element={<AboutUs />} />
-      <Route path="/become-advisor" element={<BecomeAdvisor />} />
-      <Route path="/workshops" element={<Workshops />} />
-      <Route path="/donation" element={<Donation />} />
-    </Routes>
-  )
+  return <HomePage />
 }
 export default App
