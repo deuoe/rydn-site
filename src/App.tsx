@@ -19,6 +19,7 @@ import saracUrl from "./assets/images/SaraC.png"
 import jenniferUrl from "./assets/images/Jennifer.jpeg"
 import tinaUrl from "./assets/images/Tina.png"
 import valentinaUrl from "./assets/images/Valentina.png"
+import imanUrl from "./assets/images/Iman.png"
 
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5)
@@ -429,6 +430,7 @@ function HomePage() {
     | "pharmacy"
     | "sports"
     | "it"
+    | "gaming"
 
   const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; categories: Category[] }[] = [
     { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", categories: ["business", "it", "sports"] },
@@ -442,6 +444,7 @@ function HomePage() {
     { name: "Jennifer", photo: jenniferUrl, description: "Nursing student", advisingTopics: ["Nursing", "Studying strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2", categories: ["sciences"] },
     { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2", categories: ["preMed"] },
     { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2", categories: ["sciences", "language", "psychNeuro"] },
+    { name: "Iman", photo: imanUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Gaming"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/Nl-k9rS70EiUi53ylFUU5A2", categories: ["gaming"] }
   ]
 
   const [activeFilter, setActiveFilter] = useState<Category | "all">("all")
