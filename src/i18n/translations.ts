@@ -173,7 +173,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "Advising that",
       titleLine2: "changes paths.",
       subhead:
-        "RYDN connects students with experienced advisors who help them explore their passions, navigate university, and unlock their potential — at no cost.",
+        "Free 1-on-1 advising sessions with university students already on the path you're considering. Talk to someone only 2–3 years ahead of you — before making life-changing decisions.",
       ctaPrimary: "Find an Advisor",
       ctaSecondary: "Learn More",
       trustNonprofit: "Canadian nonprofit",
@@ -323,7 +323,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "Un mentorat qui",
       titleLine2: "change les parcours.",
       subhead:
-        "RYDN met en relation les étudiants avec des mentors expérimentés qui les aident à explorer leurs passions, à naviguer à l'université et à révéler leur potentiel — gratuitement.",
+        "Des séances de conseil gratuites en tête-à-tête avec des étudiants déjà sur la voie qui vous intéresse. Parlez à quelqu'un seulement 2 ou 3 ans plus avancé que vous — avant de prendre des décisions qui changent une vie.",
       ctaPrimary: "Trouver un mentor",
       ctaSecondary: "En savoir plus",
       trustNonprofit: "Organisme canadien sans but lucratif",
@@ -474,7 +474,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "Mentoría que",
       titleLine2: "cambia caminos.",
       subhead:
-        "RYDN conecta a los estudiantes con mentores experimentados que los ayudan a explorar sus pasiones, navegar la universidad y desbloquear su potencial — sin costo alguno.",
+        "Sesiones de asesoramiento gratuitas e individuales con estudiantes universitarios que ya están en el camino que estás considerando. Habla con alguien que solo está 2 o 3 años por delante de ti — antes de tomar decisiones que cambian la vida.",
       ctaPrimary: "Encontrar un mentor",
       ctaSecondary: "Saber más",
       trustNonprofit: "Organización canadiense sin fines de lucro",
@@ -625,7 +625,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "مشاوره‌ای که",
       titleLine2: "مسیرها را عوض می‌کند.",
       subhead:
-        "RYDN دانشجویان را با مشاوران باتجربه‌ای آشنا می‌کند که به آن‌ها کمک می‌کنند علاقه‌هایشان را کشف کنند، در دانشگاه راه خود را پیدا کنند و توانایی‌هایشان را شکوفا سازند — به‌طور کاملاً رایگان.",
+        "جلسات مشاوره فردی رایگان با دانشجویان دانشگاه که هم‌اکنون در مسیری هستند که شما در نظر دارید. با کسی صحبت کنید که تنها ۲ تا ۳ سال جلوتر از شماست — پیش از تصمیم‌گیری‌هایی که زندگی شما را تغییر می‌دهند.",
       ctaPrimary: "پیدا کردن مشاور",
       ctaSecondary: "بیشتر بدانید",
       trustNonprofit: "سازمان غیرانتفاعی کانادایی",
@@ -775,7 +775,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "ייעוץ ש",
       titleLine2: "משנה דרכים.",
       subhead:
-        "RYDN מחבר סטודנטים עם מנטורים מנוסים שעוזרים להם לחקור את התחומים שמעניינים אותם, להתמצא באוניברסיטה ולממש את הפוטנציאל שלהם — ללא עלות.",
+        "פגישות ייעוץ פרטיות וחינמיות עם סטודנטים אוניברסיטאיים שכבר נמצאים בדרך שאתם שוקלים. דברו עם מישהו שרק 2-3 שנים לפניכם — לפני שתקבלו החלטות גורליות.",
       ctaPrimary: "מצאו מנטור",
       ctaSecondary: "למידע נוסף",
       trustNonprofit: "עמותה קנדית",
