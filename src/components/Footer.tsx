@@ -126,9 +126,7 @@ export default function Footer() {
           <div className="text-sm text-slate-500 leading-relaxed">
             <p>RooZ Youth Development Network · Réseau de développement de la jeunesse RooZ</p>
             <p className="mt-0.5 text-xs">
-              Registered Canadian nonprofit · © {new Date().getFullYear()}
-              {/* TODO: drop your federal/provincial nonprofit corporation number here, e.g.:
-                  · Nonprofit corp. #1234567 */}
+              Registered Canadian nonprofit · Ontario Corp. No.&nbsp;1001539743 · © {new Date().getFullYear()}
             </p>
           </div>
           <div className="text-sm text-slate-500 flex gap-4 flex-wrap">
