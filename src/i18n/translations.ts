@@ -149,6 +149,12 @@ type Dict = {
     sports: string
     it: string
   }
+  iosInstall: {
+    title: string
+    step1: string
+    step2: string
+    dismiss: string
+  }
   language: {
     chooseLanguage: string
   }
@@ -299,6 +305,12 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       pharmacy: "Pharmacy",
       sports: "Sports",
       it: "IT",
+    },
+    iosInstall: {
+      title: "Install RYDN on your iPhone",
+      step1: "Tap the Share icon below",
+      step2: "Then choose \"Add to Home Screen\"",
+      dismiss: "Got it",
     },
     language: {
       chooseLanguage: "Choose your language",
@@ -451,6 +463,12 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       sports: "Sport",
       it: "Informatique",
     },
+    iosInstall: {
+      title: "Installer RYDN sur votre iPhone",
+      step1: "Touchez l'icône Partager ci-dessous",
+      step2: "Puis choisissez « Sur l'écran d'accueil »",
+      dismiss: "Compris",
+    },
     language: {
       chooseLanguage: "Choisissez votre langue",
     },
@@ -602,6 +620,12 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       sports: "Deportes",
       it: "TI",
     },
+    iosInstall: {
+      title: "Instala RYDN en tu iPhone",
+      step1: "Toca el icono Compartir abajo",
+      step2: "Luego elige « Añadir a inicio »",
+      dismiss: "Entendido",
+    },
     language: {
       chooseLanguage: "Elige tu idioma",
     },
@@ -751,6 +775,12 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       pharmacy: "داروسازی",
       sports: "ورزش",
       it: "فناوری اطلاعات",
+    },
+    iosInstall: {
+      title: "نصب RYDN روی آیفون شما",
+      step1: "روی آیکون اشتراک‌گذاری در پایین بزنید",
+      step2: "سپس «افزودن به صفحه اصلی» را انتخاب کنید",
+      dismiss: "متوجه شدم",
     },
     language: {
       chooseLanguage: "زبان خود را انتخاب کنید",
@@ -924,6 +954,12 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       pharmacy: "רוקחות",
       sports: "ספורט",
       it: "מחשבים",
+    },
+    iosInstall: {
+      title: "התקינו את RYDN באייפון שלכם",
+      step1: "הקישו על סמל השיתוף למטה",
+      step2: "ואז בחרו ב-\"הוסף למסך הבית\"",
+      dismiss: "הבנתי",
     },
     language: {
       chooseLanguage: "בחרו את השפה שלכם",
