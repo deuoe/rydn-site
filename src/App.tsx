@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom"
-import { motion, useInView, useMotionValue, useSpring, useTransform } from "motion/react"
+import { motion, AnimatePresence, useInView, useMotionValue, useSpring, useTransform } from "motion/react"
 import { Users, BookOpen, ArrowRight, Sparkles, ChevronDown, MessageSquare, Calendar, Rocket, Star, Quote, Handshake, Target, FileText, Plus, Mail } from "lucide-react"
 import Heading from "./components/Heading"
 import Container from "./components/Container"
@@ -418,19 +418,35 @@ function HomePage() {
     }
   }, [])
 
-  const advisors = [
-    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2" },
-    { name: "Sahar", photo: saharUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Political science", "LSAT preparation", "University applications"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2" },
-    { name: "Sara Roozbahani", photo: saraUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "MCAT", "Research", "University applications", "Psychology", "Study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2" },
-    { name: "Sam Sina", photo: sinaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/9b_p31eCcEyWYRkSozwUhw2?ismsaljsauthenabled" },
-    { name: "Sadaf", photo: sadafUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2" },
-    { name: "Helia", photo: heliaUrl, description: "Bachelor of Science student", advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2" },
-    { name: "Iliya", photo: iliyaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2" },
-    { name: "Sara", photo: saracUrl, description: "Bachelor of Arts student", advisingTopics: ["History", "English", "Nutrition", "Fitness training"] },
-    { name: "Jennifer", photo: jenniferUrl, description: "Nursing student", advisingTopics: ["Nursing", "Studying strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2" },
-    { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2" },
-    { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2" },
+  type Category = "preMed" | "sciences" | "preLaw" | "business" | "arts"
+
+  const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; category: Category }[] = [
+    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", category: "business" },
+    { name: "Sahar", photo: saharUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Political science", "LSAT preparation", "University applications"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2", category: "preLaw" },
+    { name: "Sara Roozbahani", photo: saraUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "MCAT", "Research", "University applications", "Psychology", "Study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2", category: "preMed" },
+    { name: "Sam Sina", photo: sinaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/9b_p31eCcEyWYRkSozwUhw2?ismsaljsauthenabled", category: "sciences" },
+    { name: "Sadaf", photo: sadafUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2", category: "sciences" },
+    { name: "Helia", photo: heliaUrl, description: "Bachelor of Science student", advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2", category: "preMed" },
+    { name: "Iliya", photo: iliyaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2", category: "preMed" },
+    { name: "Sara", photo: saracUrl, description: "Bachelor of Arts student", advisingTopics: ["History", "English", "Nutrition", "Fitness training"], category: "arts" },
+    { name: "Jennifer", photo: jenniferUrl, description: "Nursing student", advisingTopics: ["Nursing", "Studying strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2", category: "sciences" },
+    { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2", category: "preMed" },
+    { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2", category: "sciences" },
   ]
+
+  const [activeFilter, setActiveFilter] = useState<Category | "all">("all")
+  const filterCategories: { key: Category | "all"; labelKey: string }[] = [
+    { key: "all", labelKey: "filters.all" },
+    { key: "preMed", labelKey: "filters.preMed" },
+    { key: "sciences", labelKey: "filters.sciences" },
+    { key: "preLaw", labelKey: "filters.preLaw" },
+    { key: "business", labelKey: "filters.business" },
+    { key: "arts", labelKey: "filters.arts" },
+  ]
+  const counts = filterCategories.reduce<Record<string, number>>((acc, c) => {
+    acc[c.key] = c.key === "all" ? advisors.length : advisors.filter(a => a.category === c.key).length
+    return acc
+  }, {})
 
   const getTagHeight = (count: number) => {
     if (count > 5) return "min-h-[120px]"
@@ -438,7 +454,8 @@ function HomePage() {
     return "min-h-[72px]"
   }
 
-  const shuffledAdvisors = shuffleArray(advisors)
+  const filteredAdvisors = activeFilter === "all" ? advisors : advisors.filter(a => a.category === activeFilter)
+  const shuffledAdvisors = shuffleArray(filteredAdvisors)
 
   return (
     <>
@@ -646,13 +663,55 @@ function HomePage() {
             </p>
           </motion.div>
 
-          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
-            {shuffledAdvisors.map((advisor, index) => (
+          {/* Filter pills */}
+          <div className="mt-10 flex flex-wrap justify-center gap-2">
+            {filterCategories.map(c => {
+              const active = activeFilter === c.key
+              const count = counts[c.key]
+              const disabled = count === 0
+              return (
+                <button
+                  key={c.key}
+                  disabled={disabled}
+                  onClick={() => setActiveFilter(c.key)}
+                  className={
+                    "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition border " +
+                    (active
+                      ? "bg-slate-900 text-white border-slate-900 shadow-md"
+                      : disabled
+                        ? "bg-slate-50 text-slate-300 border-slate-200 cursor-not-allowed"
+                        : "bg-white text-slate-700 border-slate-200 hover:border-sky-400 hover:text-sky-700 hover:shadow-sm")
+                  }
+                >
+                  {t(c.labelKey)}
+                  <span
+                    className={
+                      "inline-flex items-center justify-center min-w-[1.5rem] h-5 px-1.5 rounded-full text-xs font-bold " +
+                      (active ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600")
+                    }
+                  >
+                    {count}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+
+          <motion.div
+            layout
+            className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch"
+          >
+            <AnimatePresence mode="popLayout">
+            {shuffledAdvisors.map((advisor) => (
               <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3 }}
                 whileHover={{ y: -6 }}
-                transition={{ duration: 0.25 }}
                 className="card-ring w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl transition"
-                key={index}
+                key={advisor.name}
               >
                 <div className="relative">
                   <img
@@ -692,7 +751,8 @@ function HomePage() {
                 </div>
               </motion.div>
             ))}
-          </div>
+            </AnimatePresence>
+          </motion.div>
         </Container>
       </section>
 

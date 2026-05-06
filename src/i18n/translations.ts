@@ -129,6 +129,21 @@ type Dict = {
     quote: string
     quoteAttribution: string
   }
+  notFound: {
+    badge: string
+    title: string
+    body: string
+    bookCta: string
+    homeCta: string
+  }
+  filters: {
+    all: string
+    preMed: string
+    sciences: string
+    preLaw: string
+    business: string
+    arts: string
+  }
   language: {
     chooseLanguage: string
   }
@@ -259,6 +274,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       bilingualBody: "RYDN / Réseau de développement de la jeunesse RooZ operates in English and French, with Spanish support and more languages coming. Based in Richmond Hill, Ontario.",
       ctaTitle: "Ready to start?",
       ctaButton: "Find a mentor",
+    },
+    notFound: {
+      badge: "404 — Page not found",
+      title: "We can't find that page.",
+      body: "Looks like the link is broken or the page has moved. While you're here — want to find a mentor instead?",
+      bookCta: "Book a mentor",
+      homeCta: "Back to home",
+    },
+    filters: {
+      all: "All",
+      preMed: "Pre-med",
+      sciences: "Sciences",
+      preLaw: "Pre-law",
+      business: "Business",
+      arts: "Arts",
     },
     language: {
       chooseLanguage: "Choose your language",
@@ -391,6 +421,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       ctaTitle: "Prêt à commencer ?",
       ctaButton: "Trouver un mentor",
     },
+    notFound: {
+      badge: "404 — Page introuvable",
+      title: "Cette page est introuvable.",
+      body: "Il semble que le lien soit cassé ou que la page ait été déplacée. Pendant que vous êtes là, et si vous trouviez plutôt un mentor ?",
+      bookCta: "Trouver un mentor",
+      homeCta: "Retour à l'accueil",
+    },
+    filters: {
+      all: "Tout",
+      preMed: "Pré-méd",
+      sciences: "Sciences",
+      preLaw: "Pré-droit",
+      business: "Affaires",
+      arts: "Arts",
+    },
     language: {
       chooseLanguage: "Choisissez votre langue",
     },
@@ -522,6 +567,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       ctaTitle: "¿Listo para empezar?",
       ctaButton: "Encontrar un mentor",
     },
+    notFound: {
+      badge: "404 — Página no encontrada",
+      title: "No encontramos esa página.",
+      body: "Parece que el enlace está roto o la página se movió. Mientras estás aquí — ¿quieres encontrar un mentor?",
+      bookCta: "Reservar un mentor",
+      homeCta: "Volver al inicio",
+    },
+    filters: {
+      all: "Todos",
+      preMed: "Pre-medicina",
+      sciences: "Ciencias",
+      preLaw: "Pre-derecho",
+      business: "Negocios",
+      arts: "Artes",
+    },
     language: {
       chooseLanguage: "Elige tu idioma",
     },
@@ -651,6 +711,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       todayBody: "امروز RYDN بیش از ۲۵ مشاور دانشجویی را با دانشجویان سراسر کانادا مرتبط می‌کند. کارگاه‌های رایگان برگزار می‌کنیم، با مدارس و کتابخانه‌ها همکاری داریم، و در سه زبان فعالیت می‌کنیم — و این فقط آغاز کار است.",
       quote: "همه‌چیز با یک دانشجو شروع شد که سوالی پرسید و ما پاسخ نداشتیم. هیچ دانشجویی نباید تنها این سوال را بپرسد.",
       quoteAttribution: "سارا روزبهانی و سم سینا، بنیان‌گذاران",
+    },
+    notFound: {
+      badge: "۴۰۴ — صفحه یافت نشد",
+      title: "این صفحه را پیدا نمی‌کنیم.",
+      body: "به نظر می‌رسد لینک خراب است یا صفحه جابه‌جا شده. حالا که اینجایید — مایلید یک منتور پیدا کنید؟",
+      bookCta: "رزرو منتور",
+      homeCta: "بازگشت به خانه",
+    },
+    filters: {
+      all: "همه",
+      preMed: "پیش‌پزشکی",
+      sciences: "علوم",
+      preLaw: "پیش‌حقوق",
+      business: "تجارت",
+      arts: "هنر",
     },
     language: {
       chooseLanguage: "زبان خود را انتخاب کنید",
@@ -804,6 +879,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
         "RYDN פועל באנגלית, צרפתית, פרסית ועברית, עם תמיכה בספרדית. ממוקם בריצ'מונד היל, אונטריו, קנדה.",
       ctaTitle: "מוכנים להתחיל?",
       ctaButton: "מצאו מנטור",
+    },
+    notFound: {
+      badge: "404 — דף לא נמצא",
+      title: "לא הצלחנו למצוא את הדף הזה.",
+      body: "נראה שהקישור שבור או שהדף הועבר. כל עוד אתם כאן — אולי תרצו למצוא מנטור?",
+      bookCta: "הזמינו מנטור",
+      homeCta: "חזרה לדף הבית",
+    },
+    filters: {
+      all: "הכל",
+      preMed: "טרום-רפואה",
+      sciences: "מדעים",
+      preLaw: "טרום-משפטים",
+      business: "עסקים",
+      arts: "אמנויות",
     },
     language: {
       chooseLanguage: "בחרו את השפה שלכם",

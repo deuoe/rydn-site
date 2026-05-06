@@ -14,6 +14,7 @@ import PrivacyPolicy from "./PrivacyPolicy"
 import TermsOfService from "./TermsOfService"
 import ContactUs from "./ContactUs"
 import Stories from "./Stories"
+import NotFound from "./NotFound"
 import ScrollToTop from "./components/ScrollToTop"
 import { LanguageProvider } from "./i18n/LanguageProvider"
 
@@ -37,6 +38,7 @@ ReactDOM.createRoot(root).render(
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/stories" element={<Stories />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

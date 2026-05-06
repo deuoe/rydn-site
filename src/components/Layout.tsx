@@ -1,13 +1,13 @@
-import { Outlet } from "react-router"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import FloatingBookNow from "./FloatingBookNow"
+import PageTransition from "./PageTransition"
 
 export default function Layout() {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <PageTransition />
       <Footer />
       <FloatingBookNow />
     </>
