@@ -129,9 +129,11 @@ export default function Donation() {
           </a>
         </div>
 
-        <p className="mt-6 text-sm text-slate-500 max-w-xl mx-auto">
-          RYDN is an incorporated nonprofit in Canada. For questions about giving, e-transfer
-          details, or recurring donations, email <a href="mailto:info@rydn.ca" className="underline decoration-sky-400 underline-offset-4 hover:text-sky-700">info@rydn.ca</a>.
+        <p className="mt-6 text-sm text-slate-500 max-w-xl mx-auto leading-relaxed">
+          RYDN is a <strong>registered Canadian nonprofit</strong>. Donations support our programs but
+          are <strong>not eligible for tax receipts</strong>, as RYDN is a nonprofit (not a registered charity).
+          For questions about giving, e-transfer details, or recurring donations, email{" "}
+          <a href="mailto:info@rydn.ca" className="underline decoration-sky-400 underline-offset-4 hover:text-sky-700">info@rydn.ca</a>.
         </p>
       </motion.section>
 

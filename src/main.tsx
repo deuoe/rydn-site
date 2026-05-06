@@ -14,6 +14,7 @@ import PrivacyPolicy from "./PrivacyPolicy"
 import TermsOfService from "./TermsOfService"
 import ContactUs from "./ContactUs"
 import Stories from "./Stories"
+import ScrollToTop from "./components/ScrollToTop"
 import { LanguageProvider } from "./i18n/LanguageProvider"
 
 const root = document.getElementById("root")!
@@ -21,6 +22,7 @@ const root = document.getElementById("root")!
 ReactDOM.createRoot(root).render(
   <LanguageProvider>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<App />} />

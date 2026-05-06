@@ -123,9 +123,14 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 border-t border-slate-200 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-          <p className="text-sm text-slate-500">
-            © {new Date().getFullYear()} RooZ Youth Development Network · Réseau de développement de la jeunesse RooZ
-          </p>
+          <div className="text-sm text-slate-500 leading-relaxed">
+            <p>RooZ Youth Development Network · Réseau de développement de la jeunesse RooZ</p>
+            <p className="mt-0.5 text-xs">
+              Registered Canadian nonprofit · © {new Date().getFullYear()}
+              {/* TODO: drop your federal/provincial nonprofit corporation number here, e.g.:
+                  · Nonprofit corp. #1234567 */}
+            </p>
+          </div>
           <div className="text-sm text-slate-500 flex gap-4 flex-wrap">
             <Link to="/privacy-policy" className="hover:text-slate-900 transition">Privacy</Link>
             <span aria-hidden>·</span>
