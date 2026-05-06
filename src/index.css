@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Vazirmatn:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Vazirmatn:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -26,15 +26,19 @@ body {
   background: var(--rydn-bg);
 }
 
-/* When Persian (Farsi) is active, swap to a Persian-friendly font stack
-   that supports Arabic glyphs. Numbers stay tabular for stat counters. */
+/* When Persian (Farsi) is active, swap to a Persian-friendly font stack. */
 html[lang="fa"] body,
 html[lang="fa"] .font-display {
   font-family: "Vazirmatn", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
-html[lang="fa"] .font-display {
-  letter-spacing: 0;
+html[lang="fa"] .font-display { letter-spacing: 0; }
+
+/* When Hebrew is active, swap to Heebo which supports Hebrew script beautifully. */
+html[lang="he"] body,
+html[lang="he"] .font-display {
+  font-family: "Heebo", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
+html[lang="he"] .font-display { letter-spacing: 0; }
 
 h1, h2, h3, h4, h5 {
   letter-spacing: -0.02em;
