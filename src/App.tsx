@@ -408,6 +408,15 @@ function HomePage() {
   const [selectedAdvisor, setSelectedAdvisor] = useState<{ name: string; bookingLink: string } | null>(null)
   const advisorsRef = useRef<HTMLDivElement>(null)
 
+  // Handle deep links to /#advisors from other pages or from the navbar Book Now button
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#advisors") {
+      setTimeout(() => {
+        document.getElementById("advisors")?.scrollIntoView({ behavior: "smooth", block: "start" })
+      }, 100)
+    }
+  }, [])
+
   const advisors = [
     { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2" },
     { name: "Sahar", photo: saharUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Political science", "LSAT preparation", "University applications"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2" },
@@ -474,12 +483,15 @@ function HomePage() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              <Button
+              {/* Primary: Book Now — eye-catching amber gradient with glow pulse */}
+              <button
                 onClick={() => advisorsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                className="bg-white text-slate-900 hover:bg-sky-50 hover:text-sky-700 px-8 py-4 text-base"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 px-9 py-4 text-base font-bold shadow-xl hover:shadow-2xl transition focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-900 animate-glow-pulse"
               >
-                {t("hero.ctaPrimary")} <ArrowRight size={18} className="ml-2" />
-              </Button>
+                <Calendar size={18} />
+                {t("nav.bookNow")}
+                <ArrowRight size={18} />
+              </button>
               <Link
                 to="/about-us"
                 className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-white border border-white/30 hover:bg-white/10 transition"
@@ -619,7 +631,7 @@ function HomePage() {
       {/* ============================================== */}
       {/* ADVISORS                                        */}
       {/* ============================================== */}
-      <section ref={advisorsRef} className="py-20">
+      <section ref={advisorsRef} id="advisors" className="py-20 scroll-mt-20">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

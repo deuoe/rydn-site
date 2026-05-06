@@ -5,10 +5,8 @@ import { Heart, Users, Handshake, Share2, GraduationCap, Mail } from "lucide-rea
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 
-// TODO: Replace this with the real donation URL when ready (CanadaHelps page,
-// Stripe payment link, PayPal, etc.). Until it's set, the Donate button below
-// opens a mailto so people can still reach out to give.
-const DONATION_URL: string | null = null
+// Live Zeffy donation page.
+const DONATION_URL: string | null = "https://www.zeffy.com/en-CA/donation-form/support-us-28"
 
 type LucideIcon = ComponentType<SVGProps<SVGSVGElement> & { size?: number | string }>
 

@@ -100,6 +100,22 @@ h1, h2, h3, h4, h5 {
 }
 .animate-float { animation: float 8s ease-in-out infinite; }
 
+/* Eye-catching glow pulse for the Book Now CTA */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.55), 0 8px 18px -4px rgba(245, 158, 11, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0), 0 8px 18px -4px rgba(245, 158, 11, 0.6); }
+}
+.animate-glow-pulse { animation: glow-pulse 2.4s ease-in-out infinite; }
+
+/* Subtle attention wiggle every few seconds */
+@keyframes attention-wiggle {
+  0%, 92%, 100% { transform: rotate(0deg); }
+  94% { transform: rotate(-3deg); }
+  96% { transform: rotate(3deg); }
+  98% { transform: rotate(-2deg); }
+}
+.animate-attention-wiggle { animation: attention-wiggle 6s ease-in-out infinite; }
+
 /* Subtle grain for hero */
 .grain {
   position: absolute; inset: 0; pointer-events: none; opacity: 0.05;

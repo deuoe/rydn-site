@@ -1,9 +1,18 @@
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useState, type ComponentProps } from "react"
+import { Calendar } from "lucide-react"
 import logoUrl from "../assets/images/logo.jpeg"
 import LanguageSwitcher from "./LanguageSwitcher"
 import { useTranslation } from "../i18n/useTranslation"
+
+/**
+ * Take the user to the advisors section. From the home page, scroll smoothly.
+ * From any other page, navigate to /#advisors and let HomePage scroll on mount.
+ */
+function bookNowHref(onHome: boolean) {
+  return onHome ? "#advisors" : "/#advisors"
+}
 
 export default function Navbar() {
   const navigate = useNavigate()
@@ -13,9 +22,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const toggle = () => setNav(!nav)
 
-  // The hero is only on the home page — only there should the navbar start transparent.
-  const onHero = location.pathname === "/"
-  const transparent = onHero && !scrolled
+  const onHome = location.pathname === "/"
+  const transparent = onHome && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -24,7 +32,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  // Close mobile menu on route change
   useEffect(() => {
     setNav(false)
   }, [location.pathname])
@@ -36,6 +43,15 @@ export default function Navbar() {
     { name: t("nav.becomeAdvisor"), path: "/become-advisor" },
     { name: t("nav.workshops"), path: "/workshops" },
   ]
+
+  const handleBookNow = (e: React.MouseEvent) => {
+    if (onHome) {
+      e.preventDefault()
+      const advisors = document.getElementById("advisors")
+      if (advisors) advisors.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+    // Otherwise allow Link's default to navigate to /#advisors
+  }
 
   return (
     <header
@@ -74,7 +90,7 @@ export default function Navbar() {
                 <button
                   onClick={() => navigate(item.path)}
                   className={
-                    "relative px-4 py-2 rounded-lg text-sm font-semibold transition " +
+                    "relative px-3 py-2 rounded-lg text-sm font-semibold transition " +
                     (active
                       ? transparent
                         ? "text-white"
@@ -102,34 +118,45 @@ export default function Navbar() {
           <li className="ml-1">
             <LanguageSwitcher transparent={transparent} />
           </li>
+
+          {/* Secondary: Support */}
           <li>
             <Link
               to="/donation"
               className={
-                "ml-2 inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-offset-2 " +
+                "ml-1 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition " +
                 (transparent
-                  ? "bg-white text-slate-900 hover:bg-sky-50 focus:ring-white"
-                  : "bg-slate-900 text-white hover:bg-sky-600 focus:ring-sky-500")
+                  ? "text-white/85 hover:text-white hover:bg-white/10"
+                  : "text-slate-700 hover:bg-slate-100 hover:text-slate-900")
               }
             >
               {t("nav.support")}
             </Link>
           </li>
+
+          {/* PRIMARY: Book Now — bright amber gradient + glow pulse */}
+          <li>
+            <Link
+              to={bookNowHref(onHome)}
+              onClick={handleBookNow}
+              className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:via-amber-500 hover:to-orange-600 text-slate-900 px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 animate-glow-pulse"
+            >
+              <Calendar size={16} />
+              {t("nav.bookNow")}
+            </Link>
+          </li>
         </ul>
 
-        {/* Mobile: language + Support button + hamburger */}
+        {/* Mobile: language + Book Now (compact) + hamburger */}
         <div className="flex items-center gap-1 lg:hidden">
           <LanguageSwitcher transparent={transparent} />
           <Link
-            to="/donation"
-            className={
-              "hidden sm:inline-flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold transition " +
-              (transparent
-                ? "bg-white text-slate-900 hover:bg-sky-50"
-                : "bg-slate-900 text-white hover:bg-sky-600")
-            }
+            to={bookNowHref(onHome)}
+            onClick={handleBookNow}
+            className="hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg animate-glow-pulse"
           >
-            {t("nav.supportShort")}
+            <Calendar size={14} />
+            {t("nav.bookNowShort")}
           </Link>
           <MenuToggle
             toggle={toggle}
@@ -181,15 +208,31 @@ export default function Navbar() {
                     </li>
                   )
                 })}
-                <li className="pt-2 mt-2 border-t border-slate-200">
+
+                {/* Mobile primary CTA */}
+                <li className="pt-3 mt-2 border-t border-slate-200">
+                  <Link
+                    to={bookNowHref(onHome)}
+                    onClick={(e) => {
+                      handleBookNow(e)
+                      toggle()
+                    }}
+                    className="flex items-center justify-center gap-2 w-full text-center rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 px-4 py-3.5 text-base font-bold text-slate-900 shadow-md hover:shadow-lg transition"
+                  >
+                    <Calendar size={18} />
+                    {t("nav.bookNow")}
+                  </Link>
+                </li>
+                <li>
                   <Link
                     to="/donation"
                     onClick={toggle}
-                    className="block w-full text-center rounded-lg bg-slate-900 px-4 py-3 text-base font-semibold text-white hover:bg-sky-600 transition"
+                    className="block w-full text-center rounded-lg bg-slate-100 px-4 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200 transition"
                   >
                     {t("nav.support")}
                   </Link>
                 </li>
+
                 <li className="pt-1 border-t border-slate-200">
                   <LanguageSwitcher variant="list" />
                 </li>

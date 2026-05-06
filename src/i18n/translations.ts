@@ -18,6 +18,8 @@ type Dict = {
     workshops: string
     support: string
     supportShort: string
+    bookNow: string
+    bookNowShort: string
   }
   hero: {
     eyebrow: string
@@ -105,6 +107,8 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       workshops: "Workshops",
       support: "Support Us",
       supportShort: "Support",
+      bookNow: "Book a Mentor",
+      bookNowShort: "Book",
     },
     hero: {
       eyebrow: "Free mentorship for every student",
@@ -202,6 +206,8 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       workshops: "Ateliers",
       support: "Nous soutenir",
       supportShort: "Soutenir",
+      bookNow: "Réserver un mentor",
+      bookNowShort: "Réserver",
     },
     hero: {
       eyebrow: "Mentorat gratuit pour chaque étudiant",
@@ -300,6 +306,8 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       workshops: "Talleres",
       support: "Apóyanos",
       supportShort: "Apoyar",
+      bookNow: "Reservar un mentor",
+      bookNowShort: "Reservar",
     },
     hero: {
       eyebrow: "Mentoría gratuita para cada estudiante",

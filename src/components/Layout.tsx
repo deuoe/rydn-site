@@ -1,6 +1,7 @@
 import { Outlet } from "react-router"
 import Navbar from "./Navbar"
 import Footer from "./Footer"
+import FloatingBookNow from "./FloatingBookNow"
 
 export default function Layout() {
   return (
@@ -8,6 +9,7 @@ export default function Layout() {
       <Navbar />
       <Outlet />
       <Footer />
+      <FloatingBookNow />
     </>
   )
 }
