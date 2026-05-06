@@ -13,6 +13,7 @@ import Verification from "./Verification"
 import PrivacyPolicy from "./PrivacyPolicy"
 import TermsOfService from "./TermsOfService"
 import ContactUs from "./ContactUs"
+import Stories from "./Stories"
 import { LanguageProvider } from "./i18n/LanguageProvider"
 
 const root = document.getElementById("root")!
@@ -33,6 +34,7 @@ ReactDOM.createRoot(root).render(
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/stories" element={<Stories />} />
         </Route>
       </Routes>
     </BrowserRouter>

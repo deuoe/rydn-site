@@ -5,6 +5,7 @@ import { Users, BookOpen, ArrowRight, Sparkles, ChevronDown, MessageSquare, Cale
 import Heading from "./components/Heading"
 import Container from "./components/Container"
 import Button from "./components/Button"
+import InstagramFeed from "./components/InstagramFeed"
 import { useTranslation } from "./i18n/useTranslation"
 import leoUrl from "./assets/images/Leo.png"
 import saharUrl from "./assets/images/Sahar.jpeg"
@@ -694,6 +695,64 @@ function HomePage() {
           </div>
         </Container>
       </section>
+
+      {/* ============================================== */}
+      {/* STORIES PREVIEW                                 */}
+      {/* ============================================== */}
+      <section className="py-20 bg-slate-50">
+        <Container>
+          <Heading eyebrow={t("stories.eyebrow")} text={t("stories.title")} />
+          <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+            {t("stories.lede")}
+          </p>
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { initials: "MK", student: "Maya K.", outcome: "Accepted to UofT Life Sciences", pull: "I thought I had to figure it all out alone.", gradient: "from-rose-400 via-pink-500 to-fuchsia-600", topic: "Pre-med" },
+              { initials: "DR", student: "Daniel R.", outcome: "Accepted to law combined program", pull: "Sahar walked me through every line of my personal statement.", gradient: "from-amber-400 via-orange-500 to-red-500", topic: "Pre-law" },
+              { initials: "AS", student: "Aria S.", outcome: "Switched intended major after one workshop", pull: "I realized I'd been chasing the wrong thing.", gradient: "from-emerald-400 via-teal-500 to-cyan-600", topic: "Career" },
+            ].map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                viewport={{ once: true }}
+                className="card-ring rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition overflow-hidden flex flex-col"
+              >
+                <div className={`relative h-40 bg-gradient-to-br ${s.gradient} p-6 text-white flex flex-col justify-between`}>
+                  <span className="self-start inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/15 backdrop-blur">
+                    {s.topic}
+                  </span>
+                  <div>
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur font-bold text-sm mb-2">{s.initials}</div>
+                    <p className="font-semibold">{s.student}</p>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-1">
+                  <Quote size={18} className="text-slate-200 mb-2" aria-hidden />
+                  <p className="font-display text-lg text-slate-900 leading-snug">"{s.pull}"</p>
+                  <p className="mt-4 text-xs font-bold uppercase tracking-wider text-emerald-600">{s.outcome}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              to="/stories"
+              className="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-8 py-3.5 font-semibold hover:bg-sky-600 transition"
+            >
+              Read all stories <ArrowRight size={16} />
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* ============================================== */}
+      {/* INSTAGRAM FEED                                  */}
+      {/* ============================================== */}
+      <InstagramFeed />
 
       {/* ============================================== */}
       {/* FAQ                                             */}

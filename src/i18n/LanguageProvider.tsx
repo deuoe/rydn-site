@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react"
-import { TRANSLATIONS, type Lang } from "./translations"
+import { TRANSLATIONS, RTL_LANGS, type Lang } from "./translations"
 import { LanguageContext } from "./languageContext"
 
 const STORAGE_KEY = "rydn-lang"
@@ -20,10 +20,12 @@ function detectInitialLang(): Lang {
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(detectInitialLang)
 
-  // Keep <html lang="..."> in sync so search engines and screen readers know.
+  // Keep <html lang="..."> and dir="rtl|ltr" in sync so search engines, screen
+  // readers, and Tailwind RTL variants behave correctly.
   useEffect(() => {
     if (typeof document !== "undefined") {
       document.documentElement.lang = lang
+      document.documentElement.dir = RTL_LANGS.includes(lang) ? "rtl" : "ltr"
     }
   }, [lang])
 

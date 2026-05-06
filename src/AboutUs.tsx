@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { motion } from "motion/react"
-import { Heart, Sparkles, Users, Lightbulb, ArrowRight, Globe2, MapPin } from "lucide-react"
+import { Heart, Sparkles, Users, Lightbulb, ArrowRight, Globe2, MapPin, Zap, Rocket, TrendingUp } from "lucide-react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import { useTranslation } from "./i18n/useTranslation"
@@ -82,6 +82,62 @@ export default function AboutUs() {
               </p>
             </div>
           </motion.div>
+        </Container>
+      </section>
+
+      {/* ===================== ORIGIN STORY ===================== */}
+      <section className="py-20 bg-rydn-mesh">
+        <Container>
+          <Heading eyebrow={t("origin.eyebrow")} text={t("origin.title")} />
+
+          {/* Three-step timeline: spark → founded → today */}
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+            {/* Connecting line behind cards on desktop */}
+            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-amber-400 via-sky-500 to-indigo-500 -z-0" />
+
+            {[
+              { Icon: Zap, label: "01", title: t("origin.sparkTitle"), body: t("origin.sparkBody"), color: "from-amber-400 to-orange-500" },
+              { Icon: Rocket, label: "02", title: t("origin.foundedTitle"), body: t("origin.foundedBody"), color: "from-sky-400 to-indigo-500" },
+              { Icon: TrendingUp, label: "03", title: t("origin.todayTitle"), body: t("origin.todayBody"), color: "from-emerald-400 to-teal-500" },
+            ].map((stage, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                viewport={{ once: true }}
+                className="relative z-10 rounded-3xl bg-white border border-slate-200 shadow-sm p-7 hover:shadow-xl transition"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${stage.color} text-white shadow-md`}>
+                    <stage.Icon size={24} />
+                  </div>
+                  <span className="font-display text-3xl font-bold text-slate-200">{stage.label}</span>
+                </div>
+                <h3 className="text-xl font-bold text-slate-900">{stage.title}</h3>
+                <p className="mt-3 text-slate-600 leading-relaxed text-sm">{stage.body}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Founders quote */}
+          <motion.blockquote
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-16 relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-sky-900 to-indigo-900 p-10 md:p-16 text-center text-white"
+          >
+            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-amber-400/20 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
+            <Sparkles size={36} className="mx-auto text-amber-300 relative" />
+            <p className="font-display mt-6 text-2xl md:text-4xl leading-snug max-w-3xl mx-auto relative">
+              "{t("origin.quote")}"
+            </p>
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-amber-200 relative">
+              — {t("origin.quoteAttribution")}
+            </p>
+          </motion.blockquote>
         </Container>
       </section>
 
