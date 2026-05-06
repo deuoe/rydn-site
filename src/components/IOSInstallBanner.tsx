@@ -69,7 +69,8 @@ export default function IOSInstallBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 200, opacity: 0 }}
           transition={{ type: "spring", stiffness: 280, damping: 28 }}
-          className="fixed inset-x-3 bottom-3 z-50 lg:hidden"
+          className="fixed inset-x-3 z-50 lg:hidden"
+          style={{ bottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
           // Sits above the FloatingBookNow button (z-30) and below modals (z-50)
         >
           <div className="relative overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-200">

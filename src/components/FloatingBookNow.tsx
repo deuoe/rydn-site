@@ -39,7 +39,8 @@ export default function FloatingBookNow() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed bottom-4 left-4 right-4 z-30 lg:hidden"
+          className="fixed left-4 right-4 z-30 lg:hidden"
+          style={{ bottom: "max(1rem, env(safe-area-inset-bottom))" }}
         >
           <Link
             to={onHome ? "#advisors" : "/#advisors"}

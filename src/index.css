@@ -19,10 +19,11 @@ html {
 }
 
 /* Reserve space for the mobile floating Book Now button so it never visually
-   covers the bottom of the page content. Desktop doesn't have the floating CTA. */
+   covers the bottom of the page content. Also account for iPhone home indicator
+   safe area when running as a PWA. Desktop doesn't have the floating CTA. */
 @media (max-width: 1023px) {
   body {
-    padding-bottom: 5.5rem;
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
   }
 }
 

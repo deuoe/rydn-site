@@ -57,7 +57,7 @@ export default function Navbar() {
   return (
     <header
       className={
-        "sticky top-0 z-40 w-full transition-all duration-300 " +
+        "sticky top-0 z-40 w-full transition-all duration-300 pt-[env(safe-area-inset-top)] " +
         (transparent
           ? "bg-transparent border-b border-transparent"
           : "bg-white/80 backdrop-blur-md border-b border-slate-200/70 shadow-sm")
