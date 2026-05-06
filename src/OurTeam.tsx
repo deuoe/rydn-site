@@ -29,13 +29,13 @@ const FOUNDERS: Founder[] = [
     name: "Sara Roozbahani",
     role: "Founder & Executive Director",
     photo: saraUrl,
-    bio: "Sara leads RYDN's vision and direction, championing accessible mentorship for every student.",
+    bio: "Sara leads RYDN's vision and direction, championing accessible advising for every student.",
   },
   {
     name: "Sam Sina Ansari Movahed",
     role: "Founder & Director of Operations & Technology",
     photo: sinaUrl,
-    bio: "Sam runs operations and builds the technology that powers RYDN's mentorship platform.",
+    bio: "Sam runs operations and builds the technology that powers RYDN's advising platform.",
   },
 ]
 

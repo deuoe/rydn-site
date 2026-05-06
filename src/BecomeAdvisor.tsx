@@ -121,10 +121,10 @@ export default function BecomeAdvisor() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs sm:text-sm font-semibold text-white border border-white/20">
               <Sparkles size={14} className="text-amber-300" />
-              Volunteer mentorship
+              Volunteer advising
             </span>
             <h1 className="font-display mt-6 text-5xl sm:text-6xl md:text-7xl font-semibold text-white leading-[1.05]">
-              Be the mentor
+              Be the advisor
               <br />
               <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-amber-200 bg-clip-text text-transparent">
                 you needed.

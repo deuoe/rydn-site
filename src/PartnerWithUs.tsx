@@ -25,7 +25,7 @@ const PARTNERSHIP_TYPES = [
   {
     Icon: Users,
     title: "Student Organizations",
-    body: "Co-host events with your club or society — speaker panels, application workshops, mentorship intros.",
+    body: "Co-host events with your club or society — speaker panels, application workshops, advising intros.",
     color: "from-violet-400 to-purple-500",
   },
 ]

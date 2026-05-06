@@ -143,6 +143,11 @@ type Dict = {
     preLaw: string
     business: string
     arts: string
+    language: string
+    psychNeuro: string
+    pharmacy: string
+    sports: string
+    it: string
   }
   language: {
     chooseLanguage: string
@@ -160,16 +165,16 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       stories: "Stories",
       support: "Support Us",
       supportShort: "Support",
-      bookNow: "Book a Mentor",
+      bookNow: "Book an Advisor",
       bookNowShort: "Book",
     },
     hero: {
-      eyebrow: "Free mentorship for every student",
-      titleLine1: "Mentorship that",
+      eyebrow: "Free advising for every student",
+      titleLine1: "Advising that",
       titleLine2: "changes paths.",
       subhead:
-        "RYDN connects students with experienced mentors who help them explore their passions, navigate university, and unlock their potential — at no cost.",
-      ctaPrimary: "Find a Mentor",
+        "RYDN connects students with experienced advisors who help them explore their passions, navigate university, and unlock their potential — at no cost.",
+      ctaPrimary: "Find an Advisor",
       ctaSecondary: "Learn More",
       trustNonprofit: "Canadian nonprofit",
       trustFree: "100% free for students",
@@ -179,7 +184,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       eyebrow: "Our mission",
       line1: "Talent is everywhere.",
       line2: "Guidance isn't.",
-      line3: "RYDN exists to close that gap — through mentorship, workshops, and academic support.",
+      line3: "RYDN exists to close that gap — through advising, workshops, and academic support.",
     },
     testimonials: {
       eyebrow: "What students say",
@@ -189,8 +194,8 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
     programs: {
       eyebrow: "What we offer",
       title: "Everything a student needs, in one place.",
-      subtitle: "From one-on-one mentorship to bilingual workshops, we meet students where they are.",
-      p1Title: "1-on-1 Mentorship",
+      subtitle: "From one-on-one advising to bilingual workshops, we meet students where they are.",
+      p1Title: "1-on-1 Advising",
       p1Body: "Free sessions with advisors who've walked the path you're considering — academics, careers, life.",
       p2Title: "Workshops & Events",
       p2Body: "Interactive sessions on study skills, university prep, and career exploration. Online and in-person.",
@@ -208,7 +213,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
     instagram: {
       eyebrow: "Follow along",
       title: "Latest from @rydn.ca",
-      subtitle: "Behind-the-scenes from our workshops, mentor highlights, and student wins.",
+      subtitle: "Behind-the-scenes from our workshops, advisor highlights, and student wins.",
       follow: "Follow on Instagram",
     },
     faq: {
@@ -216,15 +221,15 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       title: "Everything you wanted to ask",
       subtitle: "If your question isn't answered here, just send us an email.",
       q1: "Is RYDN really free?",
-      a1: "Yes — every session, workshop, and resource is 100% free. RYDN is an incorporated Canadian nonprofit, supported by donors and volunteer mentors.",
+      a1: "Yes — every session, workshop, and resource is 100% free. RYDN is an incorporated Canadian nonprofit, supported by donors and volunteer advisors.",
       q2: "Who can use RYDN?",
       a2: "Any student in Canada can book sessions, from high school through university. We also welcome international students considering Canadian universities.",
-      q3: "How do I book a session with a mentor?",
-      a3: "Browse our advisors on the home page, click 'Book' on the mentor whose background matches your goals, and pick a time. You'll receive a calendar invite by email.",
-      q4: "What can mentors actually help with?",
+      q3: "How do I book a session with an advisor?",
+      a3: "Browse our advisors on the home page, click 'Book' on the advisor whose background matches your goals, and pick a time. You'll receive a calendar invite by email.",
+      q4: "What can advisors actually help with?",
       a4: "University applications, MCAT/LSAT/DAT prep, choosing programs, study strategies, career questions, and personal direction. If they can't help, they'll point you to someone who can.",
       q5: "I'd like to become an advisor. How does that work?",
-      a5: "Apply through our Become an Advisor page. Most mentors give just an hour or two a month and choose the topics they advise on.",
+      a5: "Apply through our Become an Advisor page. Most advisors give just an hour or two a month and choose the topics they advise on.",
       q6: "Can our school or organization partner with RYDN?",
       a6: "Yes. We run workshops in schools, libraries, and community organizations across Canada. Reach out via the Partner With Us page and we'll set up a call.",
       cta: "Email us your question",
@@ -239,7 +244,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       journeysSubtitle: "Six students. Six different paths. One thing in common — they didn't walk it alone.",
       readMore: "Read full story",
       ctaTitle: "Start your own story.",
-      ctaButton: "Book a mentor",
+      ctaButton: "Book an advisor",
     },
     origin: {
       eyebrow: "How RYDN started",
@@ -259,12 +264,12 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       lede: "RYDN — RooZ Youth Development Network — is a Canadian nonprofit closing the guidance gap that holds talented young people back.",
       storyTitle: "Our story",
       storyP1: "Talent is everywhere; guidance isn't. We saw smart, driven students struggling to choose the right path — not because they lacked ability, but because they didn't have someone who'd recently walked it themselves.",
-      storyP2: "RYDN was founded to fix that. We connect students directly to mentors who are a step or two ahead — relatable, accessible, free.",
+      storyP2: "RYDN was founded to fix that. We connect students directly to advisors who are a step or two ahead — relatable, accessible, free.",
       storyP3: "Today we serve students across Canada, run workshops with schools and libraries, and we're growing every month.",
       valuesTitle: "What we stand for",
       v1Title: "Always free",
-      v1Body: "Mentorship and guidance shouldn't depend on who you know. Every session is free.",
-      v2Title: "Relatable mentors",
+      v1Body: "Advising and guidance shouldn't depend on who you know. Every session is free.",
+      v2Title: "Relatable advisors",
       v2Body: "Our advisors are a step or two ahead of you on the same path — not decades removed.",
       v3Title: "Practical first",
       v3Body: "Real strategies, real timelines, real next steps — not vague advice.",
@@ -273,13 +278,13 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       bilingualTitle: "Multilingual, Canadian-rooted.",
       bilingualBody: "RYDN / Réseau de développement de la jeunesse RooZ operates in English and French, with Spanish support and more languages coming. Based in Richmond Hill, Ontario.",
       ctaTitle: "Ready to start?",
-      ctaButton: "Find a mentor",
+      ctaButton: "Find an advisor",
     },
     notFound: {
       badge: "404 — Page not found",
       title: "We can't find that page.",
-      body: "Looks like the link is broken or the page has moved. While you're here — want to find a mentor instead?",
-      bookCta: "Book a mentor",
+      body: "Looks like the link is broken or the page has moved. While you're here — want to find an advisor instead?",
+      bookCta: "Book an advisor",
       homeCta: "Back to home",
     },
     filters: {
@@ -289,6 +294,11 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       preLaw: "Pre-law",
       business: "Business",
       arts: "Arts",
+      language: "Language",
+      psychNeuro: "Psych & Neuro",
+      pharmacy: "Pharmacy",
+      sports: "Sports",
+      it: "IT",
     },
     language: {
       chooseLanguage: "Choose your language",
@@ -435,6 +445,11 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       preLaw: "Pré-droit",
       business: "Affaires",
       arts: "Arts",
+      language: "Langues",
+      psychNeuro: "Psycho & Neuro",
+      pharmacy: "Pharmacie",
+      sports: "Sport",
+      it: "Informatique",
     },
     language: {
       chooseLanguage: "Choisissez votre langue",
@@ -581,6 +596,11 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       preLaw: "Pre-derecho",
       business: "Negocios",
       arts: "Artes",
+      language: "Idiomas",
+      psychNeuro: "Psico & Neuro",
+      pharmacy: "Farmacia",
+      sports: "Deportes",
+      it: "TI",
     },
     language: {
       chooseLanguage: "Elige tu idioma",
@@ -726,6 +746,11 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       preLaw: "پیش‌حقوق",
       business: "تجارت",
       arts: "هنر",
+      language: "زبان",
+      psychNeuro: "روان‌شناسی و اعصاب",
+      pharmacy: "داروسازی",
+      sports: "ورزش",
+      it: "فناوری اطلاعات",
     },
     language: {
       chooseLanguage: "زبان خود را انتخاب کنید",
@@ -894,6 +919,11 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       preLaw: "טרום-משפטים",
       business: "עסקים",
       arts: "אמנויות",
+      language: "שפות",
+      psychNeuro: "פסיכולוגיה ומוח",
+      pharmacy: "רוקחות",
+      sports: "ספורט",
+      it: "מחשבים",
     },
     language: {
       chooseLanguage: "בחרו את השפה שלכם",

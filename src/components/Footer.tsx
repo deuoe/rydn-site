@@ -15,7 +15,7 @@ export default function Footer() {
               <img src={logoUrl} alt="RYDN logo" className="h-12 w-auto" />
             </Link>
             <p className="mt-4 max-w-md text-slate-600 leading-relaxed">
-              A Canadian nonprofit connecting students with mentors who can guide them through
+              A Canadian nonprofit connecting students with advisors who can guide them through
               academics, career paths, and life decisions — for free.
             </p>
 
@@ -58,7 +58,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900">Programs</h2>
             <ul className="mt-4 space-y-3 text-slate-600">
-              <li><Link to="/" className="hover:text-sky-700 transition">Mentorship</Link></li>
+              <li><Link to="/" className="hover:text-sky-700 transition">Advising</Link></li>
               <li><Link to="/workshops" className="hover:text-sky-700 transition">Workshops</Link></li>
               <li><Link to="/become-advisor" className="hover:text-sky-700 transition">Become an Advisor</Link></li>
               <li><Link to="/partner-with-us" className="hover:text-sky-700 transition">Partnerships</Link></li>

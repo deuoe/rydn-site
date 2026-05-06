@@ -78,7 +78,7 @@ export default function AboutUs() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 text-white">
               <p className="font-display text-2xl md:text-4xl max-w-2xl leading-tight">
-                "Mentorship should be approachable, relatable, and empowering."
+                "Advising should be approachable, relatable, and empowering."
               </p>
             </div>
           </motion.div>

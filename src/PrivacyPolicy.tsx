@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
 
       <Paragraph>
         This information is used only to communicate with you, provide our services,
-        respond to inquiries, organize workshops or mentorship activities, and improve
+        respond to inquiries, organize workshops or advising activities, and improve
         our programs.
       </Paragraph>
 

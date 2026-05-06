@@ -82,7 +82,7 @@ const STORIES: Story[] = [
     role: "Grade 12 student",
     outcome: "Decided on commerce + co-op pathway",
     pull: "I came in confused about everything.",
-    body: "Owen had no idea what to study. After a workshop and two mentor sessions, he had narrowed it to commerce, picked Western for the co-op, and started a side project to put on his resume.",
+    body: "Owen had no idea what to study. After a workshop and two advising sessions, he had narrowed it to commerce, picked Western for the co-op, and started a side project to put on his resume.",
     Icon: Briefcase,
     gradient: "from-slate-500 via-slate-700 to-slate-900",
     topic: "Business",

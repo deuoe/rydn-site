@@ -1,6 +1,15 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "RooZ Youth Development Network",
+  "short_name": "RYDN",
+  "description": "Free 1-on-1 student advising, workshops, and academic guidance from a Canadian nonprofit.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0ea5e9",
+  "background_color": "#0f172a",
+  "lang": "en",
+  "categories": ["education", "lifestyle", "social"],
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -17,15 +26,37 @@
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "shortcuts": [
+    {
+      "name": "Book an Advisor",
+      "short_name": "Book",
+      "description": "Browse advisors and book a free session",
+      "url": "/#advisors",
+      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Workshops",
+      "short_name": "Workshops",
+      "description": "View upcoming workshops",
+      "url": "/workshops",
+      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Support RYDN",
+      "short_name": "Support",
+      "description": "Donate or partner with us",
+      "url": "/donation",
+      "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+    }
+  ]
 }

@@ -18,6 +18,14 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+/* Reserve space for the mobile floating Book Now button so it never visually
+   covers the bottom of the page content. Desktop doesn't have the floating CTA. */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 5.5rem;
+  }
+}
+
 body {
   font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

@@ -31,7 +31,7 @@ type Tile = { caption: string; gradient: string; emoji: string }
 
 const TILES: Tile[] = [
   { caption: "Workshop highlight", gradient: "from-rose-400 via-pink-500 to-fuchsia-600", emoji: "🎓" },
-  { caption: "Mentor spotlight", gradient: "from-sky-400 via-indigo-500 to-violet-600", emoji: "✨" },
+  { caption: "Advisor spotlight", gradient: "from-sky-400 via-indigo-500 to-violet-600", emoji: "✨" },
   { caption: "Behind the scenes", gradient: "from-amber-400 via-orange-500 to-red-500", emoji: "📸" },
   { caption: "Student win", gradient: "from-emerald-400 via-teal-500 to-cyan-600", emoji: "🚀" },
   { caption: "Community moment", gradient: "from-violet-400 via-purple-500 to-pink-500", emoji: "💛" },

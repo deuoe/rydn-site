@@ -40,7 +40,7 @@ export default function Donation() {
     supportPath(
       Handshake,
       "Partner with Us",
-      "Schools, libraries, and community organizations: we run workshops and mentorship sessions in partnership with you.",
+      "Schools, libraries, and community organizations: we run workshops and advising sessions in partnership with you.",
       "Start a partnership",
       "/partner-with-us"
     ),
@@ -80,7 +80,7 @@ export default function Donation() {
       >
         <Heading text="Support Our Mission" />
         <p className="mt-6 text-slate-700 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
-          RYDN keeps mentorship <strong>free</strong> for every student we serve. We can do that
+          RYDN keeps advising <strong>free</strong> for every student we serve. We can do that
           because of people like you. Whether you give your time, your network, or a one-time
           donation — every contribution helps a student find direction.
         </p>
@@ -99,7 +99,7 @@ export default function Donation() {
         </div>
         <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Make a Donation</h2>
         <p className="mt-3 text-slate-600 max-w-xl mx-auto leading-relaxed">
-          Your donation expands access to free mentorship, funds workshops, and helps us reach
+          Your donation expands access to free advising, funds workshops, and helps us reach
           students who otherwise wouldn't have guidance. Every dollar goes directly into our programs.
         </p>
 

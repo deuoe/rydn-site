@@ -155,7 +155,7 @@ function ProgramsBento() {
         </p>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-4 md:auto-rows-[14rem] gap-4">
-          {/* Card 1 — large feature: Mentorship */}
+          {/* Card 1 — large feature: Advising */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -418,20 +418,30 @@ function HomePage() {
     }
   }, [])
 
-  type Category = "preMed" | "sciences" | "preLaw" | "business" | "arts"
+  type Category =
+    | "preMed"
+    | "sciences"
+    | "preLaw"
+    | "business"
+    | "arts"
+    | "language"
+    | "psychNeuro"
+    | "pharmacy"
+    | "sports"
+    | "it"
 
-  const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; category: Category }[] = [
-    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", category: "business" },
-    { name: "Sahar", photo: saharUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Political science", "LSAT preparation", "University applications"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2", category: "preLaw" },
-    { name: "Sara Roozbahani", photo: saraUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "MCAT", "Research", "University applications", "Psychology", "Study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2", category: "preMed" },
-    { name: "Sam Sina", photo: sinaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/9b_p31eCcEyWYRkSozwUhw2?ismsaljsauthenabled", category: "sciences" },
-    { name: "Sadaf", photo: sadafUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2", category: "sciences" },
-    { name: "Helia", photo: heliaUrl, description: "Bachelor of Science student", advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2", category: "preMed" },
-    { name: "Iliya", photo: iliyaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2", category: "preMed" },
-    { name: "Sara", photo: saracUrl, description: "Bachelor of Arts student", advisingTopics: ["History", "English", "Nutrition", "Fitness training"], category: "arts" },
-    { name: "Jennifer", photo: jenniferUrl, description: "Nursing student", advisingTopics: ["Nursing", "Studying strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2", category: "sciences" },
-    { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2", category: "preMed" },
-    { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2", category: "sciences" },
+  const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; categories: Category[] }[] = [
+    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", categories: ["business", "it", "sports"] },
+    { name: "Sahar", photo: saharUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Political science", "LSAT preparation", "University applications"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2", categories: ["preLaw", "psychNeuro"] },
+    { name: "Sara Roozbahani", photo: saraUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "MCAT", "Research", "University applications", "Psychology", "Study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2", categories: ["preMed", "psychNeuro"] },
+    { name: "Sam Sina", photo: sinaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/9b_p31eCcEyWYRkSozwUhw2?ismsaljsauthenabled", categories: ["sciences", "pharmacy"] },
+    { name: "Sadaf", photo: sadafUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2", categories: ["sciences"] },
+    { name: "Helia", photo: heliaUrl, description: "Bachelor of Science student", advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2", categories: ["preMed", "psychNeuro"] },
+    { name: "Iliya", photo: iliyaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2", categories: ["preMed", "sports"] },
+    { name: "Sara", photo: saracUrl, description: "Bachelor of Arts student", advisingTopics: ["History", "English", "Nutrition", "Fitness training"], categories: ["arts", "sports"] },
+    { name: "Jennifer", photo: jenniferUrl, description: "Nursing student", advisingTopics: ["Nursing", "Studying strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2", categories: ["sciences"] },
+    { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2", categories: ["preMed"] },
+    { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2", categories: ["sciences", "language", "psychNeuro"] },
   ]
 
   const [activeFilter, setActiveFilter] = useState<Category | "all">("all")
@@ -439,22 +449,27 @@ function HomePage() {
     { key: "all", labelKey: "filters.all" },
     { key: "preMed", labelKey: "filters.preMed" },
     { key: "sciences", labelKey: "filters.sciences" },
+    { key: "psychNeuro", labelKey: "filters.psychNeuro" },
+    { key: "pharmacy", labelKey: "filters.pharmacy" },
     { key: "preLaw", labelKey: "filters.preLaw" },
     { key: "business", labelKey: "filters.business" },
+    { key: "it", labelKey: "filters.it" },
+    { key: "language", labelKey: "filters.language" },
     { key: "arts", labelKey: "filters.arts" },
+    { key: "sports", labelKey: "filters.sports" },
   ]
   const counts = filterCategories.reduce<Record<string, number>>((acc, c) => {
-    acc[c.key] = c.key === "all" ? advisors.length : advisors.filter(a => a.category === c.key).length
+    acc[c.key] = c.key === "all" ? advisors.length : advisors.filter(a => a.categories.includes(c.key as Category)).length
     return acc
   }, {})
 
   const getTagHeight = (count: number) => {
-    if (count > 5) return "min-h-[120px]"
-    if (count > 3) return "min-h-[90px]"
-    return "min-h-[72px]"
+    if (count > 5) return "min-h-[96px]"
+    if (count > 3) return "min-h-[60px]"
+    return "min-h-[36px]"
   }
 
-  const filteredAdvisors = activeFilter === "all" ? advisors : advisors.filter(a => a.category === activeFilter)
+  const filteredAdvisors = activeFilter === "all" ? advisors : advisors.filter(a => a.categories.includes(activeFilter))
   const shuffledAdvisors = shuffleArray(filteredAdvisors)
 
   return (
@@ -570,7 +585,7 @@ function HomePage() {
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             {[
-              { Icon: Users, step: "01", title: "Browse advisors", body: "Find a mentor whose background and interests match yours." },
+              { Icon: Users, step: "01", title: "Browse advisors", body: "Find an advisor whose background and interests match yours." },
               { Icon: Calendar, step: "02", title: "Book a free session", body: "Pick a time that works for you. Sessions are free and online." },
               { Icon: Rocket, step: "03", title: "Move forward", body: "Walk away with a plan, clarity, and a person in your corner." },
             ].map(({ Icon, step, title, body }, i) => (
@@ -607,7 +622,7 @@ function HomePage() {
             <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">Why RYDN</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold">A growing community</h2>
             <p className="mt-4 text-slate-300 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
-              Built by students, for students — relatable mentors who've recently walked the paths you're considering.
+              Built by students, for students — relatable advisors who've recently walked the paths you're considering.
             </p>
           </div>
 
@@ -657,7 +672,7 @@ function HomePage() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Heading eyebrow="Our advisors" text="Meet your future mentor" />
+            <Heading eyebrow="Our advisors" text="Meet your future advisor" />
             <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
               Each advisor brings their own background. Find one whose journey lines up with yours.
             </p>
@@ -724,7 +739,7 @@ function HomePage() {
                 <h3 className="text-lg font-bold text-center text-slate-900">{advisor.name}</h3>
                 <p className="mt-1 mb-4 text-slate-500 text-sm text-center leading-relaxed">{advisor.description}</p>
 
-                <div className={`flex flex-wrap gap-2 mb-5 justify-center ${getTagHeight(advisor.advisingTopics.length)}`}>
+                <div className={`flex flex-wrap items-center gap-2 mb-5 justify-center ${getTagHeight(advisor.advisingTopics.length)}`}>
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
                     <span
                       key={idx}
@@ -836,7 +851,7 @@ function HomePage() {
 
             <Sparkles size={40} className="mx-auto text-amber-300" />
             <h2 className="font-display mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight max-w-3xl mx-auto">
-              Become part of the next generation of mentors
+              Become part of the next generation of advisors
             </h2>
             <p className="mt-5 max-w-xl mx-auto text-white/85 text-base md:text-lg leading-relaxed">
               Whether you're a student looking for guidance, an advisor ready to give back, or an organization that wants to partner — there's a place for you here.
