@@ -4,11 +4,11 @@ import { Sparkles, ArrowRight, Crown, Heart } from "lucide-react"
 import { FaLinkedinIn } from "react-icons/fa"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
-import saraUrl from "./assets/images/Sara.png"
+import saraUrl from "./assets/images/Sara.jpg"
 import sinaUrl from "./assets/images/Sina.jpeg"
-import iliaUrl from "./assets/images/Leo.png"
+import iliaUrl from "./assets/images/Leo.jpg"
 import saharUrl from "./assets/images/Sahar.jpeg"
-import mohsenUrl from "./assets/images/Mohsen.png"
+import mohsenUrl from "./assets/images/Mohsen.jpg"
 
 type Founder = {
   name: string
