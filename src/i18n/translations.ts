@@ -155,6 +155,21 @@ type Dict = {
     step2: string
     dismiss: string
   }
+  matchmaker: {
+    cta: string
+    ctaTagline: string
+    title: string
+    subtitle: string
+    placeholder: string
+    send: string
+    thinking: string
+    welcome: string
+    reset: string
+    error: string
+    bookButton: string
+    close: string
+    poweredBy: string
+  }
   language: {
     chooseLanguage: string
   }
@@ -311,6 +326,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       step1: "Tap the Share icon below",
       step2: "Then choose \"Add to Home Screen\"",
       dismiss: "Got it",
+    },
+    matchmaker: {
+      cta: "Find Your Match",
+      ctaTagline: "Not sure who to pick? Let our AI helper match you to the right RYDN advisor in 30 seconds.",
+      title: "Find Your Advisor",
+      subtitle: "Tell me what you're exploring and I'll match you to a RYDN advisor.",
+      placeholder: "Type your answer…",
+      send: "Send",
+      thinking: "Thinking…",
+      welcome: "Hey 👋 I'm here to help you find the right RYDN advisor. What are you exploring right now — a subject, an exam, a career path?",
+      reset: "Start over",
+      error: "Something went wrong. Try again in a moment.",
+      bookButton: "Book with",
+      close: "Close",
+      poweredBy: "Powered by Claude AI",
     },
     language: {
       chooseLanguage: "Choose your language",
@@ -469,6 +499,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       step2: "Puis choisissez « Sur l'écran d'accueil »",
       dismiss: "Compris",
     },
+    matchmaker: {
+      cta: "Trouvez votre conseiller",
+      ctaTagline: "Pas sûr de qui choisir ? Notre assistant IA vous orientera vers le bon conseiller en 30 secondes.",
+      title: "Trouvez votre conseiller",
+      subtitle: "Dites-moi ce qui vous intéresse, je vous propose un conseiller RYDN.",
+      placeholder: "Tapez votre réponse…",
+      send: "Envoyer",
+      thinking: "Réflexion…",
+      welcome: "Salut 👋 Je suis là pour t'aider à trouver le bon conseiller RYDN. Qu'est-ce qui t'intéresse en ce moment — une matière, un examen, un parcours professionnel ?",
+      reset: "Recommencer",
+      error: "Quelque chose s'est mal passé. Réessayez dans un instant.",
+      bookButton: "Réserver avec",
+      close: "Fermer",
+      poweredBy: "Propulsé par Claude AI",
+    },
     language: {
       chooseLanguage: "Choisissez votre langue",
     },
@@ -626,6 +671,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       step2: "Luego elige « Añadir a inicio »",
       dismiss: "Entendido",
     },
+    matchmaker: {
+      cta: "Encuentra tu asesor",
+      ctaTagline: "¿No sabes a quién elegir? Nuestro asistente IA te conecta con el asesor adecuado en 30 segundos.",
+      title: "Encuentra tu asesor",
+      subtitle: "Cuéntame qué estás explorando y te conecto con un asesor de RYDN.",
+      placeholder: "Escribe tu respuesta…",
+      send: "Enviar",
+      thinking: "Pensando…",
+      welcome: "Hola 👋 Estoy aquí para ayudarte a encontrar al asesor adecuado en RYDN. ¿Qué estás explorando ahora — una materia, un examen, una carrera?",
+      reset: "Empezar de nuevo",
+      error: "Algo salió mal. Inténtalo de nuevo en un momento.",
+      bookButton: "Reservar con",
+      close: "Cerrar",
+      poweredBy: "Impulsado por Claude AI",
+    },
     language: {
       chooseLanguage: "Elige tu idioma",
     },
@@ -781,6 +841,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       step1: "روی آیکون اشتراک‌گذاری در پایین بزنید",
       step2: "سپس «افزودن به صفحه اصلی» را انتخاب کنید",
       dismiss: "متوجه شدم",
+    },
+    matchmaker: {
+      cta: "مشاور خود را پیدا کنید",
+      ctaTagline: "نمی‌دانید کدام را انتخاب کنید؟ دستیار هوش مصنوعی ما در ۳۰ ثانیه شما را با مشاور مناسب RYDN آشنا می‌کند.",
+      title: "پیدا کردن مشاور",
+      subtitle: "بگویید چه چیزی را در نظر دارید تا با مشاور مناسب RYDN آشنا شوید.",
+      placeholder: "پاسخ خود را تایپ کنید…",
+      send: "ارسال",
+      thinking: "در حال فکر کردن…",
+      welcome: "سلام 👋 من اینجا هستم تا به شما کمک کنم مشاور مناسب RYDN را پیدا کنید. الان چه چیزی را در نظر دارید — یک درس، یک آزمون، یک مسیر شغلی؟",
+      reset: "شروع دوباره",
+      error: "مشکلی پیش آمد. لطفاً لحظه‌ای دیگر دوباره امتحان کنید.",
+      bookButton: "رزرو با",
+      close: "بستن",
+      poweredBy: "با کمک Claude AI",
     },
     language: {
       chooseLanguage: "زبان خود را انتخاب کنید",
@@ -960,6 +1035,21 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       step1: "הקישו על סמל השיתוף למטה",
       step2: "ואז בחרו ב-\"הוסף למסך הבית\"",
       dismiss: "הבנתי",
+    },
+    matchmaker: {
+      cta: "מצאו את היועץ שלכם",
+      ctaTagline: "לא יודעים את מי לבחור? עוזר ה-AI שלנו יתאים לכם את היועץ הנכון מ-RYDN ב-30 שניות.",
+      title: "מצאו את היועץ שלכם",
+      subtitle: "ספרו לי מה אתם בודקים ואני אתאים לכם יועץ מ-RYDN.",
+      placeholder: "הקלידו את התשובה…",
+      send: "שלחו",
+      thinking: "חושב…",
+      welcome: "היי 👋 אני כאן לעזור לכם למצוא את היועץ המתאים מ-RYDN. מה אתם בודקים עכשיו — מקצוע, בחינה, מסלול קריירה?",
+      reset: "התחל מחדש",
+      error: "משהו השתבש. נסו שוב בעוד רגע.",
+      bookButton: "הזמינו עם",
+      close: "סגור",
+      poweredBy: "מופעל על ידי Claude AI",
     },
     language: {
       chooseLanguage: "בחרו את השפה שלכם",

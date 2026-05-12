@@ -6,6 +6,7 @@ import Heading from "./components/Heading"
 import Container from "./components/Container"
 import Button from "./components/Button"
 import InstagramFeed from "./components/InstagramFeed"
+import AIMatchmaker from "./components/AIMatchmaker"
 import { useTranslation } from "./i18n/useTranslation"
 import leoUrl from "./assets/images/Leo.jpg"
 import saharUrl from "./assets/images/Sahar.jpeg"
@@ -679,6 +680,20 @@ function HomePage() {
             <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
               Each advisor brings their own background. Find one whose journey lines up with yours.
             </p>
+          </motion.div>
+
+          {/* AI Matchmaker CTA — sits between heading and filter pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 text-center"
+          >
+            <span className="text-sm text-slate-500 max-w-xs sm:max-w-md">
+              {t("matchmaker.ctaTagline")}
+            </span>
+            <AIMatchmaker />
           </motion.div>
 
           {/* Filter pills */}
