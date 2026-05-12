@@ -16,7 +16,6 @@ import homeHero from "./assets/images/home-hero.jpg"
 import sadafUrl from "./assets/images/Sadaf.jpg"
 import heliaUrl from "./assets/images/Helia.jpg"
 import iliyaUrl from "./assets/images/Iliya.jpg"
-import saracUrl from "./assets/images/SaraC.jpg"
 import jenniferUrl from "./assets/images/Jennifer.jpeg"
 import tinaUrl from "./assets/images/Tina.jpg"
 import valentinaUrl from "./assets/images/Valentina.jpg"
@@ -441,7 +440,6 @@ function HomePage() {
     { name: "Sadaf", photo: sadafUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2", categories: ["sciences"] },
     { name: "Helia", photo: heliaUrl, description: "Bachelor of Science student", advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2", categories: ["preMed", "psychNeuro"] },
     { name: "Iliya", photo: iliyaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2", categories: ["preMed", "sports"] },
-    { name: "Sara", photo: saracUrl, description: "Bachelor of Arts student", advisingTopics: ["History", "English", "Nutrition", "Fitness training"], categories: ["arts", "sports"] },
     { name: "Jennifer", photo: jenniferUrl, description: "Nursing student", advisingTopics: ["Nursing", "Studying strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2", categories: ["sciences"] },
     { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2", categories: ["preMed"] },
     { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2", categories: ["sciences", "language", "psychNeuro"] },
@@ -459,7 +457,6 @@ function HomePage() {
     { key: "business", labelKey: "filters.business" },
     { key: "it", labelKey: "filters.it" },
     { key: "language", labelKey: "filters.language" },
-    { key: "arts", labelKey: "filters.arts" },
     { key: "sports", labelKey: "filters.sports" },
   ]
   const counts = filterCategories.reduce<Record<string, number>>((acc, c) => {

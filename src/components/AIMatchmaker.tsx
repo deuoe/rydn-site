@@ -28,7 +28,6 @@ const ADVISOR_BOOKING_LINKS: Record<string, string | null> = {
   Sadaf: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2",
   Helia: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2",
   Iliya: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2",
-  Sara: null,
   Jennifer: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2",
   Tina: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2",
   Valentina: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2",
@@ -60,7 +59,7 @@ function parseRecommendation(text: string): { clean: string; advisors: string[] 
  * dispatched via openAIChat(mode).
  */
 export default function AIMatchmaker() {
-  const { t } = useTranslation()
+  const { t, lang } = useTranslation()
   const [open, setOpen] = useState(false)
   const [mode, setMode] = useState<Mode>("matchmaker")
   const [messages, setMessages] = useState<Message[]>([])
@@ -143,6 +142,7 @@ export default function AIMatchmaker() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           mode,
+          lang,
           messages: newMessages.map(m => ({ role: m.role, content: m.content })),
         }),
       })
