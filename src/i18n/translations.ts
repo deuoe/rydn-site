@@ -169,6 +169,10 @@ type Dict = {
     bookButton: string
     close: string
     poweredBy: string
+    generalTitle: string
+    generalSubtitle: string
+    generalWelcome: string
+    generalCta: string
   }
   language: {
     chooseLanguage: string
@@ -341,6 +345,10 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       bookButton: "Book with",
       close: "Close",
       poweredBy: "Powered by Llama on Cloudflare AI",
+      generalTitle: "Ask RYDN",
+      generalSubtitle: "Quick answers about workshops, advising, donations.",
+      generalWelcome: "Hey 👋 I can answer questions about RYDN — workshops, advising, donations, anything site-related. What can I help with?",
+      generalCta: "Ask AI",
     },
     language: {
       chooseLanguage: "Choose your language",
@@ -513,6 +521,10 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       bookButton: "Réserver avec",
       close: "Fermer",
       poweredBy: "Propulsé par Llama sur Cloudflare AI",
+      generalTitle: "Posez vos questions",
+      generalSubtitle: "Réponses rapides sur les ateliers, le conseil, les dons.",
+      generalWelcome: "Salut 👋 Je peux répondre à vos questions sur RYDN — ateliers, conseil, dons, tout ce qui concerne le site. En quoi puis-je vous aider ?",
+      generalCta: "Demander à l'IA",
     },
     language: {
       chooseLanguage: "Choisissez votre langue",
@@ -685,6 +697,10 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       bookButton: "Reservar con",
       close: "Cerrar",
       poweredBy: "Impulsado por Llama en Cloudflare AI",
+      generalTitle: "Pregúntale a RYDN",
+      generalSubtitle: "Respuestas rápidas sobre talleres, asesoramiento y donaciones.",
+      generalWelcome: "Hola 👋 Puedo responder preguntas sobre RYDN — talleres, asesoramiento, donaciones, cualquier cosa del sitio. ¿En qué puedo ayudarte?",
+      generalCta: "Preguntar a la IA",
     },
     language: {
       chooseLanguage: "Elige tu idioma",
@@ -856,6 +872,10 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       bookButton: "رزرو با",
       close: "بستن",
       poweredBy: "با کمک Llama روی Cloudflare AI",
+      generalTitle: "از RYDN بپرسید",
+      generalSubtitle: "پاسخ‌های سریع درباره کارگاه‌ها، مشاوره و کمک‌های مالی.",
+      generalWelcome: "سلام 👋 می‌توانم به سوالات شما درباره RYDN — کارگاه‌ها، مشاوره، کمک‌های مالی و هر چیزی مربوط به سایت — پاسخ دهم. چه کمکی از من برمی‌آید؟",
+      generalCta: "از هوش مصنوعی بپرس",
     },
     language: {
       chooseLanguage: "زبان خود را انتخاب کنید",
@@ -1050,6 +1070,10 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       bookButton: "הזמינו עם",
       close: "סגור",
       poweredBy: "מופעל על ידי Llama על Cloudflare AI",
+      generalTitle: "שאלו את RYDN",
+      generalSubtitle: "תשובות מהירות על סדנאות, ייעוץ ותרומות.",
+      generalWelcome: "היי 👋 אני יכול לענות על שאלות לגבי RYDN — סדנאות, ייעוץ, תרומות, כל דבר באתר. במה אוכל לעזור?",
+      generalCta: "שאלו את ה-AI",
     },
     language: {
       chooseLanguage: "בחרו את השפה שלכם",

@@ -6,7 +6,7 @@ import Heading from "./components/Heading"
 import Container from "./components/Container"
 import Button from "./components/Button"
 import InstagramFeed from "./components/InstagramFeed"
-import AIMatchmaker from "./components/AIMatchmaker"
+import { FindMatchButton } from "./components/AIMatchmaker"
 import { useTranslation } from "./i18n/useTranslation"
 import leoUrl from "./assets/images/Leo.jpg"
 import saharUrl from "./assets/images/Sahar.jpeg"
@@ -706,7 +706,7 @@ function HomePage() {
                 </p>
                 {/* Button */}
                 <div className="shrink-0">
-                  <AIMatchmaker />
+                  <FindMatchButton />
                 </div>
               </div>
             </div>

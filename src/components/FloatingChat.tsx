@@ -1,44 +1,34 @@
 import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import { MessageCircle, X, Mail } from "lucide-react"
+import { MessageCircle, X, Mail, Sparkles } from "lucide-react"
 import { FaWhatsapp, FaTelegram } from "react-icons/fa"
 import type { IconType } from "react-icons"
 import type { LucideIcon } from "lucide-react"
+import { useTranslation } from "../i18n/useTranslation"
+import { openAIChat } from "./aiChatBus"
 
 /**
  * Floating quick-contact button (bottom-right).
  *
- * Tap → expands to show WhatsApp / Telegram / Email options. Each option opens
- * the relevant native app or mailto link. Closes on outside-click.
- *
- * --------------------------------------------------------------------
- * TODO — verify these channels are actually set up before going live:
- *
- *   1. WhatsApp: confirm +1 (647) 498-3938 has a WhatsApp account.
- *      If you use a separate WhatsApp Business number, swap it below.
- *      Format: digits only, country code first (no + or spaces).
- *
- *   2. Telegram: replace TELEGRAM_USERNAME with your real Telegram handle
- *      (without the @). E.g. if your channel is @rydnca, use "rydnca".
- *      If you don't use Telegram, set it to null and that option hides.
- *
- *   3. Email already wired to info@rydn.ca.
- * --------------------------------------------------------------------
+ * Tap → expands to show: Ask AI / WhatsApp / Telegram / Email options.
+ * Closes on outside-click or Escape.
  */
 const WHATSAPP_NUMBER: string | null = "16474983938"
-const TELEGRAM_USERNAME: string | null = "rydn_ca" // TODO replace with real
+const TELEGRAM_USERNAME: string | null = "rydn_ca"
 const EMAIL = "info@rydn.ca"
-
 const PREFILL_MESSAGE = "Hi RYDN! I have a question about advising."
 
 type Channel = {
   name: string
   Icon: IconType | LucideIcon
-  href: string
   bg: string
+  // Either a link (opens new tab) or an onClick action
+  href?: string
+  onClick?: () => void
 }
 
 export default function FloatingChat() {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -58,6 +48,15 @@ export default function FloatingChat() {
   }, [])
 
   const channels: Channel[] = [
+    {
+      name: t("matchmaker.generalCta"),
+      Icon: Sparkles as LucideIcon,
+      bg: "bg-gradient-to-r from-violet-600 via-fuchsia-600 to-rose-500 hover:from-violet-700 hover:to-rose-600",
+      onClick: () => {
+        setOpen(false)
+        openAIChat("general")
+      },
+    },
     ...(WHATSAPP_NUMBER
       ? [{
           name: "WhatsApp",
@@ -96,21 +95,41 @@ export default function FloatingChat() {
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
             className="absolute bottom-full right-0 mb-3 flex flex-col items-end gap-2 min-w-[170px]"
           >
-            {channels.map((c, i) => (
-              <motion.a
-                key={c.name}
-                href={c.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, x: 10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.04 }}
-                className={`inline-flex items-center gap-2.5 pl-4 pr-5 py-2.5 rounded-full text-white text-sm font-semibold shadow-lg transition ${c.bg}`}
-              >
-                <c.Icon className="h-4 w-4" />
-                <span>{c.name}</span>
-              </motion.a>
-            ))}
+            {channels.map((c, i) => {
+              const inner = (
+                <>
+                  <c.Icon className="h-4 w-4" />
+                  <span>{c.name}</span>
+                </>
+              )
+              const className = `inline-flex items-center gap-2.5 pl-4 pr-5 py-2.5 rounded-full text-white text-sm font-semibold shadow-lg transition cursor-pointer ${c.bg}`
+
+              return c.href ? (
+                <motion.a
+                  key={c.name}
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04 }}
+                  className={className}
+                >
+                  {inner}
+                </motion.a>
+              ) : (
+                <motion.button
+                  key={c.name}
+                  onClick={c.onClick}
+                  initial={{ opacity: 0, x: 10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.04 }}
+                  className={className}
+                >
+                  {inner}
+                </motion.button>
+              )
+            })}
           </motion.div>
         )}
       </AnimatePresence>
@@ -145,8 +164,6 @@ export default function FloatingChat() {
             </motion.span>
           )}
         </AnimatePresence>
-
-        {/* Subtle pulse ring on first load to draw the eye */}
         <span className="absolute inset-0 rounded-full bg-sky-500/40 animate-ping pointer-events-none opacity-30" />
       </motion.button>
     </div>
