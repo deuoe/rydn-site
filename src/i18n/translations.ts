@@ -340,7 +340,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       error: "Something went wrong. Try again in a moment.",
       bookButton: "Book with",
       close: "Close",
-      poweredBy: "Powered by Claude AI",
+      poweredBy: "Powered by Llama on Cloudflare AI",
     },
     language: {
       chooseLanguage: "Choose your language",
@@ -512,7 +512,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       error: "Quelque chose s'est mal passé. Réessayez dans un instant.",
       bookButton: "Réserver avec",
       close: "Fermer",
-      poweredBy: "Propulsé par Claude AI",
+      poweredBy: "Propulsé par Llama sur Cloudflare AI",
     },
     language: {
       chooseLanguage: "Choisissez votre langue",
@@ -684,7 +684,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       error: "Algo salió mal. Inténtalo de nuevo en un momento.",
       bookButton: "Reservar con",
       close: "Cerrar",
-      poweredBy: "Impulsado por Claude AI",
+      poweredBy: "Impulsado por Llama en Cloudflare AI",
     },
     language: {
       chooseLanguage: "Elige tu idioma",
@@ -855,7 +855,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       error: "مشکلی پیش آمد. لطفاً لحظه‌ای دیگر دوباره امتحان کنید.",
       bookButton: "رزرو با",
       close: "بستن",
-      poweredBy: "با کمک Claude AI",
+      poweredBy: "با کمک Llama روی Cloudflare AI",
     },
     language: {
       chooseLanguage: "زبان خود را انتخاب کنید",
@@ -1049,7 +1049,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       error: "משהו השתבש. נסו שוב בעוד רגע.",
       bookButton: "הזמינו עם",
       close: "סגור",
-      poweredBy: "מופעל על ידי Claude AI",
+      poweredBy: "מופעל על ידי Llama על Cloudflare AI",
     },
     language: {
       chooseLanguage: "בחרו את השפה שלכם",
