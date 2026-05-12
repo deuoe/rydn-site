@@ -688,12 +688,28 @@ function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 text-center"
+            className="mt-10 flex justify-center px-4"
           >
-            <span className="text-sm text-slate-500 max-w-xs sm:max-w-md">
-              {t("matchmaker.ctaTagline")}
-            </span>
-            <AIMatchmaker />
+            <div className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-r from-violet-50 via-fuchsia-50 to-rose-50 shadow-sm">
+              {/* Subtle decorative glow */}
+              <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-fuchsia-300/30 blur-2xl" />
+              <div className="pointer-events-none absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-violet-300/30 blur-2xl" />
+
+              <div className="relative flex flex-col sm:flex-row items-center gap-4 sm:gap-5 p-5 sm:p-6">
+                {/* Sparkle icon badge */}
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-violet-600 via-fuchsia-600 to-rose-500 text-white shadow-md">
+                  <Sparkles size={20} />
+                </div>
+                {/* Tagline */}
+                <p className="flex-1 text-sm md:text-base text-slate-700 text-center sm:text-left leading-snug">
+                  {t("matchmaker.ctaTagline")}
+                </p>
+                {/* Button */}
+                <div className="shrink-0">
+                  <AIMatchmaker />
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Filter pills */}
