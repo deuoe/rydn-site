@@ -109,7 +109,11 @@ export default {
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: "claude-haiku-4-5-20251001",
+        // Haiku 3.5 — fast, cheap, available on every Anthropic API plan.
+        // To upgrade to a smarter model later, swap for:
+        //   "claude-sonnet-4-5-20250929" (smarter, ~5x cost)
+        //   "claude-haiku-4-5-20251001" (newest Haiku, requires API access tier)
+        model: "claude-3-5-haiku-20241022",
         max_tokens: 600,
         system: SYSTEM_PROMPT,
         messages: body.messages,

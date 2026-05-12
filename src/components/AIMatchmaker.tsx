@@ -118,21 +118,33 @@ export default function AIMatchmaker({ trigger }: Props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          // Anthropic Messages API format
           messages: newMessages.map(m => ({ role: m.role, content: m.content })),
         }),
       })
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const data = await res.json()
+      const data = await res.json().catch(() => ({}))
+
+      // Surface upstream errors so debugging is possible
+      if (!res.ok) {
+        const detail =
+          data?.error?.message ||
+          data?.error ||
+          `HTTP ${res.status}`
+        console.error("[AIMatchmaker] worker error:", detail, data)
+        setError(`${t("matchmaker.error")} (${detail})`)
+        return
+      }
 
       const reply: string =
         data?.content?.[0]?.text ??
         data?.completion ??
-        data?.error ??
         ""
 
-      if (!reply) throw new Error("Empty response")
+      if (!reply) {
+        console.error("[AIMatchmaker] empty reply payload:", data)
+        setError(`${t("matchmaker.error")} (empty response)`)
+        return
+      }
 
       const { clean, advisors } = parseRecommendation(reply)
       setMessages([
@@ -140,8 +152,8 @@ export default function AIMatchmaker({ trigger }: Props) {
         { role: "assistant", content: clean, recommended_advisors: advisors ?? undefined },
       ])
     } catch (e) {
-      console.error(e)
-      setError(t("matchmaker.error"))
+      console.error("[AIMatchmaker]", e)
+      setError(`${t("matchmaker.error")} (${e instanceof Error ? e.message : "network"})`)
     } finally {
       setLoading(false)
     }
