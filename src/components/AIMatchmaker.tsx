@@ -12,14 +12,9 @@ import { useTranslation } from "../i18n/useTranslation"
  *   {"recommended_advisors":["Helia","Sara Roozbahani"]}
  * which we parse and render as clickable booking cards.
  *
- * ─────────────────────────────────────────────────────────────────
- * TODO — After deploying the Cloudflare Worker, paste the URL here.
- *   See cloudflare-worker/worker.js for setup instructions.
- *   The worker URL will look like:
- *     https://rydn-ai-proxy.YOUR-SUBDOMAIN.workers.dev
- * ─────────────────────────────────────────────────────────────────
+ * Cloudflare Worker setup lives in cloudflare-worker/worker.js
  */
-const AI_WORKER_URL = "https://rydn-ai-proxy.workers.dev" // TODO: replace with your real URL
+const AI_WORKER_URL = "https://rydn-ai-proxy.sam-146.workers.dev"
 
 /** Booking links keyed by advisor name (must exactly match worker.js list). */
 const ADVISOR_BOOKING_LINKS: Record<string, string | null> = {
