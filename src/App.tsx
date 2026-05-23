@@ -444,7 +444,7 @@ function HomePage() {
     { name: "Jennifer", photo: jenniferUrl, description: "Nursing student", advisingTopics: ["Nursing", "Studying strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2", categories: ["sciences"] },
     { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2", categories: ["preMed"] },
     { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2", categories: ["sciences", "language", "psychNeuro"] },
-    { name: "Iman", photo: imanUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Game Development"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/Nl-k9rS70EiUi53ylFUU5A2", categories: ["gaming"] }
+    { name: "Iman", photo: imanUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Game Development"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/Nl-k9rS70EiUi53ylFUU5A2", categories: ["gaming"] },
     { name: "Pardis", photo: pardisUrl, description: "Bachelor of Science student", advisingTopics: ["Health Sciences", "Pre-med", "BC med schools", "Uni/life balance", "study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/CTebHrhEMUeIKIhiR3JVGA2", categories: ["preMed", "sciences"] },
   ]
 
