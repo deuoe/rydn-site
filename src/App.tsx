@@ -20,6 +20,7 @@ import jenniferUrl from "./assets/images/Jennifer.jpeg"
 import tinaUrl from "./assets/images/Tina.jpg"
 import valentinaUrl from "./assets/images/Valentina.jpg"
 import imanUrl from "./assets/images/Iman.png"
+import pardisUrl from "./assets/images/Pardis.jpg"
 
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5)
@@ -444,6 +445,7 @@ function HomePage() {
     { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2", categories: ["preMed"] },
     { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2", categories: ["sciences", "language", "psychNeuro"] },
     { name: "Iman", photo: imanUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Game Development"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/Nl-k9rS70EiUi53ylFUU5A2", categories: ["gaming"] }
+    { name: "Pardis", photo: pardisUrl, description: "Bachelor of Science student", advisingTopics: ["Health Sciences", "Pre-med", "BC med schools", "Uni/life balance", "study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/CTebHrhEMUeIKIhiR3JVGA2", categories: ["preMed", "sciences"] },
   ]
 
   const [activeFilter, setActiveFilter] = useState<Category | "all">("all")

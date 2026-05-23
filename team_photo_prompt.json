@@ -1,0 +1,169 @@
+{
+  "project": "RYDN Team Group Photo — Toronto Edition",
+  "purpose": "Composite real RYDN advisor portraits into one cohesive group photo with consistent lighting, outfits, and a Toronto skyline backdrop. Friendly, approachable team of university students who reflect the diversity of Canadian campuses.",
+
+  "critical_constraint": "KEEP EACH PERSON'S REAL FACE AS-IS. The faces, hair, skin tone, and any glasses must come from the existing portraits without alteration. Only the background, clothing, lighting, and composition should be AI-generated/edited.",
+
+  "overall_vibe": [
+    "Warm, welcoming, authentic",
+    "Like a young university club's group photo — confident but unposed",
+    "Visually diverse, modern, Canadian",
+    "NOT corporate, NOT stuffy, NOT stock-photography-stiff"
+  ],
+
+  "subjects": {
+    "count": 4,
+    "diversity_note": "This group intentionally spans backgrounds — Persian, Black, and European heritage represented. Keep each person's authentic appearance.",
+    "arrangement": "Loose semi-circle or staggered row of 4. Slight diagonal — back-left to front-right. Not perfectly aligned. Some turned slightly toward each other (suggests connection), others facing camera. Natural variety of posture.",
+    "people": [
+      {
+        "name": "Sara Roozbahani",
+        "role": "Pre-med · MCAT advisor",
+        "position": "Center-left",
+        "notes": "Use her existing portrait. Long dark hair, soft smile, warm."
+      },
+      {
+        "name": "Sam Sina",
+        "role": "Pharmacy · Sciences advisor",
+        "position": "Right side, slightly back",
+        "notes": "Use his existing portrait. Only male in lineup — position to balance visually."
+      },
+      {
+        "name": "Jennifer",
+        "role": "Nursing advisor",
+        "position": "Left or front-left",
+        "notes": "Use her existing portrait. Curly/wavy hair, warm friendly expression."
+      },
+      {
+        "name": "Valentina",
+        "role": "Sciences · Languages · Psychology advisor",
+        "position": "Center-right or front-right",
+        "notes": "Use her existing portrait. Lighter complexion, lighter hair, soft smile."
+      }
+    ],
+    "expressions": "Genuine smiles, not toothy or forced. One can have a softer 'thoughtful' expression. Eye contact mostly with camera, but one person can look sideways or down — feels natural, not posed.",
+    "eye_levels": "Roughly the same eye line for all faces, slight variation OK (max 1 head's worth of height difference)."
+  },
+
+  "outfits": {
+    "style": "Smart casual. Mid-20s university student style. Comfortable but put-together. NOT corporate suits. NOT athletic wear.",
+    "consistency_rule": "All 4 should look like they coordinated lightly — same color family but NOT identical. The vibe of a group going out for coffee together, not a uniform.",
+    "color_palette": [
+      "Cream / off-white",
+      "Light beige / camel",
+      "Soft denim blue (NOT bright blue)",
+      "Soft charcoal / dark grey",
+      "One pop of warmer color — burnt orange OR burgundy on one person only"
+    ],
+    "specific_clothing_suggestions": {
+      "Sara_Roozbahani": "Cream knit sweater over collared white shirt, or soft camel turtleneck",
+      "Sam_Sina": "Open button-up in soft blue or charcoal over plain white tee, or a simple cardigan over a t-shirt",
+      "Jennifer": "Soft cardigan in warm tone (mustard, burnt orange) over neutral shirt — gets the 'pop' color",
+      "Valentina": "Cream blouse or soft beige sweater"
+    },
+    "avoid": [
+      "Suits, ties, formal blazers, corporate attire",
+      "Logos, branded clothing, sports jerseys",
+      "Loud patterns, prints, graphics",
+      "Hoodies (too casual)",
+      "Anything cropped or revealing",
+      "All-black or all-white (too uniform)"
+    ]
+  },
+
+  "background": {
+    "primary_subject": "Toronto skyline with CN Tower clearly visible, positioned just off-center (CN Tower in upper-right third of the frame — rule of thirds)",
+    "skyline_details": "Real Toronto downtown skyline: CN Tower prominent, surrounded by financial district skyscrapers (TD Centre, Royal Bank Plaza, Scotia Plaza, First Canadian Place). NOT a New York / Chicago / generic city skyline.",
+    "distance": "Skyline should appear 1-2 km away — soft focus due to distance/atmosphere. Recognizable, not competing with people.",
+    "background_blur": "Shallow-to-medium depth of field. Faces tack-sharp. Skyline soft but legible.",
+    "setting_options": [
+      "Toronto Islands waterfront looking back at the city (most iconic angle)",
+      "Harbourfront / Sherbourne Common with skyline behind",
+      "A rooftop or terrace with skyline at horizon",
+      "HTO Park looking northeast at the financial district"
+    ],
+    "preferred": "Toronto Islands waterfront — gives the classic CN Tower postcard angle",
+    "foreground": "Subtle — maybe hint of railing, dock, grass, or lake at the bottom edge. Mostly empty so subjects pop."
+  },
+
+  "lighting": {
+    "time_of_day": "Late afternoon golden hour (about 45 minutes before sunset)",
+    "direction": "Soft sunlight from camera-left at ~45° — front-soft side light",
+    "shadows": "Soft, never harsh. No hard shadows on faces.",
+    "skin_tone_warmth": "Warm and glowy but natural — true golden hour, NOT a heavy filter. Preserve each person's actual skin tone.",
+    "background_lighting": "Skyline catches the warm sunset light — windows reflecting golden, sky has soft gradient (golden near horizon → soft blue above)"
+  },
+
+  "style_and_mood": {
+    "photography_style": "Editorial portrait photography. Think Bumble app marketing photos, University of Toronto campus viewbook, or Linktree's team page — warm, inclusive, real-but-elevated.",
+    "post_processing": "Light, natural color grade. Slightly warm. Skin texture preserved (NOT plasticky / over-smoothed). Eyes have natural catchlight.",
+    "atmosphere": "Confident, kind, welcoming. People you'd want to grab coffee with."
+  },
+
+  "camera_and_composition": {
+    "shot_type": "Medium shot — heads + shoulders + upper chest visible. Not full-body.",
+    "framing": "Subjects fill 60-65% of frame width. Toronto skyline visible above and around them.",
+    "aspect_ratio_options": {
+      "primary_use": "16:9 horizontal (1920 x 1080) — versatile for website hero, social, flyer crop",
+      "instagram_square": "1:1 crop (1080 x 1080)",
+      "flyer_portrait": "4:5 vertical crop (1080 x 1350)"
+    },
+    "preferred": "16:9 horizontal as the master, then crop down",
+    "lens_feel": "85mm portrait lens equivalent — slight compression, clean separation between subjects and background",
+    "focus": "All faces tack-sharp. Skyline soft."
+  },
+
+  "color_palette": {
+    "subjects": "Earth tones, cream, beige, soft blue, charcoal, one warm pop (burgundy/burnt orange)",
+    "sky": "Golden-hour warm (peach, soft orange) fading to soft blue at top",
+    "skyline": "Natural greys and silvers, with golden window reflections",
+    "overall_temperature": "Warm but not orange — think 5500K-6000K with slight warm cast"
+  },
+
+  "things_to_keep_authentic": [
+    "Each person's actual face — DO NOT alter or AI-replace their faces",
+    "Hair color and style as in original photos",
+    "Skin tones as in original photos — DO NOT lighten or darken",
+    "Glasses if anyone wears them in their original",
+    "General body type"
+  ],
+
+  "things_to_avoid": [
+    "Plasticky AI skin smoothing",
+    "Over-saturation",
+    "Identical clothing / uniform look",
+    "Suits, formal attire",
+    "Anyone looking awkwardly photoshopped onto the background",
+    "Heavy bokeh — Toronto skyline should be recognizable",
+    "Wrong landmarks (Empire State, Chicago Bean, etc.)",
+    "Logos or text overlays — keep the photo clean",
+    "Heavy orange/dramatic sunset"
+  ],
+
+  "output_specs": {
+    "resolution": "Minimum 2400 x 1600 px (print + web ready)",
+    "format": "PNG or high-quality JPG (quality 90+)",
+    "color_space": "sRGB",
+    "deliverables": [
+      "Master 16:9 horizontal — primary use",
+      "1:1 square crop for Instagram",
+      "4:5 vertical crop for flyer / Instagram story"
+    ]
+  },
+
+  "compiled_text_prompt_for_midjourney_or_dalle": "Editorial group portrait of 4 university students standing together as a friendly team — three women and one man, casually dressed in coordinated cream, beige, soft blue and warm earth tones (one with a burnt orange or burgundy accent). Smart casual outfits, NO suits, NO logos. Standing in a loose semi-circle at the Toronto Islands waterfront with the iconic CN Tower and downtown Toronto financial district skyline visible behind them, slightly out of focus. Late afternoon golden hour lighting, warm but natural. Soft side-lit faces, gentle smiles, real human texture (no plastic AI skin). 85mm portrait lens look, medium shot showing heads to upper chest. Welcoming, authentic, modern, multicultural — like a Linktree team page or a University of Toronto viewbook photo. Aspect ratio 16:9.",
+
+  "usage_notes": {
+    "best_tool": "Photoshop with Generative Fill — keeps real faces, only generates background + harmonizes outfits",
+    "midjourney": "Use /blend with the 4 advisor portrait URLs as image refs, add the compiled_text_prompt as text. Set --ar 16:9 --style raw --v 6",
+    "adobe_firefly": "Strong for outfit consistency editing and background generation",
+    "recommended_workflow": [
+      "1. Crop each of the 4 existing advisor portraits (Sara, Sam, Jennifer, Valentina) to head+shoulders, remove backgrounds",
+      "2. Compose them on one canvas in a row or slight semicircle (left to right: Jennifer, Sara, Valentina, Sam)",
+      "3. Use Generative Fill with the 'background' section as prompt → adds Toronto skyline",
+      "4. Use Generative Fill again on each outfit if they clash, with the per-person clothing suggestions",
+      "5. Apply unified golden-hour color grade in Lightroom or Photoshop (final pass)",
+      "6. Export 16:9 master + 1:1 + 4:5 crops"
+    ]
+  }
+}
