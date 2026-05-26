@@ -148,6 +148,7 @@ type Dict = {
     pharmacy: string
     sports: string
     it: string
+    gameDev: string
   }
   iosInstall: {
     title: string
@@ -324,6 +325,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       pharmacy: "Pharmacy",
       sports: "Sports",
       it: "IT",
+      gameDev: "Game Dev",
     },
     iosInstall: {
       title: "Install RYDN on your iPhone",
@@ -500,6 +502,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       pharmacy: "Pharmacie",
       sports: "Sport",
       it: "Informatique",
+      gameDev: "Jeux vidéo",
     },
     iosInstall: {
       title: "Installer RYDN sur votre iPhone",
@@ -676,6 +679,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       pharmacy: "Farmacia",
       sports: "Deportes",
       it: "TI",
+      gameDev: "Videojuegos",
     },
     iosInstall: {
       title: "Instala RYDN en tu iPhone",
@@ -851,6 +855,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       pharmacy: "داروسازی",
       sports: "ورزش",
       it: "فناوری اطلاعات",
+      gameDev: "بازی‌سازی",
     },
     iosInstall: {
       title: "نصب RYDN روی آیفون شما",
@@ -1049,6 +1054,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       pharmacy: "רוקחות",
       sports: "ספורט",
       it: "מחשבים",
+      gameDev: "פיתוח משחקים",
     },
     iosInstall: {
       title: "התקינו את RYDN באייפון שלכם",

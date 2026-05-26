@@ -44,7 +44,7 @@ ONTOPIC = the user's latest message is clearly about ONE of these:
 - Booking an advisor, mentorship, choosing a mentor
 - University applications, admissions, picking a major or program
 - Exam prep for student-related exams: MCAT, LSAT, DAT, GRE, etc.
-- Career exploration for a student (medicine, law, business, engineering, pharmacy, nursing, etc.)
+- Career exploration for a student (medicine, law, business, engineering, pharmacy, nursing, game development, design, etc.)
 - Study strategies, school life
 - RYDN workshops, events, programs
 - Donations, supporting RYDN, partnerships
@@ -88,7 +88,7 @@ EXAMPLES — memorize these:
 
 Now classify the next message. Reply with EXACTLY ONE WORD: ONTOPIC or OFFTOPIC.`
 
-const ADVISORS_LIST = `OUR 10 ADVISORS — these are the ONLY names you may recommend:
+const ADVISORS_LIST = `OUR 14 ADVISORS — these are the ONLY names you may recommend:
 - Ilia (Commerce) — IT, Soccer, Business
 - Sahar (Arts) — Psychology, Political science, LSAT, University applications
 - Sara Roozbahani (Science) — Pre-med, MCAT, Research, University apps, Psychology
@@ -98,7 +98,11 @@ const ADVISORS_LIST = `OUR 10 ADVISORS — these are the ONLY names you may reco
 - Iliya (Science) — Biomed, Pre-med, Fitness training
 - Jennifer (Nursing) — Nursing, Studying strategies
 - Tina (Science) — Pre-med, Biomed
-- Valentina (Science) — Psychology, French, Biology, Research, Academic Exchange`
+- Valentina (Science) — Psychology, French, Biology, Research, Academic Exchange
+- Iman (Arts) — Psychology, Game Development
+- Pardis (Science) — Health Sciences, Pre-med, BC med schools, Uni/life balance, study strategies
+- Mahan (Health Sciences) — Health Sciences, University Applications, Pre-med advising (booking opens soon)
+- Sara (Arts) — History, English, Nutrition, Fitness training (booking opens soon)`
 
 const MATCHMAKER_PROMPT = `You are RYDN's friendly AI matchmaker. Your ONE job is to match Canadian students with the right RYDN advisor.
 
@@ -139,14 +143,14 @@ ABOUT RYDN:
 - Donation: zeffy.com/en-CA/donation-form/support-us-28
 
 ADVISING:
-- 10 student advisors across pre-med, sciences, pre-law, business, IT, sports, language, psychology & neuroscience, pharmacy
+- 14 student advisors across pre-med, sciences, pre-law, business, IT, game development, sports, language, psychology & neuroscience, pharmacy, arts
 - ALL sessions are 100% free
 - Book through rydn.ca — click "Book an Advisor" or use the "Find Your Match" AI button
 - Typically 30 min, online via Outlook calendar
 
 WORKSHOPS:
 - Free, online + hybrid, throughout 2026
-- Upcoming: May 25, June 12, July 5, July 26, Aug 1, Aug 17, Sep 18
+- Upcoming: June 25, July 12, Aug 5, Aug 26, Sep 1, Sep 17, Oct 18
 - Topics include career paths, university prep, MCAT/LSAT/DAT prep, choosing the right career
 - Full list: rydn.ca/workshops
 
