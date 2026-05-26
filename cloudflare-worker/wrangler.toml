@@ -1,0 +1,20 @@
+# Cloudflare Worker config for RYDN AI proxy.
+# This file tells Cloudflare how to deploy worker.js when it picks up changes
+# from GitHub.
+
+name = "rydn-ai-proxy"
+main = "worker.js"
+compatibility_date = "2025-05-01"
+
+# Workers AI binding — env.AI inside worker.js calls Cloudflare's Llama models.
+# Must match the variable name used in code.
+[ai]
+binding = "AI"
+
+# Optional plain-text variables. Secrets (like ANTHROPIC_API_KEY back when we
+# used Claude) are NOT defined here — those are set in the Cloudflare dashboard
+# under Settings → Variables and Secrets → "Add Secret".
+# Uncomment the line below if you want to lock the worker to only accept
+# requests from rydn.ca:
+# [vars]
+# ALLOWED_ORIGIN = "https://rydn.ca"
