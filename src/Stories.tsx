@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "./i18n/Link"
 import { motion } from "motion/react"
 import { Sparkles, ArrowRight, Calendar, Quote, GraduationCap, Stethoscope, Scale, FlaskConical, Briefcase, Brain, ImageIcon } from "lucide-react"
 import Container from "./components/Container"

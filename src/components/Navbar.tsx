@@ -1,4 +1,7 @@
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
+import { Link } from "../i18n/Link"
+import { useLocalizedNavigate } from "../i18n/useLocalizedNav"
+import { stripLangPrefix } from "../i18n/useLocalizedNav"
 import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useState, type ComponentProps } from "react"
 import { Calendar } from "lucide-react"
@@ -15,14 +18,17 @@ function bookNowHref(onHome: boolean) {
 }
 
 export default function Navbar() {
-  const navigate = useNavigate()
+  const navigate = useLocalizedNavigate()
   const location = useLocation()
   const { t } = useTranslation()
   const [nav, setNav] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const toggle = () => setNav(!nav)
 
-  const onHome = location.pathname === "/"
+  // Compare against the language-stripped path so /, /fr, /es, /fa, /he
+  // all count as the home page for layout decisions.
+  const cleanPath = stripLangPrefix(location.pathname)
+  const onHome = cleanPath === "/" || cleanPath === ""
   const transparent = onHome && !scrolled
 
   useEffect(() => {
@@ -85,7 +91,7 @@ export default function Navbar() {
         {/* Desktop Navbar */}
         <ul className="hidden lg:flex items-center gap-1">
           {navigation.map(item => {
-            const active = location.pathname === item.path
+            const active = cleanPath === item.path || (item.path === "/" && (cleanPath === "" || cleanPath === "/"))
             return (
               <li key={item.path}>
                 <button
@@ -189,7 +195,7 @@ export default function Navbar() {
                 className="absolute top-0 right-0 left-0 mt-20 mx-4 rounded-2xl bg-white p-4 shadow-xl border border-slate-200 flex flex-col gap-1 max-h-[80vh] overflow-y-auto"
               >
                 {navigation.map(item => {
-                  const active = location.pathname === item.path
+                  const active = cleanPath === item.path || (item.path === "/" && (cleanPath === "" || cleanPath === "/"))
                   return (
                     <li key={item.path}>
                       <button

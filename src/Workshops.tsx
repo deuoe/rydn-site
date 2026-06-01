@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "./i18n/Link"
 import { motion } from "motion/react"
 import { Calendar, MapPin, Sparkles, Video, ArrowRight, ExternalLink, Mail } from "lucide-react"
 import Container from "./components/Container"

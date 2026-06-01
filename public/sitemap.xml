@@ -1,58 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
   <url>
     <loc>https://www.rydn.ca/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rydn.ca/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.rydn.ca/fr" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.rydn.ca/es" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.rydn.ca/fa" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.rydn.ca/he" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rydn.ca/" />
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <url><loc>https://www.rydn.ca/fr</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+
+  <!-- About Us -->
   <url>
     <loc>https://www.rydn.ca/about-us</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rydn.ca/about-us" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.rydn.ca/fr/about-us" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.rydn.ca/es/about-us" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.rydn.ca/fa/about-us" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.rydn.ca/he/about-us" />
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
-  <url>
-    <loc>https://www.rydn.ca/our-team</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rydn.ca/become-advisor</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rydn.ca/workshops</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rydn.ca/partner-with-us</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rydn.ca/stories</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rydn.ca/donation</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rydn.ca/contact-us</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rydn.ca/privacy-policy</loc>
-    <priority>0.3</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.rydn.ca/terms-of-service</loc>
-    <priority>0.3</priority>
-    <changefreq>yearly</changefreq>
-  </url>
+  <url><loc>https://www.rydn.ca/fr/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Our Team -->
+  <url><loc>https://www.rydn.ca/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Become Advisor -->
+  <url><loc>https://www.rydn.ca/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Workshops -->
+  <url><loc>https://www.rydn.ca/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+
+  <!-- Partner with Us -->
+  <url><loc>https://www.rydn.ca/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Stories -->
+  <url><loc>https://www.rydn.ca/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Donation -->
+  <url><loc>https://www.rydn.ca/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Contact Us -->
+  <url><loc>https://www.rydn.ca/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Privacy Policy -->
+  <url><loc>https://www.rydn.ca/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+
+  <!-- Terms of Service -->
+  <url><loc>https://www.rydn.ca/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+
 </urlset>

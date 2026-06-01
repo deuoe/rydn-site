@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "./i18n/Link"
 import { motion } from "motion/react"
 import { Sparkles, ArrowRight, Crown, Heart } from "lucide-react"
 import { FaLinkedinIn } from "react-icons/fa"

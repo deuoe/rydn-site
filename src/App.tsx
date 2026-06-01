@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "./i18n/Link"
 import { motion, AnimatePresence, useInView, useMotionValue, useSpring, useTransform } from "motion/react"
 import { Users, BookOpen, ArrowRight, Sparkles, ChevronDown, MessageSquare, Calendar, Rocket, Star, Quote, Handshake, Target, FileText, Plus, Mail } from "lucide-react"
 import Heading from "./components/Heading"

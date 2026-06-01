@@ -1,5 +1,5 @@
 import type { ComponentType, SVGProps } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "./i18n/Link"
 import { motion } from "motion/react"
 import { Heart, Users, Handshake, Share2, GraduationCap, Mail } from "lucide-react"
 import Container from "./components/Container"

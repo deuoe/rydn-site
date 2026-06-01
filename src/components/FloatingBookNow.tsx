@@ -1,4 +1,6 @@
-import { Link, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
+import { Link } from "../i18n/Link"
+import { stripLangPrefix } from "../i18n/useLocalizedNav"
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Calendar } from "lucide-react"
@@ -14,7 +16,8 @@ export default function FloatingBookNow() {
   const location = useLocation()
   const [show, setShow] = useState(false)
 
-  const onHome = location.pathname === "/"
+  const cleanPath = stripLangPrefix(location.pathname)
+  const onHome = cleanPath === "/" || cleanPath === ""
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 600)

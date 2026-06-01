@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "./i18n/Link"
 import { motion } from "motion/react"
 import { Heart, Sparkles, Users, Lightbulb, ArrowRight, Globe2, MapPin, Zap, Rocket, TrendingUp } from "lucide-react"
 import Container from "./components/Container"

@@ -18,29 +18,57 @@ import NotFound from "./NotFound"
 import ScrollToTop from "./components/ScrollToTop"
 import { LanguageProvider } from "./i18n/LanguageProvider"
 
+// All site pages. The same tree is mounted at the root (English) and under
+// each non-default language prefix (/fr, /es, /fa, /he) so every page is
+// reachable in every language as its own URL.
+const PAGES = [
+  { index: true, element: <App /> },
+  { path: "about-us", element: <AboutUs /> },
+  { path: "become-advisor", element: <BecomeAdvisor /> },
+  { path: "workshops", element: <Workshops /> },
+  { path: "donation", element: <Donation /> },
+  { path: "our-team", element: <OurTeam /> },
+  { path: "partner-with-us", element: <PartnerWithUs /> },
+  { path: "verification", element: <Verification /> },
+  { path: "privacy-policy", element: <PrivacyPolicy /> },
+  { path: "terms-of-service", element: <TermsOfService /> },
+  { path: "contact-us", element: <ContactUs /> },
+  { path: "stories", element: <Stories /> },
+] as const
+
+const NON_DEFAULT_LANGS = ["fr", "es", "fa", "he"] as const
+
+function renderPages(prefix: string) {
+  return PAGES.map((p) =>
+    "index" in p
+      ? <Route key={`${prefix}-index`} index element={p.element} />
+      : <Route key={`${prefix}-${p.path}`} path={p.path} element={p.element} />
+  )
+}
+
 const root = document.getElementById("root")!
 
 ReactDOM.createRoot(root).render(
-  <LanguageProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <LanguageProvider>
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<App />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/become-advisor" element={<BecomeAdvisor />} />
-          <Route path="/workshops" element={<Workshops />} />
-          <Route path="/donation" element={<Donation />} />
-          <Route path="/our-team" element={<OurTeam />} />
-          <Route path="/partner-with-us" element={<PartnerWithUs />} />
-          <Route path="/verification" element={<Verification />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/stories" element={<Stories />} />
+          {/* English routes (no prefix — default language) */}
+          {renderPages("en")}
+
+          {/* Language-prefixed routes: /fr/..., /es/..., /fa/..., /he/... */}
+          {NON_DEFAULT_LANGS.map((lang) => (
+            <Route key={lang} path={lang}>
+              {renderPages(lang)}
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          ))}
+
+          {/* Default 404 for unknown English paths */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-    </BrowserRouter>
-  </LanguageProvider>
+    </LanguageProvider>
+  </BrowserRouter>
 )
