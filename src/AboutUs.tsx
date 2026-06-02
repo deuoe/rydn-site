@@ -3,6 +3,7 @@ import { motion } from "motion/react"
 import { Heart, Sparkles, Users, Lightbulb, ArrowRight, Globe2, MapPin, Zap, Rocket, TrendingUp } from "lucide-react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
+import SDGSection from "./components/SDGSection"
 import { useTranslation } from "./i18n/useTranslation"
 import aboutImg from "./assets/images/About Us.jpeg"
 
@@ -213,6 +214,9 @@ export default function AboutUs() {
           </motion.div>
         </Container>
       </section>
+
+      {/* ===================== UN SDG ALIGNMENT ===================== */}
+      <SDGSection />
 
       {/* ===================== CLOSING CTA ===================== */}
       <section className="pb-20">

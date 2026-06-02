@@ -2,6 +2,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa"
 import { Link } from "../i18n/Link"
 import { Mail, Phone, MapPin } from "lucide-react"
 import logoUrl from "../assets/images/logo.jpeg"
+import SDGBadges from "./SDGBadges"
 
 export default function Footer() {
   return (
@@ -121,8 +122,13 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* UN SDG alignment badges */}
+        <div className="mt-12 pt-6 border-t border-slate-200">
+          <SDGBadges />
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-14 border-t border-slate-200 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div className="mt-8 border-t border-slate-200 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <div className="text-sm text-slate-500 leading-relaxed">
             <p>RooZ Youth Development Network · Réseau de développement de la jeunesse RooZ</p>
             <p className="mt-0.5 text-xs">
