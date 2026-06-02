@@ -84,6 +84,13 @@
   <url><loc>https://www.rydn.ca/fa/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.rydn.ca/he/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
+  <!-- Governance -->
+  <url><loc>https://www.rydn.ca/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
   <!-- Privacy Policy -->
   <url><loc>https://www.rydn.ca/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.rydn.ca/fr/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
