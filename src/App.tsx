@@ -437,8 +437,8 @@ function HomePage() {
     | "gameDev"
     | "gaming"
 
-  const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; categories: Category[]; university?: UniversityKey }[] = [
-    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", categories: ["business", "it", "sports"], university: "yorku" },
+  const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; categories: Category[]; universities?: UniversityKey[] }[] = [
+    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", categories: ["business", "it", "sports"], universities: ["yorku"] },
     { name: "Sahar", photo: saharUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Political science", "LSAT preparation", "University applications"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2", categories: ["preLaw", "psychNeuro"] },
     { name: "Sara Roozbahani", photo: saraUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "MCAT", "Research", "University applications", "Psychology", "Study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2", categories: ["preMed", "psychNeuro"] },
     { name: "Sam Sina", photo: sinaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/9b_p31eCcEyWYRkSozwUhw2?ismsaljsauthenabled", categories: ["sciences", "pharmacy"] },
@@ -766,21 +766,9 @@ function HomePage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ y: -6 }}
-                className="relative card-ring w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl transition"
+                className="card-ring w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl transition"
                 key={advisor.name}
               >
-                {/* University logo — small vertical badge in top-right corner.
-                    Only shown when the advisor has a `university` key set. */}
-                {advisor.university && UNIVERSITIES[advisor.university] && (
-                  <img
-                    src={UNIVERSITIES[advisor.university].logo}
-                    alt={`${UNIVERSITIES[advisor.university].name} logo`}
-                    title={`Studies at ${UNIVERSITIES[advisor.university].name}`}
-                    className="absolute top-4 right-4 h-12 w-auto object-contain opacity-90"
-                    loading="lazy"
-                  />
-                )}
-
                 <div className="relative">
                   <img
                     className="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-sky-50"
@@ -802,6 +790,40 @@ function HomePage() {
                     </span>
                   ))}
                 </div>
+
+                {/* "Studies at" trust badge — shown just above the booking button.
+                    Auto-scales the logo size based on how many universities the
+                    advisor lists, so 1 looks bold and 4 still fits cleanly. */}
+                {advisor.universities && advisor.universities.length > 0 && (
+                  <div className="mb-4 w-full">
+                    <div className="flex items-center justify-center gap-2 flex-wrap">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                        Studies at
+                      </span>
+                      <div className="flex items-center gap-3">
+                        {advisor.universities.map((uniKey, idx, arr) => {
+                          const uni = UNIVERSITIES[uniKey]
+                          if (!uni) return null
+                          const sizeClass =
+                            arr.length === 1 ? "h-10" :
+                            arr.length === 2 ? "h-9" :
+                            arr.length === 3 ? "h-8" :
+                            "h-7"
+                          return (
+                            <img
+                              key={`${uniKey}-${idx}`}
+                              src={uni.logo}
+                              alt={uni.name}
+                              title={uni.name}
+                              className={`${sizeClass} w-auto object-contain opacity-90`}
+                              loading="lazy"
+                            />
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 <div className="mt-auto w-full">
                   <Button
