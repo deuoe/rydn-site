@@ -107,7 +107,7 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     orientation: "horizontal",
     // Big "Seneca" wordmark + smaller "POLYTECHNIC" subtitle reads visually
     // heavy. Shrink to match York's weight in a side-by-side row.
-    displayScale: 0.75,
+    displayScale: 0.68,
   },
   sfu: {
     key: "sfu",
