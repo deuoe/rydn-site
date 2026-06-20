@@ -17,12 +17,16 @@ import yorkULogo from "../assets/images/universities/YorkULogo_DIGITAL_Hor_RGB.p
 import georgeBrownLogo from "../assets/images/universities/George_Brown_Polytechnic_logo.svg"
 import utorontoLogo from "../assets/images/universities/UofT_Logo.jpg"
 import torontomuLogo from "../assets/images/universities/TMU-rgb.png"
+import senecaLogo from "../assets/images/universities/Seneca_Polytechnic_logo.png"
+import sfuLogo from "../assets/images/universities/SFU_horizontal_logo_rgb.png"
 
 export type UniversityKey =
   | "yorku"
   | "georgebrown"
   | "utoronto"
   | "torontomu"
+  | "seneca"
+  | "sfu"
   // Add new keys here as you add universities, e.g.:
   // | "mcmaster"
   // | "waterloo"
@@ -94,5 +98,24 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     short: "TMU",
     orientation: "horizontal",
     displayScale: 1.0,
+  },
+  seneca: {
+    key: "seneca",
+    logo: senecaLogo,
+    name: "Seneca Polytechnic",
+    short: "Seneca",
+    orientation: "horizontal",
+    // Bold red "Seneca" wordmark — similar feel to George Brown, default size.
+    displayScale: 1.0,
+  },
+  sfu: {
+    key: "sfu",
+    logo: sfuLogo,
+    name: "Simon Fraser University",
+    short: "SFU",
+    orientation: "horizontal",
+    // SFU's logo is very wide (red block + two-line wordmark); shrink a touch
+    // so it doesn't take up too much horizontal real estate.
+    displayScale: 0.9,
   },
 }
