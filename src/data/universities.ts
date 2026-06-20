@@ -105,8 +105,9 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     name: "Seneca Polytechnic",
     short: "Seneca",
     orientation: "horizontal",
-    // Bold red "Seneca" wordmark — similar feel to George Brown, default size.
-    displayScale: 1.0,
+    // Big "Seneca" wordmark + smaller "POLYTECHNIC" subtitle reads visually
+    // heavy. Shrink to match York's weight in a side-by-side row.
+    displayScale: 0.75,
   },
   sfu: {
     key: "sfu",
