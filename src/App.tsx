@@ -793,7 +793,9 @@ function HomePage() {
 
                 {/* "Studies at" trust badge — shown just above the booking button.
                     Auto-scales the logo size based on how many universities the
-                    advisor lists, so 1 looks bold and 4 still fits cleanly. */}
+                    advisor lists, then applies each university's own displayScale
+                    so visually-heavy logos (e.g. York's "U") shrink and crested
+                    logos with lots of whitespace (e.g. U of T) grow to match. */}
                 {advisor.universities && advisor.universities.length > 0 && (
                   <div className="mb-4 w-full">
                     <div className="flex items-center justify-center gap-2 flex-wrap">
@@ -804,18 +806,22 @@ function HomePage() {
                         {advisor.universities.map((uniKey, idx, arr) => {
                           const uni = UNIVERSITIES[uniKey]
                           if (!uni) return null
-                          const sizeClass =
-                            arr.length === 1 ? "h-10" :
-                            arr.length === 2 ? "h-9" :
-                            arr.length === 3 ? "h-8" :
-                            "h-7"
+                          // Base height by how many logos share the row.
+                          const baseHeight =
+                            arr.length === 1 ? 40 :
+                            arr.length === 2 ? 36 :
+                            arr.length === 3 ? 32 :
+                            28
+                          // Per-university tuning so each logo reads balanced.
+                          const finalHeight = Math.round(baseHeight * (uni.displayScale ?? 1))
                           return (
                             <img
                               key={`${uniKey}-${idx}`}
                               src={uni.logo}
                               alt={uni.name}
                               title={uni.name}
-                              className={`${sizeClass} w-auto object-contain opacity-90`}
+                              style={{ height: `${finalHeight}px` }}
+                              className="w-auto object-contain opacity-90"
                               loading="lazy"
                             />
                           )

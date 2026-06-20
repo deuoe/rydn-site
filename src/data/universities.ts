@@ -42,6 +42,20 @@ export type University = {
   short: string
   /** Whether the supplied logo is horizontal, vertical, or square */
   orientation?: "vertical" | "horizontal" | "square"
+  /**
+   * Per-logo visual scaling so different university logos look balanced
+   * next to each other. The base size of the "Studies at" badge is set by
+   * how many universities the advisor lists (1 logo = 40px, 4 logos = 28px).
+   * The final on-screen height = base × displayScale.
+   *
+   *   1.0  = default size, no adjustment
+   *   0.85 = 15% smaller (use for logos that visually dominate)
+   *   1.2  = 20% larger  (use for logos that visually look small / have lots
+   *                       of internal whitespace, like crested wordmarks)
+   *
+   * Tune empirically by comparing cards side by side.
+   */
+  displayScale?: number
 }
 
 export const UNIVERSITIES: Record<UniversityKey, University> = {
@@ -51,6 +65,9 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     name: "York University",
     short: "York U",
     orientation: "horizontal",
+    // York's "U" block visually dominates; shrink slightly so it doesn't
+    // overpower compact logos like George Brown.
+    displayScale: 0.78,
   },
   georgebrown: {
     key: "georgebrown",
@@ -58,6 +75,7 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     name: "George Brown College",
     short: "George Brown",
     orientation: "horizontal",
+    displayScale: 1.0,
   },
   utoronto: {
     key: "utoronto",
@@ -65,6 +83,9 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     name: "University of Toronto",
     short: "U of T",
     orientation: "horizontal",
+    // The U of T crest + wordmark has a lot of whitespace, so it visually
+    // reads smaller than other logos at the same height. Scale up a bit.
+    displayScale: 1.25,
   },
   torontomu: {
     key: "torontomu",
@@ -72,5 +93,6 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     name: "Toronto Metropolitan University",
     short: "TMU",
     orientation: "horizontal",
+    displayScale: 1.0,
   },
 }
