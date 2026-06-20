@@ -19,6 +19,7 @@ import utorontoLogo from "../assets/images/universities/UofT_Logo.jpg"
 import torontomuLogo from "../assets/images/universities/TMU-rgb.png"
 import senecaLogo from "../assets/images/universities/Seneca_Polytechnic_logo.png"
 import sfuLogo from "../assets/images/universities/SFU_horizontal_logo_rgb.png"
+import guilanLogo from "../assets/images/universities/University_of_Guilan.png"
 
 export type UniversityKey =
   | "yorku"
@@ -27,6 +28,7 @@ export type UniversityKey =
   | "torontomu"
   | "seneca"
   | "sfu"
+  | "guilan"
   // Add new keys here as you add universities, e.g.:
   // | "mcmaster"
   // | "waterloo"
@@ -118,5 +120,15 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     // SFU's logo is very wide (red block + two-line wordmark); shrink a touch
     // so it doesn't take up too much horizontal real estate.
     displayScale: 0.9,
+  },
+  guilan: {
+    key: "guilan",
+    logo: guilanLogo,
+    name: "University of Guilan",
+    short: "Guilan",
+    orientation: "vertical",
+    // Square/vertical logo (crest above wordmark). Slightly enlarge so the
+    // visual size matches horizontal wordmarks like York or Seneca.
+    displayScale: 1.15,
   },
 }
