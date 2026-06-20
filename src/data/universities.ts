@@ -127,8 +127,8 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     name: "University of Guilan",
     short: "Guilan",
     orientation: "vertical",
-    // Square/vertical logo (crest above wordmark). Slightly enlarge so the
-    // visual size matches horizontal wordmarks like York or Seneca.
-    displayScale: 1.15,
+    // Square/vertical logo (crest above wordmark). Enlarge so the visual
+    // size matches horizontal wordmarks like York or Seneca next to it.
+    displayScale: 1.3,
   },
 }
