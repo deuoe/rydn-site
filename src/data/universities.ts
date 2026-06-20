@@ -15,12 +15,14 @@
 
 import yorkULogo from "../assets/images/universities/YorkULogo_DIGITAL_Hor_RGB.png"
 import georgeBrownLogo from "../assets/images/universities/George_Brown_Polytechnic_logo.svg"
-import utorontoLogo from "../assets/images/universities/UofT_Logo.svg-copy.jpg"
+import utorontoLogo from "../assets/images/universities/UofT_Logo.jpg"
+import torontomuLogo from "../assets/images/universities/TMU-rgb.png"
 
 export type UniversityKey =
   | "yorku"
   | "georgebrown"
   | "utoronto"
+  | "torontomu"
   // Add new keys here as you add universities, e.g.:
   // | "mcmaster"
   // | "waterloo"
@@ -28,7 +30,6 @@ export type UniversityKey =
   // | "queens"
   // | "western"
   // | "ubc"
-  // | "torontomu"
 
 export type University = {
   /** Stable internal key — referenced by advisors */
@@ -63,6 +64,13 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     logo: utorontoLogo,
     name: "University of Toronto",
     short: "U of T",
+    orientation: "horizontal",
+  },
+  torontomu: {
+    key: "torontomu",
+    logo: torontomuLogo,
+    name: "Toronto Metropolitan University",
+    short: "TMU",
     orientation: "horizontal",
   },
 }
