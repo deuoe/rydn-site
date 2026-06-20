@@ -791,7 +791,9 @@ function HomePage() {
                   ))}
                 </div>
 
-                {/* "Studies at" trust badge — shown just above the booking button.
+                {/* "Education" trust badge — shown just above the booking button.
+                    Uses "Education" instead of "Studies at" so it works whether
+                    the advisor is currently enrolled, a graduate, or a mix.
                     Auto-scales the logo size based on how many universities the
                     advisor lists, then applies each university's own displayScale
                     so visually-heavy logos (e.g. York's "U") shrink and crested
@@ -800,7 +802,7 @@ function HomePage() {
                   <div className="mb-4 w-full">
                     <div className="flex items-center justify-center gap-2 flex-wrap">
                       <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-                        Studies at
+                        Education
                       </span>
                       <div className="flex items-center gap-3">
                         {advisor.universities.map((uniKey, idx, arr) => {
