@@ -8,6 +8,7 @@ import { Calendar } from "lucide-react"
 import logoUrl from "../assets/images/logo.jpeg"
 import LanguageSwitcher from "./LanguageSwitcher"
 import { useTranslation } from "../i18n/useTranslation"
+import { haptic } from "../lib/rydnNative"
 
 /**
  * Take the user to the advisors section. From the home page, scroll smoothly.
@@ -52,6 +53,8 @@ export default function Navbar() {
   ]
 
   const handleBookNow = (e: React.MouseEvent) => {
+    // Native iOS haptic on Book Now tap (no-op on web)
+    haptic("medium")
     if (onHome) {
       e.preventDefault()
       const advisors = document.getElementById("advisors")

@@ -23,6 +23,7 @@ import saracUrl from "./assets/images/SaraC.jpg"
 import imanUrl from "./assets/images/Iman.png"
 import pardisUrl from "./assets/images/Pardis.jpg"
 import mahanUrl from "./assets/images/Mahan.jpg"
+import { UNIVERSITIES, type UniversityKey } from "./data/universities"
 
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5)
@@ -436,8 +437,8 @@ function HomePage() {
     | "gameDev"
     | "gaming"
 
-  const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; categories: Category[] }[] = [
-    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", categories: ["business", "it", "sports"] },
+  const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; categories: Category[]; university?: UniversityKey }[] = [
+    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", categories: ["business", "it", "sports"], university: "yorku" },
     { name: "Sahar", photo: saharUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Political science", "LSAT preparation", "University applications"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2", categories: ["preLaw", "psychNeuro"] },
     { name: "Sara Roozbahani", photo: saraUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "MCAT", "Research", "University applications", "Psychology", "Study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2", categories: ["preMed", "psychNeuro"] },
     { name: "Sam Sina", photo: sinaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/9b_p31eCcEyWYRkSozwUhw2?ismsaljsauthenabled", categories: ["sciences", "pharmacy"] },
@@ -765,9 +766,21 @@ function HomePage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ y: -6 }}
-                className="card-ring w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl transition"
+                className="relative card-ring w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl transition"
                 key={advisor.name}
               >
+                {/* University logo — small vertical badge in top-right corner.
+                    Only shown when the advisor has a `university` key set. */}
+                {advisor.university && UNIVERSITIES[advisor.university] && (
+                  <img
+                    src={UNIVERSITIES[advisor.university].logo}
+                    alt={`${UNIVERSITIES[advisor.university].name} logo`}
+                    title={`Studies at ${UNIVERSITIES[advisor.university].name}`}
+                    className="absolute top-4 right-4 h-14 w-auto object-contain opacity-90"
+                    loading="lazy"
+                  />
+                )}
+
                 <div className="relative">
                   <img
                     className="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-sky-50"

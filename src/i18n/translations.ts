@@ -199,7 +199,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "Advising that",
       titleLine2: "changes paths.",
       subhead:
-        "Free 1-on-1 advising sessions with university students already on the path you're considering. Talk to someone only 2–3 years ahead of you — before making life-changing decisions.",
+        "Connecting students worldwide to Canada's top universities. Free 1-on-1 sessions with university students only 2–3 years ahead of you — before life-changing decisions.",
       ctaPrimary: "Find an Advisor",
       ctaSecondary: "Learn More",
       trustNonprofit: "Canadian nonprofit",
@@ -375,7 +375,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "Un mentorat qui",
       titleLine2: "change les parcours.",
       subhead:
-        "Des séances de conseil gratuites en tête-à-tête avec des étudiants déjà sur la voie qui vous intéresse. Parlez à quelqu'un seulement 2 ou 3 ans plus avancé que vous — avant de prendre des décisions qui changent une vie.",
+        "Relier les étudiants du monde entier aux meilleures universités canadiennes. Séances individuelles gratuites avec des étudiants qui ont seulement 2 ou 3 ans d'avance — avant les décisions qui changent une vie.",
       ctaPrimary: "Trouver un mentor",
       ctaSecondary: "En savoir plus",
       trustNonprofit: "Organisme canadien sans but lucratif",
@@ -552,7 +552,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "Mentoría que",
       titleLine2: "cambia caminos.",
       subhead:
-        "Sesiones de asesoramiento gratuitas e individuales con estudiantes universitarios que ya están en el camino que estás considerando. Habla con alguien que solo está 2 o 3 años por delante de ti — antes de tomar decisiones que cambian la vida.",
+        "Conectando a estudiantes de todo el mundo con las mejores universidades de Canadá. Sesiones individuales gratuitas con estudiantes que solo te llevan 2 o 3 años de ventaja — antes de tomar decisiones que cambian la vida.",
       ctaPrimary: "Encontrar un mentor",
       ctaSecondary: "Saber más",
       trustNonprofit: "Organización canadiense sin fines de lucro",
@@ -729,7 +729,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "مشاوره‌ای که",
       titleLine2: "مسیرها را عوض می‌کند.",
       subhead:
-        "جلسات مشاوره فردی رایگان با دانشجویان دانشگاه که هم‌اکنون در مسیری هستند که شما در نظر دارید. با کسی صحبت کنید که تنها ۲ تا ۳ سال جلوتر از شماست — پیش از تصمیم‌گیری‌هایی که زندگی شما را تغییر می‌دهند.",
+        "ارتباط دانشجویان سراسر جهان با برترین دانشگاه‌های کانادا. جلسات مشاوره فردی رایگان با دانشجویانی که فقط ۲ تا ۳ سال جلوتر از شما هستند — پیش از تصمیم‌گیری‌های زندگی‌ساز.",
       ctaPrimary: "پیدا کردن مشاور",
       ctaSecondary: "بیشتر بدانید",
       trustNonprofit: "سازمان غیرانتفاعی کانادایی",
@@ -905,7 +905,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       titleLine1: "ייעוץ ש",
       titleLine2: "משנה דרכים.",
       subhead:
-        "פגישות ייעוץ פרטיות וחינמיות עם סטודנטים אוניברסיטאיים שכבר נמצאים בדרך שאתם שוקלים. דברו עם מישהו שרק 2-3 שנים לפניכם — לפני שתקבלו החלטות גורליות.",
+        "מחברים סטודנטים מכל העולם לאוניברסיטאות המובילות בקנדה. פגישות ייעוץ פרטיות וחינמיות עם סטודנטים שרק 2-3 שנים לפניכם — לפני החלטות גורליות.",
       ctaPrimary: "מצאו מנטור",
       ctaSecondary: "למידע נוסף",
       trustNonprofit: "עמותה קנדית",

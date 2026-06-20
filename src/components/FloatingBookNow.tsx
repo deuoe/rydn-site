@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Calendar } from "lucide-react"
 import { useTranslation } from "../i18n/useTranslation"
+import { haptic } from "../lib/rydnNative"
 
 /**
  * A sticky floating Book Now button that's always visible on mobile after the user
@@ -27,6 +28,8 @@ export default function FloatingBookNow() {
   }, [])
 
   const handleClick = (e: React.MouseEvent) => {
+    // Native iOS haptic on Book Now tap (no-op on web)
+    haptic("medium")
     if (onHome) {
       e.preventDefault()
       const advisors = document.getElementById("advisors")

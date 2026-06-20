@@ -3,6 +3,7 @@ import { Globe, Check, ChevronDown } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { useTranslation } from "../i18n/useTranslation"
 import { LANGUAGES } from "../i18n/translations"
+import { haptic } from "../lib/rydnNative"
 
 interface Props {
   /** Use light text/icon styling (over the dark hero) */
@@ -45,7 +46,11 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
             return (
               <button
                 key={l.code}
-                onClick={() => setLang(l.code)}
+                onClick={() => {
+                  // Native iOS haptic tick when changing language (no-op on web)
+                  haptic("selection")
+                  setLang(l.code)
+                }}
                 className={
                   "w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-semibold transition " +
                   (active ? "bg-sky-50 text-sky-700" : "text-slate-700 hover:bg-slate-100")
@@ -101,6 +106,8 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
                 <li key={l.code} role="option" aria-selected={active}>
                   <button
                     onClick={() => {
+                      // Native iOS haptic tick when changing language (no-op on web)
+                      haptic("selection")
                       setLang(l.code)
                       setOpen(false)
                     }}
