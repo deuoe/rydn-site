@@ -65,9 +65,9 @@ export const UNIVERSITIES: Record<UniversityKey, University> = {
     name: "York University",
     short: "York U",
     orientation: "horizontal",
-    // York's "U" block visually dominates; shrink slightly so it doesn't
+    // York's "U" block visually dominates; shrink so it doesn't
     // overpower compact logos like George Brown.
-    displayScale: 0.78,
+    displayScale: 0.7,
   },
   georgebrown: {
     key: "georgebrown",
