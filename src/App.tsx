@@ -776,7 +776,7 @@ function HomePage() {
                     src={UNIVERSITIES[advisor.university].logo}
                     alt={`${UNIVERSITIES[advisor.university].name} logo`}
                     title={`Studies at ${UNIVERSITIES[advisor.university].name}`}
-                    className="absolute top-4 right-4 h-14 w-auto object-contain opacity-90"
+                    className="absolute top-4 right-4 h-12 w-auto object-contain opacity-90"
                     loading="lazy"
                   />
                 )}
