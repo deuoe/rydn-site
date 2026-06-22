@@ -15,6 +15,7 @@ import TermsOfService from "./TermsOfService"
 import ContactUs from "./ContactUs"
 import Stories from "./Stories"
 import Governance from "./Governance"
+import AdvisorDetail from "./AdvisorDetail"
 import NotFound from "./NotFound"
 import ScrollToTop from "./components/ScrollToTop"
 import { LanguageProvider } from "./i18n/LanguageProvider"
@@ -36,6 +37,7 @@ const PAGES = [
   { path: "contact-us", element: <ContactUs /> },
   { path: "stories", element: <Stories /> },
   { path: "governance", element: <Governance /> },
+  { path: "advisors/:slug", element: <AdvisorDetail /> },
 ] as const
 
 const NON_DEFAULT_LANGS = ["fr", "es", "fa", "he"] as const

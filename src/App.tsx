@@ -8,22 +8,9 @@ import Button from "./components/Button"
 import InstagramFeed from "./components/InstagramFeed"
 import { FindMatchButton } from "./components/AIMatchmaker"
 import { useTranslation } from "./i18n/useTranslation"
-import leoUrl from "./assets/images/Leo.jpg"
-import saharUrl from "./assets/images/Sahar.jpeg"
-import saraUrl from "./assets/images/Sara.jpg"
-import sinaUrl from "./assets/images/Sina.jpeg"
 import homeHero from "./assets/images/home-hero.jpg"
-import sadafUrl from "./assets/images/Sadaf.jpg"
-import heliaUrl from "./assets/images/Helia.jpg"
-import iliyaUrl from "./assets/images/Iliya.jpg"
-import jenniferUrl from "./assets/images/Jennifer.jpeg"
-import tinaUrl from "./assets/images/Tina.jpg"
-import valentinaUrl from "./assets/images/Valentina.jpg"
-import saracUrl from "./assets/images/SaraC.jpg"
-import imanUrl from "./assets/images/Iman.png"
-import pardisUrl from "./assets/images/Pardis.jpg"
-import mahanUrl from "./assets/images/Mahan.jpg"
-import { UNIVERSITIES, type UniversityKey } from "./data/universities"
+import { UNIVERSITIES } from "./data/universities"
+import { ADVISORS, type Category } from "./data/advisors"
 
 function shuffleArray<T>(array: T[]): T[] {
   return [...array].sort(() => Math.random() - 0.5)
@@ -423,36 +410,10 @@ function HomePage() {
     }
   }, [])
 
-  type Category =
-    | "preMed"
-    | "sciences"
-    | "preLaw"
-    | "business"
-    | "arts"
-    | "language"
-    | "psychNeuro"
-    | "pharmacy"
-    | "sports"
-    | "it"
-    | "gameDev"
-    | "gaming"
-
-  const advisors: { name: string; photo: string; description: string; advisingTopics: string[]; bookingLink?: string; categories: Category[]; universities?: UniversityKey[] }[] = [
-    { name: "Ilia", photo: leoUrl, description: "Bachelor of Commerce student", advisingTopics: ["Information Technology", "Soccer", "Business"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/WDGqbdBASEKfJ4bfCfkoEQ2", categories: ["business", "it", "sports"], universities: ["yorku"] },
-    { name: "Sahar", photo: saharUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Political science", "LSAT preparation", "University applications"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/PaIUazNXTkqwJRQDQA9Rqg2", categories: ["preLaw", "psychNeuro"], universities: ["yorku"] },
-    { name: "Sara Roozbahani", photo: saraUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "MCAT", "Research", "University applications", "Psychology", "Study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/p_MxjUFix02viC9r-uO9Pg2", categories: ["preMed", "psychNeuro"], universities: ["seneca", "yorku"] },
-    { name: "Sam Sina", photo: sinaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Sciences", "Research and Article", "Tutoring", "Pharmacy School"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/9b_p31eCcEyWYRkSozwUhw2?ismsaljsauthenabled", categories: ["sciences", "pharmacy"], universities: ["guilan", "georgebrown", "yorku"] },
-    { name: "Sadaf", photo: sadafUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2", categories: ["sciences"], universities: ["torontomu"] },
-    { name: "Helia", photo: heliaUrl, description: "Bachelor of Science student", advisingTopics: ["Neuroscience", "MCAT Preparation", "Pre-med Advising"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/QLxjEWE6a0Chv3L9I-xj9g2", categories: ["preMed", "psychNeuro"], universities: ["yorku"] },
-    { name: "Iliya", photo: iliyaUrl, description: "Bachelor of Science student", advisingTopics: ["Biomedical Science", "Pre-med Advising", "Personal training/fitness"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/z32K193SL0OAEB-b9HfH6Q2", categories: ["preMed", "sports"], universities: ["yorku"] },
-    { name: "Jennifer", photo: jenniferUrl, description: "Nursing student", advisingTopics: ["Nursing", "Studying strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/vJPCy85x_kC5W0yDNMEIow2", categories: ["sciences"], universities: ["seneca"] },
-    { name: "Tina", photo: tinaUrl, description: "Bachelor of Science student", advisingTopics: ["Pre-med advising", "Biomedical Science"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/zRAFcE2eLEGuWGtMwvxucA2", categories: ["preMed"], universities: ["yorku"] },
-    { name: "Valentina", photo: valentinaUrl, description: "Bachelor of Science student", advisingTopics: ["Psychology", "French", "Biology", "Research", "Academic Exchange"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/E08RGS0aKUK55tj_wj7zYQ2", categories: ["sciences", "language", "psychNeuro"], universities: ["yorku"] },
-    { name: "Iman", photo: imanUrl, description: "Bachelor of Arts student", advisingTopics: ["Psychology", "Game Development"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/Nl-k9rS70EiUi53ylFUU5A2", categories: ["psychNeuro", "gameDev"], universities: ["yorku"] },
-    { name: "Pardis", photo: pardisUrl, description: "Bachelor of Science student", advisingTopics: ["Health Sciences", "Pre-med", "BC med schools", "Uni/life balance", "study strategies"], bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/CTebHrhEMUeIKIhiR3JVGA2", categories: ["preMed", "sciences"], universities: ["sfu"] },
-    { name: "Mahan", photo: mahanUrl, description: "Health Sciences student", advisingTopics: ["Health Sciences", "University Applications", "Pre-med advising"], categories: ["preMed", "sciences"], universities: ["utoronto"] },
-    { name: "Sara", photo: saracUrl, description: "Bachelor of Arts student", advisingTopics: ["History", "English", "Nutrition", "Fitness training"], categories: ["arts", "sports"], universities: ["georgebrown", "yorku"] },
-  ]
+  // Advisors come from the central registry — see src/data/advisors.ts.
+  // The detail page at /advisors/:slug imports from the same registry, so
+  // any edits flow through everywhere.
+  const advisors = ADVISORS
 
   const [activeFilter, setActiveFilter] = useState<Category | "all">("all")
   const filterCategories: { key: Category | "all"; labelKey: string }[] = [
@@ -833,9 +794,13 @@ function HomePage() {
                   </div>
                 )}
 
-                <div className="mt-auto w-full">
+                {/* Booking + Story buttons side by side, with clear hierarchy:
+                    Book = primary (filled, wider, ~70%); Story = secondary (outline, ~30%).
+                    On mobile both stay side by side; if too cramped, mobile users
+                    still see Book most prominently. */}
+                <div className="mt-auto w-full flex gap-2">
                   <Button
-                    className="w-full"
+                    className="flex-1"
                     variant={advisor.bookingLink ? "primary" : "secondary"}
                     onClick={() => {
                       if (advisor.bookingLink) {
@@ -846,6 +811,13 @@ function HomePage() {
                   >
                     {advisor.bookingLink ? `Book with ${advisor.name.split(" ")[0]}` : "Booking soon"}
                   </Button>
+                  <Link
+                    to={`/advisors/${advisor.slug}`}
+                    className="inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-sky-400 hover:text-sky-700 transition whitespace-nowrap"
+                    aria-label={`Read ${advisor.name}'s story`}
+                  >
+                    Story →
+                  </Link>
                 </div>
               </motion.div>
             ))}

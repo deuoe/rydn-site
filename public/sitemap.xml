@@ -84,6 +84,22 @@
   <url><loc>https://www.rydn.ca/fa/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.rydn.ca/he/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
+  <!-- Individual advisor pages -->
+  <url><loc>https://www.rydn.ca/advisors/sam-sina</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/sara-roozbahani</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/ilia</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/sahar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/sadaf</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/helia</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/iliya</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/jennifer</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/tina</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/valentina</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/iman</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/pardis</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/mahan</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/advisors/sara-arts</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
   <!-- Governance -->
   <url><loc>https://www.rydn.ca/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.rydn.ca/fr/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
