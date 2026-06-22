@@ -19,6 +19,9 @@ import AdvisorDetail from "./AdvisorDetail"
 import Press from "./Press"
 import Blog from "./Blog"
 import BlogPost from "./BlogPost"
+import ForNewcomers from "./ForNewcomers"
+import PourNouveauxArrivants from "./PourNouveauxArrivants"
+import ForEducators from "./ForEducators"
 import NotFound from "./NotFound"
 import ScrollToTop from "./components/ScrollToTop"
 import { LanguageProvider } from "./i18n/LanguageProvider"
@@ -44,6 +47,9 @@ const PAGES = [
   { path: "blog", element: <Blog /> },
   { path: "blog/:slug", element: <BlogPost /> },
   { path: "advisors/:slug", element: <AdvisorDetail /> },
+  { path: "for-newcomers", element: <ForNewcomers /> },
+  { path: "pour-nouveaux-arrivants", element: <PourNouveauxArrivants /> },
+  { path: "for-educators", element: <ForEducators /> },
 ] as const
 
 const NON_DEFAULT_LANGS = ["fr", "es", "fa", "he"] as const

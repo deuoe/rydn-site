@@ -84,6 +84,11 @@
   <url><loc>https://www.rydn.ca/fa/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.rydn.ca/he/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
+  <!-- Audience landing pages -->
+  <url><loc>https://www.rydn.ca/for-newcomers</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/pour-nouveaux-arrivants</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/for-educators</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
   <!-- Blog -->
   <url><loc>https://www.rydn.ca/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.rydn.ca/blog/pre-med-in-canada-complete-guide</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
