@@ -61,6 +61,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-slate-600">
               <li><Link to="/" className="hover:text-sky-700 transition">Advising</Link></li>
               <li><Link to="/workshops" className="hover:text-sky-700 transition">Workshops</Link></li>
+              <li><Link to="/blog" className="hover:text-sky-700 transition">Blog</Link></li>
               <li><Link to="/become-advisor" className="hover:text-sky-700 transition">Become an Advisor</Link></li>
               <li><Link to="/partner-with-us" className="hover:text-sky-700 transition">Partnerships</Link></li>
             </ul>

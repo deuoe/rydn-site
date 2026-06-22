@@ -17,6 +17,8 @@ import Stories from "./Stories"
 import Governance from "./Governance"
 import AdvisorDetail from "./AdvisorDetail"
 import Press from "./Press"
+import Blog from "./Blog"
+import BlogPost from "./BlogPost"
 import NotFound from "./NotFound"
 import ScrollToTop from "./components/ScrollToTop"
 import { LanguageProvider } from "./i18n/LanguageProvider"
@@ -39,6 +41,8 @@ const PAGES = [
   { path: "stories", element: <Stories /> },
   { path: "governance", element: <Governance /> },
   { path: "press", element: <Press /> },
+  { path: "blog", element: <Blog /> },
+  { path: "blog/:slug", element: <BlogPost /> },
   { path: "advisors/:slug", element: <AdvisorDetail /> },
 ] as const
 
