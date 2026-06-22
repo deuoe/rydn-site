@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RYDN — Media & PR Strategy</title>
+  <style>
+    /* ============================================================
+       Print-ready strategy document.
+       Open in any browser, then File → Print → "Save as PDF".
+       ============================================================ */
+
+    @page {
+      size: Letter;
+      margin: 0.6in;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1F2937;
+      line-height: 1.55;
+      font-size: 11pt;
+      max-width: 7.4in;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* ============================================================
+       Header
+       ============================================================ */
+    .header {
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 22px 28px;
+      margin: -0.6in -0.6in 24px -0.6in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header .brand {
+      font-size: 18pt;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .header .brand .sub {
+      display: block;
+      font-size: 9pt;
+      font-weight: 400;
+      color: #94A3B8;
+      margin-top: 2px;
+    }
+    .header .tag {
+      font-size: 9pt;
+      color: #94A3B8;
+      text-align: right;
+    }
+
+    /* ============================================================
+       Document title
+       ============================================================ */
+    h1.doc-title {
+      font-size: 26pt;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.5px;
+    }
+    .doc-subtitle {
+      font-size: 11pt;
+      color: #6B7280;
+      margin-bottom: 6px;
+    }
+    .doc-divider {
+      height: 3px;
+      width: 80px;
+      background: linear-gradient(to right, #0E4FA3, #F59E0B);
+      border-radius: 2px;
+      margin: 16px 0 28px;
+    }
+
+    /* ============================================================
+       Section
+       ============================================================ */
+    .section {
+      page-break-inside: avoid;
+      margin: 28px 0;
+    }
+    .section h2 {
+      font-size: 16pt;
+      font-weight: 700;
+      color: #0E4FA3;
+      margin: 0 0 4px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #E5E7EB;
+    }
+    .section h2 .num {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: #0E4FA3;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-size: 12pt;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .section h3 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #0F172A;
+      margin: 18px 0 6px 0;
+    }
+    .section p {
+      margin: 0 0 8px 0;
+    }
+    .section ul {
+      margin: 6px 0 12px 0;
+      padding-left: 22px;
+    }
+    .section li {
+      margin-bottom: 4px;
+    }
+
+    /* ============================================================
+       Table
+       ============================================================ */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 16px;
+      font-size: 10pt;
+    }
+    th {
+      background: #0E4FA3;
+      color: white;
+      text-align: left;
+      padding: 8px 10px;
+      font-weight: 600;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #E5E7EB;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td {
+      background: #F8FAFC;
+    }
+    td .tier {
+      display: inline-block;
+      width: 16px;
+      text-align: center;
+      margin-right: 4px;
+    }
+
+    /* ============================================================
+       Callout boxes
+       ============================================================ */
+    .callout {
+      background: #F1F5F9;
+      border-left: 4px solid #F59E0B;
+      padding: 14px 18px;
+      margin: 14px 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .callout strong {
+      color: #0E4FA3;
+    }
+
+    .pitch-template {
+      background: #0F172A;
+      color: #E5E7EB;
+      padding: 22px 26px;
+      border-radius: 8px;
+      margin: 14px 0;
+      font-family: "Menlo", "Monaco", "Courier New", monospace;
+      font-size: 9.5pt;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+    .pitch-template .label {
+      color: #94A3B8;
+      font-weight: 600;
+    }
+    .pitch-template .var {
+      color: #F59E0B;
+    }
+
+    /* ============================================================
+       Newsworthy angles grid
+       ============================================================ */
+    .angles {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .angle {
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: #FFFFFF;
+    }
+    .angle .icon {
+      display: inline-block;
+      font-size: 16pt;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .angle .ttl {
+      font-weight: 700;
+      color: #0F172A;
+      display: inline;
+    }
+    .angle .who {
+      color: #6B7280;
+      font-size: 9.5pt;
+      display: block;
+      margin-top: 3px;
+      margin-left: 26px;
+    }
+
+    /* ============================================================
+       Timeline
+       ============================================================ */
+    .timeline {
+      margin: 14px 0;
+    }
+    .timeline .week {
+      border-left: 3px solid #0E4FA3;
+      padding: 4px 0 12px 18px;
+      margin-left: 6px;
+      position: relative;
+    }
+    .timeline .week::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 6px;
+      width: 13px;
+      height: 13px;
+      background: #F59E0B;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 2px #0E4FA3;
+    }
+    .timeline .week-label {
+      font-weight: 700;
+      color: #0E4FA3;
+      font-size: 11pt;
+    }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    .footer {
+      margin: 40px -0.6in -0.6in -0.6in;
+      padding: 18px 28px;
+      background: #F8FAFC;
+      border-top: 2px solid #E5E7EB;
+      font-size: 9pt;
+      color: #6B7280;
+      text-align: center;
+      page-break-inside: avoid;
+    }
+
+    /* ============================================================
+       Page breaks
+       ============================================================ */
+    .page-break {
+      page-break-before: always;
+    }
+
+    @media print {
+      body { font-size: 10.5pt; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <div class="header">
+    <div class="brand">
+      RYDN
+      <span class="sub">RooZ Youth Development Network</span>
+    </div>
+    <div class="tag">
+      Strategic guidance · Internal use<br/>
+      rydn.ca · info@rydn.ca
+    </div>
+  </div>
+
+  <!-- ============================================================
+       TITLE
+       ============================================================ -->
+  <h1 class="doc-title">Media &amp; PR Strategy</h1>
+  <p class="doc-subtitle">
+    How RYDN gets into the press as a young Canadian nonprofit — concrete tactics,
+    pitch templates, and award shortlists.
+  </p>
+  <div class="doc-divider"></div>
+
+  <!-- ============================================================
+       SECTION 1: LOCAL FIRST
+       ============================================================ -->
+  <div class="section">
+    <h2><span class="num">1</span> Local-first, always</h2>
+    <p>
+      Don't pitch the New York Times before you've been in your community paper. The press
+      pyramid below moves from easiest to hardest. Build credibility tier by tier — each rung
+      gives you a quotable mention that makes the next pitch easier.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th>Examples</th>
+          <th>Difficulty</th>
+          <th>What works</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tier">🟢</span>Free community calendars</td>
+          <td>Richmond Hill Liberal, North York Mirror, BlogTO events</td>
+          <td>Easy</td>
+          <td>List workshops, milestones</td>
+        </tr>
+        <tr>
+          <td><span class="tier">🟢</span>Community / ethnic press</td>
+          <td><em>Shahrvand</em>, <em>Salam Toronto</em>, <em>Sing Tao</em>, ethnic radio</td>
+          <td>Easy</td>
+          <td>Iranian-Canadian angle is rare and compelling</td>
+        </tr>
+        <tr>
+          <td><span class="tier">🟡</span>Education-focused outlets</td>
+          <td>University Affairs, Maclean's Education, EdCan Network</td>
+          <td>Medium</td>
+          <td>Pitch trend stories + data</td>
+        </tr>
+        <tr>
+          <td><span class="tier">🟡</span>Local TV / radio</td>
+          <td>CBC Metro Morning, CityTV, CP24</td>
+          <td>Medium</td>
+          <td>Short interviews on Education Day-type segments</td>
+        </tr>
+        <tr>
+          <td><span class="tier">🔴</span>National papers</td>
+          <td>Globe &amp; Mail, Toronto Star, National Post</td>
+          <td>Hard</td>
+          <td>Need a strong hook plus impact numbers</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================================================
+       SECTION 2: NEWSWORTHY ANGLES
+       ============================================================ -->
+  <div class="section">
+    <h2><span class="num">2</span> What makes RYDN newsworthy right now</h2>
+    <p>
+      You have five distinct story angles already. Any one of them is enough for an editor to bite.
+      Match the angle to the journalist's beat.
+    </p>
+
+    <div class="angles">
+      <div class="angle">
+        <span class="icon">🇮🇷→🇨🇦</span>
+        <span class="ttl">Founder angle.</span> Iranian immigrant founds Canadian nonprofit for newcomer students.
+        <span class="who">Ethnic press loves this. So does CBC Local.</span>
+      </div>
+      <div class="angle">
+        <span class="icon">🤖</span>
+        <span class="ttl">AI for education.</span> Multilingual AI matchmaker for free youth advising.
+        <span class="who">Tech and education reporters love this.</span>
+      </div>
+      <div class="angle">
+        <span class="icon">🇨🇦</span>
+        <span class="ttl">Free 1-on-1 for newcomers.</span> Students 2–3 years ahead advising those behind them.
+        <span class="who">Community and education angle.</span>
+      </div>
+      <div class="angle">
+        <span class="icon">🌐</span>
+        <span class="ttl">Multilingual mentorship.</span> Persian, Hebrew, Spanish, French support.
+        <span class="who">Diversity and inclusion stories.</span>
+      </div>
+      <div class="angle">
+        <span class="icon">🎓</span>
+        <span class="ttl">UN SDG alignment.</span> Canadian nonprofit publicly committing to four UN goals.
+        <span class="who">Tied to UN news cycles.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 3: CONCRETE NEXT STEPS
+       ============================================================ -->
+  <div class="section">
+    <h2><span class="num">3</span> Concrete next steps</h2>
+
+    <div class="timeline">
+      <div class="week">
+        <div class="week-label">Week 1 — Set up infrastructure</div>
+        <ul>
+          <li>Press page live at <strong>rydn.ca/press</strong> ✅</li>
+          <li>Build a list of 5–10 specific journalists who cover education / newcomers / nonprofits in Canada.</li>
+          <li>Sign up for <strong>HARO</strong> (helpareporter.com) — free. Journalists post requests for sources; you reply.</li>
+          <li>Optional: sign up for <strong>Cision</strong> or <strong>Muck Rack</strong> if budget allows (paid).</li>
+        </ul>
+      </div>
+
+      <div class="week">
+        <div class="week-label">Week 2 — First pitches</div>
+        <ul>
+          <li>Send personalized email to each journalist with a 1-line description, a specific story angle, a founder quote, and a link to the press page.</li>
+          <li>Submit RYDN to local community calendars (Richmond Hill Public Library, Toronto Star community board, BlogTO, Toronto.com).</li>
+        </ul>
+      </div>
+
+      <div class="week">
+        <div class="week-label">Week 3 — Earned mentions</div>
+        <ul>
+          <li>Pitch a <strong>guest op-ed</strong> to Maclean's Education, Toronto Star, or Globe Education. Title: <em>"What I learned founding a free youth advising platform as an Iranian-Canadian immigrant."</em></li>
+          <li>Reach out to podcast hosts in the education and immigrant entrepreneur space.</li>
+        </ul>
+      </div>
+
+      <div class="week">
+        <div class="week-label">Month 2+ — Authority building</div>
+        <ul>
+          <li><strong>Awards:</strong> Apply to Top 25 Canadian Immigrants, YMCA Peace Medal, 30 Under 30 lists, Canadian Charity Awards. Even nominations create press hooks.</li>
+          <li><strong>Speaking:</strong> Pitch to Educause, TEDx Richmond Hill, school board events.</li>
+          <li><strong>Partnerships:</strong> Co-announce wins with TDSB / YRDSB.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Force a page break before the pitch template -->
+  <div class="page-break"></div>
+
+  <!-- ============================================================
+       SECTION 4: PITCH TEMPLATE
+       ============================================================ -->
+  <div class="section">
+    <h2><span class="num">4</span> Founder pitch template</h2>
+    <p>
+      Use this verbatim. Replace bracketed bits with your specifics. Personalize the opening
+      with a specific reference to a story the journalist recently wrote — that one sentence
+      doubles your reply rate.
+    </p>
+
+    <div class="pitch-template"><span class="label">Subject:</span> Story idea — Iranian-Canadian immigrant founds free youth advising platform aligned with UN SDGs
+
+Hi <span class="var">[Journalist's first name]</span>,
+
+I've been following your work on <span class="var">[specific recent piece they wrote]</span>.
+
+I'm Sam, co-founder of RYDN — a Canadian nonprofit that connects students with free 1-on-1 advisors who are only 2–3 years ahead of them academically.
+
+I founded RYDN after my own journey from the University of Guilan in Iran to George Brown to York University, navigating how confusing the Canadian education system is for newcomer families.
+
+We now have 14 student advisors helping high school students across the GTA — for free, in 5 languages including Persian and Hebrew. Our work is publicly aligned with 4 UN Sustainable Development Goals.
+
+I'd love to talk to you about <span class="var">[specific angle relevant to their beat]</span>. Could we set up a 15-minute call?
+
+Press kit, founder bios, and quotes ready to use: rydn.ca/press
+
+Cheers,
+Sam Sina Ansari Movahed
+Co-founder, RYDN
+(647) 498-3938</div>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> Send between Tuesday and Thursday, 9–11 AM Eastern. Journalists
+      open and reply at higher rates in that window. Avoid Mondays (inbox cleanup) and Fridays
+      (winding down).
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SECTION 5: TOOLS
+       ============================================================ -->
+  <div class="section">
+    <h2><span class="num">5</span> Tools — free and cheap</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Use for</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>HARO</strong> (helpareporter.com)</td>
+          <td>Respond to journalist requests three times daily</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td><strong>Twitter / X</strong></td>
+          <td>Engage with reporters who cover your beat</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td><strong>LinkedIn</strong></td>
+          <td>Direct message journalists you find</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td><strong>Cision PR Newswire</strong></td>
+          <td>Distribute press releases at scale</td>
+          <td>$$</td>
+        </tr>
+        <tr>
+          <td><strong>Muck Rack</strong></td>
+          <td>Find journalists by beat</td>
+          <td>$</td>
+        </tr>
+        <tr>
+          <td><strong>Help A B2B Writer</strong></td>
+          <td>Source for B2B journalists</td>
+          <td>Free</td>
+        </tr>
+        <tr>
+          <td><strong>Featured.com</strong></td>
+          <td>Get quoted in roundup pieces</td>
+          <td>Free</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ============================================================
+       SECTION 6: AWARDS
+       ============================================================ -->
+  <div class="section">
+    <h2><span class="num">6</span> Awards to apply to</h2>
+    <p>
+      Each gives you a press release angle <em>even if you don't win</em> — being a finalist or
+      nominee is itself newsworthy. Build a calendar of these so you never miss a deadline.
+    </p>
+    <ul>
+      <li><strong>Top 25 Canadian Immigrants</strong> — annual, March deadline. <em>Strong fit for Sam's founder story.</em></li>
+      <li><strong>YMCA Peace Medal</strong> — community impact focus.</li>
+      <li><strong>Charity Village Awards</strong> — Canadian nonprofit sector awards.</li>
+      <li><strong>Imagine Canada Standards</strong> — accreditation, not an award. Huge credibility signal once obtained.</li>
+      <li><strong>Ontario Trillium Foundation grants</strong> — receiving one comes with press support.</li>
+      <li><strong>Lieutenant Governor's Community Volunteer Award</strong> (Ontario).</li>
+      <li><strong>The Globe and Mail Best Workplaces</strong> — once RYDN has paid staff.</li>
+      <li><strong>RBC Top 25 Canadian Immigrant Awards</strong> — corporate-backed, strong PR.</li>
+      <li><strong>The Indus Entrepreneurs (TiE) Toronto</strong> — South Asian network, often open to Iranian-Canadians too.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> Apply to 3–5 awards per year. Even being a finalist gives you
+      a quotable line for grant applications: <em>"Finalist, 2026 Top 25 Canadian Immigrant Awards."</em>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SUMMARY / NEXT ACTION
+       ============================================================ -->
+  <div class="section">
+    <h2 style="border-color: #F59E0B;"><span class="num" style="background: #F59E0B;">✓</span> Next concrete action</h2>
+    <p>
+      <strong>This week:</strong> Identify 5 journalists. Draft the pitch template for the founder
+      angle and send 5 personalized versions. Don't wait for perfect — version one of the email
+      template above is already strong enough to send.
+    </p>
+    <p>
+      <strong>This month:</strong> Apply for one award (Top 25 Canadian Immigrants if open; otherwise
+      YMCA Peace Medal). Submit RYDN to 3 community calendars. Publish one op-ed pitch.
+    </p>
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <div class="footer">
+    <strong>RooZ Youth Development Network · Réseau de développement de la jeunesse RooZ</strong><br/>
+    Registered Canadian nonprofit · Ontario Corp. No. 1001539743<br/>
+    info@rydn.ca · (647) 498-3938 · rydn.ca
+  </div>
+
+</body>
+</html>

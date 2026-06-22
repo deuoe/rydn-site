@@ -3,6 +3,7 @@ import { Mail, Phone, Newspaper, Quote, Download, Copy, ExternalLink, Users, Glo
 import { useState } from "react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
+import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
 import saraUrl from "./assets/images/Sara.jpg"
 import sinaUrl from "./assets/images/Sina.jpeg"
@@ -208,10 +209,11 @@ export default function Press() {
                 key={founder.name}
                 className="rounded-3xl bg-white border border-slate-200 p-7 shadow-sm flex flex-col items-center text-center"
               >
-                <img
+                <SkeletonImage
                   src={founder.photo}
                   alt={founder.name}
-                  className="h-32 w-32 rounded-full object-cover ring-4 ring-slate-100 shadow-md"
+                  shape="rounded-full"
+                  className="h-32 w-32 ring-4 ring-slate-100 shadow-md"
                 />
                 <h3 className="mt-5 font-display text-xl font-bold text-slate-900">
                   {founder.name}

@@ -2,6 +2,7 @@ import { motion } from "motion/react"
 import { Sparkles, FileText, Download, ShieldCheck, Users, Crown, BookOpen, Mail, Calendar } from "lucide-react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
+import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
 import saraUrl from "./assets/images/Sara.jpg"
 import sinaUrl from "./assets/images/Sina.jpeg"
@@ -144,10 +145,11 @@ export default function Governance() {
                 {/* Photo or initials avatar */}
                 <div className="flex justify-center">
                   {member.photo ? (
-                    <img
+                    <SkeletonImage
                       src={member.photo}
                       alt={member.name}
-                      className="h-32 w-32 rounded-full object-cover ring-4 ring-slate-100 shadow-md"
+                      shape="rounded-full"
+                      className="h-32 w-32 ring-4 ring-slate-100 shadow-md"
                     />
                   ) : (
                     <div

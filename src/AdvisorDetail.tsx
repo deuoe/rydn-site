@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import { motion } from "motion/react"
 import { ArrowLeft, ArrowRight, Calendar, Share2, GraduationCap } from "lucide-react"
 import Container from "./components/Container"
+import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
 import { getAdvisorBySlug } from "./data/advisors"
 import { UNIVERSITIES } from "./data/universities"
@@ -71,10 +72,11 @@ export default function AdvisorDetail() {
             className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center"
           >
             <div className="md:col-span-5 flex md:justify-end">
-              <img
+              <SkeletonImage
                 src={advisor.photo}
                 alt={advisor.name}
-                className="w-56 h-56 md:w-64 md:h-64 rounded-full object-cover ring-8 ring-white/15 shadow-2xl"
+                shape="rounded-full"
+                className="w-56 h-56 md:w-64 md:h-64 ring-8 ring-white/15 shadow-2xl"
               />
             </div>
 

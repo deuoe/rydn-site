@@ -6,6 +6,7 @@ import Heading from "./components/Heading"
 import Container from "./components/Container"
 import Button from "./components/Button"
 import InstagramFeed from "./components/InstagramFeed"
+import SkeletonImage from "./components/SkeletonImage"
 import { FindMatchButton } from "./components/AIMatchmaker"
 import { useTranslation } from "./i18n/useTranslation"
 import homeHero from "./assets/images/home-hero.jpg"
@@ -731,11 +732,11 @@ function HomePage() {
                 key={advisor.name}
               >
                 <div className="relative">
-                  <img
-                    className="w-32 h-32 rounded-full object-cover mb-4 ring-4 ring-sky-50"
+                  <SkeletonImage
                     src={advisor.photo}
                     alt={advisor.name}
-                    loading="lazy"
+                    shape="rounded-full"
+                    className="w-32 h-32 mb-4 ring-4 ring-sky-50"
                   />
                 </div>
                 <h3 className="text-lg font-bold text-center text-slate-900">{advisor.name}</h3>
