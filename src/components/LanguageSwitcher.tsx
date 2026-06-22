@@ -37,7 +37,7 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
   if (variant === "list") {
     return (
       <div className="px-1 pt-3">
-        <p className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+        <p className="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
           {t("language.chooseLanguage")}
         </p>
         <div className="flex flex-col gap-1">
@@ -53,12 +53,14 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
                 }}
                 className={
                   "w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-semibold transition " +
-                  (active ? "bg-sky-50 text-sky-700" : "text-slate-700 hover:bg-slate-100")
+                  (active
+                    ? "bg-sky-50 text-sky-700 dark:bg-sky-950/40 dark:text-sky-300"
+                    : "text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800")
                 }
                 aria-current={active ? "true" : undefined}
               >
                 <span>{l.native}</span>
-                {active && <Check size={16} className="text-sky-600" />}
+                {active && <Check size={16} className="text-sky-600 dark:text-sky-400" />}
               </button>
             )
           })}
@@ -79,7 +81,7 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
           "inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold transition " +
           (transparent
             ? "text-white/85 hover:text-white hover:bg-white/10"
-            : "text-slate-700 hover:bg-slate-100 hover:text-slate-900")
+            : "text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white")
         }
       >
         <Globe size={16} />
@@ -95,9 +97,9 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 mt-2 w-48 rounded-xl bg-white shadow-xl border border-slate-200 py-2 z-50"
+            className="absolute right-0 mt-2 w-48 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-50"
           >
-            <li className="px-4 pb-2 mb-1 border-b border-slate-100 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <li className="px-4 pb-2 mb-1 border-b border-slate-100 dark:border-slate-800 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
               {t("language.chooseLanguage")}
             </li>
             {LANGUAGES.map(l => {
@@ -114,13 +116,13 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
                     className={
                       "w-full flex items-center gap-3 px-4 py-2 text-sm transition " +
                       (active
-                        ? "bg-sky-50 text-sky-700 font-semibold"
-                        : "text-slate-700 hover:bg-slate-50")
+                        ? "bg-sky-50 text-sky-700 font-semibold dark:bg-sky-950/40 dark:text-sky-300"
+                        : "text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800")
                     }
                   >
                     <Check
                       size={14}
-                      className={active ? "text-sky-600" : "text-transparent"}
+                      className={active ? "text-sky-600 dark:text-sky-400" : "text-transparent"}
                       aria-hidden
                     />
                     <span>{l.native}</span>

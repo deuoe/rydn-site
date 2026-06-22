@@ -6,7 +6,7 @@ export default function Paragraph({
   className?: string
 }) {
   return (
-    <p className={"max-w-3xl mx-auto text-base sm:text-lg leading-relaxed text-slate-700 " + className}>
+    <p className={"max-w-3xl mx-auto text-base sm:text-lg leading-relaxed text-slate-700 dark:text-slate-300 " + className}>
       {children}
     </p>
   )

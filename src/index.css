@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Vazirmatn:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 
+/* Use class-based dark mode. When `<html>` has class="dark", every `dark:*`
+ * variant in our components activates. Toggled by ThemeProvider. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --rydn-primary: #0ea5e9;     /* sky-500 */
   --rydn-primary-dark: #0369a1; /* sky-700 */
@@ -9,6 +13,13 @@
   --rydn-muted: #475569;       /* slate-600 */
   --rydn-bg: #fafafa;
   --rydn-radius: 1.25rem;
+}
+
+/* Dark-mode variables — flipped tonal palette */
+.dark {
+  --rydn-ink: #f1f5f9;          /* slate-100 — primary text */
+  --rydn-muted: #94a3b8;        /* slate-400 — muted text */
+  --rydn-bg: #0b1220;           /* a few notches darker than slate-900 */
 }
 
 html {
@@ -33,6 +44,8 @@ body {
   font-feature-settings: "ss01", "cv11";
   color: var(--rydn-ink);
   background: var(--rydn-bg);
+  /* Transition the background and text color smoothly when theme flips. */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* When Persian (Farsi) is active, swap to a Persian-friendly font stack. */
@@ -66,6 +79,14 @@ h1, h2, h3, h4, h5 {
     radial-gradient(at 80% 0%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
     radial-gradient(at 0% 100%, rgba(14, 165, 233, 0.10) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.10) 0px, transparent 50%);
+}
+.dark .bg-rydn-mesh {
+  background-image:
+    radial-gradient(at 20% 0%, rgba(14, 165, 233, 0.10) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(245, 158, 11, 0.06) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(14, 165, 233, 0.06) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.08) 0px, transparent 50%);
+  background-color: #0f172a;
 }
 
 /* Card with gradient ring on hover */

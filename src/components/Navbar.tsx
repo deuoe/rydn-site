@@ -7,6 +7,7 @@ import { useEffect, useState, type ComponentProps } from "react"
 import { Calendar } from "lucide-react"
 import logoUrl from "../assets/images/logo.jpeg"
 import LanguageSwitcher from "./LanguageSwitcher"
+import ThemeToggle from "./ThemeToggle"
 import { useTranslation } from "../i18n/useTranslation"
 import { haptic } from "../lib/rydnNative"
 
@@ -70,7 +71,7 @@ export default function Navbar() {
         "sticky top-0 z-40 w-full transition-all duration-300 pt-[env(safe-area-inset-top)] " +
         (transparent
           ? "bg-transparent border-b border-transparent"
-          : "bg-white/80 backdrop-blur-md border-b border-slate-200/70 shadow-sm")
+          : "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/70 dark:border-slate-700/70 shadow-sm")
       }
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8 py-3">
@@ -105,10 +106,10 @@ export default function Navbar() {
                     (active
                       ? transparent
                         ? "text-white"
-                        : "text-sky-700"
+                        : "text-sky-700 dark:text-sky-400"
                       : transparent
                         ? "text-white/85 hover:text-white hover:bg-white/10"
-                        : "text-slate-700 hover:text-slate-900 hover:bg-slate-100")
+                        : "text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800")
                   }
                 >
                   {item.name}
@@ -129,6 +130,9 @@ export default function Navbar() {
           <li className="ml-1">
             <LanguageSwitcher transparent={transparent} />
           </li>
+          <li>
+            <ThemeToggle transparent={transparent} />
+          </li>
 
           {/* Secondary: Support */}
           <li>
@@ -138,7 +142,7 @@ export default function Navbar() {
                 "ml-1 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition " +
                 (transparent
                   ? "text-white/85 hover:text-white hover:bg-white/10"
-                  : "text-slate-700 hover:bg-slate-100 hover:text-slate-900")
+                  : "text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white")
               }
             >
               {t("nav.support")}
@@ -158,9 +162,10 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Mobile: language + Book Now (compact) + hamburger */}
+        {/* Mobile: language + theme + Book Now (compact) + hamburger */}
         <div className="flex items-center gap-1 lg:hidden">
           <LanguageSwitcher transparent={transparent} />
+          <ThemeToggle transparent={transparent} />
           <Link
             to={bookNowHref(onHome)}
             onClick={handleBookNow}
@@ -175,7 +180,9 @@ export default function Navbar() {
             transparent={transparent}
             className={
               "z-50 p-2 rounded-lg transition " +
-              (transparent ? "text-white hover:bg-white/10" : "text-slate-900 hover:bg-slate-100")
+              (transparent
+                ? "text-white hover:bg-white/10"
+                : "text-slate-900 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800")
             }
           />
         </div>
@@ -196,7 +203,7 @@ export default function Navbar() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ duration: 0.25 }}
-                className="absolute top-0 right-0 left-0 mt-20 mx-4 rounded-2xl bg-white p-4 shadow-xl border border-slate-200 flex flex-col gap-1 max-h-[80vh] overflow-y-auto"
+                className="absolute top-0 right-0 left-0 mt-20 mx-4 rounded-2xl bg-white dark:bg-slate-900 p-4 shadow-xl border border-slate-200 dark:border-slate-700 flex flex-col gap-1 max-h-[80vh] overflow-y-auto"
               >
                 {navigation.map(item => {
                   const active = cleanPath === item.path || (item.path === "/" && (cleanPath === "" || cleanPath === "/"))
@@ -210,8 +217,8 @@ export default function Navbar() {
                         className={
                           "w-full text-left px-4 py-3 rounded-lg text-base font-semibold transition " +
                           (active
-                            ? "bg-sky-50 text-sky-700"
-                            : "text-slate-800 hover:bg-slate-100")
+                            ? "bg-sky-50 text-sky-700 dark:bg-sky-950/40 dark:text-sky-300"
+                            : "text-slate-800 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800")
                         }
                       >
                         {item.name}
@@ -221,7 +228,7 @@ export default function Navbar() {
                 })}
 
                 {/* Mobile primary CTA */}
-                <li className="pt-3 mt-2 border-t border-slate-200">
+                <li className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-700">
                   <Link
                     to={bookNowHref(onHome)}
                     onClick={(e) => {
@@ -238,13 +245,13 @@ export default function Navbar() {
                   <Link
                     to="/donation"
                     onClick={toggle}
-                    className="block w-full text-center rounded-lg bg-slate-100 px-4 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200 transition"
+                    className="block w-full text-center rounded-lg bg-slate-100 px-4 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition"
                   >
                     {t("nav.support")}
                   </Link>
                 </li>
 
-                <li className="pt-1 border-t border-slate-200">
+                <li className="pt-1 border-t border-slate-200 dark:border-slate-700">
                   <LanguageSwitcher variant="list" />
                 </li>
               </motion.ul>

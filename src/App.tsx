@@ -117,7 +117,7 @@ function Testimonials() {
   const rowB = TESTIMONIALS.slice(half)
 
   return (
-    <section className="py-20 bg-slate-50 overflow-hidden">
+    <section className="py-20 bg-slate-50 dark:bg-slate-950 overflow-hidden">
       <Container>
         <Heading eyebrow={t("testimonials.eyebrow")} text={t("testimonials.title")} />
         <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
@@ -728,7 +728,7 @@ function HomePage() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.3 }}
                 whileHover={{ y: -6 }}
-                className="card-ring w-full p-6 bg-white rounded-3xl shadow-sm border border-slate-200 flex flex-col items-center hover:shadow-xl transition"
+                className="card-ring w-full p-6 bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col items-center hover:shadow-xl transition"
                 key={advisor.name}
               >
                 <div className="relative">
@@ -739,14 +739,14 @@ function HomePage() {
                     className="w-32 h-32 mb-4 ring-4 ring-sky-50"
                   />
                 </div>
-                <h3 className="text-lg font-bold text-center text-slate-900">{advisor.name}</h3>
-                <p className="mt-1 mb-4 text-slate-500 text-sm text-center leading-relaxed">{advisor.description}</p>
+                <h3 className="text-lg font-bold text-center text-slate-900 dark:text-slate-100">{advisor.name}</h3>
+                <p className="mt-1 mb-4 text-slate-500 dark:text-slate-400 text-sm text-center leading-relaxed">{advisor.description}</p>
 
                 <div className={`flex flex-wrap items-center gap-2 mb-5 justify-center ${getTagHeight(advisor.advisingTopics.length)}`}>
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
                     <span
                       key={idx}
-                      className="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold border border-sky-100"
+                      className="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold border border-sky-100 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-900/60"
                     >
                       {topic}
                     </span>
@@ -763,7 +763,7 @@ function HomePage() {
                 {advisor.universities && advisor.universities.length > 0 && (
                   <div className="mb-4 w-full">
                     <div className="flex items-center justify-center gap-2 flex-wrap">
-                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                         Education
                       </span>
                       <div className="flex items-center gap-3">
@@ -814,7 +814,7 @@ function HomePage() {
                   </Button>
                   <Link
                     to={`/advisors/${advisor.slug}`}
-                    className="inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-sky-400 hover:text-sky-700 transition whitespace-nowrap"
+                    className="inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:border-sky-500 dark:hover:text-sky-300 transition whitespace-nowrap"
                     aria-label={`Read ${advisor.name}'s story`}
                   >
                     Story →
@@ -830,7 +830,7 @@ function HomePage() {
       {/* ============================================== */}
       {/* STORIES PREVIEW                                 */}
       {/* ============================================== */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-slate-50 dark:bg-slate-950">
         <Container>
           <Heading eyebrow={t("stories.eyebrow")} text={t("stories.title")} />
           <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">

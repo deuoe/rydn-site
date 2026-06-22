@@ -44,14 +44,14 @@ export default function SkeletonImage({
       {!loaded && !errored && (
         <div
           aria-hidden
-          className={`absolute inset-0 bg-slate-200 animate-pulse ${shape}`}
+          className={`absolute inset-0 bg-slate-200 dark:bg-slate-800 animate-pulse ${shape}`}
         />
       )}
       {/* Soft error fallback so we don't show forever-loading skeleton */}
       {errored && (
         <div
           aria-hidden
-          className={`absolute inset-0 bg-slate-100 flex items-center justify-center text-slate-400 text-xs ${shape}`}
+          className={`absolute inset-0 bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 dark:text-slate-500 text-xs ${shape}`}
         >
           ?
         </div>

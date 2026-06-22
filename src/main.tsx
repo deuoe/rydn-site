@@ -25,6 +25,7 @@ import ForEducators from "./ForEducators"
 import NotFound from "./NotFound"
 import ScrollToTop from "./components/ScrollToTop"
 import { LanguageProvider } from "./i18n/LanguageProvider"
+import { ThemeProvider } from "./theme/ThemeProvider"
 
 // All site pages. The same tree is mounted at the root (English) and under
 // each non-default language prefix (/fr, /es, /fa, /he) so every page is
@@ -66,9 +67,10 @@ const root = document.getElementById("root")!
 
 ReactDOM.createRoot(root).render(
   <BrowserRouter>
-    <LanguageProvider>
-      <ScrollToTop />
-      <Routes>
+    <ThemeProvider>
+      <LanguageProvider>
+        <ScrollToTop />
+        <Routes>
         <Route element={<Layout />}>
           {/* English routes (no prefix — default language) */}
           {renderPages("en")}
@@ -84,7 +86,8 @@ ReactDOM.createRoot(root).render(
           {/* Default 404 for unknown English paths */}
           <Route path="*" element={<NotFound />} />
         </Route>
-      </Routes>
-    </LanguageProvider>
+        </Routes>
+      </LanguageProvider>
+    </ThemeProvider>
   </BrowserRouter>
 )
