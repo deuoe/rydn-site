@@ -84,6 +84,11 @@
   <url><loc>https://www.rydn.ca/fa/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.rydn.ca/he/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
+  <!-- Press / Media kit -->
+  <url><loc>https://www.rydn.ca/press</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/press</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/press</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+
   <!-- Individual advisor pages -->
   <url><loc>https://www.rydn.ca/advisors/sam-sina</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.rydn.ca/advisors/sara-roozbahani</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>

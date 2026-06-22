@@ -73,6 +73,7 @@ export default function Footer() {
               <li><Link to="/about-us" className="hover:text-sky-700 transition">About Us</Link></li>
               <li><Link to="/our-team" className="hover:text-sky-700 transition">Our Team</Link></li>
               <li><Link to="/governance" className="hover:text-sky-700 transition">Governance</Link></li>
+              <li><Link to="/press" className="hover:text-sky-700 transition">Press & Media</Link></li>
               <li><Link to="/donation" className="hover:text-sky-700 transition">Support Us</Link></li>
               <li><Link to="/contact-us" className="hover:text-sky-700 transition">Contact</Link></li>
             </ul>

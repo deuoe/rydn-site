@@ -16,6 +16,7 @@ import ContactUs from "./ContactUs"
 import Stories from "./Stories"
 import Governance from "./Governance"
 import AdvisorDetail from "./AdvisorDetail"
+import Press from "./Press"
 import NotFound from "./NotFound"
 import ScrollToTop from "./components/ScrollToTop"
 import { LanguageProvider } from "./i18n/LanguageProvider"
@@ -37,6 +38,7 @@ const PAGES = [
   { path: "contact-us", element: <ContactUs /> },
   { path: "stories", element: <Stories /> },
   { path: "governance", element: <Governance /> },
+  { path: "press", element: <Press /> },
   { path: "advisors/:slug", element: <AdvisorDetail /> },
 ] as const
 
