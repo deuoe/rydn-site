@@ -50,6 +50,7 @@ export default function Navbar() {
     { name: t("nav.becomeAdvisor"), path: "/become-advisor" },
     { name: t("nav.workshops"), path: "/workshops" },
     { name: t("nav.stories"), path: "/stories" },
+    { name: t("nav.blog"), path: "/blog" },
   ]
 
   const handleBookNow = (e: React.MouseEvent) => {

@@ -23,6 +23,7 @@ type Dict = {
     becomeAdvisor: string
     workshops: string
     stories: string
+    blog: string
     support: string
     supportShort: string
     bookNow: string
@@ -189,6 +190,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       becomeAdvisor: "Become an Advisor",
       workshops: "Workshops",
       stories: "Stories",
+      blog: "Blog",
       support: "Support Us",
       supportShort: "Support",
       bookNow: "Book an Advisor",
@@ -365,6 +367,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       becomeAdvisor: "Devenir conseiller",
       workshops: "Ateliers",
       stories: "Témoignages",
+      blog: "Blogue",
       support: "Nous soutenir",
       supportShort: "Soutenir",
       bookNow: "Réserver un mentor",
@@ -542,6 +545,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       becomeAdvisor: "Hacerse asesor",
       workshops: "Talleres",
       stories: "Historias",
+      blog: "Blog",
       support: "Apóyanos",
       supportShort: "Apoyar",
       bookNow: "Reservar un mentor",
@@ -719,6 +723,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       becomeAdvisor: "مشاور شوید",
       workshops: "کارگاه‌ها",
       stories: "داستان‌ها",
+      blog: "وبلاگ",
       support: "حمایت از ما",
       supportShort: "حمایت",
       bookNow: "رزرو با مشاور",
@@ -895,6 +900,7 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
       becomeAdvisor: "להיות יועץ",
       workshops: "סדנאות",
       stories: "סיפורים",
+      blog: "בלוג",
       support: "תמכו בנו",
       supportShort: "תמיכה",
       bookNow: "הזמינו מנטור",
