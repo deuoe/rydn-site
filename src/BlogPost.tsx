@@ -85,28 +85,49 @@ export default function BlogPost() {
               {article.excerpt}
             </p>
 
-            {/* Byline + metadata */}
+            {/* Byline + metadata. Photo + name link to the advisor's story page. */}
             <div className="mt-8 flex items-center gap-4 flex-wrap">
-              {author?.photo && (
-                <SkeletonImage
-                  src={author.photo}
-                  alt={author.name}
-                  shape="rounded-full"
-                  className="w-12 h-12 ring-2 ring-white/30"
-                />
+              {author ? (
+                <Link
+                  to={`/advisors/${author.slug}`}
+                  className="flex items-center gap-4 group/byline"
+                  aria-label={`Read ${author.name}'s story`}
+                >
+                  {author.photo && (
+                    <SkeletonImage
+                      src={author.photo}
+                      alt={author.name}
+                      shape="rounded-full"
+                      className="w-12 h-12 ring-2 ring-white/30 group-hover/byline:ring-amber-300 transition"
+                    />
+                  )}
+                  <div className="text-white">
+                    <p className="text-sm font-semibold group-hover/byline:text-amber-300 transition">
+                      {author.name}
+                    </p>
+                    <p className="text-xs text-white/70 flex items-center gap-2 mt-0.5">
+                      <Calendar size={12} />
+                      {formatDate(article.publishedDate)}
+                      <span aria-hidden>·</span>
+                      <Clock size={12} />
+                      {article.readMinutes} min read
+                    </p>
+                  </div>
+                </Link>
+              ) : (
+                <div className="text-white">
+                  <p className="text-sm font-semibold">
+                    {article.authorName ?? "RYDN team"}
+                  </p>
+                  <p className="text-xs text-white/70 flex items-center gap-2 mt-0.5">
+                    <Calendar size={12} />
+                    {formatDate(article.publishedDate)}
+                    <span aria-hidden>·</span>
+                    <Clock size={12} />
+                    {article.readMinutes} min read
+                  </p>
+                </div>
               )}
-              <div className="text-white">
-                <p className="text-sm font-semibold">
-                  {author?.name ?? article.authorName ?? "RYDN team"}
-                </p>
-                <p className="text-xs text-white/70 flex items-center gap-2 mt-0.5">
-                  <Calendar size={12} />
-                  {formatDate(article.publishedDate)}
-                  <span aria-hidden>·</span>
-                  <Clock size={12} />
-                  {article.readMinutes} min read
-                </p>
-              </div>
 
               <button
                 onClick={handleShare}

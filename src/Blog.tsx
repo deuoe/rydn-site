@@ -195,28 +195,52 @@ function FeaturedArticleCard({ article }: { article: Article }) {
               {article.excerpt}
             </p>
 
-            {/* Byline + metadata */}
+            {/* Byline + metadata. Clicking the author photo or name jumps to
+                their /advisors/:slug story page (when we have an advisor for
+                this byline). Stops the outer article click via stopPropagation. */}
             <div className="mt-auto pt-6 flex items-center justify-between flex-wrap gap-3">
               <div className="flex items-center gap-3">
-                {author?.photo && (
-                  <img
-                    src={author.photo}
-                    alt={author.name}
-                    className="w-10 h-10 rounded-full object-cover ring-2 ring-slate-200"
-                  />
+                {author ? (
+                  <Link
+                    to={`/advisors/${author.slug}`}
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-3 group/byline"
+                    aria-label={`Read ${author.name}'s story`}
+                  >
+                    {author.photo && (
+                      <img
+                        src={author.photo}
+                        alt={author.name}
+                        className="w-10 h-10 rounded-full object-cover ring-2 ring-slate-200"
+                      />
+                    )}
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900 group-hover/byline:text-sky-700 transition">
+                        {author.name}
+                      </p>
+                      <p className="text-xs text-slate-500 flex items-center gap-2">
+                        <Calendar size={12} />
+                        {formatDate(article.publishedDate)}
+                        <span aria-hidden>·</span>
+                        <Clock size={12} />
+                        {article.readMinutes} min read
+                      </p>
+                    </div>
+                  </Link>
+                ) : (
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">
+                      {article.authorName ?? "RYDN team"}
+                    </p>
+                    <p className="text-xs text-slate-500 flex items-center gap-2">
+                      <Calendar size={12} />
+                      {formatDate(article.publishedDate)}
+                      <span aria-hidden>·</span>
+                      <Clock size={12} />
+                      {article.readMinutes} min read
+                    </p>
+                  </div>
                 )}
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">
-                    {author?.name ?? article.authorName ?? "RYDN team"}
-                  </p>
-                  <p className="text-xs text-slate-500 flex items-center gap-2">
-                    <Calendar size={12} />
-                    {formatDate(article.publishedDate)}
-                    <span aria-hidden>·</span>
-                    <Clock size={12} />
-                    {article.readMinutes} min read
-                  </p>
-                </div>
               </div>
 
               <span className="inline-flex items-center gap-2 text-sm font-semibold text-sky-700 group-hover:text-sky-800">
@@ -256,29 +280,53 @@ function ArticleCard({ article }: { article: Article }) {
             {article.excerpt}
           </p>
 
-          {/* Byline + meta */}
+          {/* Byline + meta. Author photo + name link to /advisors/:slug. */}
           <div className="mt-auto pt-5 flex items-center gap-3">
-            {author?.photo ? (
-              <SkeletonImage
-                src={author.photo}
-                alt={author.name}
-                shape="rounded-full"
-                className="w-9 h-9 ring-2 ring-slate-100"
-              />
+            {author ? (
+              <Link
+                to={`/advisors/${author.slug}`}
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center gap-3 flex-1 min-w-0 group/byline"
+                aria-label={`Read ${author.name}'s story`}
+              >
+                {author.photo ? (
+                  <SkeletonImage
+                    src={author.photo}
+                    alt={author.name}
+                    shape="rounded-full"
+                    className="w-9 h-9 ring-2 ring-slate-100"
+                  />
+                ) : (
+                  <div className="w-9 h-9 rounded-full bg-slate-200" />
+                )}
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-semibold text-slate-900 truncate group-hover/byline:text-sky-700 transition">
+                    {author.name}
+                  </p>
+                  <p className="text-xs text-slate-500 flex items-center gap-1.5">
+                    {formatDate(article.publishedDate)}
+                    <span aria-hidden>·</span>
+                    <Clock size={11} />
+                    {article.readMinutes} min
+                  </p>
+                </div>
+              </Link>
             ) : (
-              <div className="w-9 h-9 rounded-full bg-slate-200" />
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <div className="w-9 h-9 rounded-full bg-slate-200" />
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs font-semibold text-slate-900 truncate">
+                    {article.authorName ?? "RYDN team"}
+                  </p>
+                  <p className="text-xs text-slate-500 flex items-center gap-1.5">
+                    {formatDate(article.publishedDate)}
+                    <span aria-hidden>·</span>
+                    <Clock size={11} />
+                    {article.readMinutes} min
+                  </p>
+                </div>
+              </div>
             )}
-            <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-slate-900 truncate">
-                {author?.name ?? article.authorName ?? "RYDN team"}
-              </p>
-              <p className="text-xs text-slate-500 flex items-center gap-1.5">
-                {formatDate(article.publishedDate)}
-                <span aria-hidden>·</span>
-                <Clock size={11} />
-                {article.readMinutes} min
-              </p>
-            </div>
           </div>
         </div>
       </motion.div>
