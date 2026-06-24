@@ -48,7 +48,7 @@ const BOARD: BoardMember[] = [
     accent: "from-sky-400 to-indigo-500",
   },
   {
-    name: "Fereshteh Ansari Movahed",
+    name: "Fereshteh Ansari Damavandi",
     role: "Director",
     bio:
       "Fereshteh joins the RYDN board to bring independent oversight and perspective to the organization's growth. Her role on the board helps ensure RYDN's decisions stay anchored to its mission of accessible, multilingual mentorship for Canadian students.",
