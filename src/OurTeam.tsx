@@ -6,7 +6,7 @@ import Container from "./components/Container"
 import Heading from "./components/Heading"
 import saraUrl from "./assets/images/Sara.jpg"
 import sinaUrl from "./assets/images/Sina.jpeg"
-import iliaUrl from "./assets/images/Leo.jpg"
+import valentinaUrl from "./assets/images/Valentina.jpg"
 import saharUrl from "./assets/images/Sahar.jpeg"
 import mohsenUrl from "./assets/images/Mohsen.jpg"
 
@@ -84,7 +84,7 @@ const FOUNDERS: Founder[] = [
 ]
 
 const CORE_TEAM: TeamMember[] = [
-  { name: "Ilia", role: "Marketing & Social Media Manager", photo: iliaUrl, color: "from-rose-400 to-pink-500" },
+  { name: "Valentina", role: "Marketing & Social Media Manager", photo: valentinaUrl, color: "from-rose-400 to-pink-500" },
   { name: "Mohsen", role: "Cybersecurity & Web Infrastructure Lead", photo: mohsenUrl, color: "from-sky-400 to-indigo-500" },
   { name: "Sahar", role: "Outreach & Student Coordination Manager", photo: saharUrl, color: "from-amber-400 to-orange-500" },
 ]
