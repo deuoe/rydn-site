@@ -51,7 +51,7 @@ const COMMITTEE: CommitteeMember[] = [
     credentials: "MD",
     role: "Family Physician",
     bio:
-      "Dr. Ko is a family physician who supports RYDN's mission of expanding access to mentorship and educational opportunities for students. As a member of RYDN's Professional Oversight & Wellness Committee, he contributes to advisor development, program review, and the advancement of initiatives that promote student wellbeing, personal growth, and academic success. His guidance helps strengthen the quality and long-term impact of RYDN's programming.",
+      "Dr. Ko is a family physician who supports RYDN's mission of expanding access to mentorship and educational opportunities for students. He contributes to advisor development, program review, and the advancement of initiatives that promote student wellbeing, personal growth, and academic success. His guidance helps strengthen the quality and long-term impact of RYDN's programming.",
     initials: "RK",
     accent: "from-emerald-500 to-teal-600",
     Icon: Stethoscope,
@@ -170,7 +170,7 @@ export default function OurTeam() {
             student wellbeing, and help us hold ourselves to the highest standard of care.
           </p>
 
-          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {COMMITTEE.map((m, i) => (
               <motion.div
                 key={i}
@@ -201,7 +201,7 @@ export default function OurTeam() {
                       <h3 className="font-display text-2xl font-semibold text-slate-900">
                         {m.name}
                       </h3>
-                      <span className="inline-flex items-center rounded-full bg-slate-900 text-white px-2.5 py-0.5 text-xs font-bold tracking-wide">
+                      <span className="inline-flex items-center rounded-full bg-slate-900 text-white px-3 py-1 text-sm font-bold tracking-wide">
                         {m.credentials}
                       </span>
                     </div>
@@ -209,7 +209,7 @@ export default function OurTeam() {
                       <m.Icon size={14} />
                       <span>{m.role}</span>
                     </div>
-                    <p className="mt-4 text-slate-600 leading-relaxed text-[15px]">
+                    <p className="mt-4 text-slate-600 leading-relaxed text-base">
                       {m.bio}
                     </p>
                     {m.linkedin && (
