@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RYDN Advisor Pass — Design Mockup</title>
+  <style>
+    /* ============================================================
+       Mockup of what the RYDN Advisor digital pass would look like
+       when added to Apple Wallet. Open in any browser to preview.
+       ============================================================ */
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "SF Pro", Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-bottom: 40px;
+      text-align: center;
+      max-width: 480px;
+      line-height: 1.5;
+    }
+
+    .row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    .pass-label {
+      color: #94a3b8;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    /* ============================================================
+       Pass card — sized like Apple Wallet (330pt wide, ~440pt tall)
+       Scaled up to ~330px for desktop preview.
+       ============================================================ */
+    .pass {
+      width: 340px;
+      border-radius: 18px;
+      box-shadow:
+        0 30px 60px -12px rgba(0, 0, 0, 0.6),
+        0 18px 36px -18px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .pass:hover { transform: translateY(-4px); }
+
+    /* ============================================================
+       FRONT of the pass — brand gradient + photo + name + role
+       ============================================================ */
+    .pass-front {
+      background:
+        radial-gradient(at 100% 0%, rgba(245, 158, 11, 0.35) 0%, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.5) 0%, transparent 50%),
+        linear-gradient(135deg, #0E4FA3 0%, #1E40AF 50%, #312E81 100%);
+      color: white;
+      padding: 22px;
+      position: relative;
+      min-height: 540px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Subtle holographic strip in the corner — like a credit-card "chip" */
+    .pass-front::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 28px;
+      background: linear-gradient(135deg, #fde68a 0%, #f59e0b 30%, #d97706 70%, #fde68a 100%);
+      border-radius: 5px;
+      opacity: 0.92;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .pass-front::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      right: 60px;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: rgba(255, 255, 255, 0.7);
+      border-right-color: rgba(255, 255, 255, 0.7);
+      transform: rotate(-45deg);
+    }
+
+    /* Top: RYDN brand */
+    .pass-brand {
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 4px;
+      opacity: 0.95;
+    }
+    .pass-brand .sub {
+      display: block;
+      font-weight: 400;
+      font-size: 9px;
+      letter-spacing: 1px;
+      margin-top: 3px;
+      opacity: 0.7;
+    }
+
+    /* Photo + name area */
+    .pass-photo-wrap {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .pass-photo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+      border: 3px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -1px;
+      overflow: hidden;
+    }
+    /* Optional: replace this div with an <img> for the actual advisor photo */
+
+    .pass-name {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      text-align: center;
+      line-height: 1.1;
+    }
+    .pass-role {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      text-align: center;
+      margin-top: -2px;
+    }
+
+    /* Specializations chip row */
+    .pass-chips {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+    }
+    .pass-chip {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* Spacer + bottom info */
+    .pass-spacer {
+      flex: 1;
+    }
+    .pass-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .pass-meta {
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+    .pass-meta .v {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: none;
+      opacity: 1;
+      margin-top: 2px;
+    }
+
+    .pass-cardno {
+      font-family: "SF Mono", "Menlo", monospace;
+      font-size: 13px;
+      letter-spacing: 2px;
+      opacity: 0.85;
+      margin-top: 16px;
+      text-align: right;
+    }
+
+    /* ============================================================
+       BACK of the pass — bigger QR code + topics + issued info
+       ============================================================ */
+    .pass-back {
+      background: #ffffff;
+      padding: 24px;
+      min-height: 540px;
+      display: flex;
+      flex-direction: column;
+      color: #0F172A;
+    }
+    .back-section {
+      margin-bottom: 22px;
+    }
+    .back-label {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #94a3b8;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .back-value {
+      font-size: 13px;
+      color: #1F2937;
+      line-height: 1.5;
+    }
+    .back-value.big {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .qr-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 10px;
+    }
+    .qr {
+      width: 140px;
+      height: 140px;
+      background:
+        linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 6px 18px -6px rgba(15, 23, 42, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .qr-svg {
+      width: 100%;
+      height: 100%;
+      filter: invert(0);
+    }
+    .qr-caption {
+      font-size: 10px;
+      color: #6b7280;
+      margin-top: 12px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .back-footer {
+      border-top: 1px solid #f1f5f9;
+      padding-top: 14px;
+      margin-top: 16px;
+      font-size: 9px;
+      color: #94a3b8;
+      text-align: center;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+    }
+
+    /* Variants showing color tone shifts for different advisor types */
+    .pass.variant-amber .pass-front {
+      background:
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.5) 0%, transparent 60%),
+        linear-gradient(135deg, #c2410c 0%, #b45309 50%, #92400e 100%);
+    }
+
+    .pass.variant-emerald .pass-front {
+      background:
+        radial-gradient(at 100% 0%, rgba(34, 197, 94, 0.4) 0%, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(20, 184, 166, 0.5) 0%, transparent 50%),
+        linear-gradient(135deg, #047857 0%, #065f46 50%, #064e3b 100%);
+    }
+
+    .row-label {
+      width: 100%;
+      text-align: center;
+      color: #cbd5e1;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin: 20px 0 12px;
+    }
+
+    .design-notes {
+      max-width: 720px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 32px;
+      color: #cbd5e1;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .design-notes h2 {
+      color: white;
+      font-size: 16px;
+      margin: 0 0 10px 0;
+    }
+    .design-notes ul { padding-left: 18px; margin: 10px 0; }
+    .design-notes li { margin: 6px 0; }
+    .design-notes strong { color: #fde68a; }
+  </style>
+</head>
+<body>
+
+  <h1>RYDN Advisor Pass</h1>
+  <p class="subtitle">
+    A polished digital ID card for RYDN advisors — lives in Apple Wallet & Google Wallet.
+    Mockup below shows the front (top) and back (bottom). Three colorway variants demoed.
+  </p>
+
+  <!-- ============================================================
+       FRONT row — three colorway variants
+       ============================================================ -->
+  <div class="row-label">Front</div>
+  <div class="row">
+
+    <!-- Default indigo -->
+    <div>
+      <div class="pass-label">DEFAULT · INDIGO</div>
+      <div class="pass">
+        <div class="pass-front">
+          <div class="pass-brand">RYDN<span class="sub">RooZ Youth Development Network</span></div>
+
+          <div class="pass-photo-wrap">
+            <div class="pass-photo">SR</div>
+            <div>
+              <div class="pass-name">Sara Roozbahani</div>
+              <div class="pass-role">RYDN Advisor</div>
+            </div>
+          </div>
+
+          <div class="pass-chips">
+            <span class="pass-chip">Pre-med</span>
+            <span class="pass-chip">MCAT</span>
+            <span class="pass-chip">Research</span>
+            <span class="pass-chip">Psychology</span>
+          </div>
+
+          <div class="pass-spacer"></div>
+
+          <div class="pass-meta-row">
+            <div class="pass-meta">Issued
+              <span class="v">2026</span>
+            </div>
+            <div class="pass-meta" style="text-align:right">Member since
+              <span class="v">2024</span>
+            </div>
+          </div>
+
+          <div class="pass-cardno">0001 · ADVISOR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amber/orange variant -->
+    <div>
+      <div class="pass-label">VARIANT · AMBER</div>
+      <div class="pass variant-amber">
+        <div class="pass-front">
+          <div class="pass-brand">RYDN<span class="sub">RooZ Youth Development Network</span></div>
+
+          <div class="pass-photo-wrap">
+            <div class="pass-photo">SS</div>
+            <div>
+              <div class="pass-name">Sam Sina</div>
+              <div class="pass-role">Co-founder · Advisor</div>
+            </div>
+          </div>
+
+          <div class="pass-chips">
+            <span class="pass-chip">Biomedical</span>
+            <span class="pass-chip">Research</span>
+            <span class="pass-chip">Tutoring</span>
+            <span class="pass-chip">Pharmacy</span>
+          </div>
+
+          <div class="pass-spacer"></div>
+
+          <div class="pass-meta-row">
+            <div class="pass-meta">Issued
+              <span class="v">2026</span>
+            </div>
+            <div class="pass-meta" style="text-align:right">Member since
+              <span class="v">2024</span>
+            </div>
+          </div>
+
+          <div class="pass-cardno">0002 · FOUNDER</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Emerald variant -->
+    <div>
+      <div class="pass-label">VARIANT · EMERALD</div>
+      <div class="pass variant-emerald">
+        <div class="pass-front">
+          <div class="pass-brand">RYDN<span class="sub">RooZ Youth Development Network</span></div>
+
+          <div class="pass-photo-wrap">
+            <div class="pass-photo">JN</div>
+            <div>
+              <div class="pass-name">Jennifer</div>
+              <div class="pass-role">RYDN Advisor</div>
+            </div>
+          </div>
+
+          <div class="pass-chips">
+            <span class="pass-chip">Nursing</span>
+            <span class="pass-chip">Study strategies</span>
+          </div>
+
+          <div class="pass-spacer"></div>
+
+          <div class="pass-meta-row">
+            <div class="pass-meta">Issued
+              <span class="v">2026</span>
+            </div>
+            <div class="pass-meta" style="text-align:right">Member since
+              <span class="v">2025</span>
+            </div>
+          </div>
+
+          <div class="pass-cardno">0008 · ADVISOR</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       BACK row — same content for all advisors
+       ============================================================ -->
+  <div class="row-label">Back (same layout for all)</div>
+  <div class="row">
+
+    <div>
+      <div class="pass-label">BACK · WITH QR CODE</div>
+      <div class="pass">
+        <div class="pass-back">
+          <div class="back-section">
+            <div class="back-label">Advisor</div>
+            <div class="back-value big">Sara Roozbahani</div>
+          </div>
+
+          <div class="back-section">
+            <div class="back-label">Specializations</div>
+            <div class="back-value">Pre-med advising, MCAT, Research, University applications, Psychology, Study strategies</div>
+          </div>
+
+          <div class="back-section">
+            <div class="back-label">Education</div>
+            <div class="back-value">Seneca Polytechnic · York University</div>
+          </div>
+
+          <div class="back-section">
+            <div class="back-label">Languages</div>
+            <div class="back-value">English · Persian</div>
+          </div>
+
+          <div class="qr-wrap">
+            <div class="qr">
+              <!-- Inline SVG QR pattern (decorative — real QR generated server-side) -->
+              <svg class="qr-svg" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" fill="white">
+                <rect width="7" height="7" x="0" y="0" fill="white"/>
+                <rect width="5" height="5" x="1" y="1" fill="#0F172A"/>
+                <rect width="3" height="3" x="2" y="2" fill="white"/>
+                <rect width="7" height="7" x="22" y="0" fill="white"/>
+                <rect width="5" height="5" x="23" y="1" fill="#0F172A"/>
+                <rect width="3" height="3" x="24" y="2" fill="white"/>
+                <rect width="7" height="7" x="0" y="22" fill="white"/>
+                <rect width="5" height="5" x="1" y="23" fill="#0F172A"/>
+                <rect width="3" height="3" x="2" y="24" fill="white"/>
+                <!-- Random data dots — purely decorative -->
+                <g fill="white">
+                  <rect x="9" y="1" width="1" height="1"/>
+                  <rect x="11" y="1" width="1" height="1"/>
+                  <rect x="13" y="2" width="1" height="1"/>
+                  <rect x="14" y="3" width="1" height="1"/>
+                  <rect x="16" y="2" width="1" height="1"/>
+                  <rect x="18" y="3" width="1" height="1"/>
+                  <rect x="20" y="1" width="1" height="1"/>
+                  <rect x="9" y="4" width="1" height="1"/>
+                  <rect x="11" y="5" width="1" height="1"/>
+                  <rect x="13" y="6" width="1" height="1"/>
+                  <rect x="15" y="4" width="1" height="1"/>
+                  <rect x="17" y="6" width="1" height="1"/>
+                  <rect x="19" y="5" width="1" height="1"/>
+                  <rect x="2" y="10" width="1" height="1"/>
+                  <rect x="4" y="11" width="1" height="1"/>
+                  <rect x="6" y="13" width="1" height="1"/>
+                  <rect x="8" y="9" width="1" height="1"/>
+                  <rect x="10" y="11" width="1" height="1"/>
+                  <rect x="12" y="9" width="1" height="1"/>
+                  <rect x="14" y="11" width="1" height="1"/>
+                  <rect x="16" y="13" width="1" height="1"/>
+                  <rect x="18" y="11" width="1" height="1"/>
+                  <rect x="20" y="9" width="1" height="1"/>
+                  <rect x="22" y="11" width="1" height="1"/>
+                  <rect x="24" y="13" width="1" height="1"/>
+                  <rect x="26" y="9" width="1" height="1"/>
+                  <rect x="3" y="14" width="1" height="1"/>
+                  <rect x="5" y="16" width="1" height="1"/>
+                  <rect x="7" y="14" width="1" height="1"/>
+                  <rect x="9" y="16" width="1" height="1"/>
+                  <rect x="11" y="14" width="1" height="1"/>
+                  <rect x="13" y="16" width="1" height="1"/>
+                  <rect x="15" y="14" width="1" height="1"/>
+                  <rect x="17" y="16" width="1" height="1"/>
+                  <rect x="19" y="14" width="1" height="1"/>
+                  <rect x="21" y="16" width="1" height="1"/>
+                  <rect x="23" y="14" width="1" height="1"/>
+                  <rect x="25" y="16" width="1" height="1"/>
+                  <rect x="10" y="18" width="1" height="1"/>
+                  <rect x="12" y="20" width="1" height="1"/>
+                  <rect x="14" y="18" width="1" height="1"/>
+                  <rect x="16" y="20" width="1" height="1"/>
+                  <rect x="18" y="18" width="1" height="1"/>
+                  <rect x="20" y="20" width="1" height="1"/>
+                  <rect x="22" y="18" width="1" height="1"/>
+                  <rect x="24" y="20" width="1" height="1"/>
+                </g>
+              </svg>
+            </div>
+            <div class="qr-caption">Scan to view Sara's RYDN profile</div>
+          </div>
+
+          <div class="back-footer">
+            Issued by RooZ Youth Development Network<br/>
+            Verify at rydn.ca/advisors/sara-roozbahani<br/>
+            Pass ID: 0001-2026
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ============================================================
+       Design notes
+       ============================================================ -->
+  <div class="design-notes">
+    <h2>Design notes</h2>
+    <ul>
+      <li><strong>Front:</strong> brand-color gradient (3 variants shown — pick one, or let advisors pick), advisor photo, name in Fraunces (your display font), specializations as glassmorphic chips. Top-right has a faux "credit card chip" + RYDN orbit logo for premium feel.</li>
+      <li><strong>Back:</strong> White card with all advisor metadata + a real QR code (generated per advisor — links to their /advisors/:slug page).</li>
+      <li><strong>Sizing:</strong> Designed to match Apple Wallet's actual pass dimensions (~330x440pt).</li>
+      <li><strong>Photo:</strong> Mockup uses initials avatars. Real passes will embed actual advisor photos via Apple PassKit's strip image slot.</li>
+      <li><strong>QR code:</strong> Decorative in mockup. Real implementation generates a unique QR per advisor pointing to their RYDN profile.</li>
+    </ul>
+
+    <h2 style="margin-top: 18px">Three implementation paths</h2>
+    <ul>
+      <li><strong>Easy:</strong> PassKit.com (free up to 100 passes). Drag-and-drop editor, both Apple + Google Wallet. ~30 min total setup.</li>
+      <li><strong>Medium:</strong> Use Apple's PassKit API directly. Need Pass Type ID certificate (free with your Apple Dev account) + a static pass generator. ~3-4 hours setup, then one-click to add advisors.</li>
+      <li><strong>Hard:</strong> Build a full server that generates + signs passes on demand, with revocation API. Overkill for 14 advisors.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

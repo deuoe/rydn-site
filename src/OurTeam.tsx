@@ -1,6 +1,6 @@
 import { Link } from "./i18n/Link"
 import { motion } from "motion/react"
-import { Sparkles, ArrowRight, Crown, Heart } from "lucide-react"
+import { Sparkles, ArrowRight, Crown, Heart, ShieldCheck, Stethoscope, Brain } from "lucide-react"
 import { FaLinkedinIn } from "react-icons/fa"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
@@ -23,6 +23,50 @@ type TeamMember = {
   photo: string
   color: string
 }
+
+/** Professional oversight committee — adults with formal credentials who
+ *  oversee RYDN's youth-facing work. Their presence signals safeguarding,
+ *  credibility for funders, and clinical/professional input. Different
+ *  visual treatment from founders to communicate "external oversight"
+ *  rather than internal leadership. */
+type CommitteeMember = {
+  name: string
+  credentials: string
+  role: string
+  bio: string
+  /** Two-letter initials for the avatar */
+  initials: string
+  /** Tailwind gradient classes for the avatar background */
+  accent: string
+  /** Lucide icon component matching their professional discipline */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Icon: any
+  /** Optional LinkedIn URL */
+  linkedin?: string
+}
+
+const COMMITTEE: CommitteeMember[] = [
+  {
+    name: "Dr. Ricardo Ko",
+    credentials: "MD",
+    role: "Family Physician",
+    bio:
+      "Dr. Ko is a family physician who supports RYDN's mission of expanding access to mentorship and educational opportunities for students. As a member of RYDN's Professional Oversight & Wellness Committee, he contributes to advisor development, program review, and the advancement of initiatives that promote student wellbeing, personal growth, and academic success. His guidance helps strengthen the quality and long-term impact of RYDN's programming.",
+    initials: "RK",
+    accent: "from-emerald-500 to-teal-600",
+    Icon: Stethoscope,
+  },
+  {
+    name: "Dr. Ali Roozbahani",
+    credentials: "PhD",
+    role: "Psychology Professional",
+    bio:
+      "Dr. Ali Roozbahani is a psychology professional with expertise in youth development, education, and human behavior. As a member of RYDN's Professional Advisory Committee, he supports advisor development, program review, and the advancement of initiatives that promote student growth, wellbeing, and academic success.",
+    initials: "AR",
+    accent: "from-indigo-500 to-violet-600",
+    Icon: Brain,
+  },
+]
 
 const FOUNDERS: Founder[] = [
   {
@@ -106,6 +150,91 @@ export default function OurTeam() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ===================== PROFESSIONAL OVERSIGHT & WELLNESS COMMITTEE =====================
+          Adults with formal credentials providing clinical / professional oversight for RYDN's
+          youth-facing work. Visually distinct from the founders (ShieldCheck badge instead of
+          Crown, professional color palette) to signal "external oversight" not "leadership". */}
+      <section className="py-20 bg-slate-50">
+        <Container>
+          <Heading
+            eyebrow="Professional Oversight & Wellness Committee"
+            text="Adult guidance behind our youth-facing work"
+          />
+          <p className="mt-6 max-w-3xl mx-auto text-center text-slate-600 leading-relaxed">
+            RYDN serves students — many of them minors. Our Professional Oversight & Wellness
+            Committee is a group of credentialed professionals who review our programs, advise on
+            student wellbeing, and help us hold ourselves to the highest standard of care.
+          </p>
+
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {COMMITTEE.map((m, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="card-ring relative overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition p-8"
+              >
+                <div className="flex flex-col sm:flex-row gap-6 items-start">
+                  {/* Avatar with shield badge */}
+                  <div className="relative shrink-0">
+                    <div className={`absolute -inset-1 rounded-full bg-gradient-to-br ${m.accent} blur-sm opacity-50`} />
+                    <div
+                      className={`relative w-32 h-32 rounded-full ring-4 ring-white shadow-lg bg-gradient-to-br ${m.accent} flex items-center justify-center`}
+                    >
+                      <span className="font-display text-4xl font-bold text-white tracking-tight">
+                        {m.initials}
+                      </span>
+                    </div>
+                    <span className="absolute -top-1 -right-1 inline-flex items-center justify-center h-9 w-9 rounded-full bg-emerald-500 text-white shadow-md ring-2 ring-white">
+                      <ShieldCheck size={16} />
+                    </span>
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="font-display text-2xl font-semibold text-slate-900">
+                        {m.name}
+                      </h3>
+                      <span className="inline-flex items-center rounded-full bg-slate-900 text-white px-2.5 py-0.5 text-xs font-bold tracking-wide">
+                        {m.credentials}
+                      </span>
+                    </div>
+                    <div className="mt-1 flex items-center gap-1.5 text-emerald-700 font-semibold text-sm">
+                      <m.Icon size={14} />
+                      <span>{m.role}</span>
+                    </div>
+                    <p className="mt-4 text-slate-600 leading-relaxed text-[15px]">
+                      {m.bio}
+                    </p>
+                    {m.linkedin && (
+                      <a
+                        href={m.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 hover:text-sky-800"
+                      >
+                        <FaLinkedinIn />
+                        LinkedIn profile
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Trust signal pill at the bottom of the section */}
+          <div className="mt-12 flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-5 py-2.5 text-sm font-semibold text-emerald-900">
+              <ShieldCheck size={16} />
+              All committee members serve voluntarily and follow RYDN's Code of Conduct.
+            </div>
           </div>
         </Container>
       </section>

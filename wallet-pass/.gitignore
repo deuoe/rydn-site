@@ -1,0 +1,14 @@
+# Never commit the signing certificate, private keys, or passwords
+RYDN_Pass.p12
+signerCert.pem
+signerKey.pem
+.env
+
+# Generated pass files go to advisors privately — not in git
+output/
+
+# Node dependencies
+node_modules/
+
+# OS junk
+.DS_Store
