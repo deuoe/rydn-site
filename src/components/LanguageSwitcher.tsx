@@ -97,7 +97,7 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 mt-2 w-48 rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-50"
+            className="absolute right-0 mt-2 w-48 max-h-[70vh] overflow-y-auto rounded-xl bg-white dark:bg-slate-900 shadow-xl border border-slate-200 dark:border-slate-700 py-2 z-50"
           >
             <li className="px-4 pb-2 mb-1 border-b border-slate-100 dark:border-slate-800 text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
               {t("language.chooseLanguage")}

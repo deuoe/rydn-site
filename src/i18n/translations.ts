@@ -1,11 +1,23 @@
 // All site translations live here. To add a new language, copy the `en` block,
-// translate the strings, and add the new language to LANGUAGES below.
+// translate the strings, and add the new language to LANGUAGES below. Partial
+// translations are fine — any missing keys silently fall back to English at
+// runtime (see LanguageProvider's `t()`).
 
-export type Lang = "en" | "fr" | "es" | "fa" | "he"
+export type Lang =
+  | "en"
+  | "fr"
+  | "es"
+  | "fa"
+  | "he"
+  | "zh" // Simplified Chinese
+  | "ko" // Korean
+  | "ar" // Arabic (MSA)
+  | "ur" // Urdu
+  | "pa" // Punjabi (Gurmukhi script)
 
 // Right-to-left languages. The LanguageProvider sets the html dir attribute
-// based on this list.
-export const RTL_LANGS: Lang[] = ["fa", "he"]
+// based on this list. Punjabi (Gurmukhi) is LTR; only Shahmukhi would be RTL.
+export const RTL_LANGS: Lang[] = ["fa", "he", "ar", "ur"]
 
 export const LANGUAGES: { code: Lang; native: string; english: string }[] = [
   { code: "en", native: "English", english: "English" },
@@ -13,6 +25,11 @@ export const LANGUAGES: { code: Lang; native: string; english: string }[] = [
   { code: "es", native: "Español", english: "Spanish" },
   { code: "fa", native: "فارسی", english: "Persian" },
   { code: "he", native: "עברית", english: "Hebrew" },
+  { code: "zh", native: "简体中文", english: "Chinese (Simplified)" },
+  { code: "ko", native: "한국어", english: "Korean" },
+  { code: "ar", native: "العربية", english: "Arabic" },
+  { code: "ur", native: "اُردُو", english: "Urdu" },
+  { code: "pa", native: "ਪੰਜਾਬੀ", english: "Punjabi" },
 ]
 
 type Dict = {
@@ -181,7 +198,14 @@ type Dict = {
   }
 }
 
-export const TRANSLATIONS: Record<Lang, Dict> = {
+// `Dict` is the source of truth (English must be complete). All other languages
+// can fill in as much or as little as they want — missing keys fall back to
+// English in the runtime `t()` helper.
+type DeepPartial<T> = {
+  [K in keyof T]?: T[K] extends object ? DeepPartial<T[K]> : T[K]
+}
+
+export const TRANSLATIONS: Record<Lang, DeepPartial<Dict>> & { en: Dict } = {
   en: {
     nav: {
       home: "Home",
@@ -1089,6 +1113,470 @@ export const TRANSLATIONS: Record<Lang, Dict> = {
     },
     language: {
       chooseLanguage: "בחרו את השפה שלכם",
+    },
+  },
+
+  // =====================================================================
+  // SIMPLIFIED CHINESE (zh) — full translation
+  // =====================================================================
+  zh: {
+    nav: {
+      home: "首页",
+      about: "关于我们",
+      ourTeam: "团队",
+      becomeAdvisor: "成为顾问",
+      workshops: "讲座活动",
+      stories: "学生故事",
+      blog: "博客",
+      support: "支持我们",
+      supportShort: "支持",
+      bookNow: "预约顾问",
+      bookNowShort: "预约",
+    },
+    hero: {
+      eyebrow: "面向每位学生的免费指导",
+      titleLine1: "改变方向的",
+      titleLine2: "升学指导。",
+      subhead:
+        "连接全球学生与加拿大顶尖大学。在你做出人生重要选择之前，享受与比你早两到三年入学的大学生的免费一对一咨询。",
+      ctaPrimary: "寻找顾问",
+      ctaSecondary: "了解更多",
+      trustNonprofit: "加拿大注册非营利组织",
+      trustFree: "对学生100%免费",
+      trustMultilingual: "多语种支持",
+    },
+    mission: {
+      eyebrow: "我们的使命",
+      line1: "人才无处不在。",
+      line2: "指引却不是。",
+      line3: "RYDN 通过咨询、讲座和学业支持，致力于填补这一空白。",
+    },
+    testimonials: {
+      eyebrow: "学生的反馈",
+      title: "真实的学生。真实的成果。",
+      subtitle: "来自我们服务过的学生和家长的故事。",
+    },
+    programs: {
+      eyebrow: "我们的服务",
+      title: "学生所需的一切，一站搞定。",
+      subtitle: "从一对一咨询到双语讲座，我们陪伴学生走到他们所在之处。",
+      p1Title: "一对一咨询",
+      p1Body: "与曾经走过你正在考虑之路的顾问免费交流——学业、职业、生活。",
+      p2Title: "讲座与活动",
+      p2Body: "围绕学习技巧、大学准备和职业探索的互动讲座。线上线下皆可。",
+      p3Title: "MCAT、LSAT 与 DAT 备考",
+      p3Body: "由近期参加并取得佳绩的学生分享真实可行的备考策略。",
+      p4Title: "大学申请",
+      p4Body: "协助你完成文书、推荐信、专业选择，以及加拿大整套申请流程。",
+      p5Title: "学校与社区合作",
+      p5Body: "我们走进加拿大各地的学校、图书馆和社区中心，将项目带到你身边。",
+    },
+    partners: {
+      eyebrow: "合作伙伴",
+      title: "受到加拿大各地学校和社区的信赖",
+    },
+    instagram: {
+      eyebrow: "保持联系",
+      title: "@rydn.ca 的最新动态",
+      subtitle: "讲座幕后花絮、顾问介绍和学生喜讯。",
+      follow: "在 Instagram 关注我们",
+    },
+    faq: {
+      eyebrow: "常见问题",
+      title: "你想问的，都在这里",
+      subtitle: "如果这里没有你的问题，欢迎给我们发送电子邮件。",
+      q1: "RYDN 真的是免费的吗？",
+      a1: "是的——每一次咨询、讲座和资源都100%免费。RYDN 是加拿大注册的非营利组织，由捐赠者和志愿顾问支持。",
+      q2: "谁可以使用 RYDN？",
+      a2: "任何在加拿大求学的学生都可以预约咨询，从高中到大学不等。我们也欢迎正在考虑加拿大大学的国际学生。",
+      q3: "我如何预约顾问？",
+      a3: "在首页浏览我们的顾问，点击与你目标相符的顾问下方的「预约」按钮，并选择时间。你将通过电子邮件收到日历邀请。",
+      q4: "顾问到底能帮我什么？",
+      a4: "大学申请、MCAT/LSAT/DAT 备考、专业选择、学习策略、职业规划和个人方向。如果他们无法回答，会引荐合适的人选给你。",
+      q5: "我想成为顾问。流程是怎样的？",
+      a5: "通过「成为顾问」页面申请。大多数顾问每月只需贡献一两个小时，并可自主选择咨询主题。",
+      q6: "我们的学校或机构可以与 RYDN 合作吗？",
+      a6: "当然可以。我们在加拿大各地的学校、图书馆和社区机构举办讲座。请通过「合作」页面联系我们，我们会安排电话沟通。",
+      cta: "通过电子邮件咨询",
+    },
+    stories: {
+      eyebrow: "故事与影响",
+      title: "真实的学生。真实的旅程。",
+      lede: "每一次预约背后，都是一位学生在为自己的未来做出真实的选择。以下是他们中的一些故事。",
+      impactTitle: "我们目前的现状",
+      impactSubtitle: "RYDN 规模虽小，但正在成长——由学生为学生而建。",
+      journeysTitle: "精选历程",
+      journeysSubtitle: "六位学生。六条不同的道路。共同点是——他们都不是独自前行。",
+      readMore: "阅读完整故事",
+      ctaTitle: "开启你自己的故事。",
+      ctaButton: "预约顾问",
+    },
+    origin: {
+      eyebrow: "RYDN 的起源",
+      title: "从一次辅导，到一场运动。",
+      sparkTitle: "灵感的火花",
+      sparkBody: "故事开始于一次辅导中途。Sam 的一位学生突然停下来问道：「我能问你一些关于大学的问题吗？」他想了解医学院——怎么运作、如何进入。Sara 正好在附近，作为预医学生，她拉过椅子帮忙解答。两人合力回答了他关于医学的所有疑问。接着他又问起工程和航空航天方面同样的问题——而我们答不上来。就在那一刻，Sara 转头对 Sam 说：试想一下，如果每位学生都能与已经走过他所好奇之路的人坐下来聊聊，会怎样？任何领域。永远免费。那一刻，RYDN 便诞生了。",
+      foundedTitle: "让梦想成真",
+      foundedBody: "我们于2026年3月正式创立 RooZ Youth Development Network。最初只有我们两人、一份共享日历和几位愿意提供咨询的朋友。我们开始联络我们认识的、但我们自己无法提供建议的领域的学生——工程、法律、护理、商业、理科——询问他们是否愿意每月贡献一小时。几周内，我们就建立了一个小型网络。如今已有25多位顾问，并在持续增长。",
+      todayTitle: "我们现在的位置",
+      todayBody: "如今，RYDN 连接了25多位学生顾问与加拿大各地的学生。我们举办免费讲座，与学校和图书馆合作，并以三种语言运营——而这仅仅是开始。",
+      quote: "一切始于一位学生提出我们当时无法回答的问题。没有学生应该独自面对这样的问题。",
+      quoteAttribution: "Sara Roozbahani 与 Sam Sina，创始人",
+    },
+    about: {
+      eyebrow: "关于 RYDN",
+      title: "由学生为学生而建。",
+      lede: "RYDN——RooZ Youth Development Network——是一家加拿大非营利组织，致力于消除阻碍优秀年轻人前行的指引缺口。",
+      storyTitle: "我们的故事",
+      storyP1: "人才无处不在，但指引并非如此。我们看到聪明、有动力的学生在选择道路时感到挣扎——不是因为他们能力不足，而是因为他们身边缺少一位最近走过同样道路的人。",
+      storyP2: "RYDN 的成立就是为了解决这个问题。我们将学生与比他们早一两步的顾问直接联系起来——亲切、易于接触、免费。",
+      storyP3: "今天，我们服务于加拿大各地的学生，与学校和图书馆合作举办讲座，并且每个月都在成长。",
+      valuesTitle: "我们的坚持",
+      v1Title: "永远免费",
+      v1Body: "升学和职业指导不应取决于你认识谁。每一次咨询都是免费的。",
+      v2Title: "可亲近的顾问",
+      v2Body: "我们的顾问只比你早一两步走在同一条路上——不是相隔几十年的过来人。",
+      v3Title: "实用优先",
+      v3Body: "真实策略、真实时间表、真实下一步——不空谈。",
+      v4Title: "社区驱动",
+      v4Body: "我们不是公司。我们是学生帮助学生。",
+      bilingualTitle: "多语种，扎根加拿大。",
+      bilingualBody: "RYDN / Réseau de développement de la jeunesse RooZ 以英语和法语运营，并提供西班牙语支持，更多语种正在加入。总部位于安大略省里士满希尔。",
+      ctaTitle: "准备好开始了吗？",
+      ctaButton: "寻找顾问",
+    },
+    notFound: {
+      badge: "404 — 未找到页面",
+      title: "我们找不到那个页面。",
+      body: "看来链接已失效或页面已迁移。既然你来了——想不想找位顾问？",
+      bookCta: "预约顾问",
+      homeCta: "回到首页",
+    },
+    filters: {
+      all: "全部",
+      preMed: "预医",
+      sciences: "理科",
+      preLaw: "预法",
+      business: "商科",
+      arts: "文科",
+      language: "语言",
+      psychNeuro: "心理与神经",
+      pharmacy: "药学",
+      sports: "运动",
+      it: "信息技术",
+      gameDev: "游戏开发",
+    },
+    iosInstall: {
+      title: "在你的 iPhone 上安装 RYDN",
+      step1: "点击下方的分享图标",
+      step2: "然后选择「添加到主屏幕」",
+      dismiss: "知道了",
+    },
+    matchmaker: {
+      cta: "找到匹配",
+      ctaTagline: "不确定该选谁？让我们的 AI 助手在 30 秒内为你匹配合适的 RYDN 顾问。",
+      title: "寻找你的顾问",
+      subtitle: "告诉我你正在探索什么，我会为你匹配一位 RYDN 顾问。",
+      placeholder: "输入你的答案……",
+      send: "发送",
+      thinking: "思考中……",
+      welcome: "嗨 👋 我在这里帮你找到合适的 RYDN 顾问。你目前在探索什么——某个学科、考试，还是职业方向？",
+      reset: "重新开始",
+      error: "出现错误。请稍后再试。",
+      bookButton: "预约",
+      close: "关闭",
+      poweredBy: "由 Cloudflare AI 上的 Llama 提供支持",
+      generalTitle: "问问 RYDN",
+      generalSubtitle: "关于讲座、咨询和捐款的快速解答。",
+      generalWelcome: "嗨 👋 我可以回答关于 RYDN 的问题——讲座、咨询、捐款，与网站相关的任何事。我能帮你什么？",
+      generalCta: "询问 AI",
+    },
+    language: {
+      chooseLanguage: "选择你的语言",
+    },
+  },
+
+  // =====================================================================
+  // KOREAN (ko) — full translation. Uses the friendly-polite 해요체 register
+  // common on Korean web/marketing content.
+  // =====================================================================
+  ko: {
+    nav: {
+      home: "홈",
+      about: "소개",
+      ourTeam: "팀 소개",
+      becomeAdvisor: "어드바이저 되기",
+      workshops: "워크숍",
+      stories: "학생 이야기",
+      blog: "블로그",
+      support: "후원하기",
+      supportShort: "후원",
+      bookNow: "어드바이저 예약",
+      bookNowShort: "예약",
+    },
+    hero: {
+      eyebrow: "모든 학생을 위한 무료 진학 상담",
+      titleLine1: "진로를",
+      titleLine2: "바꾸는 상담.",
+      subhead:
+        "전 세계 학생들을 캐나다 최고의 대학들과 연결합니다. 인생을 바꿀 결정을 내리기 전에, 단 2~3년 앞선 대학생들과 무료 1대1 세션을 가져보세요.",
+      ctaPrimary: "어드바이저 찾기",
+      ctaSecondary: "자세히 보기",
+      trustNonprofit: "캐나다 비영리 단체",
+      trustFree: "학생에게 100% 무료",
+      trustMultilingual: "다국어 지원",
+    },
+    mission: {
+      eyebrow: "우리의 미션",
+      line1: "재능은 어디에나 있어요.",
+      line2: "그러나 안내자는 그렇지 않죠.",
+      line3: "RYDN은 상담, 워크숍, 학업 지원을 통해 그 격차를 메우기 위해 존재합니다.",
+    },
+    testimonials: {
+      eyebrow: "학생들의 후기",
+      title: "진짜 학생들. 진짜 결과.",
+      subtitle: "우리가 함께한 학생들과 학부모들의 이야기예요.",
+    },
+    programs: {
+      eyebrow: "우리가 제공하는 것",
+      title: "학생에게 필요한 모든 것, 한곳에서.",
+      subtitle: "1대1 상담부터 이중언어 워크숍까지, 학생들이 있는 자리에서 함께합니다.",
+      p1Title: "1대1 진학 상담",
+      p1Body: "여러분이 고민하는 길을 이미 걸어본 어드바이저와의 무료 세션 — 학업, 진로, 인생.",
+      p2Title: "워크숍 & 행사",
+      p2Body: "학습법, 대학 준비, 진로 탐색에 관한 인터랙티브 세션. 온라인과 오프라인 모두.",
+      p3Title: "MCAT, LSAT & DAT 준비",
+      p3Body: "최근에 시험을 보고 합격한 학생들이 알려주는 실전 전략.",
+      p4Title: "대학 지원",
+      p4Body: "에세이, 추천서, 학과 선택, 캐나다 입시 전 과정 도움.",
+      p5Title: "학교 & 지역사회 협력",
+      p5Body: "캐나다 전역의 학교, 도서관, 커뮤니티 센터에 직접 찾아갑니다.",
+    },
+    partners: {
+      eyebrow: "함께하는 곳",
+      title: "캐나다 전역의 학교와 지역사회가 신뢰합니다",
+    },
+    instagram: {
+      eyebrow: "함께 보기",
+      title: "@rydn.ca의 최신 소식",
+      subtitle: "워크숍 비하인드, 어드바이저 소개, 학생들의 성공담.",
+      follow: "Instagram에서 팔로우",
+    },
+    faq: {
+      eyebrow: "자주 묻는 질문",
+      title: "궁금했던 모든 것",
+      subtitle: "여기에 답이 없다면, 이메일로 보내주세요.",
+      q1: "RYDN은 정말 무료인가요?",
+      a1: "네 — 모든 세션, 워크숍, 자료가 100% 무료입니다. RYDN은 후원자와 자원봉사 어드바이저들이 함께하는 캐나다 비영리 단체입니다.",
+      q2: "누가 RYDN을 이용할 수 있나요?",
+      a2: "캐나다의 어떤 학생이든, 고등학생부터 대학생까지 세션을 예약할 수 있어요. 캐나다 대학을 고려하는 국제 학생들도 환영합니다.",
+      q3: "어드바이저 세션은 어떻게 예약하나요?",
+      a3: "홈에서 어드바이저들을 둘러보고, 본인의 목표와 잘 맞는 어드바이저의 ‘예약’ 버튼을 누른 뒤 시간을 선택하세요. 이메일로 캘린더 초대장을 받게 됩니다.",
+      q4: "어드바이저는 어떤 부분에서 도와줄 수 있나요?",
+      a4: "대학 지원, MCAT/LSAT/DAT 준비, 학과 선택, 학습 전략, 진로 고민, 개인적인 방향성까지. 도움을 줄 수 없다면 다른 어드바이저를 연결해드려요.",
+      q5: "저도 어드바이저가 되고 싶어요. 어떻게 하나요?",
+      a5: "‘어드바이저 되기’ 페이지에서 지원하세요. 대부분의 어드바이저는 한 달에 1~2시간만 시간을 내며, 본인이 다룰 주제를 직접 선택합니다.",
+      q6: "저희 학교나 단체가 RYDN과 협력할 수 있을까요?",
+      a6: "물론입니다. 우리는 캐나다 전역의 학교, 도서관, 커뮤니티 단체에서 워크숍을 진행합니다. ‘협력하기’ 페이지를 통해 연락 주시면 통화를 잡아드릴게요.",
+      cta: "이메일로 질문 보내기",
+    },
+    stories: {
+      eyebrow: "스토리 & 임팩트",
+      title: "진짜 학생들. 진짜 여정.",
+      lede: "모든 예약 뒤에는 자신의 미래에 대한 진지한 결정을 내리는 학생이 있어요. 그들의 이야기를 들어보세요.",
+      impactTitle: "지금 우리가 있는 곳",
+      impactSubtitle: "RYDN은 작지만 자라고 있어요 — 학생들이 학생들을 위해 만든 곳.",
+      journeysTitle: "주목할 여정들",
+      journeysSubtitle: "여섯 명의 학생. 여섯 개의 다른 길. 공통점 하나 — 혼자 걷지 않았다는 것.",
+      readMore: "전체 이야기 보기",
+      ctaTitle: "당신만의 이야기를 시작해 보세요.",
+      ctaButton: "어드바이저 예약",
+    },
+    origin: {
+      eyebrow: "RYDN은 어떻게 시작됐나",
+      title: "한 번의 과외에서 시작된 움직임.",
+      sparkTitle: "그 순간의 불씨",
+      sparkBody: "한 과외 시간 중간에 시작됐어요. Sam의 학생 중 한 명이 갑자기 멈춰서 물었죠. “대학에 대해 몇 가지 물어봐도 될까요?” 그 학생은 의대에 대해 알고 싶어 했어요 — 어떻게 운영되는지, 어떻게 들어가는지. 마침 근처에 있던 Sara가 예비 의대생으로서 의자를 끌어와 함께 답해줬어요. 우리 둘이서 의학에 대해 그가 필요한 모든 것을 알려줬죠. 그러더니 그 학생이 공학과 항공우주에 대해 같은 종류의 질문을 했어요 — 그건 우리도 답할 수 없었어요. 그 순간 Sara가 Sam에게 돌아서며 말했어요: 모든 학생이 자기가 궁금해하는 길을 이미 걸어본 사람과 그냥 앉아서 이야기할 수 있다면 어떨까? 어떤 분야든. 언제나 무료로. 그 순간 RYDN이 태어났습니다.",
+      foundedTitle: "현실로 만들기",
+      foundedBody: "우리는 2026년 3월에 RooZ Youth Development Network를 공식적으로 설립했어요. 초기에는 우리 둘과 공유 캘린더, 그리고 기꺼이 조언해 줄 친구들 몇 명이 전부였어요. 우리는 우리가 잘 모르는 분야 — 공학, 법학, 간호학, 비즈니스, 과학 — 의 학생들에게 연락해 한 달에 한 시간만 내달라고 부탁했어요. 몇 주 만에 작은 네트워크가 생겼어요. 오늘날에는 25명 이상의 어드바이저가 있고, 계속 늘어나고 있어요.",
+      todayTitle: "지금 우리의 위치",
+      todayBody: "오늘날 RYDN은 25명 이상의 학생 어드바이저와 캐나다 전역의 학생들을 연결합니다. 무료 워크숍을 운영하고, 학교와 도서관과 협력하며, 세 가지 언어로 운영합니다 — 이제 시작일 뿐입니다.",
+      quote: "한 학생이 우리가 답할 수 없는 질문을 한 데서 시작됐어요. 어떤 학생도 그 질문을 혼자 해야 해선 안 됩니다.",
+      quoteAttribution: "Sara Roozbahani & Sam Sina, 공동 설립자",
+    },
+    about: {
+      eyebrow: "RYDN 소개",
+      title: "학생이 학생을 위해 만들었습니다.",
+      lede: "RYDN — RooZ Youth Development Network — 은 재능 있는 청소년들의 발목을 잡는 안내 격차를 해소하는 캐나다 비영리 단체입니다.",
+      storyTitle: "우리의 이야기",
+      storyP1: "재능은 어디에나 있지만, 안내는 그렇지 않아요. 우리는 똑똑하고 의욕 있는 학생들이 길을 선택하는 데 어려움을 겪는 모습을 봐왔어요 — 능력이 부족해서가 아니라, 그 길을 최근에 걸어본 사람이 곁에 없어서.",
+      storyP2: "RYDN은 그 문제를 해결하기 위해 설립되었어요. 우리는 학생들을 한두 걸음 앞서간 어드바이저와 직접 연결해요 — 친근하고, 접근하기 쉽고, 무료로.",
+      storyP3: "오늘날 우리는 캐나다 전역의 학생들에게 서비스를 제공하고, 학교 및 도서관과 함께 워크숍을 진행하며, 매달 성장하고 있어요.",
+      valuesTitle: "우리가 지향하는 것",
+      v1Title: "언제나 무료",
+      v1Body: "상담과 안내는 누구를 아느냐에 달려선 안 됩니다. 모든 세션은 무료예요.",
+      v2Title: "친근한 어드바이저",
+      v2Body: "우리 어드바이저들은 여러분보다 한두 걸음 앞서 같은 길을 걷고 있어요 — 수십 년 떨어진 분들이 아닙니다.",
+      v3Title: "실용 우선",
+      v3Body: "실제 전략, 실제 일정, 실제 다음 단계 — 막연한 조언이 아니에요.",
+      v4Title: "커뮤니티 기반",
+      v4Body: "우리는 회사가 아닙니다. 학생이 학생을 돕는 모임입니다.",
+      bilingualTitle: "다국어, 캐나다에 뿌리내린.",
+      bilingualBody: "RYDN / Réseau de développement de la jeunesse RooZ는 영어와 프랑스어로 운영되며, 스페인어를 지원하고, 더 많은 언어가 추가될 예정입니다. 온타리오주 리치먼드힐에 본부를 두고 있습니다.",
+      ctaTitle: "시작할 준비 되셨나요?",
+      ctaButton: "어드바이저 찾기",
+    },
+    notFound: {
+      badge: "404 — 페이지를 찾을 수 없음",
+      title: "해당 페이지를 찾을 수 없어요.",
+      body: "링크가 끊겼거나 페이지가 이동된 것 같아요. 이왕 오셨으니 — 어드바이저를 찾아보시는 건 어떨까요?",
+      bookCta: "어드바이저 예약",
+      homeCta: "홈으로 돌아가기",
+    },
+    filters: {
+      all: "전체",
+      preMed: "의대 준비",
+      sciences: "이공계",
+      preLaw: "법대 준비",
+      business: "비즈니스",
+      arts: "인문/예술",
+      language: "어학",
+      psychNeuro: "심리/신경",
+      pharmacy: "약학",
+      sports: "스포츠",
+      it: "IT",
+      gameDev: "게임 개발",
+    },
+    iosInstall: {
+      title: "iPhone에 RYDN 설치하기",
+      step1: "하단의 공유 아이콘을 누르세요",
+      step2: "그런 다음 ‘홈 화면에 추가’를 선택하세요",
+      dismiss: "알겠어요",
+    },
+    matchmaker: {
+      cta: "내게 맞는 어드바이저 찾기",
+      ctaTagline: "누구를 골라야 할지 모르겠나요? 우리의 AI 도우미가 30초 만에 적합한 RYDN 어드바이저를 찾아드려요.",
+      title: "어드바이저 찾기",
+      subtitle: "무엇을 탐색 중인지 알려주시면, 적합한 RYDN 어드바이저를 매칭해드려요.",
+      placeholder: "답을 입력하세요…",
+      send: "보내기",
+      thinking: "생각 중…",
+      welcome: "안녕하세요 👋 RYDN 어드바이저를 찾는 걸 도와드릴게요. 지금 무엇을 탐색 중이신가요 — 과목, 시험, 또는 진로?",
+      reset: "다시 시작",
+      error: "문제가 발생했어요. 잠시 후 다시 시도해 주세요.",
+      bookButton: "예약하기",
+      close: "닫기",
+      poweredBy: "Cloudflare AI의 Llama 기반",
+      generalTitle: "RYDN에게 물어보기",
+      generalSubtitle: "워크숍, 상담, 후원에 관한 빠른 답변.",
+      generalWelcome: "안녕하세요 👋 RYDN에 관한 질문에 답해드릴 수 있어요 — 워크숍, 상담, 후원, 사이트 관련 무엇이든요. 어떤 도움이 필요하세요?",
+      generalCta: "AI에게 묻기",
+    },
+    language: {
+      chooseLanguage: "언어를 선택하세요",
+    },
+  },
+
+  // =====================================================================
+  // ARABIC (ar) — partial. Modern Standard Arabic. The rest falls back
+  // to English until a native speaker contributes the remaining strings.
+  // =====================================================================
+  ar: {
+    nav: {
+      home: "الرئيسية",
+      about: "من نحن",
+      ourTeam: "فريقنا",
+      becomeAdvisor: "كن مرشدًا",
+      workshops: "ورش العمل",
+      stories: "قصص الطلاب",
+      blog: "المدونة",
+      support: "ادعمنا",
+      supportShort: "ادعم",
+      bookNow: "احجز مرشدًا",
+      bookNowShort: "احجز",
+    },
+    hero: {
+      eyebrow: "إرشاد مجاني لكل طالب",
+      titleLine1: "إرشاد",
+      titleLine2: "يغيّر المسارات.",
+      subhead:
+        "نربط الطلاب حول العالم بأفضل الجامعات الكندية. جلسات فردية مجانية مع طلاب جامعيين يسبقونك بسنتين أو ثلاث فقط — قبل القرارات التي تغيّر حياتك.",
+      ctaPrimary: "ابحث عن مرشد",
+      ctaSecondary: "اعرف المزيد",
+      trustNonprofit: "منظمة كندية غير ربحية",
+      trustFree: "مجاني 100% للطلاب",
+      trustMultilingual: "دعم متعدد اللغات",
+    },
+    language: {
+      chooseLanguage: "اختر لغتك",
+    },
+  },
+
+  // =====================================================================
+  // URDU (ur) — partial. Nastaliq script, RTL. The rest falls back to English.
+  // =====================================================================
+  ur: {
+    nav: {
+      home: "ہوم",
+      about: "ہمارے بارے میں",
+      ourTeam: "ہماری ٹیم",
+      becomeAdvisor: "مشیر بنیں",
+      workshops: "ورکشاپس",
+      stories: "طلباء کی کہانیاں",
+      blog: "بلاگ",
+      support: "ہماری مدد کریں",
+      supportShort: "مدد",
+      bookNow: "مشیر بُک کریں",
+      bookNowShort: "بُک",
+    },
+    hero: {
+      eyebrow: "ہر طالبعلم کے لیے مفت مشاورت",
+      titleLine1: "ایسی مشاورت جو",
+      titleLine2: "راستے بدل دے۔",
+      subhead:
+        "دنیا بھر کے طلباء کو کینیڈا کی بہترین یونیورسٹیوں سے جوڑنا۔ صرف 2–3 سال آگے کے یونیورسٹی طلباء کے ساتھ مفت ون آن ون سیشنز — زندگی بدلنے والے فیصلوں سے پہلے۔",
+      ctaPrimary: "مشیر تلاش کریں",
+      ctaSecondary: "مزید جانیں",
+      trustNonprofit: "کینیڈین غیر منافع بخش ادارہ",
+      trustFree: "طلباء کے لیے 100% مفت",
+      trustMultilingual: "کثیر لسانی معاونت",
+    },
+    language: {
+      chooseLanguage: "اپنی زبان منتخب کریں",
+    },
+  },
+
+  // =====================================================================
+  // PUNJABI (pa) — partial. Gurmukhi script, LTR. The rest falls back to English.
+  // =====================================================================
+  pa: {
+    nav: {
+      home: "ਮੁੱਖ ਪੰਨਾ",
+      about: "ਸਾਡੇ ਬਾਰੇ",
+      ourTeam: "ਸਾਡੀ ਟੀਮ",
+      becomeAdvisor: "ਸਲਾਹਕਾਰ ਬਣੋ",
+      workshops: "ਵਰਕਸ਼ਾਪਸ",
+      stories: "ਵਿਦਿਆਰਥੀਆਂ ਦੀਆਂ ਕਹਾਣੀਆਂ",
+      blog: "ਬਲੌਗ",
+      support: "ਸਾਡੀ ਸਹਾਇਤਾ ਕਰੋ",
+      supportShort: "ਸਹਾਇਤਾ",
+      bookNow: "ਸਲਾਹਕਾਰ ਬੁੱਕ ਕਰੋ",
+      bookNowShort: "ਬੁੱਕ",
+    },
+    hero: {
+      eyebrow: "ਹਰ ਵਿਦਿਆਰਥੀ ਲਈ ਮੁਫ਼ਤ ਸਲਾਹ",
+      titleLine1: "ਉਹ ਸਲਾਹ ਜੋ",
+      titleLine2: "ਰਾਹ ਬਦਲੇ।",
+      subhead:
+        "ਦੁਨੀਆ ਭਰ ਦੇ ਵਿਦਿਆਰਥੀਆਂ ਨੂੰ ਕੈਨੇਡਾ ਦੀਆਂ ਪ੍ਰਮੁੱਖ ਯੂਨੀਵਰਸਿਟੀਆਂ ਨਾਲ ਜੋੜਨਾ। ਜੀਵਨ ਬਦਲਣ ਵਾਲੇ ਫੈਸਲੇ ਲੈਣ ਤੋਂ ਪਹਿਲਾਂ, ਤੁਹਾਡੇ ਤੋਂ ਸਿਰਫ਼ 2–3 ਸਾਲ ਅੱਗੇ ਦੇ ਯੂਨੀਵਰਸਿਟੀ ਵਿਦਿਆਰਥੀਆਂ ਨਾਲ ਮੁਫ਼ਤ ਇੱਕ-ਨਾਲ-ਇੱਕ ਸੈਸ਼ਨ।",
+      ctaPrimary: "ਸਲਾਹਕਾਰ ਲੱਭੋ",
+      ctaSecondary: "ਹੋਰ ਜਾਣੋ",
+      trustNonprofit: "ਕੈਨੇਡੀਅਨ ਗ਼ੈਰ-ਮੁਨਾਫ਼ਾ ਸੰਸਥਾ",
+      trustFree: "ਵਿਦਿਆਰਥੀਆਂ ਲਈ 100% ਮੁਫ਼ਤ",
+      trustMultilingual: "ਬਹੁ-ਭਾਸ਼ਾਈ ਸਹਾਇਤਾ",
+    },
+    language: {
+      chooseLanguage: "ਆਪਣੀ ਭਾਸ਼ਾ ਚੁਣੋ",
     },
   },
 }

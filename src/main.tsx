@@ -54,7 +54,7 @@ const PAGES = [
   { path: "for-educators", element: <ForEducators /> },
 ] as const
 
-const NON_DEFAULT_LANGS = ["fr", "es", "fa", "he"] as const
+const NON_DEFAULT_LANGS = ["fr", "es", "fa", "he", "zh", "ko", "ar", "ur", "pa"] as const
 
 function renderPages(prefix: string) {
   return PAGES.map((p) =>

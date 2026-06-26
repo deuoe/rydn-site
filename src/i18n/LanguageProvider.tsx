@@ -5,7 +5,7 @@ import { LanguageContext } from "./languageContext"
 import { localizeHref, stripLangPrefix } from "./useLocalizedNav"
 
 const STORAGE_KEY = "rydn-lang"
-const SUPPORTED: Lang[] = ["en", "fr", "es", "fa", "he"]
+const SUPPORTED: Lang[] = ["en", "fr", "es", "fa", "he", "zh", "ko", "ar", "ur", "pa"]
 
 /**
  * Pull the active language from the URL. The first path segment is treated
@@ -82,18 +82,36 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     navigate(target + location.search + location.hash)
   }
 
-  // Tiny dot-path lookup: t("hero.eyebrow") → TRANSLATIONS[lang].hero.eyebrow
+  // Tiny dot-path lookup: t("hero.eyebrow") → TRANSLATIONS[lang].hero.eyebrow.
+  // If a key isn't present in the active language, we fall back to English
+  // instead of showing the raw key path. This lets us ship partial translations
+  // (e.g., just the nav + hero in Arabic/Urdu/Punjabi) without breaking pages.
   const t = (path: string): string => {
     const parts = path.split(".")
-    let cursor: unknown = TRANSLATIONS[lang]
-    for (const p of parts) {
-      if (typeof cursor === "object" && cursor !== null && p in (cursor as Record<string, unknown>)) {
-        cursor = (cursor as Record<string, unknown>)[p]
-      } else {
-        return path // fall back to the key itself if the translation is missing
+
+    const lookup = (dict: unknown): string | undefined => {
+      let cursor = dict
+      for (const p of parts) {
+        if (
+          typeof cursor === "object" &&
+          cursor !== null &&
+          p in (cursor as Record<string, unknown>)
+        ) {
+          cursor = (cursor as Record<string, unknown>)[p]
+        } else {
+          return undefined
+        }
       }
+      return typeof cursor === "string" ? cursor : undefined
     }
-    return typeof cursor === "string" ? cursor : path
+
+    // 1. Try the active language. 2. Fall back to English. 3. Last resort,
+    // return the key itself so the missing string is at least visible in dev.
+    const active = lookup(TRANSLATIONS[lang])
+    if (active !== undefined) return active
+    const fallback = lookup(TRANSLATIONS.en)
+    if (fallback !== undefined) return fallback
+    return path
   }
 
   return (
