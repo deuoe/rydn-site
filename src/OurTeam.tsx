@@ -9,6 +9,8 @@ import sinaUrl from "./assets/images/Sina.jpeg"
 import valentinaUrl from "./assets/images/Valentina.jpg"
 import saharUrl from "./assets/images/Sahar.jpeg"
 import mohsenUrl from "./assets/images/Mohsen.jpg"
+import ricardoUrl from "./assets/images/Ricardo Ko.jpeg"
+import aliUrl from "./assets/images/Ali Roozbahani.jpeg"
 
 type Founder = {
   name: string
@@ -34,9 +36,11 @@ type CommitteeMember = {
   credentials: string
   role: string
   bio: string
-  /** Two-letter initials for the avatar */
+  /** Real photo URL (preferred). If absent, falls back to gradient + initials. */
+  photo?: string
+  /** Two-letter initials for the avatar fallback */
   initials: string
-  /** Tailwind gradient classes for the avatar background */
+  /** Tailwind gradient classes for the avatar background / fallback */
   accent: string
   /** Lucide icon component matching their professional discipline */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -52,6 +56,7 @@ const COMMITTEE: CommitteeMember[] = [
     role: "Family Physician",
     bio:
       "Dr. Ko is a family physician who supports RYDN's mission of expanding access to mentorship and educational opportunities for students. He contributes to advisor development, program review, and the advancement of initiatives that promote student wellbeing, personal growth, and academic success. His guidance helps strengthen the quality and long-term impact of RYDN's programming.",
+    photo: ricardoUrl,
     initials: "RK",
     accent: "from-emerald-500 to-teal-600",
     Icon: Stethoscope,
@@ -62,6 +67,7 @@ const COMMITTEE: CommitteeMember[] = [
     role: "Psychology Professional",
     bio:
       "Dr. Ali Roozbahani is a psychology professional with expertise in youth development, education, and human behavior. As a member of RYDN's Professional Advisory Committee, he supports advisor development, program review, and the advancement of initiatives that promote student growth, wellbeing, and academic success.",
+    photo: aliUrl,
     initials: "AR",
     accent: "from-indigo-500 to-violet-600",
     Icon: Brain,
@@ -181,16 +187,25 @@ export default function OurTeam() {
                 className="card-ring relative overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition p-8"
               >
                 <div className="flex flex-col sm:flex-row gap-6 items-start">
-                  {/* Avatar with shield badge */}
+                  {/* Avatar with shield badge — real photo if available, otherwise gradient initials */}
                   <div className="relative shrink-0">
                     <div className={`absolute -inset-1 rounded-full bg-gradient-to-br ${m.accent} blur-sm opacity-50`} />
-                    <div
-                      className={`relative w-32 h-32 rounded-full ring-4 ring-white shadow-lg bg-gradient-to-br ${m.accent} flex items-center justify-center`}
-                    >
-                      <span className="font-display text-4xl font-bold text-white tracking-tight">
-                        {m.initials}
-                      </span>
-                    </div>
+                    {m.photo ? (
+                      <img
+                        src={m.photo}
+                        alt={m.name}
+                        loading="lazy"
+                        className="relative w-32 h-32 rounded-full ring-4 ring-white shadow-lg object-cover"
+                      />
+                    ) : (
+                      <div
+                        className={`relative w-32 h-32 rounded-full ring-4 ring-white shadow-lg bg-gradient-to-br ${m.accent} flex items-center justify-center`}
+                      >
+                        <span className="font-display text-4xl font-bold text-white tracking-tight">
+                          {m.initials}
+                        </span>
+                      </div>
+                    )}
                     <span className="absolute -top-1 -right-1 inline-flex items-center justify-center h-9 w-9 rounded-full bg-emerald-500 text-white shadow-md ring-2 ring-white">
                       <ShieldCheck size={16} />
                     </span>
