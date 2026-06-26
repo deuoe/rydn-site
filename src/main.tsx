@@ -24,6 +24,7 @@ import PourNouveauxArrivants from "./PourNouveauxArrivants"
 import ForEducators from "./ForEducators"
 import NotFound from "./NotFound"
 import ScrollToTop from "./components/ScrollToTop"
+import UpdatePrompt from "./components/UpdatePrompt"
 import { LanguageProvider } from "./i18n/LanguageProvider"
 import { ThemeProvider } from "./theme/ThemeProvider"
 
@@ -70,6 +71,7 @@ ReactDOM.createRoot(root).render(
     <ThemeProvider>
       <LanguageProvider>
         <ScrollToTop />
+        <UpdatePrompt />
         <Routes>
         <Route element={<Layout />}>
           {/* English routes (no prefix — default language) */}

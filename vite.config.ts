@@ -113,6 +113,15 @@ export default defineConfig({
         navigateFallbackDenylist: [/^\/api\//, /^\/_/],
         // Don't precache files larger than 5 MB (the home hero is the biggest at ~429 KB, so we're fine)
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        // CRITICAL: take over from the old service worker immediately on update,
+        // and start controlling all open pages right away. Without these two flags
+        // a new SW sits in "waiting" state and never activates until every tab/
+        // PWA window is fully closed — which is why our phone PWAs were stuck
+        // on the very first deployed version forever.
+        skipWaiting: true,
+        clientsClaim: true,
+        // Clean up old precaches from previous deployments
+        cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
             // Cache Google Fonts CSS
