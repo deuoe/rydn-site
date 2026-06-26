@@ -1,7 +1,19 @@
 import { useNavigate } from "react-router-dom"
 import { useTranslation } from "./useTranslation"
+import { LANGUAGES } from "./translations"
 
-const LANG_PREFIX = /^\/(en|fr|es|fa|he)(\/|$)/
+/**
+ * Regex matching any supported language prefix at the start of a path.
+ *
+ * IMPORTANT: this is derived from LANGUAGES so adding a new language in
+ * translations.ts is enough — we don't need to remember to update a separate
+ * hardcoded list here. Previously this list was hand-maintained, which caused
+ * a bug where switching languages on /zh/... routes produced /fr/zh/... instead
+ * of /fr/... because "zh" wasn't recognized as a prefix to strip.
+ */
+const LANG_PREFIX = new RegExp(
+  `^/(${LANGUAGES.map(l => l.code).join("|")})(/|$)`,
+)
 
 /**
  * Strip any language prefix from a path so we can prepend a different one.

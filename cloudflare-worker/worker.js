@@ -116,7 +116,7 @@ HOW TO TALK:
 - Ask 1 short question at a time. Listen first, then recommend.
 - After 1-2 exchanges with enough info, recommend 1-2 advisors by FULL name with a 1-sentence reason.
 
-LANGUAGE: Reply in whatever language the student writes in (English, French, Spanish, Persian, Hebrew).
+LANGUAGE: Reply in whatever language the student writes in. RYDN supports English, French, Spanish, Persian, Hebrew, Simplified Chinese, Korean, Arabic, Urdu, and Punjabi (Gurmukhi). Match the script and register the user uses.
 
 RECOMMENDATION FORMAT — VERY IMPORTANT:
 When you recommend advisors, after your message text add a NEW LINE containing ONLY this JSON:
@@ -181,7 +181,7 @@ You are RYDN's helper. You DO NOT answer questions about anything outside RYDN's
 - If the user asks about ANY of these, respond ONLY with: "I can only help with RYDN-related questions. For other questions, please contact our team on WhatsApp at (647) 498-3938 or email info@rydn.ca."
 - Do not be tempted to "just give a short answer" — always redirect. Don't even include the trivia answer first.`
 
-/** Off-topic redirects — keyed by mode + language. */
+/** Off-topic redirects — keyed by mode + language. Missing langs fall back to .en. */
 const OFFTOPIC_REDIRECTS = {
   matchmaker: {
     en: "I'm here to match you with a RYDN advisor 🙂 What are you exploring right now — a subject, an exam, or a career path?",
@@ -189,6 +189,11 @@ const OFFTOPIC_REDIRECTS = {
     es: "Estoy aquí para conectarte con un asesor de RYDN 🙂 ¿Qué estás explorando ahora mismo — una materia, un examen o un camino profesional?",
     fa: "من اینجا هستم تا شما را با مشاور مناسب RYDN آشنا کنم 🙂 الان چه چیزی را در نظر دارید — یک درس، یک آزمون، یا یک مسیر شغلی؟",
     he: "אני כאן כדי להתאים לכם יועץ מ-RYDN 🙂 מה אתם בודקים עכשיו — מקצוע, בחינה או מסלול קריירה?",
+    zh: "我在这里帮你匹配合适的 RYDN 顾问 🙂 你目前在探索什么 — 某个学科、考试，还是职业方向？",
+    ko: "RYDN 어드바이저를 찾아드리려고 왔어요 🙂 지금 무엇을 탐색 중이신가요 — 과목, 시험, 또는 진로?",
+    ar: "أنا هنا لأساعدك في إيجاد مرشد RYDN المناسب 🙂 ماذا تستكشف الآن — مادة دراسية، امتحان، أو مسار مهني؟",
+    ur: "میں آپ کا RYDN مشیر تلاش کرنے کے لیے یہاں ہوں 🙂 اس وقت آپ کیا تلاش رہے ہیں — کوئی مضمون، امتحان، یا کیریئر کا راستہ؟",
+    pa: "ਮੈਂ ਤੁਹਾਡੇ ਲਈ ਇੱਕ RYDN ਸਲਾਹਕਾਰ ਲੱਭਣ ਲਈ ਇੱਥੇ ਹਾਂ 🙂 ਤੁਸੀਂ ਇਸ ਵੇਲੇ ਕੀ ਖੋਜ ਰਹੇ ਹੋ — ਕੋਈ ਵਿਸ਼ਾ, ਇਮਤਿਹਾਨ, ਜਾਂ ਕਰੀਅਰ ਦਾ ਰਾਹ?",
   },
   general: {
     en: "I can only help with RYDN-related questions (advising, workshops, donations, partnerships, becoming an advisor). For anything else, our team is happy to help on WhatsApp at (647) 498-3938 or email info@rydn.ca 💬",
@@ -196,6 +201,11 @@ const OFFTOPIC_REDIRECTS = {
     es: "Solo puedo ayudar con preguntas relacionadas con RYDN (asesoramiento, talleres, donaciones, alianzas, ser asesor). Para cualquier otro tema, nuestro equipo está disponible en WhatsApp al (647) 498-3938 o por correo info@rydn.ca 💬",
     fa: "من فقط می‌توانم به سوالات مربوط به RYDN پاسخ دهم (مشاوره، کارگاه‌ها، کمک‌های مالی، همکاری‌ها، شدن یک مشاور). برای هر چیز دیگری، تیم ما در واتساپ به شماره (647) 498-3938 یا ایمیل info@rydn.ca در دسترس است 💬",
     he: "אני יכול לעזור רק בשאלות הקשורות ל-RYDN (ייעוץ, סדנאות, תרומות, שותפויות, להיות יועץ). לכל דבר אחר, הצוות שלנו זמין בוואטסאפ ב-(647) 498-3938 או באימייל info@rydn.ca 💬",
+    zh: "我只能帮你解答与 RYDN 相关的问题（咨询、讲座、捐款、合作、成为顾问）。其他问题请通过 WhatsApp (647) 498-3938 或邮箱 info@rydn.ca 联系我们的团队 💬",
+    ko: "저는 RYDN 관련 질문(상담, 워크숍, 후원, 협력, 어드바이저 지원)만 도와드릴 수 있어요. 그 외의 문의는 WhatsApp (647) 498-3938 또는 이메일 info@rydn.ca로 연락해 주세요 💬",
+    ar: "يمكنني فقط الإجابة عن الأسئلة المتعلقة بـ RYDN (الإرشاد، ورش العمل، التبرعات، الشراكات، أن تصبح مرشدًا). لأي شيء آخر، فريقنا متاح على واتساب (647) 498-3938 أو عبر البريد الإلكتروني info@rydn.ca 💬",
+    ur: "میں صرف RYDN سے متعلق سوالات میں مدد کر سکتا ہوں (مشاورت، ورکشاپس، عطیات، شراکت داری، مشیر بننا)۔ کسی بھی اور چیز کے لیے، ہماری ٹیم WhatsApp پر (647) 498-3938 یا ای میل info@rydn.ca پر آپ کی مدد کے لیے دستیاب ہے 💬",
+    pa: "ਮੈਂ ਸਿਰਫ਼ RYDN ਨਾਲ ਸਬੰਧਤ ਸਵਾਲਾਂ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ (ਸਲਾਹ, ਵਰਕਸ਼ਾਪਸ, ਦਾਨ, ਭਾਈਵਾਲੀ, ਸਲਾਹਕਾਰ ਬਣਨਾ)। ਹੋਰ ਕਿਸੇ ਵੀ ਚੀਜ਼ ਲਈ, ਸਾਡੀ ਟੀਮ WhatsApp 'ਤੇ (647) 498-3938 ਜਾਂ ਈ-ਮੇਲ info@rydn.ca 'ਤੇ ਉਪਲਬਧ ਹੈ 💬",
   },
 }
 
@@ -230,7 +240,8 @@ export default {
     }
 
     const mode = body.mode === "general" ? "general" : "matchmaker"
-    const lang = ["en", "fr", "es", "fa", "he"].includes(body.lang) ? body.lang : "en"
+    // Keep this list in sync with src/i18n/translations.ts > LANGUAGES.
+    const lang = ["en", "fr", "es", "fa", "he", "zh", "ko", "ar", "ur", "pa"].includes(body.lang) ? body.lang : "en"
 
     const lastUserMessage = [...body.messages].reverse().find(m => m.role === "user")
     const userText = String(lastUserMessage?.content || "").trim()
