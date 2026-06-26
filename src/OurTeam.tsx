@@ -66,7 +66,7 @@ const COMMITTEE: CommitteeMember[] = [
     credentials: "PhD",
     role: "Psychology Professional",
     bio:
-      "Dr. Ali Roozbahani is a psychology professional with expertise in youth development, education, and human behavior. As a member of RYDN's Professional Advisory Committee, he supports advisor development, program review, and the advancement of initiatives that promote student growth, wellbeing, and academic success.",
+      "Dr. Roozbahani is a psychology professional with expertise in youth development, education, and human behavior. As a member of RYDN's Professional Advisory Committee, he supports advisor development, program review, and the advancement of initiatives that promote student growth, wellbeing, and academic success.",
     photo: aliUrl,
     initials: "AR",
     accent: "from-indigo-500 to-violet-600",
