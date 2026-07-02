@@ -22,7 +22,7 @@ import valentinaUrl from "../assets/images/Valentina.jpg"
 import saracUrl from "../assets/images/SaraC.jpg"
 import imanUrl from "../assets/images/Iman.png"
 import pardisUrl from "../assets/images/Pardis.jpg"
-import mahanUrl from "../assets/images/Mahan.jpg"
+import mahanUrl from "../assets/images/Mahan.png"
 
 export type Category =
   | "preMed"
