@@ -47,6 +47,10 @@ export type Advisor = {
   photo: string
   /** Short tagline shown on the card */
   description: string
+  /** Optional staff/role title (e.g. "Educational Programs Coordinator") shown
+   *  as a distinct pill in addition to the generic "RYDN Advisor" badge. Use for
+   *  advisors who also hold an operational role at RYDN. */
+  title?: string
   /** Long-form bio shown on the advisor detail page. Markdown-style paragraphs. */
   bio?: string[]
   /** Topics the advisor specializes in */
@@ -110,6 +114,7 @@ export const ADVISORS: Advisor[] = [
     name: "Sadaf",
     photo: sadafUrl,
     description: "Bachelor of Science student",
+    title: "Educational Programs Coordinator",
     advisingTopics: ["Biomedical Science", "DAT Preparation", "Pre-dent Advising"],
     bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2",
     categories: ["sciences"],

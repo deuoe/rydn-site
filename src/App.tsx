@@ -740,6 +740,11 @@ function HomePage() {
                   />
                 </div>
                 <h3 className="text-lg font-bold text-center text-slate-900 dark:text-slate-100">{advisor.name}</h3>
+                {advisor.title && (
+                  <p className="mt-0.5 text-center text-xs font-semibold text-emerald-700 dark:text-emerald-400">
+                    {advisor.title}
+                  </p>
+                )}
                 <p className="mt-1 mb-4 text-slate-500 dark:text-slate-400 text-sm text-center leading-relaxed">{advisor.description}</p>
 
                 <div className={`flex flex-wrap items-center gap-2 mb-5 justify-center ${getTagHeight(advisor.advisingTopics.length)}`}>

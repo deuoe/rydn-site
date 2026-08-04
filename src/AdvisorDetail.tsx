@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { motion } from "motion/react"
-import { ArrowLeft, ArrowRight, Calendar, Share2, GraduationCap } from "lucide-react"
+import { ArrowLeft, ArrowRight, Calendar, Share2, GraduationCap, Sparkles } from "lucide-react"
 import Container from "./components/Container"
 import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
@@ -81,10 +81,19 @@ export default function AdvisorDetail() {
             </div>
 
             <div className="md:col-span-7 text-white">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-semibold border border-white/20">
-                <GraduationCap size={14} className="text-amber-300" />
-                RYDN Advisor
-              </span>
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-semibold border border-white/20">
+                  <GraduationCap size={14} className="text-amber-300" />
+                  RYDN Advisor
+                </span>
+                {/* Extra role pill for advisors who also hold a staff title at RYDN */}
+                {advisor.title && (
+                  <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 backdrop-blur px-4 py-1.5 text-xs font-semibold border border-emerald-400/30 text-emerald-50">
+                    <Sparkles size={14} className="text-emerald-300" />
+                    {advisor.title}
+                  </span>
+                )}
+              </div>
               <h1 className="font-display mt-5 text-5xl sm:text-6xl md:text-7xl font-semibold leading-[1.05]">
                 {advisor.name}
               </h1>
