@@ -119,6 +119,11 @@ export const ADVISORS: Advisor[] = [
     bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/ynxd7Kn3y0esoVFbvnpfMw2",
     categories: ["sciences"],
     universities: ["torontomu"],
+    bio: [
+      "Sadaf is a Biomedical Science student at Toronto Metropolitan University (TMU) — but her path there started somewhere most students haven't been: the dental chair. Before returning to school, she worked as a licensed dental hygienist for two years, treating patients hands-on and living what a career in oral health actually looks like day to day.",
+      "At RYDN she serves as our Educational Programs Coordinator, helping design the workshops, study resources, and academic content that reach students across Canada. She brings the same organized, student-first energy to her 1-on-1 advising sessions — and she's genuinely one of the most driven people on the team.",
+      "If you're weighing pre-med against pre-dental, wondering whether a dental hygiene diploma is worth it before university, prepping for the DAT, or trying to figure out how clinical experience factors into a competitive application — Sadaf has actually done both sides of it. Book a free session and ask her anything.",
+    ],
   },
   {
     slug: "helia",
