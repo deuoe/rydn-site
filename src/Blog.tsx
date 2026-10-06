@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react"
 import { Sparkles, Clock, Calendar, ArrowRight } from "lucide-react"
 import Container from "./components/Container"
 import { Link } from "./i18n/Link"
-import SkeletonImage from "./components/SkeletonImage"
+import Avatar from "./components/Avatar"
 import {
   listArticlesNewestFirst,
   getAuthor,
@@ -207,13 +207,11 @@ function FeaturedArticleCard({ article }: { article: Article }) {
                     className="flex items-center gap-3 group/byline"
                     aria-label={`Read ${author.name}'s story`}
                   >
-                    {author.photo && (
-                      <img
-                        src={author.photo}
-                        alt={author.name}
-                        className="w-10 h-10 rounded-full object-cover ring-2 ring-slate-200"
-                      />
-                    )}
+                    <Avatar
+                      src={author.photo}
+                      name={author.name}
+                      className="w-10 h-10 ring-2 ring-slate-200"
+                    />
                     <div>
                       <p className="text-sm font-semibold text-slate-900 group-hover/byline:text-sky-700 transition">
                         {author.name}
@@ -289,16 +287,11 @@ function ArticleCard({ article }: { article: Article }) {
                 className="flex items-center gap-3 flex-1 min-w-0 group/byline"
                 aria-label={`Read ${author.name}'s story`}
               >
-                {author.photo ? (
-                  <SkeletonImage
-                    src={author.photo}
-                    alt={author.name}
-                    shape="rounded-full"
-                    className="w-9 h-9 ring-2 ring-slate-100"
-                  />
-                ) : (
-                  <div className="w-9 h-9 rounded-full bg-slate-200" />
-                )}
+                <Avatar
+                  src={author.photo}
+                  name={author.name}
+                  className="w-9 h-9 ring-2 ring-slate-100"
+                />
                 <div className="flex-1 min-w-0">
                   <p className="text-xs font-semibold text-slate-900 truncate group-hover/byline:text-sky-700 transition">
                     {author.name}

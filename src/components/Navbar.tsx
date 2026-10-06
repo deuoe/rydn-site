@@ -206,10 +206,13 @@ export default function Navbar() {
           )}
         </ul>
 
-        {/* Mobile: language + theme + brand CTA (compact) + hamburger */}
+        {/* Mobile: language + theme + brand CTA (compact) + hamburger. On phones
+            only the hamburger shows; language + theme live inside the menu. */}
         <div className="flex items-center gap-1 lg:hidden">
-          <LanguageSwitcher transparent={transparent} />
-          <ThemeToggle transparent={transparent} />
+          <div className="hidden sm:flex items-center gap-1">
+            <LanguageSwitcher transparent={transparent} />
+            <ThemeToggle transparent={transparent} />
+          </div>
           {isMed ? (
             <a
               href="mailto:med@rydn.ca?subject=RooZ Med — I'm interested"
@@ -334,6 +337,10 @@ export default function Navbar() {
 
                 <li className="pt-1 border-t border-slate-200 dark:border-slate-700">
                   <LanguageSwitcher variant="list" />
+                </li>
+                {/* Theme toggle is hidden from the phone header bar, so offer it here */}
+                <li className="sm:hidden flex justify-center pt-1">
+                  <ThemeToggle />
                 </li>
               </motion.ul>
             </motion.div>

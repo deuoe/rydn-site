@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom"
 import { motion } from "motion/react"
 import { ArrowLeft, ArrowRight, Calendar, Clock, Share2, Sparkles } from "lucide-react"
 import Container from "./components/Container"
-import SkeletonImage from "./components/SkeletonImage"
+import Avatar from "./components/Avatar"
 import { Link } from "./i18n/Link"
 import {
   getArticleBySlug,
@@ -93,14 +93,11 @@ export default function BlogPost() {
                   className="flex items-center gap-4 group/byline"
                   aria-label={`Read ${author.name}'s story`}
                 >
-                  {author.photo && (
-                    <SkeletonImage
-                      src={author.photo}
-                      alt={author.name}
-                      shape="rounded-full"
-                      className="w-12 h-12 ring-2 ring-white/30 group-hover/byline:ring-amber-300 transition"
-                    />
-                  )}
+                  <Avatar
+                    src={author.photo}
+                    name={author.name}
+                    className="w-12 h-12 ring-2 ring-white/30 group-hover/byline:ring-amber-300 transition"
+                  />
                   <div className="text-white">
                     <p className="text-sm font-semibold group-hover/byline:text-amber-300 transition">
                       {author.name}
@@ -153,10 +150,9 @@ export default function BlogPost() {
             {/* Author bio card at the end */}
             {author && (
               <div className="mt-16 rounded-3xl bg-slate-50 border border-slate-200 p-7 flex gap-5 items-center">
-                <SkeletonImage
+                <Avatar
                   src={author.photo}
-                  alt={author.name}
-                  shape="rounded-full"
+                  name={author.name}
                   className="w-16 h-16 ring-2 ring-white shadow shrink-0"
                 />
                 <div className="flex-1">
