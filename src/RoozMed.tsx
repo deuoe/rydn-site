@@ -184,6 +184,18 @@ export default function RoozMed() {
               support, all in one place from 75+ IMAT scorers.
             </p>
 
+            {/* Signature phrase, the moment of brand reveal. The subtle italic
+                footnote is the only time we spell out the pun; after this,
+                "Med Due." stands on its own as a signature mark. */}
+            <div className="mt-8 inline-flex flex-col gap-1">
+              <p className="font-display text-2xl sm:text-3xl font-bold tracking-[0.15em] text-white">
+                MED <span className="bg-gradient-to-r from-emerald-400 via-white to-red-400 bg-clip-text text-transparent">DUE.</span>
+              </p>
+              <p className="text-xs sm:text-sm text-white/55 italic">
+                It's due. (And in Italian, "due" means two.)
+              </p>
+            </div>
+
             <div className="mt-10 flex flex-wrap gap-3">
               <a
                 href="#plan-builder"
@@ -386,6 +398,11 @@ export default function RoozMed() {
                 30 minutes
               </span>
             </div>
+
+            {/* Med Due signature as section-end punctuation */}
+            <p className="mt-10 text-xs tracking-[0.25em] uppercase text-white/40">
+              Med Due.
+            </p>
 
             {/* Switch brand escape hatch, native RouterLink */}
             <div className="mt-12">
