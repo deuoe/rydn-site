@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { TRANSLATIONS, RTL_LANGS, type Lang } from "./translations"
 import { LanguageContext } from "./languageContext"
 import { localizeHref, stripLangPrefix } from "./useLocalizedNav"
+import { brandFromPath } from "../brand/brand"
 
 const STORAGE_KEY = "rydn-lang"
 const SUPPORTED: Lang[] = ["en", "fr", "es", "fa", "he", "zh", "ko", "ar", "ur", "pa"]
@@ -75,10 +76,12 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [lang])
 
   // setLang now navigates to the equivalent URL in the chosen language,
-  // preserving whatever page the user is on.
+  // preserving whatever page AND brand the user is on. localizeHref handles
+  // the strip + re-prefix of both language and brand automatically.
   const setLang = (next: Lang) => {
     const currentPath = stripLangPrefix(location.pathname) || "/"
-    const target = localizeHref(currentPath, next)
+    const brand = brandFromPath(location.pathname)
+    const target = localizeHref(currentPath, next, brand)
     navigate(target + location.search + location.hash)
   }
 

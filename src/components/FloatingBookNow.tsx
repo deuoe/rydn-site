@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 import { Link } from "../i18n/Link"
-import { stripLangPrefix } from "../i18n/useLocalizedNav"
+import { stripLangPrefix, stripBrandPrefix } from "../i18n/useLocalizedNav"
 import { useEffect, useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Calendar } from "lucide-react"
@@ -17,7 +17,8 @@ export default function FloatingBookNow() {
   const location = useLocation()
   const [show, setShow] = useState(false)
 
-  const cleanPath = stripLangPrefix(location.pathname)
+  // Strip BOTH lang and brand so /youth, /fr/youth, etc. all count as home.
+  const cleanPath = stripBrandPrefix(stripLangPrefix(location.pathname))
   const onHome = cleanPath === "/" || cleanPath === ""
 
   useEffect(() => {

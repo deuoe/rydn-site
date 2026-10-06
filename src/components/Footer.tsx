@@ -1,6 +1,7 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa"
 import { Link } from "../i18n/Link"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Link as RouterLink } from "react-router-dom"
+import { Mail, Phone, MapPin, ArrowLeftRight } from "lucide-react"
 import logoUrl from "../assets/images/logo.jpeg"
 import SDGBadges from "./SDGBadges"
 
@@ -138,12 +139,25 @@ export default function Footer() {
               Registered Canadian nonprofit · Ontario Corp. No.&nbsp;1001539743 · © {new Date().getFullYear()}
             </p>
           </div>
-          <div className="text-sm text-slate-500 dark:text-slate-400 flex gap-4 flex-wrap">
-            <Link to="/privacy-policy" className="hover:text-slate-900 dark:hover:text-slate-100 transition">Privacy</Link>
+          <div className="text-sm text-slate-500 dark:text-slate-400 flex gap-4 flex-wrap items-center">
+            {/* Legal pages are shared org-wide and only exist under /youth,
+                so we use absolute RouterLink paths — the brand-aware Link
+                would try to rewrite them under /med/* on Med pages, 404ing. */}
+            <RouterLink to="/youth/privacy-policy" className="hover:text-slate-900 dark:hover:text-slate-100 transition">Privacy</RouterLink>
             <span aria-hidden>·</span>
-            <Link to="/terms-of-service" className="hover:text-slate-900 dark:hover:text-slate-100 transition">Terms</Link>
+            <RouterLink to="/youth/terms-of-service" className="hover:text-slate-900 dark:hover:text-slate-100 transition">Terms</RouterLink>
             <span aria-hidden>·</span>
-            <Link to="/contact-us" className="hover:text-slate-900 dark:hover:text-slate-100 transition">Contact</Link>
+            <RouterLink to="/youth/contact-us" className="hover:text-slate-900 dark:hover:text-slate-100 transition">Contact</RouterLink>
+            <span aria-hidden>·</span>
+            {/* Native RouterLink — bypasses the brand-aware Link so this
+                genuinely goes to the gateway (not back to Youth homepage). */}
+            <RouterLink
+              to="/"
+              className="inline-flex items-center gap-1.5 hover:text-slate-900 dark:hover:text-slate-100 transition"
+            >
+              <ArrowLeftRight size={13} />
+              Switch brand
+            </RouterLink>
           </div>
         </div>
       </div>

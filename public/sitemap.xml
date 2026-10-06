@@ -2,139 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Home -->
+  <!-- =============================================================
+       GATEWAY — the two-tile brand picker at the bare root URL.
+       ============================================================= -->
   <url>
     <loc>https://www.rydn.ca/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.rydn.ca/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.rydn.ca/fr" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.rydn.ca/es" />
-    <xhtml:link rel="alternate" hreflang="fa" href="https://www.rydn.ca/fa" />
-    <xhtml:link rel="alternate" hreflang="he" href="https://www.rydn.ca/he" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rydn.ca/" />
+    <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- =============================================================
+       ROOZ YOUTH — nonprofit, Canadian students
+       All Youth pages live under /youth/* in every language.
+       ============================================================= -->
+
+  <!-- Youth Home -->
+  <url>
+    <loc>https://www.rydn.ca/youth</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rydn.ca/youth" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.rydn.ca/fr/youth" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.rydn.ca/es/youth" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.rydn.ca/fa/youth" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.rydn.ca/he/youth" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.rydn.ca/zh/youth" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.rydn.ca/ko/youth" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.rydn.ca/ar/youth" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.rydn.ca/ur/youth" />
+    <xhtml:link rel="alternate" hreflang="pa" href="https://www.rydn.ca/pa/youth" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rydn.ca/youth" />
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
-  <url><loc>https://www.rydn.ca/fr</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/youth</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/youth</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/youth</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
 
-  <!-- About Us -->
+  <!-- Youth About -->
   <url>
-    <loc>https://www.rydn.ca/about-us</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.rydn.ca/about-us" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.rydn.ca/fr/about-us" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.rydn.ca/es/about-us" />
-    <xhtml:link rel="alternate" hreflang="fa" href="https://www.rydn.ca/fa/about-us" />
-    <xhtml:link rel="alternate" hreflang="he" href="https://www.rydn.ca/he/about-us" />
+    <loc>https://www.rydn.ca/youth/about-us</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rydn.ca/youth/about-us" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.rydn.ca/fr/youth/about-us" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.rydn.ca/es/youth/about-us" />
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
-  <url><loc>https://www.rydn.ca/fr/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/youth/about-us</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Our Team -->
-  <url><loc>https://www.rydn.ca/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Our Team -->
+  <url><loc>https://www.rydn.ca/youth/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth/our-team</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Become Advisor -->
-  <url><loc>https://www.rydn.ca/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Become Advisor -->
+  <url><loc>https://www.rydn.ca/youth/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth/become-advisor</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Workshops -->
-  <url><loc>https://www.rydn.ca/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <!-- Youth Workshops -->
+  <url><loc>https://www.rydn.ca/youth/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth/workshops</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
 
-  <!-- Partner with Us -->
-  <url><loc>https://www.rydn.ca/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Partner -->
+  <url><loc>https://www.rydn.ca/youth/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth/partner-with-us</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Stories -->
-  <url><loc>https://www.rydn.ca/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Stories -->
+  <url><loc>https://www.rydn.ca/youth/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth/stories</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Donation -->
-  <url><loc>https://www.rydn.ca/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Donation -->
+  <url><loc>https://www.rydn.ca/youth/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth/donation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Contact Us -->
-  <url><loc>https://www.rydn.ca/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Contact -->
+  <url><loc>https://www.rydn.ca/youth/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fr/youth/contact-us</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Audience landing pages -->
-  <url><loc>https://www.rydn.ca/for-newcomers</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/pour-nouveaux-arrivants</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/for-educators</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth audience landing pages -->
+  <url><loc>https://www.rydn.ca/youth/for-newcomers</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/pour-nouveaux-arrivants</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/for-educators</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Blog -->
-  <url><loc>https://www.rydn.ca/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://www.rydn.ca/blog/pre-med-in-canada-complete-guide</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/blog/mcat-prep-timeline-canadian-students</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/blog/writing-personal-statement-canadian-universities</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Blog -->
+  <url><loc>https://www.rydn.ca/youth/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/blog/pre-med-in-canada-complete-guide</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/blog/mcat-prep-timeline-canadian-students</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/blog/writing-personal-statement-canadian-universities</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Press / Media kit -->
-  <url><loc>https://www.rydn.ca/press</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/press</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/press</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Press -->
+  <url><loc>https://www.rydn.ca/youth/press</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Individual advisor pages -->
-  <url><loc>https://www.rydn.ca/advisors/sam-sina</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/sara-roozbahani</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/ilia</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/sahar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/sadaf</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/helia</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/iliya</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/jennifer</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/tina</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/valentina</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/iman</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/pardis</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/mahan</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/advisors/sara-arts</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Advisor pages -->
+  <url><loc>https://www.rydn.ca/youth/advisors/sam-sina</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/sara-roozbahani</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/ilia</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/sahar</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/sadaf</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/helia</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/iliya</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/jennifer</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/tina</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/valentina</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/iman</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/pardis</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/mahan</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/advisors/sara-arts</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Governance -->
-  <url><loc>https://www.rydn.ca/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <!-- Youth Governance -->
+  <url><loc>https://www.rydn.ca/youth/governance</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
-  <!-- Privacy Policy -->
-  <url><loc>https://www.rydn.ca/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <!-- Shared legal pages (nested under /youth for now; same policies apply org-wide) -->
+  <url><loc>https://www.rydn.ca/youth/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.rydn.ca/youth/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
 
-  <!-- Terms of Service -->
-  <url><loc>https://www.rydn.ca/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fr/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.rydn.ca/es/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.rydn.ca/fa/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.rydn.ca/he/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <!-- =============================================================
+       ROOZ MED — paid IMAT / Italian medicine admissions service
+       ============================================================= -->
+  <url>
+    <loc>https://www.rydn.ca/med</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
 
 </urlset>

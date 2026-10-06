@@ -1,15 +1,16 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, Link as RouterLink } from "react-router-dom"
 import { Link } from "../i18n/Link"
 import { useLocalizedNavigate } from "../i18n/useLocalizedNav"
-import { stripLangPrefix } from "../i18n/useLocalizedNav"
+import { stripLangPrefix, stripBrandPrefix } from "../i18n/useLocalizedNav"
 import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useState, type ComponentProps } from "react"
-import { Calendar } from "lucide-react"
+import { Calendar, Mail, ArrowLeftRight } from "lucide-react"
 import logoUrl from "../assets/images/logo.jpeg"
 import LanguageSwitcher from "./LanguageSwitcher"
 import ThemeToggle from "./ThemeToggle"
 import { useTranslation } from "../i18n/useTranslation"
 import { haptic } from "../lib/rydnNative"
+import { useBrand } from "../brand/brand"
 
 /**
  * Take the user to the advisors section. From the home page, scroll smoothly.
@@ -23,13 +24,16 @@ export default function Navbar() {
   const navigate = useLocalizedNavigate()
   const location = useLocation()
   const { t } = useTranslation()
+  const brand = useBrand()
+  const isMed = brand === "med"
   const [nav, setNav] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const toggle = () => setNav(!nav)
 
-  // Compare against the language-stripped path so /, /fr, /es, /fa, /he
-  // all count as the home page for layout decisions.
-  const cleanPath = stripLangPrefix(location.pathname)
+  // Compare against the language- AND brand-stripped path so /, /youth, /fr/youth,
+  // etc. all count as the home page for layout decisions. Lets us treat the brand
+  // homepage (e.g. /youth) exactly like the old root homepage for the nav state.
+  const cleanPath = stripBrandPrefix(stripLangPrefix(location.pathname))
   const onHome = cleanPath === "/" || cleanPath === ""
   const transparent = onHome && !scrolled
 
@@ -44,15 +48,23 @@ export default function Navbar() {
     setNav(false)
   }, [location.pathname])
 
-  const navigation = [
-    { name: t("nav.home"), path: "/" },
-    { name: t("nav.about"), path: "/about-us" },
-    { name: t("nav.ourTeam"), path: "/our-team" },
-    { name: t("nav.becomeAdvisor"), path: "/become-advisor" },
-    { name: t("nav.workshops"), path: "/workshops" },
-    { name: t("nav.stories"), path: "/stories" },
-    { name: t("nav.blog"), path: "/blog" },
-  ]
+  // Nav items are brand-specific. Youth routes (free advising nonprofit) show
+  // the full student-focused menu. Med routes (paid IMAT prep) show a short
+  // list focused on the service — no "Become Advisor", no "Blog" etc.
+  const navigation = isMed
+    ? [
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/#services" },
+      ]
+    : [
+        { name: t("nav.home"), path: "/" },
+        { name: t("nav.about"), path: "/about-us" },
+        { name: t("nav.ourTeam"), path: "/our-team" },
+        { name: t("nav.becomeAdvisor"), path: "/become-advisor" },
+        { name: t("nav.workshops"), path: "/workshops" },
+        { name: t("nav.stories"), path: "/stories" },
+        { name: t("nav.blog"), path: "/blog" },
+      ]
 
   const handleBookNow = (e: React.MouseEvent) => {
     // Native iOS haptic on Book Now tap (no-op on web)
@@ -134,46 +146,88 @@ export default function Navbar() {
             <ThemeToggle transparent={transparent} />
           </li>
 
-          {/* Secondary: Support */}
-          <li>
-            <Link
-              to="/donation"
-              className={
-                "ml-1 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition " +
-                (transparent
-                  ? "text-white/85 hover:text-white hover:bg-white/10"
-                  : "text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white")
-              }
-            >
-              {t("nav.support")}
-            </Link>
-          </li>
+          {isMed ? (
+            <>
+              {/* "Back to RooZ" switch — bypasses brand-aware Link */}
+              <li>
+                <RouterLink
+                  to="/"
+                  className={
+                    "ml-1 inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold transition " +
+                    (transparent
+                      ? "text-white/85 hover:text-white hover:bg-white/10"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white")
+                  }
+                >
+                  <ArrowLeftRight size={14} />
+                  Switch brand
+                </RouterLink>
+              </li>
+              {/* Primary Med CTA — emerald gradient instead of amber */}
+              <li>
+                <a
+                  href="mailto:med@rydn.ca?subject=RooZ Med — I'm interested"
+                  className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 hover:from-emerald-600 hover:to-emerald-600 text-white px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition"
+                >
+                  <Mail size={16} />
+                  Get started
+                </a>
+              </li>
+            </>
+          ) : (
+            <>
+              {/* Secondary: Support */}
+              <li>
+                <Link
+                  to="/donation"
+                  className={
+                    "ml-1 inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition " +
+                    (transparent
+                      ? "text-white/85 hover:text-white hover:bg-white/10"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white")
+                  }
+                >
+                  {t("nav.support")}
+                </Link>
+              </li>
 
-          {/* PRIMARY: Book Now — bright amber gradient + glow pulse */}
-          <li>
-            <Link
-              to={bookNowHref(onHome)}
-              onClick={handleBookNow}
-              className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:via-amber-500 hover:to-orange-600 text-slate-900 px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 animate-glow-pulse"
-            >
-              <Calendar size={16} />
-              {t("nav.bookNow")}
-            </Link>
-          </li>
+              {/* PRIMARY: Book Now — bright amber gradient + glow pulse */}
+              <li>
+                <Link
+                  to={bookNowHref(onHome)}
+                  onClick={handleBookNow}
+                  className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:via-amber-500 hover:to-orange-600 text-slate-900 px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 animate-glow-pulse"
+                >
+                  <Calendar size={16} />
+                  {t("nav.bookNow")}
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
 
-        {/* Mobile: language + theme + Book Now (compact) + hamburger */}
+        {/* Mobile: language + theme + brand CTA (compact) + hamburger */}
         <div className="flex items-center gap-1 lg:hidden">
           <LanguageSwitcher transparent={transparent} />
           <ThemeToggle transparent={transparent} />
-          <Link
-            to={bookNowHref(onHome)}
-            onClick={handleBookNow}
-            className="hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg animate-glow-pulse"
-          >
-            <Calendar size={14} />
-            {t("nav.bookNowShort")}
-          </Link>
+          {isMed ? (
+            <a
+              href="mailto:med@rydn.ca?subject=RooZ Med — I'm interested"
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg"
+            >
+              <Mail size={14} />
+              Start
+            </a>
+          ) : (
+            <Link
+              to={bookNowHref(onHome)}
+              onClick={handleBookNow}
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg animate-glow-pulse"
+            >
+              <Calendar size={14} />
+              {t("nav.bookNowShort")}
+            </Link>
+          )}
           <MenuToggle
             toggle={toggle}
             isOpen={nav}
@@ -227,29 +281,56 @@ export default function Navbar() {
                   )
                 })}
 
-                {/* Mobile primary CTA */}
-                <li className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-700">
-                  <Link
-                    to={bookNowHref(onHome)}
-                    onClick={(e) => {
-                      handleBookNow(e)
-                      toggle()
-                    }}
-                    className="flex items-center justify-center gap-2 w-full text-center rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 px-4 py-3.5 text-base font-bold text-slate-900 shadow-md hover:shadow-lg transition"
-                  >
-                    <Calendar size={18} />
-                    {t("nav.bookNow")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/donation"
-                    onClick={toggle}
-                    className="block w-full text-center rounded-lg bg-slate-100 px-4 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition"
-                  >
-                    {t("nav.support")}
-                  </Link>
-                </li>
+                {/* Mobile primary CTA — brand-specific */}
+                {isMed ? (
+                  <>
+                    <li className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-700">
+                      <a
+                        href="mailto:med@rydn.ca?subject=RooZ Med — I'm interested"
+                        onClick={toggle}
+                        className="flex items-center justify-center gap-2 w-full text-center rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 px-4 py-3.5 text-base font-bold text-white shadow-md hover:shadow-lg transition"
+                      >
+                        <Mail size={18} />
+                        Get started
+                      </a>
+                    </li>
+                    <li>
+                      <RouterLink
+                        to="/"
+                        onClick={toggle}
+                        className="flex items-center justify-center gap-2 w-full text-center rounded-lg bg-slate-100 px-4 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition"
+                      >
+                        <ArrowLeftRight size={16} />
+                        Switch brand
+                      </RouterLink>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-700">
+                      <Link
+                        to={bookNowHref(onHome)}
+                        onClick={(e) => {
+                          handleBookNow(e)
+                          toggle()
+                        }}
+                        className="flex items-center justify-center gap-2 w-full text-center rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 px-4 py-3.5 text-base font-bold text-slate-900 shadow-md hover:shadow-lg transition"
+                      >
+                        <Calendar size={18} />
+                        {t("nav.bookNow")}
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/donation"
+                        onClick={toggle}
+                        className="block w-full text-center rounded-lg bg-slate-100 px-4 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition"
+                      >
+                        {t("nav.support")}
+                      </Link>
+                    </li>
+                  </>
+                )}
 
                 <li className="pt-1 border-t border-slate-200 dark:border-slate-700">
                   <LanguageSwitcher variant="list" />
