@@ -472,7 +472,7 @@ export default function RoozPlanBuilder({ id = "plan-builder" }: Props) {
           <h2 className="font-display mt-5 text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
             Answer a few questions.
             <br />
-            <span className="bg-gradient-to-r from-emerald-500 via-slate-800 to-red-500 bg-clip-text text-transparent dark:from-emerald-400 dark:via-white dark:to-red-400">
+            <span className="bg-gradient-to-r from-emerald-700 to-red-600 bg-clip-text text-transparent dark:from-emerald-400 dark:to-red-400">
               Get your personalised plan.
             </span>
           </h2>
@@ -482,9 +482,10 @@ export default function RoozPlanBuilder({ id = "plan-builder" }: Props) {
           </p>
         </div>
 
-        {/* Progress bar: 4 question pills + the result sparkle */}
+        {/* Progress bar: one pill per question. All four turn into checks on
+            the result step, which matches the "Step N of 4" labels. */}
         <div className="mt-12 flex items-center justify-center gap-2 sm:gap-3">
-          {[1, 2, 3, 4, 5].map((i) => (
+          {[1, 2, 3, 4].map((i) => (
             <div key={i} className="flex items-center gap-2 sm:gap-3">
               <div
                 className={
@@ -494,9 +495,9 @@ export default function RoozPlanBuilder({ id = "plan-builder" }: Props) {
                     : "bg-slate-200 text-slate-500 dark:bg-slate-800 dark:text-slate-500")
                 }
               >
-                {step > i ? <Check size={16} /> : i < 5 ? i : <Sparkles size={14} />}
+                {step > i ? <Check size={16} /> : i}
               </div>
-              {i < 5 && (
+              {i < 4 && (
                 <div
                   className={
                     "h-0.5 w-6 sm:w-10 rounded-full transition " +

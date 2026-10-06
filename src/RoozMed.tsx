@@ -6,7 +6,7 @@
  *   2. The interactive Plan Builder wizard, the star of the page
  *   3. Service breakdown (what each plan can include)
  *   4. Program paths (medicine / dentistry / pharmacy)
- *   5. Free consultation CTA with mystery-gift framing
+ *   5. Free consultation CTA with the itemised Med Due Starter Kit gift
  *
  * Future phases will add pricing, Stripe checkout, question bank app, team,
  * testimonials, and translated versions. For now, this page lives at /med and
@@ -32,6 +32,9 @@ import {
   CheckCircle2,
   Gift,
   Calendar,
+  ClipboardList,
+  Timer,
+  Map as MapIcon,
 } from "lucide-react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
@@ -122,6 +125,59 @@ const PROGRAMS: ProgramPath[] = [
       "Pharmacy programs in Italian universities for students pursuing clinical and research careers.",
   },
 ]
+
+type StarterKitItem = {
+  Icon: typeof BookOpen
+  title: string
+  detail: string
+  /** Standard à la carte price in dollars, keep in sync with real rates */
+  value: number
+}
+
+// The free-consultation gift. Itemised so the headline value is verifiable;
+// the total shown on the page is always the sum of these lines.
+const STARTER_KIT: StarterKitItem[] = [
+  {
+    Icon: Calendar,
+    title: "Initial consultation",
+    detail: "30 minutes 1-on-1 with a RooZ advisor to map where you are.",
+    value: 150,
+  },
+  {
+    Icon: ClipboardList,
+    title: "Personalised IMAT study plan",
+    detail: "A week-by-week plan built from your consultation, yours to keep.",
+    value: 450,
+  },
+  {
+    Icon: FileText,
+    title: "IMAT starter pack: question bank",
+    detail: "3 months of RooZ question-bank access with full explanations.",
+    value: 600,
+  },
+  {
+    Icon: Timer,
+    title: "IMAT starter pack: 2 timed mocks",
+    detail: "Full-length mock exams with a score breakdown and review.",
+    value: 400,
+  },
+  {
+    Icon: Users,
+    title: "Two 1-on-1 tutoring sessions",
+    detail: "60 minutes each, on the subjects where you're losing the most marks.",
+    value: 600,
+  },
+  {
+    Icon: MapIcon,
+    title: "University shortlist & admissions roadmap",
+    detail: "Which Italian schools fit your score and budget, plus key deadlines.",
+    value: 800,
+  },
+]
+
+const STARTER_KIT_TOTAL = STARTER_KIT.reduce((sum, item) => sum + item.value, 0)
+
+const formatDollars = (n: number) => `$${n.toLocaleString("en-US")}`
 
 export default function RoozMed() {
   // Deep-link hash scrolling: /med#plan-builder, /med#services, etc.
@@ -349,7 +405,7 @@ export default function RoozMed() {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-200 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider">
               <Gift size={13} />
-              Mystery gift inside
+              Free Med Due Starter Kit · {formatDollars(STARTER_KIT_TOTAL)} value
             </span>
             <h2 className="font-display mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
               Book your free
@@ -357,11 +413,45 @@ export default function RoozMed() {
               initial consultation.
             </h2>
             <p className="mt-6 text-lg sm:text-xl text-white/85 leading-relaxed">
-              Book and attend your free initial consultation to receive a mystery
-              gift valued at{" "}
-              <span className="font-bold text-amber-300">$3,000</span>.
+              Show up to your free consultation and walk away with the Med Due
+              Starter Kit, everything below, on us. Total value:{" "}
+              <span className="font-bold text-amber-300">{formatDollars(STARTER_KIT_TOTAL)}</span>.
             </p>
-            <p className="mt-3 text-base text-white/70">
+
+            {/* What's in the kit, itemised so the value claim is checkable */}
+            <div className="mt-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur p-6 sm:p-8 text-left">
+              <p className="text-xs font-semibold uppercase tracking-wider text-amber-200">
+                What's in your Starter Kit
+              </p>
+              <ul className="mt-4 divide-y divide-white/10">
+                {STARTER_KIT.map((item) => (
+                  <li key={item.title} className="flex items-start justify-between gap-4 py-3">
+                    <div className="flex items-start gap-3">
+                      <item.Icon size={18} className="mt-0.5 shrink-0 text-emerald-400" />
+                      <div>
+                        <p className="font-semibold text-white">{item.title}</p>
+                        <p className="mt-0.5 text-sm text-white/65">{item.detail}</p>
+                      </div>
+                    </div>
+                    <span className="shrink-0 font-semibold tabular-nums text-white/80">
+                      {formatDollars(item.value)}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-2 flex items-center justify-between gap-4 border-t border-white/25 pt-4">
+                <p className="font-bold text-white">Total value</p>
+                <p className="font-display text-2xl font-bold tabular-nums text-amber-300">
+                  {formatDollars(STARTER_KIT_TOTAL)}
+                </p>
+              </div>
+              <p className="mt-3 text-xs text-white/50">
+                Values are based on our standard à la carte rates. The kit is
+                yours once you attend your free consultation, no purchase required.
+              </p>
+            </div>
+
+            <p className="mt-8 text-base text-white/70">
               Tell us your time zone and the best times to meet, we'll confirm a
               slot that works for you within one business day.
             </p>

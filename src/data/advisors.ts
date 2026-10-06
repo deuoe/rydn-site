@@ -20,7 +20,6 @@ import jenniferUrl from "../assets/images/Jennifer.jpeg"
 import tinaUrl from "../assets/images/Tina.jpg"
 import valentinaUrl from "../assets/images/Valentina.jpg"
 import saracUrl from "../assets/images/SaraC.jpg"
-import imanUrl from "../assets/images/Iman.png"
 import pardisUrl from "../assets/images/Pardis.jpg"
 import mahanUrl from "../assets/images/Mahan.png"
 
@@ -43,8 +42,8 @@ export type Advisor = {
   slug: string
   /** Full display name */
   name: string
-  /** Photo asset */
-  photo: string
+  /** Photo asset. Optional, advisors without one get an initials avatar. */
+  photo?: string
   /** Short tagline shown on the card */
   description: string
   /** Optional staff/role title (e.g. "Educational Programs Coordinator") shown
@@ -178,7 +177,7 @@ export const ADVISORS: Advisor[] = [
   {
     slug: "iman",
     name: "Iman",
-    photo: imanUrl,
+    // No photo yet (Iman.png is a blank placeholder), so <Avatar> shows initials.
     description: "Bachelor of Arts student",
     advisingTopics: ["Psychology", "Game Development"],
     bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/Nl-k9rS70EiUi53ylFUU5A2",

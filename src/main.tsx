@@ -26,6 +26,7 @@ import NotFound from "./NotFound"
 import Gateway from "./Gateway"
 import RoozMed from "./RoozMed"
 import ScrollToTop from "./components/ScrollToTop"
+import DocumentTitle from "./components/DocumentTitle"
 import UpdatePrompt from "./components/UpdatePrompt"
 import { LanguageProvider } from "./i18n/LanguageProvider"
 import { ThemeProvider } from "./theme/ThemeProvider"
@@ -114,6 +115,7 @@ ReactDOM.createRoot(root).render(
     <ThemeProvider>
       <LanguageProvider>
         <ScrollToTop />
+        <DocumentTitle />
         <UpdatePrompt />
         <Routes>
           {/* ===== GATEWAY — the two-tile picker. Only at the exact root path.

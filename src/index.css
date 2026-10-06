@@ -29,15 +29,6 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-/* Reserve space for the mobile floating Book Now button so it never visually
-   covers the bottom of the page content. Also account for iPhone home indicator
-   safe area when running as a PWA. Desktop doesn't have the floating CTA. */
-@media (max-width: 1023px) {
-  body {
-    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom));
-  }
-}
-
 body {
   font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -136,6 +127,14 @@ h1, h2, h3, h4, h5 {
 .animate-marquee-reverse { animation: marquee-reverse 40s linear infinite; }
 .animate-marquee:hover,
 .animate-marquee-reverse:hover { animation-play-state: paused; }
+
+/* Soft fade at both ends of a marquee track: at least 6rem, or 20% of the
+   width on wide screens, so an item is mostly transparent before it's cut. */
+.marquee-fade {
+  --marquee-fade: max(6rem, 20%);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--marquee-fade), #000 calc(100% - var(--marquee-fade)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--marquee-fade), #000 calc(100% - var(--marquee-fade)), transparent);
+}
 
 /* Floating blob */
 @keyframes float {

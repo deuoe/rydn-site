@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import { Link } from "./i18n/Link"
 import { motion, AnimatePresence, useInView, useMotionValue, useSpring, useTransform } from "motion/react"
-import { Users, BookOpen, ArrowRight, Sparkles, ChevronDown, MessageSquare, Calendar, Rocket, Star, Quote, Handshake, Target, FileText, Plus, Mail } from "lucide-react"
+import { Users, BookOpen, ArrowRight, Sparkles, ChevronDown, MessageSquare, Calendar, Rocket, Star, Quote, Handshake, Target, FileText, Plus, Mail, X } from "lucide-react"
 import Heading from "./components/Heading"
 import Container from "./components/Container"
 import Button from "./components/Button"
 import InstagramFeed from "./components/InstagramFeed"
-import SkeletonImage from "./components/SkeletonImage"
+import Avatar from "./components/Avatar"
 import { FindMatchButton } from "./components/AIMatchmaker"
 import { useTranslation } from "./i18n/useTranslation"
 import homeHero from "./assets/images/home-hero.jpg"
@@ -278,9 +278,9 @@ function PartnerStrip() {
         </h2>
       </Container>
 
-      <div className="mt-10 relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-white to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-white to-transparent" />
+      {/* Wide edge mask so names dissolve gradually instead of reading as
+          half-cut-off labels at the viewport edge. */}
+      <div className="mt-10 relative overflow-hidden marquee-fade">
         <div className="flex w-max animate-marquee">
           {doubled.map((name, i) => (
             <div
@@ -732,10 +732,9 @@ function HomePage() {
                 key={advisor.name}
               >
                 <div className="relative">
-                  <SkeletonImage
+                  <Avatar
                     src={advisor.photo}
-                    alt={advisor.name}
-                    shape="rounded-full"
+                    name={advisor.name}
                     className="w-32 h-32 mb-4 ring-4 ring-sky-50"
                   />
                 </div>
@@ -951,7 +950,7 @@ function HomePage() {
               onClick={() => setSelectedAdvisor(null)}
               aria-label="Close"
             >
-              ✕
+              <X size={16} />
             </button>
 
             <h3 className="font-display text-2xl font-bold mb-3 text-slate-900">

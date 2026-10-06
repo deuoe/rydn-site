@@ -81,10 +81,13 @@ export default function FloatingChat() {
     },
   ]
 
+  // Mobile: shares the bottom row with the Book Now bar (which stops short of
+  // it) instead of stacking above it, so floaters only ever occupy one strip,
+  // which FloatingBookNow's spacer clears at the end of the page.
   return (
     <div
       ref={ref}
-      className="fixed right-4 lg:right-6 z-30 bottom-[calc(env(safe-area-inset-bottom)+6.5rem)] lg:bottom-6"
+      className="fixed right-4 lg:right-6 z-30 bottom-[max(1rem,env(safe-area-inset-bottom))] lg:bottom-6"
     >
       <AnimatePresence>
         {open && (
