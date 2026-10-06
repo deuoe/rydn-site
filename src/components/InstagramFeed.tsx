@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import { ArrowRight, ImageIcon } from "lucide-react"
+import { ArrowRight, ImageIcon, GraduationCap, Sparkles, Camera, Rocket, Heart, Mic, type LucideIcon } from "lucide-react"
 import { FaInstagram } from "react-icons/fa"
 import { useTranslation } from "../i18n/useTranslation"
 import Container from "./Container"
@@ -27,15 +27,15 @@ import Heading from "./Heading"
 const IG_HANDLE = "rydn.ca"
 const IG_URL = "https://instagram.com/rydn.ca"
 
-type Tile = { caption: string; gradient: string; emoji: string }
+type Tile = { caption: string; gradient: string; Icon: LucideIcon }
 
 const TILES: Tile[] = [
-  { caption: "Workshop highlight", gradient: "from-rose-400 via-pink-500 to-fuchsia-600", emoji: "🎓" },
-  { caption: "Advisor spotlight", gradient: "from-sky-400 via-indigo-500 to-violet-600", emoji: "✨" },
-  { caption: "Behind the scenes", gradient: "from-amber-400 via-orange-500 to-red-500", emoji: "📸" },
-  { caption: "Student win", gradient: "from-emerald-400 via-teal-500 to-cyan-600", emoji: "🚀" },
-  { caption: "Community moment", gradient: "from-violet-400 via-purple-500 to-pink-500", emoji: "💛" },
-  { caption: "Latest event", gradient: "from-slate-700 via-slate-900 to-indigo-900", emoji: "🎤" },
+  { caption: "Workshop highlight", gradient: "from-rose-400 via-pink-500 to-fuchsia-600", Icon: GraduationCap },
+  { caption: "Advisor spotlight", gradient: "from-sky-400 via-indigo-500 to-violet-600", Icon: Sparkles },
+  { caption: "Behind the scenes", gradient: "from-amber-400 via-orange-500 to-red-500", Icon: Camera },
+  { caption: "Student win", gradient: "from-emerald-400 via-teal-500 to-cyan-600", Icon: Rocket },
+  { caption: "Community moment", gradient: "from-violet-400 via-purple-500 to-pink-500", Icon: Heart },
+  { caption: "Latest event", gradient: "from-slate-700 via-slate-900 to-indigo-900", Icon: Mic },
 ]
 
 export default function InstagramFeed() {
@@ -83,7 +83,7 @@ export default function InstagramFeed() {
 
               <div className="relative h-full flex flex-col justify-between p-5 text-white">
                 <div className="flex items-center justify-between">
-                  <span className="text-3xl drop-shadow">{tile.emoji}</span>
+                  <tile.Icon size={30} strokeWidth={1.75} className="drop-shadow" aria-hidden />
                   <ImageIcon size={14} className="opacity-30" aria-hidden />
                 </div>
                 <div>

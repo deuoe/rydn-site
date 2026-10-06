@@ -24,9 +24,11 @@ function CanadianFlag({ className = "" }: { className?: string }) {
       <rect x="36" y="0" width="12" height="24" fill="#D52B1E" />
       {/* White middle */}
       <rect x="12" y="0" width="24" height="24" fill="#FFFFFF" />
-      {/* Simplified 11-point maple leaf centered */}
+      {/* 11-point maple leaf, official flag geometry (drawn on a 4800-unit
+          square centred at the origin) scaled into the 24×24 white square. */}
       <path
-        d="M24 4.5 L25 7.5 L28 6.5 L26.5 9 L29.5 10 L26.5 11.5 L27.5 14.5 L24.5 13.5 L24 17 L23.5 13.5 L20.5 14.5 L21.5 11.5 L18.5 10 L21.5 9 L20 6.5 L23 7.5 Z"
+        transform="translate(24 12) scale(0.005)"
+        d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z"
         fill="#D52B1E"
       />
     </svg>
@@ -80,7 +82,7 @@ function BrandTile({
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ scale: 1.02, y: -4 }}
       whileTap={{ scale: 0.98 }}
-      className="group relative flex flex-col w-full text-left overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/15 hover:border-white/30 transition-all duration-300 shadow-2xl"
+      className="group relative flex flex-col w-full min-w-0 text-left overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/15 hover:border-white/30 transition-all duration-300 shadow-2xl"
     >
       {/* Hover glow , colored to the brand */}
       <div className={`pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl ${glowClass}`} />
@@ -209,7 +211,7 @@ export default function Gateway() {
             cta="Enter RooZ Med"
             glowClass="bg-emerald-500/40"
             ctaClass="bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 text-white hover:from-emerald-600 hover:to-emerald-600"
-            stripeClass="bg-gradient-to-b from-emerald-500 via-white to-red-500"
+            stripeClass="bg-emerald-500"
           />
         </div>
 
