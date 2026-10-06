@@ -1,5 +1,5 @@
 /**
- * Gateway — the two-tile brand picker at the bare rydn.ca root.
+ * Gateway , the two-tile brand picker at the bare rydn.ca root.
  *
  * This page is intentionally outside the normal Layout (no Navbar, no Footer,
  * no FloatingBookNow). It's a canada.ca-style splash that only renders when a
@@ -15,7 +15,7 @@ import { motion } from "motion/react"
 import { ArrowRight, Sparkles } from "lucide-react"
 import logoUrl from "./assets/images/Logo.jpg"
 
-/** Inline Canadian flag SVG — crisp at any size, no external asset needed. */
+/** Inline Canadian flag SVG , crisp at any size, no external asset needed. */
 function CanadianFlag({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 48 24" className={className} xmlns="http://www.w3.org/2000/svg" aria-label="Canadian flag">
@@ -33,7 +33,7 @@ function CanadianFlag({ className = "" }: { className?: string }) {
   )
 }
 
-/** Inline Italian flag SVG — three equal vertical stripes. */
+/** Inline Italian flag SVG , three equal vertical stripes. */
 function ItalianFlag({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 48 32" className={className} xmlns="http://www.w3.org/2000/svg" aria-label="Italian flag">
@@ -51,7 +51,7 @@ type TileProps = {
   tagline: string
   description: string
   cta: string
-  /** Tailwind classes for the hover glow — one per brand */
+  /** Tailwind classes for the hover glow , one per brand */
   glowClass: string
   /** Tailwind classes for the CTA button */
   ctaClass: string
@@ -82,7 +82,7 @@ function BrandTile({
       whileTap={{ scale: 0.98 }}
       className="group relative flex flex-col w-full text-left overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/15 hover:border-white/30 transition-all duration-300 shadow-2xl"
     >
-      {/* Hover glow — colored to the brand */}
+      {/* Hover glow , colored to the brand */}
       <div className={`pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl ${glowClass}`} />
 
       {/* Side accent stripe */}
@@ -130,7 +130,7 @@ function BrandTile({
 export default function Gateway() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-slate-950">
-      {/* Animated background: three large soft gradient blobs — one red (Youth),
+      {/* Animated background: three large soft gradient blobs , one red (Youth),
           one green (Med), one blue (shared), slowly drifting. */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -182,7 +182,7 @@ export default function Gateway() {
             </span>
           </h1>
           <p className="mt-5 max-w-xl text-base sm:text-lg text-white/70 leading-relaxed">
-            Choose your journey — whether you're exploring universities in Canada
+            Choose your journey. Whether you're exploring universities in Canada
             or chasing medicine, dentistry, or veterinary school in Italy.
           </p>
         </motion.div>
@@ -194,7 +194,7 @@ export default function Gateway() {
             flag={<CanadianFlag className="h-full w-full" />}
             name="RooZ Youth"
             tagline="RYDN · Free for students"
-            description="RooZ Youth Development Network — our Canadian nonprofit connecting students with free 1-on-1 advising, workshops, and mentorship from university students who've walked the path."
+            description="RooZ Youth Development Network: our Canadian nonprofit connecting students with free 1-on-1 advising, workshops, and mentorship from university students who've walked the path."
             cta="Enter RooZ Youth"
             glowClass="bg-red-500/40"
             ctaClass="bg-white text-slate-900 hover:bg-slate-100"
