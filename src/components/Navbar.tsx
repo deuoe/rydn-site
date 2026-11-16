@@ -33,7 +33,7 @@ export default function Navbar() {
   const newBrandMailto =
     brand === "academy"
       ? "mailto:info@rydn.ca?subject=RooZ Academy — I'm interested"
-      : "mailto:info@rydn.ca?subject=RooZ France — I'm interested"
+      : "mailto:info@rydn.ca?subject=RooZ France — Je m'intéresse"
   const newBrandCtaClass =
     brand === "academy"
       ? "bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900"
@@ -47,7 +47,11 @@ export default function Navbar() {
   // homepage (e.g. /youth) exactly like the old root homepage for the nav state.
   const cleanPath = stripBrandPrefix(stripLangPrefix(location.pathname))
   const onHome = cleanPath === "/" || cleanPath === ""
-  const transparent = onHome && !scrolled
+  // Academy/France coming-soon pages have light backgrounds and no dark
+  // hero, so the transparent (white-text) nav would be unreadable there —
+  // the header stays solid on these brands. Youth/Med keep the transparent
+  // hero nav, which is designed for their dark home heroes.
+  const transparent = onHome && !scrolled && !isNewBrand
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)

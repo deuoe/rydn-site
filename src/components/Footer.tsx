@@ -38,7 +38,7 @@ export default function Footer() {
       : isAcademy
         ? "RooZ Academy is RooZ's education and training division — practical courses and training programs, built from what we've learned advising students. Programs are in development."
         : isFrance
-          ? "RooZ France is the French home of the RooZ ecosystem — a youth association in formation, bringing RooZ programs and European exchanges to France."
+          ? "RooZ France est le foyer français de l'écosystème RooZ — une association de jeunesse en cours de création, qui apporte les programmes RooZ et les échanges européens en France."
           : "A Canadian nonprofit connecting students with advisors who can guide them through academics, career paths, and life decisions — for free."
 
   const listName =
@@ -53,7 +53,7 @@ export default function Footer() {
       : isAcademy
         ? "Get notified when the first courses open. No spam."
         : isFrance
-          ? "Get association news and youth exchange updates. No spam."
+          ? "Recevez les actualités de l'association et des échanges de jeunesse. Pas de spam."
           : "Get updates on workshops and new advisors. No spam."
 
   return (
@@ -161,7 +161,7 @@ export default function Footer() {
                 <ul className="mt-4 space-y-3 text-slate-600 dark:text-slate-400">
                   <li><Link to="/" className="hover:text-blue-700 dark:hover:text-blue-400 transition">About RooZ France</Link></li>
                   <li>
-                    <a href="mailto:info@rydn.ca?subject=RooZ France — I'm interested" className="hover:text-blue-700 dark:hover:text-blue-400 transition">
+                    <a href="mailto:info@rydn.ca?subject=RooZ France — Je m'intéresse" className="hover:text-blue-700 dark:hover:text-blue-400 transition">
                       Get in touch
                     </a>
                   </li>
@@ -169,10 +169,10 @@ export default function Footer() {
               </div>
 
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">Coming soon</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">Bientôt</h2>
                 <ul className="mt-4 space-y-3 text-slate-600 dark:text-slate-400">
-                  <li>Youth programs</li>
-                  <li>European exchanges</li>
+                  <li>Programmes jeunesse</li>
+                  <li>Échanges européens</li>
                 </ul>
               </div>
             </>
@@ -277,9 +277,9 @@ export default function Footer() {
             </div>
           ) : isFrance ? (
             <div className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-              <p>RooZ France · Youth &amp; European Exchanges</p>
+              <p>RooZ France · Jeunesse &amp; Échanges européens</p>
               <p className="mt-0.5 text-xs">
-                French nonprofit association in formation — not yet registered · © {new Date().getFullYear()} RooZ France
+                Association française à but non lucratif en cours de création — pas encore enregistrée · © {new Date().getFullYear()} RooZ France
               </p>
             </div>
           ) : (

@@ -113,7 +113,8 @@ function BrandTile({
       {/* Side accent stripe */}
       <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${stripeClass}`} />
 
-      <div className="relative p-8 sm:p-10 flex flex-col h-full gap-6">
+      {/* Tighter padding at lg so four-across tiles don't feel cramped */}
+      <div className="relative p-8 sm:p-10 lg:p-6 flex flex-col h-full gap-6">
         {/* Flag badge */}
         <div className="flex items-center justify-between">
           <div className="h-10 w-20 rounded-md overflow-hidden ring-2 ring-white/20 shadow-lg">
@@ -127,13 +128,13 @@ function BrandTile({
 
         {/* Name + tagline + description */}
         <div className="flex-1">
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-3xl font-semibold text-white tracking-tight">
             {name}
           </h2>
           <p className="mt-2 text-sm sm:text-base font-semibold text-white/70 uppercase tracking-wider">
             {tagline}
           </p>
-          <p className="mt-5 text-base sm:text-lg text-white/80 leading-relaxed">
+          <p className="mt-5 text-base sm:text-lg lg:text-base text-white/80 leading-relaxed">
             {description}
           </p>
         </div>
@@ -190,7 +191,7 @@ export default function Gateway() {
       </div>
 
       {/* Content column */}
-      <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 py-16">
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-16">
         {/* RooZ identity header */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
@@ -219,8 +220,8 @@ export default function Gateway() {
           </p>
         </motion.div>
 
-        {/* Four tiles — 2×2 on md and up, stacked below */}
-        <div className="mt-14 grid w-full gap-6 md:grid-cols-2">
+        {/* Four tiles — 4 across on lg, 2×2 on md, stacked below */}
+        <div className="mt-14 grid w-full gap-6 md:grid-cols-2 lg:grid-cols-4">
           <BrandTile
             to="/youth"
             flag={<CanadianFlag className="h-full w-full" />}
@@ -258,9 +259,9 @@ export default function Gateway() {
             to="/france"
             flag={<FrenchFlag className="h-full w-full" />}
             name="RooZ France"
-            tagline="France · Youth & Erasmus+"
-            description="Our French home: a youth association in formation, bringing RooZ programs and European exchanges to France. No programs open yet — we're building the foundation first."
-            cta="Discover RooZ France"
+            tagline="France · Jeunesse & Erasmus+"
+            description="Une association de jeunesse en cours de création — programmes et échanges européens à venir."
+            cta="Découvrir RooZ France"
             glowClass="bg-blue-500/40"
             ctaClass="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 text-white hover:from-blue-700 hover:to-blue-700"
             stripeClass="bg-blue-600"

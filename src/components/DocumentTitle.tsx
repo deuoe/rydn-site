@@ -7,7 +7,7 @@ const TITLES = {
   youth: "RYDN — Free Student Mentorship in Canada",
   med: "RooZ Med — Study Medicine in Italy | IMAT Prep",
   academy: "RooZ Academy — Courses & Training | Coming Soon",
-  france: "RooZ France — Youth & Erasmus+ | Coming Soon",
+  france: "RooZ France — Jeunesse & Erasmus+ | Bientôt disponible",
 } as const
 
 /**
