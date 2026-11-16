@@ -6,8 +6,8 @@
  * visitor hits the exact root URL. Deep links like /youth/our-team or
  * /med/anything bypass the gateway entirely so SEO and bookmarks keep working.
  *
- * Structure: a warm hero on top (what RooZ is, with the mentorship-workshop
- * photo), then the four doors below.
+ * Structure: a warm hero on top (what RooZ is, with an interactive world
+ * map), then the four doors below.
  *
  * Four paths:
  *   RooZ Youth    → /youth    (free nonprofit, Canadian students, red+white)
@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom"
 import { motion } from "motion/react"
 import { ArrowRight, ChevronDown, GraduationCap, Sparkles } from "lucide-react"
 import logoUrl from "./assets/images/Logo.jpg"
-import homeHero from "./assets/images/home-hero.jpg"
+import WorldMap from "./components/WorldMap"
 
 /** Inline Canadian flag SVG , crisp at any size, no external asset needed. */
 function CanadianFlag({ className = "" }: { className?: string }) {
@@ -241,20 +241,16 @@ export default function Gateway() {
           and across Europe.
         </motion.p>
 
-        {/* Photo: the mentorship-workshop hero, diverse students learning
-            together. Same image as the /youth hero background; 16:9 native
-            (2400×1340), so aspect-[16/9] shows it uncropped. */}
+        {/* Interactive world map: Toronto, Ancona, and Paris markers link
+            to their paths. Fixed view, no pan or zoom, so it never hijacks
+            page scroll. Same slot the photo used to occupy. */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-10 w-full max-w-4xl overflow-hidden rounded-3xl ring-2 ring-white/20 shadow-2xl"
         >
-          <img
-            src={homeHero}
-            alt="Students collaborating at a RooZ peer mentorship workshop"
-            className="aspect-[16/9] w-full object-cover"
-          />
+          <WorldMap />
         </motion.div>
 
         {/* Scroll cue to the doors */}
