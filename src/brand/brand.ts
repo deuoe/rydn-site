@@ -1,5 +1,6 @@
 /**
- * Brand infrastructure for RooZ's two-sided site: Youth (/youth/*) and Med (/med/*).
+ * Brand infrastructure for RooZ's four-sided site: Youth (/youth/*), Med
+ * (/med/*), Academy (/academy/*) and France (/france/*).
  *
  * The current "brand" is derived from the URL — same pattern as how language
  * works. Any URL under /med or /<lang>/med is Med; everything else is Youth
@@ -15,11 +16,11 @@
 import { useLocation } from "react-router-dom"
 import { LANGUAGES } from "../i18n/translations"
 
-export type Brand = "youth" | "med"
+export type Brand = "youth" | "med" | "academy" | "france"
 
 /** All supported brand prefixes. If this list grows (e.g. RooZ Vet), update it
  *  here plus the BRAND_PREFIX regex in useLocalizedNav. */
-export const BRANDS: Brand[] = ["youth", "med"]
+export const BRANDS: Brand[] = ["youth", "med", "academy", "france"]
 
 const LANG_CODES = LANGUAGES.map((l) => l.code)
 
@@ -34,21 +35,26 @@ const LANG_CODES = LANGUAGES.map((l) => l.code)
  *   "/youth/our-team"       → "youth"
  *   "/med"                  → "med"
  *   "/med/pricing"          → "med"
+ *   "/academy"              → "academy"
+ *   "/france"               → "france"
  *   "/fr/youth/about-us"    → "youth"
  *   "/fr/med"               → "med"
+ *   "/fr/academy"           → "academy"
  *   "/fr"                   → "youth"  (bare lang root defaults to Youth)
  */
 export function brandFromPath(path: string): Brand {
   const parts = path.split("/").filter(Boolean)
   if (parts.length === 0) return "youth"
 
-  // If the first segment is a known language, the brand is the second segment.
-  if (LANG_CODES.includes(parts[0] as (typeof LANG_CODES)[number])) {
-    return parts[1] === "med" ? "med" : "youth"
-  }
+  // The brand segment is the first segment, or the second after a language.
+  const segment = LANG_CODES.includes(parts[0] as (typeof LANG_CODES)[number])
+    ? parts[1]
+    : parts[0]
 
-  // Otherwise the brand is the first segment.
-  return parts[0] === "med" ? "med" : "youth"
+  if (segment === "med") return "med"
+  if (segment === "academy") return "academy"
+  if (segment === "france") return "france"
+  return "youth"
 }
 
 /** React hook — same semantics as brandFromPath, driven by the current location. */

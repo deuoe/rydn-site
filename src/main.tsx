@@ -25,6 +25,8 @@ import ForEducators from "./ForEducators"
 import NotFound from "./NotFound"
 import Gateway from "./Gateway"
 import RoozMed from "./RoozMed"
+import RoozAcademy from "./RoozAcademy"
+import RoozFrance from "./RoozFrance"
 import ScrollToTop from "./components/ScrollToTop"
 import DocumentTitle from "./components/DocumentTitle"
 import UpdatePrompt from "./components/UpdatePrompt"
@@ -60,6 +62,18 @@ const YOUTH_PAGES = [
 // team, question-bank app, etc.) will be added here in future phases.
 const MED_PAGES = [
   { index: true, element: <RoozMed /> },
+] as const
+
+// Academy pages. Currently just the coming-soon page. Courses and training
+// program pages will be added here once programs are real.
+const ACADEMY_PAGES = [
+  { index: true, element: <RoozAcademy /> },
+] as const
+
+// France pages. Currently just the coming-soon page. Association and program
+// pages will be added here once the French association is formed.
+const FRANCE_PAGES = [
+  { index: true, element: <RoozFrance /> },
 ] as const
 
 const NON_DEFAULT_LANGS = ["fr", "es", "fa", "he", "zh", "ko", "ar", "ur", "pa"] as const
@@ -118,7 +132,7 @@ ReactDOM.createRoot(root).render(
         <DocumentTitle />
         <UpdatePrompt />
         <Routes>
-          {/* ===== GATEWAY — the two-tile picker. Only at the exact root path.
+          {/* ===== GATEWAY — the four-tile picker. Only at the exact root path.
               Lives outside Layout so there's no Navbar/Footer around it. */}
           <Route index element={<Gateway />} />
 
@@ -132,6 +146,16 @@ ReactDOM.createRoot(root).render(
             {/* English Med: /med and /med/<future-page> */}
             <Route path="med">
               {renderPages(MED_PAGES, "en-med")}
+            </Route>
+
+            {/* English Academy: /academy and /academy/<future-page> */}
+            <Route path="academy">
+              {renderPages(ACADEMY_PAGES, "en-academy")}
+            </Route>
+
+            {/* English France: /france and /france/<future-page> */}
+            <Route path="france">
+              {renderPages(FRANCE_PAGES, "en-france")}
             </Route>
 
             {/* Legacy English root redirects: /about-us → /youth/about-us etc.
@@ -149,6 +173,12 @@ ReactDOM.createRoot(root).render(
                 </Route>
                 <Route path="med">
                   {renderPages(MED_PAGES, `${lang}-med`)}
+                </Route>
+                <Route path="academy">
+                  {renderPages(ACADEMY_PAGES, `${lang}-academy`)}
+                </Route>
+                <Route path="france">
+                  {renderPages(FRANCE_PAGES, `${lang}-france`)}
                 </Route>
                 {/* Legacy per-language redirects: /fr/about-us → /fr/youth/about-us */}
                 {renderLegacyYouthRedirects(lang)}

@@ -26,6 +26,18 @@ export default function Navbar() {
   const { t } = useTranslation()
   const brand = useBrand()
   const isMed = brand === "med"
+  // Academy and France only have a coming-soon page each, so they get a
+  // minimal nav: no Youth links (they would resolve under /academy or
+  // /france and 404) and no Book Now / Support CTAs (same reason).
+  const isNewBrand = brand === "academy" || brand === "france"
+  const newBrandMailto =
+    brand === "academy"
+      ? "mailto:info@rydn.ca?subject=RooZ Academy — I'm interested"
+      : "mailto:info@rydn.ca?subject=RooZ France — I'm interested"
+  const newBrandCtaClass =
+    brand === "academy"
+      ? "bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900"
+      : "bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white"
   const [nav, setNav] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const toggle = () => setNav(!nav)
@@ -51,20 +63,23 @@ export default function Navbar() {
   // Nav items are brand-specific. Youth routes (free advising nonprofit) show
   // the full student-focused menu. Med routes (paid IMAT prep) show a short
   // list focused on the service — no "Become Advisor", no "Blog" etc.
+  // Academy/France show Home only — they have no inner pages yet.
   const navigation = isMed
     ? [
         { name: "Home", path: "/" },
         { name: "Services", path: "/#services" },
       ]
-    : [
-        { name: t("nav.home"), path: "/" },
-        { name: t("nav.about"), path: "/about-us" },
-        { name: t("nav.ourTeam"), path: "/our-team" },
-        { name: t("nav.becomeAdvisor"), path: "/become-advisor" },
-        { name: t("nav.workshops"), path: "/workshops" },
-        { name: t("nav.stories"), path: "/stories" },
-        { name: t("nav.blog"), path: "/blog" },
-      ]
+    : isNewBrand
+      ? [{ name: "Home", path: "/" }]
+      : [
+          { name: t("nav.home"), path: "/" },
+          { name: t("nav.about"), path: "/about-us" },
+          { name: t("nav.ourTeam"), path: "/our-team" },
+          { name: t("nav.becomeAdvisor"), path: "/become-advisor" },
+          { name: t("nav.workshops"), path: "/workshops" },
+          { name: t("nav.stories"), path: "/stories" },
+          { name: t("nav.blog"), path: "/blog" },
+        ]
 
   const handleBookNow = (e: React.MouseEvent) => {
     // Native iOS haptic on Book Now tap (no-op on web)
@@ -174,6 +189,37 @@ export default function Navbar() {
                 </a>
               </li>
             </>
+          ) : isNewBrand ? (
+            <>
+              {/* "Back to RooZ" switch — bypasses brand-aware Link */}
+              <li>
+                <RouterLink
+                  to="/"
+                  className={
+                    "ml-1 inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold transition " +
+                    (transparent
+                      ? "text-white/85 hover:text-white hover:bg-white/10"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white")
+                  }
+                >
+                  <ArrowLeftRight size={14} />
+                  Switch brand
+                </RouterLink>
+              </li>
+              {/* Primary CTA — interest mailto in the brand's colour */}
+              <li>
+                <a
+                  href={newBrandMailto}
+                  className={
+                    "ml-2 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition " +
+                    newBrandCtaClass
+                  }
+                >
+                  <Mail size={16} />
+                  Get in touch
+                </a>
+              </li>
+            </>
           ) : (
             <>
               {/* Secondary: Support */}
@@ -220,6 +266,17 @@ export default function Navbar() {
             >
               <Mail size={14} />
               Start
+            </a>
+          ) : isNewBrand ? (
+            <a
+              href={newBrandMailto}
+              className={
+                "hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg " +
+                newBrandCtaClass
+              }
+            >
+              <Mail size={14} />
+              Contact
             </a>
           ) : (
             <Link
@@ -295,6 +352,32 @@ export default function Navbar() {
                       >
                         <Mail size={18} />
                         Get started
+                      </a>
+                    </li>
+                    <li>
+                      <RouterLink
+                        to="/"
+                        onClick={toggle}
+                        className="flex items-center justify-center gap-2 w-full text-center rounded-lg bg-slate-100 px-4 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition"
+                      >
+                        <ArrowLeftRight size={16} />
+                        Switch brand
+                      </RouterLink>
+                    </li>
+                  </>
+                ) : isNewBrand ? (
+                  <>
+                    <li className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-700">
+                      <a
+                        href={newBrandMailto}
+                        onClick={toggle}
+                        className={
+                          "flex items-center justify-center gap-2 w-full text-center rounded-full px-4 py-3.5 text-base font-bold shadow-md hover:shadow-lg transition " +
+                          newBrandCtaClass
+                        }
+                      >
+                        <Mail size={18} />
+                        Get in touch
                       </a>
                     </li>
                     <li>

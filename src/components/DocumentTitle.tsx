@@ -6,12 +6,15 @@ const TITLES = {
   gateway: "RooZ — Youth Mentorship & Study Medicine in Italy",
   youth: "RYDN — Free Student Mentorship in Canada",
   med: "RooZ Med — Study Medicine in Italy | IMAT Prep",
+  academy: "RooZ Academy — Courses & Training | Coming Soon",
+  france: "RooZ France — Youth & Erasmus+ | Coming Soon",
 } as const
 
 /**
  * Keeps <title> in sync with the route: gateway, Youth (/youth/*, /<lang>/youth/*,
- * legacy paths) or Med (/med/*, /<lang>/med/*). Mounted once next to
- * ScrollToTop so every route, including ones outside Layout, is covered.
+ * legacy paths), Med (/med/*, /<lang>/med/*), Academy (/academy/*) or France
+ * (/france/*). Mounted once next to ScrollToTop so every route, including
+ * ones outside Layout, is covered.
  */
 export default function DocumentTitle() {
   const { pathname } = useLocation()
