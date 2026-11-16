@@ -1,18 +1,20 @@
 /**
- * Gateway , the two-tile brand picker at the bare rydn.ca root.
+ * Gateway , the four-tile brand picker at the bare rydn.ca root.
  *
  * This page is intentionally outside the normal Layout (no Navbar, no Footer,
  * no FloatingBookNow). It's a canada.ca-style splash that only renders when a
  * visitor hits the exact root URL. Deep links like /youth/our-team or
  * /med/anything bypass the gateway entirely so SEO and bookmarks keep working.
  *
- * Two paths:
- *   RooZ Youth  → /youth    (free nonprofit, Canadian students, red+white)
- *   RooZ Med    → /med      (paid service, Italian med/dent/vet, green/white/red)
+ * Four paths:
+ *   RooZ Youth    → /youth    (free nonprofit, Canadian students, red+white)
+ *   RooZ Med      → /med      (paid service, Italian med/dent/vet, green/white/red)
+ *   RooZ Academy  → /academy  (courses & training, coming soon, amber)
+ *   RooZ France   → /france   (French youth association, in formation, blue)
  */
 import { useNavigate } from "react-router-dom"
 import { motion } from "motion/react"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight, GraduationCap, Sparkles } from "lucide-react"
 import logoUrl from "./assets/images/Logo.jpg"
 
 /** Inline Canadian flag SVG , crisp at any size, no external asset needed. */
@@ -43,6 +45,27 @@ function ItalianFlag({ className = "" }: { className?: string }) {
       <rect x="16" y="0" width="16" height="32" fill="#FFFFFF" />
       <rect x="32" y="0" width="16" height="32" fill="#CE2B37" />
     </svg>
+  )
+}
+
+/** Inline French flag SVG , three equal vertical stripes. */
+function FrenchFlag({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 32" className={className} xmlns="http://www.w3.org/2000/svg" aria-label="French flag">
+      <rect x="0" y="0" width="16" height="32" fill="#0055A4" />
+      <rect x="16" y="0" width="16" height="32" fill="#FFFFFF" />
+      <rect x="32" y="0" width="16" height="32" fill="#EF4135" />
+    </svg>
+  )
+}
+
+/** Academy badge — a GraduationCap icon instead of a national flag, since
+ *  Academy isn't tied to one country. Same badge footprint as the flags. */
+function AcademyBadge() {
+  return (
+    <div className="flex h-full w-full items-center justify-center bg-amber-400/20">
+      <GraduationCap size={26} className="text-amber-300" aria-label="RooZ Academy" />
+    </div>
   )
 }
 
@@ -132,8 +155,9 @@ function BrandTile({
 export default function Gateway() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-slate-950">
-      {/* Animated background: three large soft gradient blobs , one red (Youth),
-          one green (Med), one blue (shared), slowly drifting. */}
+      {/* Animated background: four large soft gradient blobs , one red (Youth),
+          one green (Med), one amber (Academy), one blue (France/shared),
+          slowly drifting. */}
       <div className="absolute inset-0 -z-10">
         <motion.div
           className="absolute -top-32 -left-32 h-[32rem] w-[32rem] rounded-full bg-red-500/25 blur-3xl"
@@ -149,6 +173,11 @@ export default function Gateway() {
           className="absolute bottom-0 left-1/3 h-[28rem] w-[28rem] rounded-full bg-sky-500/15 blur-3xl"
           animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-24 -right-24 h-[26rem] w-[26rem] rounded-full bg-amber-500/15 blur-3xl"
+          animate={{ x: [0, -30, 0], y: [0, 25, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Subtle grain / noise overlay */}
         <div
@@ -177,19 +206,20 @@ export default function Gateway() {
             Welcome to RooZ
           </div>
           <h1 className="font-display mt-5 text-5xl sm:text-6xl md:text-7xl font-semibold text-white tracking-tight leading-[1.05]">
-            Two paths.
+            Four paths.
             <br />
             <span className="bg-gradient-to-r from-red-400 via-white to-emerald-400 bg-clip-text text-transparent">
               Same mission.
             </span>
           </h1>
           <p className="mt-5 max-w-xl text-base sm:text-lg text-white/70 leading-relaxed">
-            Choose your journey. Whether you're exploring universities in Canada
-            or chasing medicine, dentistry, or veterinary school in Italy.
+            Choose your journey. Whether you're exploring universities in Canada,
+            chasing medicine, dentistry, or veterinary school in Italy, building
+            new skills, or joining youth exchanges in France and across Europe.
           </p>
         </motion.div>
 
-        {/* Two tiles */}
+        {/* Four tiles — 2×2 on md and up, stacked below */}
         <div className="mt-14 grid w-full gap-6 md:grid-cols-2">
           <BrandTile
             to="/youth"
@@ -212,6 +242,28 @@ export default function Gateway() {
             glowClass="bg-emerald-500/40"
             ctaClass="bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 text-white hover:from-emerald-600 hover:to-emerald-600"
             stripeClass="bg-emerald-500"
+          />
+          <BrandTile
+            to="/academy"
+            flag={<AcademyBadge />}
+            name="RooZ Academy"
+            tagline="Courses · Skills · Growth"
+            description="Practical courses and training programs from the RooZ team — built from what we've learned advising students. Programs are in development; enrolment isn't open yet."
+            cta="Explore RooZ Academy"
+            glowClass="bg-amber-500/40"
+            ctaClass="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-900 hover:from-amber-500 hover:to-orange-600"
+            stripeClass="bg-amber-500"
+          />
+          <BrandTile
+            to="/france"
+            flag={<FrenchFlag className="h-full w-full" />}
+            name="RooZ France"
+            tagline="France · Youth & Erasmus+"
+            description="Our French home: a youth association in formation, bringing RooZ programs and European exchanges to France. No programs open yet — we're building the foundation first."
+            cta="Discover RooZ France"
+            glowClass="bg-blue-500/40"
+            ctaClass="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 text-white hover:from-blue-700 hover:to-blue-700"
+            stripeClass="bg-blue-600"
           />
         </div>
 

@@ -7,13 +7,54 @@ import SDGBadges from "./SDGBadges"
 import { useBrand } from "../brand/brand"
 
 /**
- * Brand-aware footer. Youth (and anything that falls back to Youth) gets the
- * nonprofit footer with the legal registration line. Med is a paid service,
- * so it gets neutral business copy and must never show nonprofit claims.
+ * Brand-aware footer.
+ *
+ * - Youth gets the nonprofit footer with the legal registration line.
+ * - Med is a paid service, so it gets neutral business copy and must never
+ *   show nonprofit claims.
+ * - Academy is commercial too (courses & training), so it gets business copy
+ *   as well — no nonprofit claims, no SDG badges.
+ * - France is a future nonprofit, so it gets nonprofit-style copy, but
+ *   WITHOUT any registration claims: the French association is in formation
+ *   and is not registered yet, so there is no corp number and no SDG badges.
  */
 export default function Footer() {
-  const isMed = useBrand() === "med"
+  const brand = useBrand()
+  const isMed = brand === "med"
+  const isAcademy = brand === "academy"
+  const isFrance = brand === "france"
+  const isYouth = brand === "youth"
   const contactEmail = isMed ? "med@rydn.ca" : "info@rydn.ca"
+
+  const logoAlt =
+    isMed ? "RooZ Med logo"
+    : isAcademy ? "RooZ Academy logo"
+    : isFrance ? "RooZ France logo"
+    : "RYDN logo"
+
+  const description =
+    isMed
+      ? "RooZ Med helps students get into English-taught medicine, dentistry, and pharmacy programs in Italy, with IMAT preparation, 1-on-1 tutoring, and admissions consulting."
+      : isAcademy
+        ? "RooZ Academy is RooZ's education and training division — practical courses and training programs, built from what we've learned advising students. Programs are in development."
+        : isFrance
+          ? "RooZ France is the French home of the RooZ ecosystem — a youth association in formation, bringing RooZ programs and European exchanges to France."
+          : "A Canadian nonprofit connecting students with advisors who can guide them through academics, career paths, and life decisions — for free."
+
+  const listName =
+    isMed ? "RooZ Med"
+    : isAcademy ? "RooZ Academy"
+    : isFrance ? "RooZ France"
+    : "RYDN"
+
+  const newsletterBlurb =
+    isMed
+      ? "Get IMAT tips, key dates, and admissions updates. No spam."
+      : isAcademy
+        ? "Get notified when the first courses open. No spam."
+        : isFrance
+          ? "Get association news and youth exchange updates. No spam."
+          : "Get updates on workshops and new advisors. No spam."
 
   return (
     <footer className="mt-24 bg-gradient-to-br from-slate-50 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 border-t border-slate-200 dark:border-slate-800">
@@ -23,12 +64,10 @@ export default function Footer() {
           {/* Brand + newsletter */}
           <div className="lg:col-span-5">
             <Link to="/" className="inline-flex items-center gap-2">
-              <img src={logoUrl} alt={isMed ? "RooZ Med logo" : "RYDN logo"} className="h-12 w-auto" />
+              <img src={logoUrl} alt={logoAlt} className="h-12 w-auto" />
             </Link>
             <p className="mt-4 max-w-md text-slate-600 dark:text-slate-400 leading-relaxed">
-              {isMed
-                ? "RooZ Med helps students get into English-taught medicine, dentistry, and pharmacy programs in Italy, with IMAT preparation, 1-on-1 tutoring, and admissions consulting."
-                : "A Canadian nonprofit connecting students with advisors who can guide them through academics, career paths, and life decisions — for free."}
+              {description}
             </p>
 
             {/* Newsletter */}
@@ -38,17 +77,14 @@ export default function Footer() {
                 e.preventDefault()
                 const data = new FormData(e.currentTarget)
                 const email = data.get("email")
-                const list = isMed ? "RooZ Med" : "RYDN"
-                window.location.href = `mailto:${contactEmail}?subject=Newsletter signup&body=Please add me to the ${list} newsletter: ${email}`
+                window.location.href = `mailto:${contactEmail}?subject=Newsletter signup&body=Please add me to the ${listName} newsletter: ${email}`
               }}
             >
               <label htmlFor="newsletter" className="text-sm font-semibold text-slate-900 dark:text-slate-100">
                 Stay in the loop
               </label>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-                {isMed
-                  ? "Get IMAT tips, key dates, and admissions updates. No spam."
-                  : "Get updates on workshops and new advisors. No spam."}
+                {newsletterBlurb}
               </p>
               <div className="mt-3 flex gap-2">
                 <input
@@ -88,6 +124,55 @@ export default function Footer() {
                   <li>Medicine</li>
                   <li>Dentistry</li>
                   <li>Pharmacy</li>
+                </ul>
+              </div>
+            </>
+          ) : isAcademy ? (
+            <>
+              {/* Academy only has the coming-soon page so far — plain text,
+                  not links, so nothing here can 404. */}
+              <div className="lg:col-span-2">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">RooZ Academy</h2>
+                <ul className="mt-4 space-y-3 text-slate-600 dark:text-slate-400">
+                  <li><Link to="/" className="hover:text-amber-700 dark:hover:text-amber-400 transition">About RooZ Academy</Link></li>
+                  <li>
+                    <a href="mailto:info@rydn.ca?subject=RooZ Academy — I'm interested" className="hover:text-amber-700 dark:hover:text-amber-400 transition">
+                      Get in touch
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="lg:col-span-2">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">Coming soon</h2>
+                <ul className="mt-4 space-y-3 text-slate-600 dark:text-slate-400">
+                  <li>Courses</li>
+                  <li>Training programs</li>
+                  <li>Workshops</li>
+                </ul>
+              </div>
+            </>
+          ) : isFrance ? (
+            <>
+              {/* France only has the coming-soon page so far — plain text,
+                  not links, so nothing here can 404. */}
+              <div className="lg:col-span-2">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">RooZ France</h2>
+                <ul className="mt-4 space-y-3 text-slate-600 dark:text-slate-400">
+                  <li><Link to="/" className="hover:text-blue-700 dark:hover:text-blue-400 transition">About RooZ France</Link></li>
+                  <li>
+                    <a href="mailto:info@rydn.ca?subject=RooZ France — I'm interested" className="hover:text-blue-700 dark:hover:text-blue-400 transition">
+                      Get in touch
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="lg:col-span-2">
+                <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">Coming soon</h2>
+                <ul className="mt-4 space-y-3 text-slate-600 dark:text-slate-400">
+                  <li>Youth programs</li>
+                  <li>European exchanges</li>
                 </ul>
               </div>
             </>
@@ -139,7 +224,7 @@ export default function Footer() {
             </ul>
 
             {/* Social, these are the nonprofit's accounts, so Youth only */}
-            {!isMed && (
+            {isYouth && (
               <div className="mt-6 flex gap-2">
                 <a
                   href="https://www.linkedin.com/company/rooz-youth-development-network"
@@ -167,8 +252,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* UN SDG alignment badges (nonprofit only) */}
-        {!isMed && (
+        {/* UN SDG alignment badges (registered Canadian nonprofit only) */}
+        {isYouth && (
           <div className="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800">
             <SDGBadges />
           </div>
@@ -181,6 +266,20 @@ export default function Footer() {
               <p>RooZ Med · Study Medicine in Italy</p>
               <p className="mt-0.5 text-xs">
                 IMAT preparation, tutoring &amp; admissions consulting · © {new Date().getFullYear()} RooZ Med
+              </p>
+            </div>
+          ) : isAcademy ? (
+            <div className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              <p>RooZ Academy · Courses &amp; Training</p>
+              <p className="mt-0.5 text-xs">
+                Education &amp; training programs — in development · © {new Date().getFullYear()} RooZ Academy
+              </p>
+            </div>
+          ) : isFrance ? (
+            <div className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+              <p>RooZ France · Youth &amp; European Exchanges</p>
+              <p className="mt-0.5 text-xs">
+                French nonprofit association in formation — not yet registered · © {new Date().getFullYear()} RooZ France
               </p>
             </div>
           ) : (
