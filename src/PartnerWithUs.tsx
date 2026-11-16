@@ -13,7 +13,7 @@ const PARTNERSHIP_TYPES = [
   {
     Icon: BookOpen,
     title: "Libraries & Community Centres",
-    body: "Public-facing programming for youth in your community — bilingual sessions, panels, and Q&As.",
+    body: "Public-facing programming for youth in your community, bilingual sessions, panels, and Q&As.",
     color: "from-amber-400 to-orange-500",
   },
   {
@@ -25,7 +25,7 @@ const PARTNERSHIP_TYPES = [
   {
     Icon: Users,
     title: "Student Organizations",
-    body: "Co-host events with your club or society — speaker panels, application workshops, advising intros.",
+    body: "Co-host events with your club or society, speaker panels, application workshops, advising intros.",
     color: "from-violet-400 to-purple-500",
   },
 ]
@@ -33,7 +33,7 @@ const PARTNERSHIP_TYPES = [
 const HOW_IT_WORKS = [
   "Reach out and tell us a bit about your students.",
   "We'll set up a quick call to understand your needs.",
-  "We design a tailored session — content, length, format.",
+  "We design a tailored session: content, length, format.",
   "We deliver the session online, in-person, or hybrid.",
 ]
 
@@ -149,7 +149,7 @@ export default function PartnerWithUs() {
               "Pre-event coordination call",
               "Q&A panel with current university students",
               "Follow-up resources for attendees",
-              "All sessions are free — no cost to your organization",
+              "All sessions are free. No cost to your organization",
               "Promotional materials available",
               "Dedicated point of contact",
             ].map((item, i) => (

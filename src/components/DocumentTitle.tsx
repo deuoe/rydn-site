@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom"
 import { brandFromPath } from "../brand/brand"
 
 const TITLES = {
-  gateway: "RooZ — Youth Mentorship & Study Medicine in Italy",
-  youth: "RYDN — Free Student Mentorship in Canada",
-  med: "RooZ Med — Study Medicine in Italy | IMAT Prep",
-  academy: "RooZ Academy — Courses & Training | Coming Soon",
-  france: "RooZ France — Jeunesse & Erasmus+ | Bientôt disponible",
+  gateway: "RooZ: Youth Mentorship & Study Medicine in Italy",
+  youth: "RYDN: Free Student Mentorship in Canada",
+  med: "RooZ Med: Study Medicine in Italy | IMAT Prep",
+  academy: "RooZ Academy: Courses & Training | Coming Soon",
+  france: "RooZ France: Jeunesse & Erasmus+ | Bientôt disponible",
 } as const
 
 /**

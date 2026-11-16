@@ -32,8 +32,8 @@ export default function Navbar() {
   const isNewBrand = brand === "academy" || brand === "france"
   const newBrandMailto =
     brand === "academy"
-      ? "mailto:info@rydn.ca?subject=RooZ Academy — I'm interested"
-      : "mailto:info@rydn.ca?subject=RooZ France — Je m'intéresse"
+      ? "mailto:info@rydn.ca?subject=RooZ Academy: I'm interested"
+      : "mailto:info@rydn.ca?subject=RooZ France: Je m'intéresse"
   const newBrandCtaClass =
     brand === "academy"
       ? "bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900"
@@ -48,7 +48,7 @@ export default function Navbar() {
   const cleanPath = stripBrandPrefix(stripLangPrefix(location.pathname))
   const onHome = cleanPath === "/" || cleanPath === ""
   // Academy/France coming-soon pages have light backgrounds and no dark
-  // hero, so the transparent (white-text) nav would be unreadable there —
+  // hero, so the transparent (white-text) nav would be unreadable there,
   // the header stays solid on these brands. Youth/Med keep the transparent
   // hero nav, which is designed for their dark home heroes.
   const transparent = onHome && !scrolled && !isNewBrand
@@ -66,8 +66,8 @@ export default function Navbar() {
 
   // Nav items are brand-specific. Youth routes (free advising nonprofit) show
   // the full student-focused menu. Med routes (paid IMAT prep) show a short
-  // list focused on the service — no "Become Advisor", no "Blog" etc.
-  // Academy/France show Home only — they have no inner pages yet.
+  // list focused on the service, no "Become Advisor", no "Blog" etc.
+  // Academy/France show Home only, they have no inner pages yet.
   const navigation = isMed
     ? [
         { name: "Home", path: "/" },
@@ -167,7 +167,7 @@ export default function Navbar() {
 
           {isMed ? (
             <>
-              {/* "Back to RooZ" switch — bypasses brand-aware Link */}
+              {/* "Back to RooZ" switch, bypasses brand-aware Link */}
               <li>
                 <RouterLink
                   to="/"
@@ -182,10 +182,10 @@ export default function Navbar() {
                   Switch brand
                 </RouterLink>
               </li>
-              {/* Primary Med CTA — emerald gradient instead of amber */}
+              {/* Primary Med CTA, emerald gradient instead of amber */}
               <li>
                 <a
-                  href="mailto:med@rydn.ca?subject=RooZ Med — I'm interested"
+                  href="mailto:med@rydn.ca?subject=RooZ Med: I'm interested"
                   className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 hover:from-emerald-600 hover:to-emerald-600 text-white px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition"
                 >
                   <Mail size={16} />
@@ -195,7 +195,7 @@ export default function Navbar() {
             </>
           ) : isNewBrand ? (
             <>
-              {/* "Back to RooZ" switch — bypasses brand-aware Link */}
+              {/* "Back to RooZ" switch, bypasses brand-aware Link */}
               <li>
                 <RouterLink
                   to="/"
@@ -210,7 +210,7 @@ export default function Navbar() {
                   Switch brand
                 </RouterLink>
               </li>
-              {/* Primary CTA — interest mailto in the brand's colour */}
+              {/* Primary CTA, interest mailto in the brand's colour */}
               <li>
                 <a
                   href={newBrandMailto}
@@ -241,7 +241,7 @@ export default function Navbar() {
                 </Link>
               </li>
 
-              {/* PRIMARY: Book Now — bright amber gradient + glow pulse */}
+              {/* PRIMARY: Book Now, bright amber gradient + glow pulse */}
               <li>
                 <Link
                   to={bookNowHref(onHome)}
@@ -265,7 +265,7 @@ export default function Navbar() {
           </div>
           {isMed ? (
             <a
-              href="mailto:med@rydn.ca?subject=RooZ Med — I'm interested"
+              href="mailto:med@rydn.ca?subject=RooZ Med: I'm interested"
               className="hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg"
             >
               <Mail size={14} />
@@ -345,12 +345,12 @@ export default function Navbar() {
                   )
                 })}
 
-                {/* Mobile primary CTA — brand-specific */}
+                {/* Mobile primary CTA, brand-specific */}
                 {isMed ? (
                   <>
                     <li className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-700">
                       <a
-                        href="mailto:med@rydn.ca?subject=RooZ Med — I'm interested"
+                        href="mailto:med@rydn.ca?subject=RooZ Med: I'm interested"
                         onClick={toggle}
                         className="flex items-center justify-center gap-2 w-full text-center rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 px-4 py-3.5 text-base font-bold text-white shadow-md hover:shadow-lg transition"
                       >

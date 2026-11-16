@@ -1,10 +1,13 @@
 /**
- * Gateway , the four-tile brand picker at the bare rydn.ca root.
+ * Gateway, hero-first front door at the bare rydn.ca root.
  *
  * This page is intentionally outside the normal Layout (no Navbar, no Footer,
  * no FloatingBookNow). It's a canada.ca-style splash that only renders when a
  * visitor hits the exact root URL. Deep links like /youth/our-team or
  * /med/anything bypass the gateway entirely so SEO and bookmarks keep working.
+ *
+ * Structure: a warm hero on top (what RooZ is, with the mentorship-workshop
+ * photo), then the four doors below.
  *
  * Four paths:
  *   RooZ Youth    → /youth    (free nonprofit, Canadian students, red+white)
@@ -14,8 +17,9 @@
  */
 import { useNavigate } from "react-router-dom"
 import { motion } from "motion/react"
-import { ArrowRight, GraduationCap, Sparkles } from "lucide-react"
+import { ArrowRight, ChevronDown, GraduationCap, Sparkles } from "lucide-react"
 import logoUrl from "./assets/images/Logo.jpg"
+import homeHero from "./assets/images/home-hero.jpg"
 
 /** Inline Canadian flag SVG , crisp at any size, no external asset needed. */
 function CanadianFlag({ className = "" }: { className?: string }) {
@@ -59,7 +63,7 @@ function FrenchFlag({ className = "" }: { className?: string }) {
   )
 }
 
-/** Academy badge — a GraduationCap icon instead of a national flag, since
+/** Academy badge, a GraduationCap icon instead of a national flag, since
  *  Academy isn't tied to one country. Same badge footprint as the flags. */
 function AcademyBadge() {
   return (
@@ -154,11 +158,15 @@ function BrandTile({
 }
 
 export default function Gateway() {
+  const scrollToPaths = () => {
+    document.getElementById("paths")?.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-slate-950">
       {/* Animated background: four large soft gradient blobs , one red (Youth),
           one green (Med), one amber (Academy), one blue (France/shared),
-          slowly drifting. */}
+          slowly drifting. Covers the whole page, hero + doors. */}
       <div className="absolute inset-0 -z-10">
         <motion.div
           className="absolute -top-32 -left-32 h-[32rem] w-[32rem] rounded-full bg-red-500/25 blur-3xl"
@@ -190,38 +198,105 @@ export default function Gateway() {
         />
       </div>
 
-      {/* Content column */}
-      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-16">
+      {/* ===== HERO, what RooZ is, first ===== */}
+      <section className="relative mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-6 py-16 text-center">
         {/* RooZ identity header */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center"
+          className="flex flex-col items-center"
         >
           <div className="h-20 w-20 rounded-2xl overflow-hidden ring-2 ring-white/20 shadow-2xl">
             <img src={logoUrl} alt="RooZ" className="h-full w-full object-cover" />
           </div>
           <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs font-semibold text-white/90 border border-white/20">
             <Sparkles size={13} className="text-amber-300" />
-            Welcome to RooZ
+            Mentorship · Medicine · Learning · Europe
           </div>
-          <h1 className="font-display mt-5 text-5xl sm:text-6xl md:text-7xl font-semibold text-white tracking-tight leading-[1.05]">
-            Four paths.
-            <br />
-            <span className="bg-gradient-to-r from-red-400 via-white to-emerald-400 bg-clip-text text-transparent">
-              Same mission.
-            </span>
-          </h1>
-          <p className="mt-5 max-w-xl text-base sm:text-lg text-white/70 leading-relaxed">
-            Choose your journey. Whether you're exploring universities in Canada,
-            chasing medicine, dentistry, or veterinary school in Italy, building
-            new skills, or joining youth exchanges in France and across Europe.
-          </p>
         </motion.div>
 
-        {/* Four tiles — 4 across on lg, 2×2 on md, stacked below */}
-        <div className="mt-14 grid w-full gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="font-display mt-5 text-5xl sm:text-6xl md:text-7xl font-semibold text-white tracking-tight leading-[1.05]"
+        >
+          Find your path.
+          <br />
+          <span className="bg-gradient-to-r from-red-400 via-white to-emerald-400 bg-clip-text text-transparent">
+            We&apos;ll walk it with you.
+          </span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-5 max-w-2xl text-base sm:text-lg text-white/70 leading-relaxed"
+        >
+          RooZ is a community that helps students find their way. Free
+          mentorship in Canada, a path to medicine, dentistry and veterinary
+          school in Italy, practical courses, and youth exchanges in France
+          and across Europe.
+        </motion.p>
+
+        {/* Photo: the mentorship-workshop hero, diverse students learning
+            together. Same image as the /youth hero background; 16:9 native
+            (2400×1340), so aspect-[16/9] shows it uncropped. */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="mt-10 w-full max-w-4xl overflow-hidden rounded-3xl ring-2 ring-white/20 shadow-2xl"
+        >
+          <img
+            src={homeHero}
+            alt="Students collaborating at a RooZ peer mentorship workshop"
+            className="aspect-[16/9] w-full object-cover"
+          />
+        </motion.div>
+
+        {/* Scroll cue to the doors */}
+        <motion.a
+          href="#paths"
+          onClick={(e) => {
+            e.preventDefault()
+            scrollToPaths()
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10 inline-flex flex-col items-center gap-1 text-sm font-semibold text-white/70 transition hover:text-white"
+        >
+          Choose your path
+          <motion.span
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity }}
+          >
+            <ChevronDown size={20} />
+          </motion.span>
+        </motion.a>
+      </section>
+
+      {/* ===== DOORS, the four paths ===== */}
+      <section id="paths" className="relative mx-auto max-w-7xl scroll-mt-8 px-6 pb-16">
+        <motion.h2
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center font-display text-4xl sm:text-5xl md:text-6xl font-semibold text-white tracking-tight leading-[1.05]"
+        >
+          Four paths.
+          <br />
+          <span className="bg-gradient-to-r from-red-400 via-white to-emerald-400 bg-clip-text text-transparent">
+            Same mission.
+          </span>
+        </motion.h2>
+
+        {/* Four tiles, 4 across on lg, 2×2 on md, stacked below */}
+        <div className="mt-12 grid w-full gap-6 md:grid-cols-2 lg:grid-cols-4">
           <BrandTile
             to="/youth"
             flag={<CanadianFlag className="h-full w-full" />}
@@ -249,7 +324,7 @@ export default function Gateway() {
             flag={<AcademyBadge />}
             name="RooZ Academy"
             tagline="Courses · Skills · Growth"
-            description="Practical courses and training programs from the RooZ team — built from what we've learned advising students. Programs are in development; enrolment isn't open yet."
+            description="Practical courses and training programs from the RooZ team, built from what we've learned advising students. Programs are in development; enrolment isn't open yet."
             cta="Explore RooZ Academy"
             glowClass="bg-amber-500/40"
             ctaClass="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-900 hover:from-amber-500 hover:to-orange-600"
@@ -260,7 +335,7 @@ export default function Gateway() {
             flag={<FrenchFlag className="h-full w-full" />}
             name="RooZ France"
             tagline="France · Jeunesse & Erasmus+"
-            description="Une association de jeunesse en cours de création — programmes et échanges européens à venir."
+            description="Une association de jeunesse en cours de création, avec des programmes et des échanges européens à venir."
             cta="Découvrir RooZ France"
             glowClass="bg-blue-500/40"
             ctaClass="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 text-white hover:from-blue-700 hover:to-blue-700"
@@ -271,15 +346,16 @@ export default function Gateway() {
         {/* Footer micro-copy */}
         <motion.footer
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
           className="mt-14 text-center text-xs text-white/40"
         >
           <p>
             A RooZ initiative · Est. 2026 · Richmond Hill, Ontario
           </p>
         </motion.footer>
-      </div>
+      </section>
     </main>
   )
 }

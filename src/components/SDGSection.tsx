@@ -19,7 +19,7 @@ const SDGs = [
     color: "#C5192D",
     Icon: BookOpen,
     contribution:
-      "Free 1-on-1 advising, workshops, and exam prep for MCAT / LSAT / DAT — directly advancing SDG 4.3 (equal access to tertiary education) and 4.4 (relevant skills for employment).",
+      "Free 1-on-1 advising, workshops, and exam prep for MCAT / LSAT / DAT, directly advancing SDG 4.3 (equal access to tertiary education) and 4.4 (relevant skills for employment).",
   },
   {
     number: 5,
@@ -27,7 +27,7 @@ const SDGs = [
     color: "#FF3A21",
     Icon: Scale,
     contribution:
-      "Actively recruiting and supporting female advisors and students across STEM, medicine, and law — advancing SDG 5.5 (women's full participation in leadership).",
+      "Actively recruiting and supporting female advisors and students across STEM, medicine, and law, advancing SDG 5.5 (women's full participation in leadership).",
   },
   {
     number: 10,
@@ -35,7 +35,7 @@ const SDGs = [
     color: "#DD1367",
     Icon: Users2,
     contribution:
-      "Multilingual support in English, French, Spanish, Persian, and Hebrew. Free for every student regardless of income — advancing SDG 10.2 and 10.3 (inclusion of all, equal opportunity).",
+      "Multilingual support in English, French, Spanish, Persian, and Hebrew. Free for every student regardless of income, advancing SDG 10.2 and 10.3 (inclusion of all, equal opportunity).",
   },
   {
     number: 17,
@@ -43,7 +43,7 @@ const SDGs = [
     color: "#19486A",
     Icon: Handshake,
     contribution:
-      "Direct partnerships with TDSB, YRDSB, community organizations, and universities to deliver mentorship at scale — advancing SDG 17.17 (effective public-private and civil society partnerships).",
+      "Direct partnerships with TDSB, YRDSB, community organizations, and universities to deliver mentorship at scale, advancing SDG 17.17 (effective public-private and civil society partnerships).",
   },
 ]
 
@@ -70,7 +70,7 @@ export default function SDGSection() {
               viewport={{ once: true }}
               className="overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition flex flex-col"
             >
-              {/* Top color block — UN official SDG color */}
+              {/* Top color block, UN official SDG color */}
               <div
                 className="p-6 text-white flex items-start gap-4"
                 style={{ backgroundColor: sdg.color }}

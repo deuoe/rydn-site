@@ -33,7 +33,7 @@ import UpdatePrompt from "./components/UpdatePrompt"
 import { LanguageProvider } from "./i18n/LanguageProvider"
 import { ThemeProvider } from "./theme/ThemeProvider"
 
-// Youth pages — the current RYDN site. Mounted at /youth/* and
+// Youth pages, the current RYDN site. Mounted at /youth/* and
 // /<lang>/youth/* for every supported language. Add new Youth pages here.
 const YOUTH_PAGES = [
   { index: true, element: <App /> },
@@ -87,7 +87,7 @@ function renderPages(pages: typeof YOUTH_PAGES | typeof MED_PAGES, prefix: strin
 }
 
 /**
- * LegacyRedirect — catches any pre-migration URL (/about-us, /our-team, etc.)
+ * LegacyRedirect, catches any pre-migration URL (/about-us, /our-team, etc.)
  * and sends the visitor to the equivalent /youth/* URL. Preserves language
  * prefix and any search/hash the user had. Uses location.pathname to grab the
  * full current URL (including :slug params), so a single component covers
@@ -132,11 +132,11 @@ ReactDOM.createRoot(root).render(
         <DocumentTitle />
         <UpdatePrompt />
         <Routes>
-          {/* ===== GATEWAY — the four-tile picker. Only at the exact root path.
+          {/* ===== GATEWAY, the four-tile picker. Only at the exact root path.
               Lives outside Layout so there's no Navbar/Footer around it. */}
           <Route index element={<Gateway />} />
 
-          {/* ===== EVERYTHING ELSE — wrapped in Layout (Navbar + Footer + Floaters) */}
+          {/* ===== EVERYTHING ELSE, wrapped in Layout (Navbar + Footer + Floaters) */}
           <Route element={<Layout />}>
             {/* English Youth: /youth and /youth/<page> */}
             <Route path="youth">
@@ -166,7 +166,7 @@ ReactDOM.createRoot(root).render(
             {NON_DEFAULT_LANGS.map((lang) => (
               <Route key={lang} path={lang}>
                 {/* Bare /<lang> redirects to /<lang>/youth. Non-English users
-                    don't see the gateway in v1 — they go straight to Youth. */}
+                    don't see the gateway in v1, they go straight to Youth. */}
                 <Route index element={<Navigate to={`/${lang}/youth`} replace />} />
                 <Route path="youth">
                   {renderPages(YOUTH_PAGES, `${lang}-youth`)}

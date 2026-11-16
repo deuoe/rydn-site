@@ -1,12 +1,12 @@
 /**
- * Blog post registry — single source of truth for /blog and /blog/:slug.
+ * Blog post registry, single source of truth for /blog and /blog/:slug.
  *
  * Adding a new article = adding one entry to ARTICLES below. Articles are
  * stored as plain data (no markdown parser dependency), with the body as
  * an array of "blocks" so each post can mix paragraphs, headings, lists,
  * pull-quotes, and CTAs without needing a CMS.
  *
- * If/when we outgrow this, swap to MDX or a headless CMS — the BlogPost
+ * If/when we outgrow this, swap to MDX or a headless CMS, the BlogPost
  * page only needs to consume the same data shape.
  */
 
@@ -46,13 +46,13 @@ export const CATEGORY_LABELS: Record<ArticleCategory, string> = {
 }
 
 export type Article = {
-  /** URL slug — used in /blog/:slug */
+  /** URL slug, used in /blog/:slug */
   slug: string
   /** Article headline */
   title: string
   /** 1-2 sentence summary shown on the index and at the top of the post */
   excerpt: string
-  /** Author — references an Advisor slug for byline + photo */
+  /** Author, references an Advisor slug for byline + photo */
   authorSlug?: string
   /** Optional override if author isn't in the advisor registry */
   authorName?: string
@@ -60,7 +60,7 @@ export type Article = {
   publishedDate: string
   /** Estimated reading time in minutes */
   readMinutes: number
-  /** Primary category (one) — drives the filter chip */
+  /** Primary category (one), drives the filter chip */
   category: ArticleCategory
   /** Free-text tags for SEO + future filtering */
   tags?: string[]
@@ -98,7 +98,7 @@ export const ARTICLES: Article[] = [
     slug: "pre-med-in-canada-complete-guide",
     title: "Choosing pre-med in Canada: a complete guide for high school students",
     excerpt:
-      "Pre-med isn't a program in Canada — it's a path. Here's how to actually plan for medical school admission, course by course, year by year, without burning out.",
+      "Pre-med isn't a program in Canada, it's a path. Here's how to actually plan for medical school admission, course by course, year by year, without burning out.",
     authorSlug: "sara-roozbahani",
     publishedDate: "2026-06-15",
     readMinutes: 9,
@@ -107,7 +107,7 @@ export const ARTICLES: Article[] = [
     body: [
       {
         type: "p",
-        text: "Here's something nobody tells you in Grade 11: \"pre-med\" isn't a program you can apply to in Canada. It's not a major. It's not a degree. It's a category of choices you start making in high school and keep making through your undergrad — choices about courses, GPA, research, volunteering, and ultimately your MCAT and medical school applications. This guide walks through how to actually plan that journey, written from inside it.",
+        text: "Here's something nobody tells you in Grade 11: \"pre-med\" isn't a program you can apply to in Canada. It's not a major. It's not a degree. It's a category of choices you start making in high school and keep making through your undergrad, choices about courses, GPA, research, volunteering, and ultimately your MCAT and medical school applications. This guide walks through how to actually plan that journey, written from inside it.",
       },
       {
         type: "h2",
@@ -119,12 +119,12 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        text: "Popular Canadian \"pre-med\" undergraduate paths include: Bachelor of Science (general), Health Sciences (McMaster's program is famous for this), Biomedical Sciences, Life Sciences, Biology, Biochemistry, Psychology, and Kinesiology. None of them are objectively better — what matters is GPA, MCAT, and the rest of your application.",
+        text: "Popular Canadian \"pre-med\" undergraduate paths include: Bachelor of Science (general), Health Sciences (McMaster's program is famous for this), Biomedical Sciences, Life Sciences, Biology, Biochemistry, Psychology, and Kinesiology. None of them are objectively better, what matters is GPA, MCAT, and the rest of your application.",
       },
       {
         type: "callout",
         tone: "tip",
-        text: "The single most predictive factor for getting into Canadian med school is your GPA — not the prestige of your undergrad program. Picking a program you can excel in beats picking a 'harder' program where you'll struggle.",
+        text: "The single most predictive factor for getting into Canadian med school is your GPA, not the prestige of your undergrad program. Picking a program you can excel in beats picking a 'harder' program where you'll struggle.",
       },
       {
         type: "h2",
@@ -132,43 +132,43 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h3",
-        text: "Grade 11 — Lay the foundation",
+        text: "Grade 11: Lay the foundation",
       },
       {
         type: "ul",
         items: [
           "Take Grade 11 Biology, Chemistry, Physics, and a strong English course. These set you up for Grade 12 requirements.",
-          "Get involved in ONE meaningful extracurricular (sports, club, volunteering) — not five shallow ones.",
+          "Get involved in ONE meaningful extracurricular (sports, club, volunteering), not five shallow ones.",
           "Start tracking your grades. Canadian med schools care about average GPA, often weighted by year, so consistency matters.",
         ],
       },
       {
         type: "h3",
-        text: "Grade 12 — Apply to undergrad",
+        text: "Grade 12: Apply to undergrad",
       },
       {
         type: "ul",
         items: [
           "Pick 6 Grade 12 courses that include Biology, Chemistry, Advanced Functions, Calculus & Vectors, English, and one elective. These are the standard prereqs for science programs at Canadian universities.",
-          "Apply to OUAC by January for Ontario universities. Most med-friendly programs (McMaster Health Sci, U of T Life Sci, Waterloo Bio, Queen's Health Sci) have higher cutoffs — aim for ~92%+ in your top 6.",
-          "Some programs (McMaster Health Sci especially) require a supplementary application — these are personal-essay heavy and shouldn't be left to the last minute.",
+          "Apply to OUAC by January for Ontario universities. Most med-friendly programs (McMaster Health Sci, U of T Life Sci, Waterloo Bio, Queen's Health Sci) have higher cutoffs, aim for ~92%+ in your top 6.",
+          "Some programs (McMaster Health Sci especially) require a supplementary application, these are personal-essay heavy and shouldn't be left to the last minute.",
         ],
       },
       {
         type: "h3",
-        text: "Year 1 of undergrad — Don't break your GPA",
+        text: "Year 1 of undergrad: Don't break your GPA",
       },
       {
         type: "ul",
         items: [
           "First-year courses often have the steepest GPA drops because the workload jump from high school is real. Many students take a smaller course load (4 instead of 5) in the first term.",
-          "Find a study system that works for YOU — not what worked in Grade 12.",
+          "Find a study system that works for YOU, not what worked in Grade 12.",
           "Start exploring research opportunities through professor office hours, NSERC USRA grants (Year 2+), or volunteer lab assistant roles.",
         ],
       },
       {
         type: "h3",
-        text: "Years 2-3 — Build your application",
+        text: "Years 2-3: Build your application",
       },
       {
         type: "ul",
@@ -180,14 +180,14 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h3",
-        text: "Year 4 — Apply",
+        text: "Year 4: Apply",
       },
       {
         type: "ul",
         items: [
           "Canadian med school applications open in summer; deadlines are typically October-November.",
           "OMSAS (Ontario), AMS (Alberta), McGill, UBC each have their own portals.",
-          "Personal statement work starts in spring. Get someone to read it — ideally several people, including someone who's recently applied (or a RYDN advisor who has).",
+          "Personal statement work starts in spring. Get someone to read it, ideally several people, including someone who's recently applied (or a RYDN advisor who has).",
         ],
       },
       {
@@ -197,9 +197,9 @@ export const ARTICLES: Article[] = [
       {
         type: "ol",
         items: [
-          "GPA — Canadian med schools care more than US ones. Below 3.7 (out of 4.0) is hard. Above 3.85 opens most doors.",
-          "MCAT — A balanced score above 510 is the rough threshold. Some schools weight subsections differently.",
-          "Personal statement + interview — These differentiate between qualified applicants. They reward authenticity and clarity over polish.",
+          "GPA: Canadian med schools care more than US ones. Below 3.7 (out of 4.0) is hard. Above 3.85 opens most doors.",
+          "MCAT: A balanced score above 510 is the rough threshold. Some schools weight subsections differently.",
+          "Personal statement + interview: These differentiate between qualified applicants. They reward authenticity and clarity over polish.",
         ],
       },
       {
@@ -208,7 +208,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        text: "Pre-med doesn't have to be a straight path. The most successful applicants we've talked to had a winding journey — switching programs, taking a gap year, transferring schools, doing research that surprised them. Med schools don't just want straight-A robots. They want people who can think about why they want to be doctors and who have the resilience to handle a 7+ year journey.",
+        text: "Pre-med doesn't have to be a straight path. The most successful applicants we've talked to had a winding journey, switching programs, taking a gap year, transferring schools, doing research that surprised them. Med schools don't just want straight-A robots. They want people who can think about why they want to be doctors and who have the resilience to handle a 7+ year journey.",
       },
       {
         type: "p",
@@ -228,7 +228,7 @@ export const ARTICLES: Article[] = [
     slug: "mcat-prep-timeline-canadian-students",
     title: "The MCAT prep timeline: what to do 12, 6, and 3 months out",
     excerpt:
-      "A realistic month-by-month roadmap for Canadian pre-med students preparing for the MCAT — without the burnout, the panic, or the $4,000 prep course.",
+      "A realistic month-by-month roadmap for Canadian pre-med students preparing for the MCAT, without the burnout, the panic, or the $4,000 prep course.",
     authorSlug: "helia",
     publishedDate: "2026-06-08",
     readMinutes: 7,
@@ -237,15 +237,15 @@ export const ARTICLES: Article[] = [
     body: [
       {
         type: "p",
-        text: "Most MCAT prep advice online is American — focused on July admission cycles, $4,000 prep courses, and 90-day cram sprints. As Canadian pre-med students, our timelines are different. We're applying to OMSAS in October, our schools weight GPA more heavily, and most of us don't have the budget for Princeton Review.",
+        text: "Most MCAT prep advice online is American, focused on July admission cycles, $4,000 prep courses, and 90-day cram sprints. As Canadian pre-med students, our timelines are different. We're applying to OMSAS in October, our schools weight GPA more heavily, and most of us don't have the budget for Princeton Review.",
       },
       {
         type: "p",
-        text: "Here's a realistic prep timeline built for Canadian undergrads — primarily for someone targeting a summer test date (May, June, or July) before fall applications.",
+        text: "Here's a realistic prep timeline built for Canadian undergrads, primarily for someone targeting a summer test date (May, June, or July) before fall applications.",
       },
       {
         type: "h2",
-        text: "12 months out — Foundation phase",
+        text: "12 months out: Foundation phase",
       },
       {
         type: "p",
@@ -256,12 +256,12 @@ export const ARTICLES: Article[] = [
         items: [
           "Take the AAMC sample test (free) just to see where you land cold.",
           "Buy The Princeton Review or Kaplan books used (cost: $50-150 vs. $300+ new).",
-          "Set up a study calendar — but don't actually start grinding yet.",
+          "Set up a study calendar, but don't actually start grinding yet.",
         ],
       },
       {
         type: "h2",
-        text: "6 months out — Content phase",
+        text: "6 months out: Content phase",
       },
       {
         type: "p",
@@ -282,7 +282,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        text: "3 months out — Practice phase",
+        text: "3 months out: Practice phase",
       },
       {
         type: "p",
@@ -291,7 +291,7 @@ export const ARTICLES: Article[] = [
       {
         type: "ul",
         items: [
-          "Use the AAMC official practice tests (4 currently) — these are the most representative.",
+          "Use the AAMC official practice tests (4 currently), these are the most representative.",
           "Supplement with Blueprint or Kaplan practice tests for variety.",
           "Score after each test. Aim for steady improvement, not perfection.",
           "Stop ALL new content review after the second practice test. Focus only on the gaps you keep missing.",
@@ -299,7 +299,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "h2",
-        text: "1 week out — Taper",
+        text: "1 week out: Taper",
       },
       {
         type: "p",
@@ -308,7 +308,7 @@ export const ARTICLES: Article[] = [
       {
         type: "ul",
         items: [
-          "Light review only — flashcards, formula sheets, your weakest topics.",
+          "Light review only: flashcards, formula sheets, your weakest topics.",
           "Sleep 8+ hours every night.",
           "Take ONE last practice test 4-5 days out, then stop.",
           "Day before: drive to the test centre to make sure you know the route. Pack snacks. Sleep early.",
@@ -325,8 +325,8 @@ export const ARTICLES: Article[] = [
       {
         type: "ul",
         items: [
-          "$4,000 prep courses — most of their content is in the books you can buy used.",
-          "Multiple Q-banks — pick one (UWorld is good but expensive; AAMC's official one is essential).",
+          "$4,000 prep courses, most of their content is in the books you can buy used.",
+          "Multiple Q-banks, pick one (UWorld is good but expensive; AAMC's official one is essential).",
           "Apps that promise to gamify MCAT prep. The studies don't show they work.",
         ],
       },
@@ -344,7 +344,7 @@ export const ARTICLES: Article[] = [
     slug: "writing-personal-statement-canadian-universities",
     title: "How to write a personal statement that actually gets read",
     excerpt:
-      "Admissions readers spend less than 4 minutes on each statement. Here's how to write the kind they remember — for Canadian undergrad, medical, and graduate applications.",
+      "Admissions readers spend less than 4 minutes on each statement. Here's how to write the kind they remember, for Canadian undergrad, medical, and graduate applications.",
     authorSlug: "sahar",
     publishedDate: "2026-05-30",
     readMinutes: 8,
@@ -353,7 +353,7 @@ export const ARTICLES: Article[] = [
     body: [
       {
         type: "p",
-        text: "The personal statement is the most rewritten, agonized-over part of every Canadian university application — and the most misunderstood. Here's the truth: an admissions reader spends 3-4 minutes on yours, max. They've read 200 statements that week. They're tired. If your opening sentence doesn't earn the next one, they'll skim. This guide is about writing the kind that doesn't get skimmed.",
+        text: "The personal statement is the most rewritten, agonized-over part of every Canadian university application, and the most misunderstood. Here's the truth: an admissions reader spends 3-4 minutes on yours, max. They've read 200 statements that week. They're tired. If your opening sentence doesn't earn the next one, they'll skim. This guide is about writing the kind that doesn't get skimmed.",
       },
       {
         type: "h2",
@@ -361,7 +361,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        text: "Most personal statement drafts open with a theme: \"Ever since I was young, I've been passionate about helping people.\" These all sound the same to the reader. The fix isn't to find a more original theme — it's to start with a specific moment that the theme reveals itself through.",
+        text: "Most personal statement drafts open with a theme: \"Ever since I was young, I've been passionate about helping people.\" These all sound the same to the reader. The fix isn't to find a more original theme, it's to start with a specific moment that the theme reveals itself through.",
       },
       {
         type: "p",
@@ -393,7 +393,7 @@ export const ARTICLES: Article[] = [
       },
       {
         type: "p",
-        text: "The number-one mistake: writing your statement in the voice of a resume. Phrases like \"developed leadership skills,\" \"demonstrated commitment to,\" \"contributed to a diverse team\" — these are dead language. They show the reader nothing.",
+        text: "The number-one mistake: writing your statement in the voice of a resume. Phrases like \"developed leadership skills,\" \"demonstrated commitment to,\" \"contributed to a diverse team\", these are dead language. They show the reader nothing.",
       },
       {
         type: "callout",
@@ -415,8 +415,8 @@ export const ARTICLES: Article[] = [
       {
         type: "ul",
         items: [
-          "\"This experience confirmed that medicine is my calling.\" — generic, sounds rehearsed.",
-          "\"I used to think medicine was about knowing the right answer. Now I think it's about asking the right question while someone is afraid. I want to keep learning how to do that.\" — specific, honest, shows reflection.",
+          "\"This experience confirmed that medicine is my calling.\", generic, sounds rehearsed.",
+          "\"I used to think medicine was about knowing the right answer. Now I think it's about asking the right question while someone is afraid. I want to keep learning how to do that.\", specific, honest, shows reflection.",
         ],
       },
       {

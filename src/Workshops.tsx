@@ -178,7 +178,7 @@ export default function Workshops() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg sm:text-xl text-white/85 leading-relaxed">
-              Live, interactive sessions on academic strategy, career exploration, and university prep — taught by students currently living it.
+              Live, interactive sessions on academic strategy, career exploration, and university prep, taught by students currently living it.
             </p>
             <div className="mt-8 flex items-center gap-6 text-sm text-white/70">
               <span className="flex items-center gap-2"><Calendar size={16} className="text-amber-300" /> {workshops.length} sessions scheduled</span>
@@ -204,7 +204,7 @@ export default function Workshops() {
         </Container>
       </section>
 
-      {/* PARTNER CTA — moved out of hero into proper closing section */}
+      {/* PARTNER CTA, moved out of hero into proper closing section */}
       <section className="pb-20">
         <Container>
           <motion.div
@@ -221,7 +221,7 @@ export default function Workshops() {
                   Want a workshop at your school?
                 </h2>
                 <p className="mt-4 text-slate-600 leading-relaxed">
-                  We tailor workshops for high schools, libraries, and community organizations across Canada and internationally — Canadian university pathways, study skills, and career exploration.
+                  We tailor workshops for high schools, libraries, and community organizations across Canada and internationally: Canadian university pathways, study skills, and career exploration.
                 </p>
               </div>
               <div className="md:col-span-5 flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 md:items-stretch">

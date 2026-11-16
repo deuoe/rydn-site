@@ -2,12 +2,12 @@
  * Brand infrastructure for RooZ's four-sided site: Youth (/youth/*), Med
  * (/med/*), Academy (/academy/*) and France (/france/*).
  *
- * The current "brand" is derived from the URL — same pattern as how language
+ * The current "brand" is derived from the URL, same pattern as how language
  * works. Any URL under /med or /<lang>/med is Med; everything else is Youth
  * (which is also the default when no brand is in the URL, like on the gateway).
  *
  * Internal <Link>s automatically produce brand-correct URLs via
- * useLocalizedHref — so a Link to "/about-us" rendered inside the Med pages
+ * useLocalizedHref, so a Link to "/about-us" rendered inside the Med pages
  * resolves to "/med/about-us", and the same Link inside Youth resolves to
  * "/youth/about-us". To navigate across brands (e.g. a "Switch to Med" link
  * from a Youth page), use react-router-dom's native <Link> with the absolute
@@ -57,7 +57,7 @@ export function brandFromPath(path: string): Brand {
   return "youth"
 }
 
-/** React hook — same semantics as brandFromPath, driven by the current location. */
+/** React hook, same semantics as brandFromPath, driven by the current location. */
 export function useBrand(): Brand {
   const { pathname } = useLocation()
   return brandFromPath(pathname)

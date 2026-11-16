@@ -49,7 +49,7 @@ const STORIES: Story[] = [
     role: "Grade 11 student",
     outcome: "Switched intended major after one workshop",
     pull: "I realized I'd been chasing the wrong thing.",
-    body: "Aria attended RYDN's career exploration workshop thinking she wanted dentistry. By the end she'd discovered biomedical research — and a year later she's running a small lab project at her high school.",
+    body: "Aria attended RYDN's career exploration workshop thinking she wanted dentistry. By the end she'd discovered biomedical research, and a year later she's running a small lab project at her high school.",
     Icon: FlaskConical,
     gradient: "from-emerald-400 via-teal-500 to-cyan-600",
     topic: "Career exploration",
@@ -71,7 +71,7 @@ const STORIES: Story[] = [
     role: "Grade 12 → Pharmacy",
     outcome: "Got into U of Toronto Pharmacy direct-entry",
     pull: "I needed someone who'd just been through it.",
-    body: "Priya wanted pharmacy but couldn't find anyone who could explain what the application actually looked like in 2025. Helia had just done it — she walked Priya through every form, every reference, every interview question.",
+    body: "Priya wanted pharmacy but couldn't find anyone who could explain what the application actually looked like in 2025. Helia had just done it. She walked Priya through every form, every reference, every interview question.",
     Icon: GraduationCap,
     gradient: "from-violet-400 via-purple-500 to-pink-500",
     topic: "Health professions",
@@ -107,7 +107,7 @@ function StoryCard({ s, idx }: { s: Story; idx: number }) {
       viewport={{ once: true }}
       className="group card-ring rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition overflow-hidden flex flex-col"
     >
-      {/* Photo placeholder zone — gradient + icon + initials, ready for a real photo later */}
+      {/* Photo placeholder zone, gradient + icon + initials, ready for a real photo later */}
       <div className={`relative h-52 overflow-hidden bg-gradient-to-br ${s.gradient}`}>
         <div className="absolute inset-0 grain opacity-20" />
         <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />

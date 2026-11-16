@@ -9,7 +9,7 @@ import { UNIVERSITIES } from "./data/universities"
 import NotFound from "./NotFound"
 
 /**
- * /advisors/:slug — Full story page for one advisor.
+ * /advisors/:slug, Full story page for one advisor.
  *
  * Sections:
  *   1. Hero: photo, name, role, booking CTA, share
@@ -30,14 +30,14 @@ export default function AdvisorDetail() {
   const handleShare = async () => {
     if (typeof navigator === "undefined") return
     const url = window.location.href
-    const text = `Meet ${advisor.name} on RYDN — ${advisor.description}.`
+    const text = `Meet ${advisor.name} on RYDN: ${advisor.description}.`
     // Use the Web Share API on supported devices (iOS, Android, modern desktops).
     // Falls back to copying the URL to the clipboard.
     if (navigator.share) {
       try {
         await navigator.share({ title: `${advisor.name} · RYDN`, text, url })
       } catch {
-        /* user cancelled — fine */
+        /* user cancelled, fine */
       }
     } else if (navigator.clipboard) {
       navigator.clipboard.writeText(url)

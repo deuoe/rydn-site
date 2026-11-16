@@ -10,7 +10,7 @@ import sinaUrl from "./assets/images/Sina.jpeg"
 import logoUrl from "./assets/images/logo.jpeg"
 
 /**
- * /press — public press & media kit page.
+ * /press, public press & media kit page.
  *
  * Designed to be copy-pastable by a journalist on deadline. Includes:
  *  - One-line, one-paragraph, and long-form descriptions
@@ -49,7 +49,7 @@ const BOILERPLATE_SHORT =
   "RYDN (RooZ Youth Development Network) is a registered Canadian nonprofit that connects high school and CEGEP students with university-aged advisors for free 1-on-1 sessions, workshops, and an AI-powered advisor matchmaker. Services are multilingual (English, French, Spanish, Persian, Hebrew) and free for every student."
 
 const BOILERPLATE_LONG =
-  "RYDN (RooZ Youth Development Network) is a registered Canadian nonprofit founded in 2024 to make academic and career advising accessible to every student, regardless of background or income. The organization connects high school and early-university students with advisors who are only 2–3 years ahead of them academically — students at York University, the University of Toronto, McMaster, Toronto Metropolitan University, Seneca, George Brown, Simon Fraser, and beyond. All services are free, multilingual, and delivered through 1-on-1 advising sessions, group workshops, and an AI-powered advisor matchmaker available in five languages. RYDN is aligned with four UN Sustainable Development Goals (Quality Education, Gender Equality, Reduced Inequalities, and Partnerships for the Goals) and partners with school boards and community organizations across Ontario and beyond."
+  "RYDN (RooZ Youth Development Network) is a registered Canadian nonprofit founded in 2024 to make academic and career advising accessible to every student, regardless of background or income. The organization connects high school and early-university students with advisors who are only 2–3 years ahead of them academically, students at York University, the University of Toronto, McMaster, Toronto Metropolitan University, Seneca, George Brown, Simon Fraser, and beyond. All services are free, multilingual, and delivered through 1-on-1 advising sessions, group workshops, and an AI-powered advisor matchmaker available in five languages. RYDN is aligned with four UN Sustainable Development Goals (Quality Education, Gender Equality, Reduced Inequalities, and Partnerships for the Goals) and partners with school boards and community organizations across Ontario and beyond."
 
 export default function Press() {
   const [copiedKey, setCopiedKey] = useState<string | null>(null)
@@ -61,7 +61,7 @@ export default function Press() {
       setCopiedKey(key)
       setTimeout(() => setCopiedKey(null), 2000)
     } catch {
-      /* user denied clipboard — fine */
+      /* user denied clipboard, fine */
     }
   }
 
@@ -91,7 +91,7 @@ export default function Press() {
               Press & Media Kit.
             </h1>
             <p className="mt-6 max-w-2xl text-lg sm:text-xl text-white/85 leading-relaxed">
-              Everything you need to write about RYDN — quick facts, founder bios, logos, and
+              Everything you need to write about RYDN, quick facts, founder bios, logos, and
               ready-to-quote language. Email <a className="underline hover:text-amber-300" href="mailto:info@rydn.ca">info@rydn.ca</a> for interviews or background.
             </p>
           </motion.div>
@@ -312,7 +312,7 @@ export default function Press() {
             <div className="rounded-3xl border-2 border-dashed border-slate-300 bg-slate-50/60 p-10 text-center">
               <Newspaper size={36} className="mx-auto text-slate-400" />
               <p className="mt-4 text-slate-600 leading-relaxed">
-                RYDN is a young organization — press coverage will appear here as it lands. If
+                RYDN is a young organization. Press coverage will appear here as it lands. If
                 you're a journalist covering education, youth mentorship, immigration & newcomers,
                 Canadian nonprofits, or international students, we'd love to talk.
               </p>

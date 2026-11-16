@@ -13,13 +13,13 @@ import {
 } from "./data/blog"
 
 /**
- * /blog — index page. Featured article on top, filterable grid below.
+ * /blog, index page. Featured article on top, filterable grid below.
  *
  * Design notes
- * - The newest article is "featured" — large card with cover photo.
+ * - The newest article is "featured", large card with cover photo.
  * - Filters use the same chip pattern as the homepage advisor filters
  *   for visual consistency.
- * - Each card shows category, read time, and date — the three signals
+ * - Each card shows category, read time, and date, the three signals
  *   that drive click-throughs in editorial design.
  */
 export default function Blog() {
@@ -63,7 +63,7 @@ export default function Blog() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg sm:text-xl text-white/85 leading-relaxed">
               Honest guides on pre-med, applications, study strategy, and the international
-              student journey — written by advisors who walked it 2-3 years before you.
+              student journey, written by advisors who walked it 2-3 years before you.
             </p>
           </motion.div>
         </Container>
@@ -112,7 +112,7 @@ export default function Blog() {
 
               {!featured && (
                 <div className="text-center py-16 text-slate-500">
-                  No articles in that category yet — check back soon.
+                  No articles in that category yet. Check back soon.
                 </div>
               )}
             </motion.div>
@@ -171,7 +171,7 @@ function FeaturedArticleCard({ article }: { article: Article }) {
         className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-50 via-white to-indigo-50 border border-slate-200 shadow-sm group-hover:shadow-xl transition"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
-          {/* Cover area (left on desktop) — uses a brand gradient + giant
+          {/* Cover area (left on desktop), uses a brand gradient + giant
               article title as a graphical "cover" since we don't have
               cover images yet. */}
           <div className="md:col-span-5 relative bg-gradient-to-br from-sky-500 via-indigo-600 to-indigo-800 p-8 md:p-12 flex flex-col justify-between min-h-[260px]">

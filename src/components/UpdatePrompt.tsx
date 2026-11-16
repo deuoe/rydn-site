@@ -11,7 +11,7 @@
  *
  * Why this exists: PWAs aggressively cache assets for offline support, which
  * means without an explicit update path users can stay stuck on an old
- * deployment for *days* — they never close the tab/installed app long enough
+ * deployment for *days*, they never close the tab/installed app long enough
  * for the SW to activate the new version naturally.
  */
 import { useState } from "react"
@@ -40,7 +40,7 @@ export default function UpdatePrompt() {
     },
   })
 
-  // Nothing new, or user dismissed it — render nothing.
+  // Nothing new, or user dismissed it, render nothing.
   if (!needRefresh || hidden) return null
 
   return (

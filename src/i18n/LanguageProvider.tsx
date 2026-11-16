@@ -47,7 +47,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   // On very first visit (no language in URL yet), redirect once to the user's
   // preferred language if it isn't English. We only do this when the path is
-  // the bare root — otherwise an explicit URL the user typed wins.
+  // the bare root, otherwise an explicit URL the user typed wins.
   useEffect(() => {
     if (typeof window === "undefined") return
     const isRoot = location.pathname === "/" || location.pathname === ""

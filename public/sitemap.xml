@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <!-- =============================================================
-       GATEWAY — the two-tile brand picker at the bare root URL.
+       GATEWAY: the two-tile brand picker at the bare root URL.
        ============================================================= -->
   <url>
     <loc>https://www.rydn.ca/</loc>
@@ -12,7 +12,7 @@
   </url>
 
   <!-- =============================================================
-       ROOZ YOUTH — nonprofit, Canadian students
+       ROOZ YOUTH: nonprofit, Canadian students
        All Youth pages live under /youth/* in every language.
        ============================================================= -->
 
@@ -116,7 +116,7 @@
   <url><loc>https://www.rydn.ca/youth/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
 
   <!-- =============================================================
-       ROOZ MED — paid IMAT / Italian medicine admissions service
+       ROOZ MED: paid IMAT / Italian medicine admissions service
        ============================================================= -->
   <url>
     <loc>https://www.rydn.ca/med</loc>

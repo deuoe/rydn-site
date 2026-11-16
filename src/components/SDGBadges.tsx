@@ -2,7 +2,7 @@
  * Compact row of SDG badges for the footer. Each badge is a small colored
  * square with the SDG number. Links to the UN SDG page in a new tab.
  *
- * Designed to be subtle — communicates institutional credibility without
+ * Designed to be subtle, communicates institutional credibility without
  * dominating the footer.
  */
 const SDGS = [

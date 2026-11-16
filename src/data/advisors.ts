@@ -1,5 +1,5 @@
 /**
- * Advisor registry — single source of truth.
+ * Advisor registry, single source of truth.
  *
  * Both the homepage grid and the individual advisor detail pages
  * (/advisors/:slug) import from here, so adding a new advisor or
@@ -38,7 +38,7 @@ export type Category =
   | "gaming"
 
 export type Advisor = {
-  /** URL slug — used in /advisors/<slug>. Keep lowercase and hyphenated. */
+  /** URL slug, used in /advisors/<slug>. Keep lowercase and hyphenated. */
   slug: string
   /** Full display name */
   name: string
@@ -56,7 +56,7 @@ export type Advisor = {
   advisingTopics: string[]
   /** Appointlet/Outlook booking URL. Absent = "booking soon" */
   bookingLink?: string
-  /** Filter categories — controls which homepage filter chip shows them */
+  /** Filter categories, controls which homepage filter chip shows them */
   categories: Category[]
   /** Universities the advisor has attended (in chronological order) */
   universities?: UniversityKey[]
@@ -103,9 +103,9 @@ export const ADVISORS: Advisor[] = [
     categories: ["sciences", "pharmacy"],
     universities: ["guilan", "georgebrown", "yorku"],
     bio: [
-      "Sam co-founded RYDN after navigating the academic journey from Iran to Canada — first at the University of Guilan, then George Brown Polytechnic, and now Biomedical Sciences at York University. He's lived the international student path that most newcomer families are trying to figure out.",
-      "Day to day, Sam leads operations and the technology that powers RYDN's advising platform — including the AI matchmaker, multilingual support, and partnerships with Canadian schools. He's also the person quietly answering messages on weekends.",
-      "If you're a newcomer family, a high school student weighing pre-med vs. pharmacy, or anyone navigating university transfers, Sam has been there. Book a session — sessions are free and 1-on-1.",
+      "Sam co-founded RYDN after navigating the academic journey from Iran to Canada, first at the University of Guilan, then George Brown Polytechnic, and now Biomedical Sciences at York University. He's lived the international student path that most newcomer families are trying to figure out.",
+      "Day to day, Sam leads operations and the technology that powers RYDN's advising platform, including the AI matchmaker, multilingual support, and partnerships with Canadian schools. He's also the person quietly answering messages on weekends.",
+      "If you're a newcomer family, a high school student weighing pre-med vs. pharmacy, or anyone navigating university transfers, Sam has been there. Book a session. Sessions are free and 1-on-1.",
     ],
   },
   {
@@ -119,9 +119,9 @@ export const ADVISORS: Advisor[] = [
     categories: ["sciences"],
     universities: ["torontomu"],
     bio: [
-      "Sadaf is a Biomedical Science student at Toronto Metropolitan University (TMU) — but her path there started somewhere most students haven't been: the dental chair. Before returning to school, she worked as a licensed dental hygienist for two years, treating patients hands-on and living what a career in oral health actually looks like day to day.",
-      "At RYDN she serves as our Educational Programs Coordinator, helping design the workshops, study resources, and academic content that reach students across Canada. She brings the same organized, student-first energy to her 1-on-1 advising sessions — and she's genuinely one of the most driven people on the team.",
-      "If you're weighing pre-med against pre-dental, wondering whether a dental hygiene diploma is worth it before university, prepping for the DAT, or trying to figure out how clinical experience factors into a competitive application — Sadaf has actually done both sides of it. Book a free session and ask her anything.",
+      "Sadaf is a Biomedical Science student at Toronto Metropolitan University (TMU), but her path there started somewhere most students haven't been: the dental chair. Before returning to school, she worked as a licensed dental hygienist for two years, treating patients hands-on and living what a career in oral health actually looks like day to day.",
+      "At RYDN she serves as our Educational Programs Coordinator, helping design the workshops, study resources, and academic content that reach students across Canada. She brings the same organized, student-first energy to her 1-on-1 advising sessions, and she's genuinely one of the most driven people on the team.",
+      "If you're weighing pre-med against pre-dental, wondering whether a dental hygiene diploma is worth it before university, prepping for the DAT, or trying to figure out how clinical experience factors into a competitive application. Sadaf has actually done both sides of it. Book a free session and ask her anything.",
     ],
   },
   {

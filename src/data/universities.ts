@@ -1,5 +1,5 @@
 /**
- * University registry — central place to declare every university used on
+ * University registry, central place to declare every university used on
  * advisor cards. Adding a new university is a 3-step process:
  *
  *   1. Drop the logo (PNG or SVG, transparent background) into
@@ -38,13 +38,13 @@ export type UniversityKey =
   // | "ubc"
 
 export type University = {
-  /** Stable internal key — referenced by advisors */
+  /** Stable internal key, referenced by advisors */
   key: UniversityKey
   /** Imported PNG/SVG asset */
   logo: string
   /** Full official name shown on hover and in alt text */
   name: string
-  /** Short conversational name — e.g., "York", "U of T" */
+  /** Short conversational name, e.g., "York", "U of T" */
   short: string
   /** Whether the supplied logo is horizontal, vertical, or square */
   orientation?: "vertical" | "horizontal" | "square"

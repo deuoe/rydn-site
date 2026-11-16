@@ -13,7 +13,7 @@ import { useBrand } from "../brand/brand"
  * - Med is a paid service, so it gets neutral business copy and must never
  *   show nonprofit claims.
  * - Academy is commercial too (courses & training), so it gets business copy
- *   as well — no nonprofit claims, no SDG badges.
+ *   as well, no nonprofit claims, no SDG badges.
  * - France is a future nonprofit, so it gets nonprofit-style copy, but
  *   WITHOUT any registration claims: the French association is in formation
  *   and is not registered yet, so there is no corp number and no SDG badges.
@@ -36,10 +36,10 @@ export default function Footer() {
     isMed
       ? "RooZ Med helps students get into English-taught medicine, dentistry, and pharmacy programs in Italy, with IMAT preparation, 1-on-1 tutoring, and admissions consulting."
       : isAcademy
-        ? "RooZ Academy is RooZ's education and training division — practical courses and training programs, built from what we've learned advising students. Programs are in development."
+        ? "RooZ Academy is RooZ's education and training division, practical courses and training programs, built from what we've learned advising students. Programs are in development."
         : isFrance
-          ? "RooZ France est le foyer français de l'écosystème RooZ — une association de jeunesse en cours de création, qui apporte les programmes RooZ et les échanges européens en France."
-          : "A Canadian nonprofit connecting students with advisors who can guide them through academics, career paths, and life decisions — for free."
+          ? "RooZ France est le foyer français de l'écosystème RooZ, une association de jeunesse en cours de création, qui apporte les programmes RooZ et les échanges européens en France."
+          : "A Canadian nonprofit connecting students with advisors who can guide them through academics, career paths, and life decisions, for free."
 
   const listName =
     isMed ? "RooZ Med"
@@ -55,6 +55,10 @@ export default function Footer() {
         : isFrance
           ? "Recevez les actualités de l'association et des échanges de jeunesse. Pas de spam."
           : "Get updates on workshops and new advisors. No spam."
+
+  // Newsletter label + button: French on the France page, English elsewhere.
+  const newsletterLabel = isFrance ? "Restez informé(e)" : "Stay in the loop"
+  const newsletterButton = isFrance ? "S'abonner" : "Subscribe"
 
   return (
     <footer className="mt-24 bg-gradient-to-br from-slate-50 via-white to-sky-50/40 dark:from-slate-900 dark:via-slate-900 dark:to-slate-950 border-t border-slate-200 dark:border-slate-800">
@@ -81,7 +85,7 @@ export default function Footer() {
               }}
             >
               <label htmlFor="newsletter" className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                Stay in the loop
+                {newsletterLabel}
               </label>
               <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
                 {newsletterBlurb}
@@ -99,7 +103,7 @@ export default function Footer() {
                   type="submit"
                   className="inline-flex items-center justify-center rounded-full bg-slate-900 dark:bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-600 dark:hover:bg-sky-500"
                 >
-                  Subscribe
+                  {newsletterButton}
                 </button>
               </div>
             </form>
@@ -129,14 +133,14 @@ export default function Footer() {
             </>
           ) : isAcademy ? (
             <>
-              {/* Academy only has the coming-soon page so far — plain text,
+              {/* Academy only has the coming-soon page so far, plain text,
                   not links, so nothing here can 404. */}
               <div className="lg:col-span-2">
                 <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">RooZ Academy</h2>
                 <ul className="mt-4 space-y-3 text-slate-600 dark:text-slate-400">
                   <li><Link to="/" className="hover:text-amber-700 dark:hover:text-amber-400 transition">About RooZ Academy</Link></li>
                   <li>
-                    <a href="mailto:info@rydn.ca?subject=RooZ Academy — I'm interested" className="hover:text-amber-700 dark:hover:text-amber-400 transition">
+                    <a href="mailto:info@rydn.ca?subject=RooZ Academy: I'm interested" className="hover:text-amber-700 dark:hover:text-amber-400 transition">
                       Get in touch
                     </a>
                   </li>
@@ -154,15 +158,15 @@ export default function Footer() {
             </>
           ) : isFrance ? (
             <>
-              {/* France only has the coming-soon page so far — plain text,
+              {/* France only has the coming-soon page so far, plain text,
                   not links, so nothing here can 404. */}
               <div className="lg:col-span-2">
                 <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100">RooZ France</h2>
                 <ul className="mt-4 space-y-3 text-slate-600 dark:text-slate-400">
-                  <li><Link to="/" className="hover:text-blue-700 dark:hover:text-blue-400 transition">About RooZ France</Link></li>
+                  <li><Link to="/" className="hover:text-blue-700 dark:hover:text-blue-400 transition">À propos de RooZ France</Link></li>
                   <li>
-                    <a href="mailto:info@rydn.ca?subject=RooZ France — Je m'intéresse" className="hover:text-blue-700 dark:hover:text-blue-400 transition">
-                      Get in touch
+                    <a href="mailto:info@rydn.ca?subject=RooZ France: Je m'intéresse" className="hover:text-blue-700 dark:hover:text-blue-400 transition">
+                      Nous contacter
                     </a>
                   </li>
                 </ul>
@@ -272,14 +276,14 @@ export default function Footer() {
             <div className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
               <p>RooZ Academy · Courses &amp; Training</p>
               <p className="mt-0.5 text-xs">
-                Education &amp; training programs — in development · © {new Date().getFullYear()} RooZ Academy
+                Education &amp; training programs, in development · © {new Date().getFullYear()} RooZ Academy
               </p>
             </div>
           ) : isFrance ? (
             <div className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
               <p>RooZ France · Jeunesse &amp; Échanges européens</p>
               <p className="mt-0.5 text-xs">
-                Association française à but non lucratif en cours de création — pas encore enregistrée · © {new Date().getFullYear()} RooZ France
+                Association française à but non lucratif en cours de création, pas encore enregistrée · © {new Date().getFullYear()} RooZ France
               </p>
             </div>
           ) : (
@@ -292,7 +296,7 @@ export default function Footer() {
           )}
           <div className="text-sm text-slate-500 dark:text-slate-400 flex gap-4 flex-wrap items-center">
             {/* Legal pages are shared org-wide and only exist under /youth,
-                so we use absolute RouterLink paths — the brand-aware Link
+                so we use absolute RouterLink paths, the brand-aware Link
                 would try to rewrite them under /med/* on Med pages, 404ing. */}
             <RouterLink to="/youth/privacy-policy" className="hover:text-slate-900 dark:hover:text-slate-100 transition">Privacy</RouterLink>
             <span aria-hidden>·</span>
@@ -300,7 +304,7 @@ export default function Footer() {
             <span aria-hidden>·</span>
             <RouterLink to="/youth/contact-us" className="hover:text-slate-900 dark:hover:text-slate-100 transition">Contact</RouterLink>
             <span aria-hidden>·</span>
-            {/* Native RouterLink — bypasses the brand-aware Link so this
+            {/* Native RouterLink, bypasses the brand-aware Link so this
                 genuinely goes to the gateway (not back to Youth homepage). */}
             <RouterLink
               to="/"

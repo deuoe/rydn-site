@@ -57,7 +57,7 @@ function parseRecommendation(text: string): { clean: string; advisors: string[] 
 }
 
 /**
- * The chat modal. Mount ONCE in Layout — it listens for global open events
+ * The chat modal. Mount ONCE in Layout, it listens for global open events
  * dispatched via openAIChat(mode).
  */
 export default function AIMatchmaker() {

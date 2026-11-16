@@ -6,7 +6,7 @@ import SkeletonImage from "./components/SkeletonImage"
 import { getAdvisorBySlug } from "./data/advisors"
 
 /**
- * /pour-nouveaux-arrivants — French-language campaign page for newcomer
+ * /pour-nouveaux-arrivants, French-language campaign page for newcomer
  * and francophone families. Mirrors /for-newcomers in structure but
  * speaks directly to French-speaking audiences (Quebec, francophone
  * Ontario, French-speaking newcomer families).
@@ -48,7 +48,7 @@ export default function PourNouveauxArrivants() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg sm:text-xl text-white/85 leading-relaxed">
               RYDN met en relation les nouveaux arrivants et les étudiants internationaux avec des
-              conseillers universitaires qui ont parcouru le même chemin — 2 à 3 ans avant vous.
+              conseillers universitaires qui ont parcouru le même chemin, 2 à 3 ans avant vous.
               Gratuit, multilingue, et fondé par des personnes qui ont vécu ce parcours.
             </p>
 

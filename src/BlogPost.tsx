@@ -14,7 +14,7 @@ import {
 import NotFound from "./NotFound"
 
 /**
- * /blog/:slug — individual article page.
+ * /blog/:slug, individual article page.
  *
  * Renders a typed block array (paragraphs, headings, lists, callouts,
  * quotes, CTAs) into clean editorial typography. Bottom of the page
@@ -36,7 +36,7 @@ export default function BlogPost() {
   const handleShare = async () => {
     if (typeof navigator === "undefined") return
     const url = window.location.href
-    const text = `${article.title} — ${article.excerpt}`
+    const text = `${article.title}: ${article.excerpt}`
     if (navigator.share) {
       try {
         await navigator.share({ title: article.title, text, url })
@@ -272,7 +272,7 @@ function Block({ block }: { block: ArticleBlock }) {
           "{block.text}"
           {block.cite && (
             <footer className="not-italic text-sm text-slate-500 mt-2">
-              — {block.cite}
+              - {block.cite}
             </footer>
           )}
         </blockquote>
