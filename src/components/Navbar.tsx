@@ -38,6 +38,13 @@ export default function Navbar() {
     brand === "academy"
       ? "bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900"
       : "bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white"
+  // France is French-first: the minimal nav speaks French on the France
+  // brand, whatever the URL language prefix. Academy keeps its English nav.
+  const isFrance = brand === "france"
+  const newBrandHome = isFrance ? "Accueil" : "Home"
+  const newBrandSwitch = isFrance ? "Changer de marque" : "Switch brand"
+  const newBrandContact = isFrance ? "Nous contacter" : "Get in touch"
+  const newBrandContactShort = isFrance ? "Contacter" : "Contact"
   const [nav, setNav] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const toggle = () => setNav(!nav)
@@ -74,7 +81,7 @@ export default function Navbar() {
         { name: "Services", path: "/#services" },
       ]
     : isNewBrand
-      ? [{ name: "Home", path: "/" }]
+      ? [{ name: newBrandHome, path: "/" }]
       : [
           { name: t("nav.home"), path: "/" },
           { name: t("nav.about"), path: "/about-us" },
@@ -207,7 +214,7 @@ export default function Navbar() {
                   }
                 >
                   <ArrowLeftRight size={14} />
-                  Switch brand
+                  {newBrandSwitch}
                 </RouterLink>
               </li>
               {/* Primary CTA, interest mailto in the brand's colour */}
@@ -220,7 +227,7 @@ export default function Navbar() {
                   }
                 >
                   <Mail size={16} />
-                  Get in touch
+                  {newBrandContact}
                 </a>
               </li>
             </>
@@ -280,7 +287,7 @@ export default function Navbar() {
               }
             >
               <Mail size={14} />
-              Contact
+              {newBrandContactShort}
             </a>
           ) : (
             <Link
@@ -381,7 +388,7 @@ export default function Navbar() {
                         }
                       >
                         <Mail size={18} />
-                        Get in touch
+                        {newBrandContact}
                       </a>
                     </li>
                     <li>
@@ -391,7 +398,7 @@ export default function Navbar() {
                         className="flex items-center justify-center gap-2 w-full text-center rounded-lg bg-slate-100 px-4 py-3 text-base font-semibold text-slate-800 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition"
                       >
                         <ArrowLeftRight size={16} />
-                        Switch brand
+                        {newBrandSwitch}
                       </RouterLink>
                     </li>
                   </>
