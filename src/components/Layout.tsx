@@ -11,7 +11,7 @@ import { useBrand } from "../brand/brand"
  * Shared layout chrome around every brand page. Navbar + Footer always render
  * so navigation stays consistent across Youth and Med. Youth-specific floaters
  * (the "Book an Advisor" button, the AI matchmaker trigger, the iOS install
- * nag) only appear on Youth routes — they don't make sense on Med, which has
+ * nag) only appear on Youth routes, they don't make sense on Med, which has
  * its own CTAs tailored to IMAT prep and admissions.
  *
  * AIMatchmaker (the modal container itself) stays mounted globally so if a
@@ -28,7 +28,7 @@ export default function Layout() {
       {isYouth && <FloatingBookNow />}
       {isYouth && <FloatingChat />}
       {isYouth && <IOSInstallBanner />}
-      {/* Singleton AI chat modal — opened via openAIChat() event from anywhere.
+      {/* Singleton AI chat modal, opened via openAIChat() event from anywhere.
           Kept mounted on all brand pages so the modal container always exists. */}
       <AIMatchmaker />
     </>

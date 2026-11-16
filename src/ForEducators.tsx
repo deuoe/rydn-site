@@ -6,13 +6,13 @@ import Container from "./components/Container"
 import { Link } from "./i18n/Link"
 
 /**
- * /for-educators — B2B landing page targeted at:
+ * /for-educators, B2B landing page targeted at:
  *   - School counselors
  *   - District / board partnership coordinators
  *   - Community-organization education leads
  *   - Teachers looking for free resources for their students
  *
- * Different tone from /for-newcomers — professional, partnership-focused,
+ * Different tone from /for-newcomers, professional, partnership-focused,
  * outcomes-oriented. CTA is "schedule a partnership call" instead of
  * "book an advising session."
  */
@@ -40,13 +40,13 @@ export default function ForEducators() {
               For schools, boards, and community partners
             </span>
             <h1 className="font-display mt-6 text-5xl sm:text-6xl md:text-7xl font-semibold text-white leading-[1.05]">
-              Extend your guidance team —
+              Extend your guidance team,
               <br />
               <span className="text-amber-300">at no cost to your school.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg sm:text-xl text-white/85 leading-relaxed">
               RYDN is a registered Canadian nonprofit that gives your students free 1-on-1
-              university and career advising from current students — in 5 languages. No setup
+              university and career advising from current students, in 5 languages. No setup
               cost. No subscription. Already partnered with TDSB &amp; YRDSB.
             </p>
 
@@ -134,7 +134,7 @@ export default function ForEducators() {
                 {
                   Icon: Handshake,
                   title: "Custom partnership programs",
-                  body: "If your school has a specific need — newcomer support, first-gen students, equity-deserving cohorts — we'll design a program with you. No template required.",
+                  body: "If your school has a specific need, newcomer support, first-gen students, equity-deserving cohorts, we'll design a program with you. No template required.",
                   color: "from-emerald-400 to-teal-500",
                 },
               ].map((item, i) => (
@@ -192,7 +192,7 @@ export default function ForEducators() {
                 {
                   Icon: Handshake,
                   title: "Zero cost to schools",
-                  body: "We're not a vendor. We're a partner. No subscription, no per-student fee, no contract minimums. Your students get free advising — we get to serve the kids we exist to serve.",
+                  body: "We're not a vendor. We're a partner. No subscription, no per-student fee, no contract minimums. Your students get free advising. We get to serve the kids we exist to serve.",
                 },
               ].map((item, i) => (
                 <motion.div
@@ -229,10 +229,10 @@ export default function ForEducators() {
               <Quote className="absolute top-6 left-6 text-sky-200" size={32} />
               <p className="font-display text-xl md:text-2xl text-slate-800 leading-snug">
                 "Free, multilingual, and student-led. RYDN fills a gap that schools simply can't
-                staff for — and they do it without asking the school to lift a finger."
+                staff for, and they do it without asking the school to lift a finger."
               </p>
               <footer className="mt-5 text-sm text-slate-500">
-                — Internal note for grant evaluators. Public testimonials available on request.
+                Internal note for grant evaluators. Public testimonials available on request.
               </footer>
             </motion.blockquote>
           </div>

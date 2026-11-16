@@ -8,7 +8,7 @@ import saraUrl from "./assets/images/Sara.jpg"
 import sinaUrl from "./assets/images/Sina.jpeg"
 
 /**
- * /governance — the home of RYDN's transparency and accountability documentation.
+ * /governance, the home of RYDN's transparency and accountability documentation.
  * Funders, school partners, and prospective advisors all check this page.
  *
  * Sections:
@@ -33,7 +33,7 @@ const BOARD: BoardMember[] = [
     name: "Sara Roozbahani",
     role: "Founder & Executive Director",
     bio:
-      "Sara co-founded RYDN with the conviction that every student deserves trusted, free advising — regardless of background, income, or first language. As Executive Director she sets the strategic direction, oversees programs, and represents RYDN to funders, school boards, and the wider education community across Canada.",
+      "Sara co-founded RYDN with the conviction that every student deserves trusted, free advising, regardless of background, income, or first language. As Executive Director she sets the strategic direction, oversees programs, and represents RYDN to funders, school boards, and the wider education community across Canada.",
     photo: saraUrl,
     initials: "SR",
     accent: "from-rose-400 to-pink-500",
@@ -83,7 +83,7 @@ const DOCUMENTS: DocItem[] = [
     badge: "Annual disclosure required",
   },
   {
-    title: "Board Meeting Minutes — Template",
+    title: "Board Meeting Minutes: Template",
     description:
       "Reusable template that the Secretary duplicates for every board meeting. Captures attendance, motions, action items, and conflict-of-interest declarations.",
     filename: "RYDN_Board_Meeting_Minutes_Template.docx",
@@ -308,7 +308,7 @@ export default function Governance() {
               Questions about governance?
             </h2>
             <p className="mt-4 max-w-2xl mx-auto text-white/85 leading-relaxed relative">
-              Funders, school partners, journalists, or anyone wanting to dig deeper — we're glad
+              Funders, school partners, journalists, or anyone wanting to dig deeper, we're glad
               to share more. Reach out and we'll get back within two business days.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 relative">

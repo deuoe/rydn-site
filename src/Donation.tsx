@@ -47,7 +47,7 @@ export default function Donation() {
     supportPath(
       GraduationCap,
       "Refer a Student",
-      "Know a high-school or university student who could use guidance? Send them our way — every session is free.",
+      "Know a high-school or university student who could use guidance? Send them our way. Every session is free.",
       "Send them to RYDN",
       "/"
     ),
@@ -82,7 +82,7 @@ export default function Donation() {
         <p className="mt-6 text-slate-700 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
           RYDN keeps advising <strong>free</strong> for every student we serve. We can do that
           because of people like you. Whether you give your time, your network, or a one-time
-          donation — every contribution helps a student find direction.
+          donation. Every contribution helps a student find direction.
         </p>
       </motion.section>
 

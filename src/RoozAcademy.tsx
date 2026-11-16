@@ -5,7 +5,7 @@ import Heading from "./components/Heading"
 import Paragraph from "./components/Paragraph"
 
 /**
- * RooZ Academy — coming soon.
+ * RooZ Academy, coming soon.
  *
  * Academy is RooZ's education and training division: practical courses and
  * training programs built from what the team has learned advising students.
@@ -27,7 +27,7 @@ export default function RoozAcademy() {
 
       <div className="mt-8 space-y-6 text-center">
         <Paragraph>
-          RooZ Academy is the education and training arm of RooZ — practical
+          RooZ Academy is the education and training arm of RooZ, practical
           courses and training programs, built from what we've learned
           advising students one-on-one and running workshops in Canada.
         </Paragraph>
@@ -37,7 +37,7 @@ export default function RoozAcademy() {
         </Paragraph>
       </div>
 
-      {/* Status — plain language, no invented dates or prices */}
+      {/* Status, plain language, no invented dates or prices */}
       <div className="mx-auto mt-10 max-w-2xl rounded-3xl border border-amber-200 bg-amber-50 p-6 text-left dark:border-amber-900/60 dark:bg-amber-950/30 sm:p-8">
         <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">Where things stand</h3>
         <ul className="mt-4 space-y-2.5 text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -59,7 +59,7 @@ export default function RoozAcademy() {
       {/* Interest capture + back to gateway */}
       <div className="mt-10 flex flex-col items-center gap-4">
         <a
-          href="mailto:info@rydn.ca?subject=RooZ Academy — I'm interested&body=Hi RooZ team,%0D%0A%0D%0AI'd like to hear when RooZ Academy programs open. Here's what I'd like to learn:%0D%0A%0D%0A"
+          href="mailto:info@rydn.ca?subject=RooZ Academy: I'm interested&body=Hi RooZ team,%0D%0A%0D%0AI'd like to hear when RooZ Academy programs open. Here's what I'd like to learn:%0D%0A%0D%0A"
           className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 px-8 py-4 text-base font-bold text-slate-900 shadow-lg transition hover:shadow-xl"
         >
           <Mail size={18} />

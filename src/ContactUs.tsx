@@ -12,7 +12,7 @@ const SOCIALS = [
 
 const CONTACT_REASONS = [
   { Icon: MessageSquare, title: "General questions", body: "Anything about our programs, advisors, or how we work.", mailto: "mailto:info@rydn.ca?subject=Question for RYDN" },
-  { Icon: Send, title: "Partnerships", body: "Schools, libraries, organizations — let's talk.", mailto: "mailto:info@rydn.ca?subject=Partnership inquiry" },
+  { Icon: Send, title: "Partnerships", body: "Schools, libraries, organizations. Let's talk.", mailto: "mailto:info@rydn.ca?subject=Partnership inquiry" },
   { Icon: Sparkles, title: "Press & media", body: "Interview requests, press kits, speaking invitations.", mailto: "mailto:info@rydn.ca?subject=Press inquiry" },
 ]
 

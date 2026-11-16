@@ -10,17 +10,17 @@ import Heading from "./Heading"
  *
  * The placeholder tiles below link to the @rydn.ca Instagram profile. To go live:
  *
- *   OPTION A — Quick (5 minutes, recommended):
+ *   OPTION A: Quick (5 minutes, recommended):
  *     1. Sign up free at https://lightwidget.com
  *     2. Connect your @rydn.ca Instagram account
  *     3. Copy the iframe embed code they give you
  *     4. Replace the <PlaceholderGrid /> below with their <iframe>
  *
- *   OPTION B — Manual screenshots:
+ *   OPTION B: Manual screenshots:
  *     Replace each `caption` and `gradient` in TILES with a real
  *     {imageUrl, alt, postUrl} object and render <img> instead of the gradient.
  *
- *   OPTION C — Leave as-is:
+ *   OPTION C: Leave as-is:
  *     Tiles look intentional and link to your IG. Refresh whenever.
  */
 
@@ -62,7 +62,7 @@ export default function InstagramFeed() {
           </a>
         </div>
 
-        {/* Placeholder grid — see the comment block at the top of this file
+        {/* Placeholder grid, see the comment block at the top of this file
             for instructions to replace these with real Instagram embeds. */}
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {TILES.map((tile, i) => (

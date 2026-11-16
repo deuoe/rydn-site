@@ -99,7 +99,7 @@ export default function BecomeAdvisor() {
   const benefits = [
     { Icon: Clock, title: "Flexible commitment", body: "Most advisors give just an hour or two a month. You set the pace." },
     { Icon: Heart, title: "Real impact", body: "Help students who'd otherwise have nowhere to turn for guidance." },
-    { Icon: BookOpen, title: "Pick your topics", body: "Advise on what you know — your major, your exam, your career." },
+    { Icon: BookOpen, title: "Pick your topics", body: "Advise on what you know: your major, your exam, your career." },
     { Icon: Users, title: "Join a community", body: "Connect with 25+ student advisors across Canada." },
   ]
 

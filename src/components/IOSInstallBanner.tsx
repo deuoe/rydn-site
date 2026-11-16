@@ -8,7 +8,7 @@ const DISMISS_DAYS = 14 // re-show after 2 weeks if dismissed
 
 /**
  * Detect if the current device is iPhone/iPad/iPod running Safari.
- * Note: Chrome and Firefox on iOS still use WebKit, so we treat them the same —
+ * Note: Chrome and Firefox on iOS still use WebKit, so we treat them the same.
  * Add to Home Screen works on all iOS browsers.
  */
 function isIOS(): boolean {

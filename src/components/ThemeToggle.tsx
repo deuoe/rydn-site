@@ -8,7 +8,7 @@ type Props = {
 }
 
 /**
- * Sun / Moon button — toggles dark mode.
+ * Sun / Moon button, toggles dark mode.
  *
  * Lives in the navbar next to the language switcher. Also fires a native
  * iOS "selection" haptic so it feels native in the iOS app shell.

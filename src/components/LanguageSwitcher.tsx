@@ -33,7 +33,7 @@ export default function LanguageSwitcher({ transparent = false, variant = "dropd
     }
   }, [variant])
 
-  // List variant: used in the mobile menu — flat list of language buttons.
+  // List variant: used in the mobile menu, flat list of language buttons.
   if (variant === "list") {
     return (
       <div className="px-1 pt-3">

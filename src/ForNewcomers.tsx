@@ -6,7 +6,7 @@ import SkeletonImage from "./components/SkeletonImage"
 import { getAdvisorBySlug } from "./data/advisors"
 
 /**
- * /for-newcomers — English-language campaign landing page targeted at
+ * /for-newcomers, English-language campaign landing page targeted at
  * newcomer / immigrant / international student families.
  *
  * Single-purpose page. One audience. One goal: book a free advising
@@ -50,7 +50,7 @@ export default function ForNewcomers() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg sm:text-xl text-white/85 leading-relaxed">
               RYDN connects newcomer and international students with university advisors who walked
-              the same path — 2-3 years before you. Free, multilingual, and built by founders who
+              the same path, 2-3 years before you. Free, multilingual, and built by founders who
               navigated the journey themselves.
             </p>
 

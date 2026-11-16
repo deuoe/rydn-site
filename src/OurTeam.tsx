@@ -26,7 +26,7 @@ type TeamMember = {
   color: string
 }
 
-/** Professional oversight committee — adults with formal credentials who
+/** Professional oversight committee, adults with formal credentials who
  *  oversee RYDN's youth-facing work. Their presence signals safeguarding,
  *  credibility for funders, and clinical/professional input. Different
  *  visual treatment from founders to communicate "external oversight"
@@ -171,7 +171,7 @@ export default function OurTeam() {
             text="Adult guidance behind our youth-facing work"
           />
           <p className="mt-6 max-w-3xl mx-auto text-center text-slate-600 leading-relaxed">
-            RYDN serves students — many of them minors. Our Professional Oversight & Wellness
+            RYDN serves students, many of them minors. Our Professional Oversight & Wellness
             Committee is a group of credentialed professionals who review our programs, advise on
             student wellbeing, and help us hold ourselves to the highest standard of care.
           </p>
@@ -187,7 +187,7 @@ export default function OurTeam() {
                 className="card-ring relative overflow-hidden rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition p-8"
               >
                 <div className="flex flex-col sm:flex-row gap-6 items-start">
-                  {/* Avatar with shield badge — real photo if available, otherwise gradient initials */}
+                  {/* Avatar with shield badge, real photo if available, otherwise gradient initials */}
                   <div className="relative shrink-0">
                     <div className={`absolute -inset-1 rounded-full bg-gradient-to-br ${m.accent} blur-sm opacity-50`} />
                     {m.photo ? (
@@ -295,7 +295,7 @@ export default function OurTeam() {
                   Plus 25+ advisors and a growing community of volunteers.
                 </h2>
                 <p className="mt-4 text-white/85 leading-relaxed max-w-2xl">
-                  RYDN runs on people who care. If you're a student, a recent grad, or a professional with experience to share — there's a place for you here.
+                  RYDN runs on people who care. If you're a student, a recent grad, or a professional with experience to share, there's a place for you here.
                 </p>
               </div>
               <div className="md:col-span-4 flex flex-col gap-3 md:items-end">

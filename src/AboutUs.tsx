@@ -136,7 +136,7 @@ export default function AboutUs() {
               "{t("origin.quote")}"
             </p>
             <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-amber-200 relative">
-              — {t("origin.quoteAttribution")}
+              - {t("origin.quoteAttribution")}
             </p>
           </motion.blockquote>
         </Container>

@@ -15,10 +15,10 @@
   --rydn-radius: 1.25rem;
 }
 
-/* Dark-mode variables — flipped tonal palette */
+/* Dark-mode variables, flipped tonal palette */
 .dark {
-  --rydn-ink: #f1f5f9;          /* slate-100 — primary text */
-  --rydn-muted: #94a3b8;        /* slate-400 — muted text */
+  --rydn-ink: #f1f5f9;          /* slate-100, primary text */
+  --rydn-muted: #94a3b8;        /* slate-400, muted text */
   --rydn-bg: #0b1220;           /* a few notches darker than slate-900 */
 }
 
@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5 {
 }
 .link-underline:hover { background-size: 100% 2px; }
 
-/* Marquee — left-to-right scroll. Track must contain duplicated content so the
+/* Marquee, left-to-right scroll. Track must contain duplicated content so the
    loop seams together when it resets. */
 @keyframes marquee {
   from { transform: translateX(0); }

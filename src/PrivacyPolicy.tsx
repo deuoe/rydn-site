@@ -72,16 +72,16 @@ export default function PrivacyPolicy() {
         providers strictly to operate the Service:
       </Paragraph>
       <Paragraph>
-        <strong>Appointlet</strong> (advisor booking) — receives the name and
+        <strong>Appointlet</strong> (advisor booking), receives the name and
         email you submit when booking a session.
         <br />
         <strong>Cloudflare</strong> (hosting, AI worker for the matchmaker
-        chatbot) — processes anonymized chat input.
+        chatbot), processes anonymized chat input.
         <br />
-        <strong>GitHub Pages</strong> (website hosting) — receives standard
+        <strong>GitHub Pages</strong> (website hosting), receives standard
         server access logs.
         <br />
-        <strong>Email providers</strong> — used solely to reply to your
+        <strong>Email providers</strong>, used solely to reply to your
         inquiries.
       </Paragraph>
       <Paragraph>

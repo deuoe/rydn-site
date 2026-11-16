@@ -135,7 +135,7 @@ function Testimonials() {
 }
 
 /* ----------------------------------- */
-/* Programs — bento grid               */
+/* Programs, bento grid               */
 /* ----------------------------------- */
 function ProgramsBento() {
   const { t } = useTranslation()
@@ -148,7 +148,7 @@ function ProgramsBento() {
         </p>
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-4 md:auto-rows-[14rem] gap-4">
-          {/* Card 1 — large feature: Advising */}
+          {/* Card 1, large feature: Advising */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -173,7 +173,7 @@ function ProgramsBento() {
             </div>
           </motion.div>
 
-          {/* Card 2 — Workshops */}
+          {/* Card 2, Workshops */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -188,7 +188,7 @@ function ProgramsBento() {
             <p className="mt-2 text-slate-600 leading-relaxed">{t("programs.p2Body")}</p>
           </motion.div>
 
-          {/* Card 3 — Exam Prep */}
+          {/* Card 3, Exam Prep */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ function ProgramsBento() {
             <p className="mt-2 text-slate-600 leading-relaxed text-sm">{t("programs.p3Body")}</p>
           </motion.div>
 
-          {/* Card 4 — University apps */}
+          {/* Card 4, University apps */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -218,7 +218,7 @@ function ProgramsBento() {
             <p className="mt-2 text-slate-600 leading-relaxed text-sm">{t("programs.p4Body")}</p>
           </motion.div>
 
-          {/* Card 5 — Partnerships, full width */}
+          {/* Card 5, Partnerships, full width */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -250,7 +250,7 @@ function ProgramsBento() {
 }
 
 /* ----------------------------------- */
-/* Partners — logo marquee             */
+/* Partners, logo marquee             */
 /* ----------------------------------- */
 // TODO: Replace these text placeholders with real partner logos (PNG/SVG) once you have them.
 const PARTNER_NAMES = [
@@ -411,7 +411,7 @@ function HomePage() {
     }
   }, [])
 
-  // Advisors come from the central registry — see src/data/advisors.ts.
+  // Advisors come from the central registry, see src/data/advisors.ts.
   // The detail page at /advisors/:slug imports from the same registry, so
   // any edits flow through everywhere.
   const advisors = ADVISORS
@@ -489,7 +489,7 @@ function HomePage() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              {/* Primary: Book Now — eye-catching amber gradient with glow pulse */}
+              {/* Primary: Book Now, eye-catching amber gradient with glow pulse */}
               <button
                 onClick={() => advisorsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 px-9 py-4 text-base font-bold shadow-xl hover:shadow-2xl transition focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-900 animate-glow-pulse"
@@ -545,7 +545,7 @@ function HomePage() {
       </Container>
 
       {/* ============================================== */}
-      {/* PROGRAMS — bento grid                           */}
+      {/* PROGRAMS, bento grid                           */}
       {/* ============================================== */}
       <ProgramsBento />
 
@@ -587,7 +587,7 @@ function HomePage() {
       </section>
 
       {/* ============================================== */}
-      {/* WHY ROOZ — STATS                                */}
+      {/* WHY ROOZ, STATS                                */}
       {/* ============================================== */}
       <section className="py-20 bg-slate-900 text-white">
         <Container>
@@ -595,7 +595,7 @@ function HomePage() {
             <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">Why RYDN</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold">A growing community</h2>
             <p className="mt-4 text-slate-300 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
-              Built by students, for students — relatable advisors who've recently walked the paths you're considering.
+              Built by students, for students, relatable advisors who've recently walked the paths you're considering.
             </p>
           </div>
 
@@ -651,7 +651,7 @@ function HomePage() {
             </p>
           </motion.div>
 
-          {/* AI Matchmaker CTA — sits between heading and filter pills */}
+          {/* AI Matchmaker CTA, sits between heading and filter pills */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -757,7 +757,7 @@ function HomePage() {
                   ))}
                 </div>
 
-                {/* "Education" trust badge — shown just above the booking button.
+                {/* "Education" trust badge, shown just above the booking button.
                     Uses "Education" instead of "Studies at" so it works whether
                     the advisor is currently enrolled, a graduate, or a mix.
                     Auto-scales the logo size based on how many universities the
@@ -914,7 +914,7 @@ function HomePage() {
               Become part of the next generation of advisors
             </h2>
             <p className="mt-5 max-w-xl mx-auto text-white/85 text-base md:text-lg leading-relaxed">
-              Whether you're a student looking for guidance, an advisor ready to give back, or an organization that wants to partner — there's a place for you here.
+              Whether you're a student looking for guidance, an advisor ready to give back, or an organization that wants to partner, there's a place for you here.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
               <Link

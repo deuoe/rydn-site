@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from "motion/react"
 /**
  * Wraps the routed content in a fade + subtle vertical lift transition.
  * Old page fades out and shifts down ~6px; new page fades in from ~6px above.
- * Total transition is ~250ms, same on every device — modern & non-disorienting.
+ * Total transition is ~250ms, same on every device, modern & non-disorienting.
  *
- * Wrap the same way as Outlet — this component IS the Outlet host.
+ * Wrap the same way as Outlet, this component IS the Outlet host.
  */
 export default function PageTransition() {
   const location = useLocation()
