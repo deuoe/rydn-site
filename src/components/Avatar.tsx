@@ -49,7 +49,7 @@ export default function Avatar({ src, name, className = "" }: Props) {
       src={src}
       alt={name}
       shape="rounded-full"
-      className={className}
+      className={`photo-tint ${className}`}
       onError={() => setFailed(true)}
     />
   )

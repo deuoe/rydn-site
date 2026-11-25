@@ -4,8 +4,8 @@ import Container from "./components/Container"
 import Heading from "./components/Heading"
 import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
-import saraUrl from "./assets/images/Sara.webp"
-import sinaUrl from "./assets/images/Sina.webp"
+import saraUrl from "./assets/images/Sara.jpg"
+import sinaUrl from "./assets/images/Sina.jpeg"
 
 /**
  * /governance, the home of RYDN's transparency and accountability documentation.
@@ -149,7 +149,7 @@ export default function Governance() {
                       src={member.photo}
                       alt={member.name}
                       shape="rounded-full"
-                      className="h-32 w-32 ring-4 ring-slate-100 shadow-md"
+                      className="photo-tint h-32 w-32 ring-4 ring-slate-100 shadow-md"
                     />
                   ) : (
                     <div

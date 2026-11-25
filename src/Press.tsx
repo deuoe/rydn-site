@@ -5,8 +5,8 @@ import Container from "./components/Container"
 import Heading from "./components/Heading"
 import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
-import saraUrl from "./assets/images/Sara.webp"
-import sinaUrl from "./assets/images/Sina.webp"
+import saraUrl from "./assets/images/Sara.jpg"
+import sinaUrl from "./assets/images/Sina.jpeg"
 import logoUrl from "./assets/images/logo.jpeg"
 
 /**
@@ -213,7 +213,7 @@ export default function Press() {
                   src={founder.photo}
                   alt={founder.name}
                   shape="rounded-full"
-                  className="h-32 w-32 ring-4 ring-slate-100 shadow-md"
+                  className="photo-tint h-32 w-32 ring-4 ring-slate-100 shadow-md"
                 />
                 <h3 className="mt-5 font-display text-xl font-bold text-slate-900">
                   {founder.name}
