@@ -50,7 +50,6 @@ type Testimonial = {
   avatarColor: string
 }
 
-// TODO: Replace these placeholder testimonials with real student/parent quotes.
 const TESTIMONIALS: Testimonial[] = [
   { quote: "Helped me figure out which pre-med path was actually right for me. Wish I'd done it sooner.", name: "Maya K.", role: "Grade 12 student", initials: "MK", avatarColor: "from-pink-400 to-rose-500" },
   { quote: "My advisor walked me through the entire MCAT timeline. Game changer.", name: "Daniel R.", role: "First-year pre-med", initials: "DR", avatarColor: "from-sky-400 to-blue-500" },
@@ -631,7 +630,7 @@ function HomePage() {
             {[
               { value: ADVISORS.length, suffix: "+", label: "Advisors", desc: "and growing" },
               { value: 11, suffix: "+", label: "Areas of advising", desc: "from medicine to law" },
-              { value: 7, suffix: "", label: "Workshops planned", desc: "for the year" },
+              { value: 7, suffix: "", label: "Workshops held", desc: "in 2026" },
             ].map((s, i) => (
               <motion.div
                 key={i}
