@@ -83,7 +83,7 @@ function ReviewCard({ t }: { t: Testimonial }) {
           {t.initials}
         </div>
         <div>
-          <p className="font-script text-xl leading-none text-rydn-navy">{t.name}</p>
+          <p className="font-display italic text-xl leading-none text-rydn-navy">{t.name}</p>
           <p className="text-slate-500 text-xs mt-1">{t.role}</p>
         </div>
       </div>
@@ -189,7 +189,7 @@ function ProgramsBento() {
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-600">
               <BookOpen size={24} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">{t("programs.p2Title")}</h3>
+            <h3 className="text-xl font-bold text-slate-900">{t("programs.p2Title")}</h3>
             <p className="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">{t("programs.p2Body")}</p>
           </motion.div>
 
@@ -204,7 +204,7 @@ function ProgramsBento() {
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
               <Target size={24} />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{t("programs.p3Title")}</h3>
+            <h3 className="text-lg font-bold text-slate-900">{t("programs.p3Title")}</h3>
             <p className="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{t("programs.p3Body")}</p>
           </motion.div>
 
@@ -219,7 +219,7 @@ function ProgramsBento() {
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-50 text-violet-600">
               <FileText size={24} />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{t("programs.p4Title")}</h3>
+            <h3 className="text-lg font-bold text-slate-900">{t("programs.p4Title")}</h3>
             <p className="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{t("programs.p4Body")}</p>
           </motion.div>
 
@@ -367,7 +367,7 @@ function FAQ() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
             <p className="flex items-center gap-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold">
-              <span className="font-display text-base font-bold text-rydn-gold">06</span>
+              <span className="font-display text-base font-bold text-rydn-gold-dark dark:text-rydn-gold">06</span>
               <span className="h-px w-6 bg-rydn-gold/60" aria-hidden />
               {t("faq.eyebrow")}
             </p>
@@ -472,14 +472,14 @@ function HomePage() {
       {/* ============================================== */}
       {/* HERO                                            */}
       {/* ============================================== */}
-      <section className="relative isolate -mt-20 pt-20 min-h-[90vh] flex items-center overflow-hidden">
+      <section className="relative isolate -mt-20 pt-32 min-h-[90vh] flex items-center overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 -z-20 bg-center bg-no-repeat bg-cover"
           style={{ backgroundImage: `url(${homeHero})` }}
         />
         {/* Gradient + grain overlay */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-rydn-navy-deep/85 via-rydn-navy/70 to-rydn-navy/60" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-rydn-navy-deep via-rydn-navy-deep/95 to-rydn-navy/50" />
         <div className="grain -z-10" />
 
         {/* Floating accent blobs, static now (see motion calming) */}
@@ -883,7 +883,7 @@ function HomePage() {
                   </span>
                   <div>
                     <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-rydn-gold/20 ring-1 ring-rydn-gold/60 backdrop-blur font-display font-semibold text-sm mb-2">{s.initials}</div>
-                    <p className="font-script text-2xl leading-none">{s.student}</p>
+                    <p className="font-display italic text-2xl leading-none">{s.student}</p>
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">

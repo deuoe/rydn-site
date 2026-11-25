@@ -119,7 +119,7 @@ function StoryCard({ s, idx }: { s: Story; idx: number }) {
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-rydn-gold/20 ring-1 ring-rydn-gold/60 backdrop-blur font-display font-semibold mb-3">
               {s.initials}
             </div>
-            <h3 className="font-script text-3xl leading-none">{s.studentName}</h3>
+            <h3 className="font-display italic text-3xl leading-none">{s.studentName}</h3>
             <p className="mt-2 text-sm text-white/85">{s.role}</p>
           </div>
         </div>

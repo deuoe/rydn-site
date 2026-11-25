@@ -114,7 +114,7 @@ export default function Footer() {
               {/* Med only has the landing page so far, so link its sections.
                   The brand-aware Link resolves "/#x" to /med#x (or /<lang>/med#x). */}
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">RooZ Med</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">RooZ Med</h2>
                 <ul className="mt-4 space-y-3 text-slate-300">
                   <li><Link to="/#plan-builder" className="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Build your plan</Link></li>
                   <li><Link to="/#services" className="hover:text-emerald-700 dark:hover:text-emerald-400 transition">Services</Link></li>
@@ -123,7 +123,7 @@ export default function Footer() {
               </div>
 
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">Programs</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">Programs</h2>
                 <ul className="mt-4 space-y-3 text-slate-300">
                   <li>Medicine</li>
                   <li>Dentistry</li>
@@ -136,7 +136,7 @@ export default function Footer() {
               {/* Academy only has the coming-soon page so far, plain text,
                   not links, so nothing here can 404. */}
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">RooZ Academy</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">RooZ Academy</h2>
                 <ul className="mt-4 space-y-3 text-slate-300">
                   <li><Link to="/" className="hover:text-amber-700 dark:hover:text-amber-400 transition">About RooZ Academy</Link></li>
                   <li>
@@ -148,7 +148,7 @@ export default function Footer() {
               </div>
 
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">Coming soon</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">Coming soon</h2>
                 <ul className="mt-4 space-y-3 text-slate-300">
                   <li>Courses</li>
                   <li>Training programs</li>
@@ -161,7 +161,7 @@ export default function Footer() {
               {/* France only has the coming-soon page so far, plain text,
                   not links, so nothing here can 404. */}
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">RooZ France</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">RooZ France</h2>
                 <ul className="mt-4 space-y-3 text-slate-300">
                   <li><Link to="/" className="hover:text-blue-700 dark:hover:text-blue-400 transition">À propos de RooZ France</Link></li>
                   <li>
@@ -173,7 +173,7 @@ export default function Footer() {
               </div>
 
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">Bientôt</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">Bientôt</h2>
                 <ul className="mt-4 space-y-3 text-slate-300">
                   <li>Programmes jeunesse</li>
                   <li>Échanges européens</li>
@@ -184,7 +184,7 @@ export default function Footer() {
             <>
               {/* Programs */}
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">Programs</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">Programs</h2>
                 <ul className="mt-4 space-y-3 text-slate-300">
                   <li><Link to="/" className="hover:text-rydn-gold-light transition">Advising</Link></li>
                   <li><Link to="/workshops" className="hover:text-rydn-gold-light transition">Workshops</Link></li>
@@ -196,7 +196,7 @@ export default function Footer() {
 
               {/* About */}
               <div className="lg:col-span-2">
-                <h2 className="text-sm font-bold uppercase tracking-wider text-white">Organization</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">Organization</h2>
                 <ul className="mt-4 space-y-3 text-slate-300">
                   <li><Link to="/about-us" className="hover:text-rydn-gold-light transition">About Us</Link></li>
                   <li><Link to="/our-team" className="hover:text-rydn-gold-light transition">Our Team</Link></li>
@@ -211,7 +211,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-3">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-white">Contact</h2>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-rydn-gold">Contact</h2>
             <ul className="mt-4 space-y-3 text-slate-300">
               <li className="flex items-start gap-3">
                 <Mail size={16} className="mt-1 text-rydn-gold shrink-0" />

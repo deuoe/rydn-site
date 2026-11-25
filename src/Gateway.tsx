@@ -87,10 +87,11 @@ type TileProps = {
   ctaClass: string
   /** Side accent stripe color classes */
   stripeClass: string
-  /** Small status chip shown on the tile, e.g. "Free" */
-  chip: string
+  /** Small status chip shown on the tile, e.g. "Free". Optional: a tile
+      without one renders no chip. */
+  chip?: string
   /** Tailwind classes for the chip pill */
-  chipClass: string
+  chipClass?: string
   /** Subtle brand-tinted wash behind the tile content */
   washClass: string
 }
@@ -136,9 +137,11 @@ function BrandTile({
           <div className="h-10 w-20 rounded-md overflow-hidden ring-2 ring-white/20 shadow-lg">
             {flag}
           </div>
-          <span className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${chipClass}`}>
-            {chip}
-          </span>
+          {chip ? (
+            <span className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${chipClass}`}>
+              {chip}
+            </span>
+          ) : null}
           <ArrowRight
             size={22}
             className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0"
@@ -362,8 +365,6 @@ export default function Gateway() {
             glowClass="bg-emerald-500/40"
             ctaClass="bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 text-white hover:from-emerald-600 hover:to-emerald-600"
             stripeClass="bg-emerald-500"
-            chip="Paid service"
-            chipClass="bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-400/40"
             washClass="bg-emerald-500/[0.06]"
           />
           <BrandTile
