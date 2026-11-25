@@ -5,10 +5,10 @@ import { FaLinkedinIn } from "react-icons/fa"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import { ADVISORS } from "./data/advisors"
-import saraUrl from "./assets/images/Sara.jpg"
-import sinaUrl from "./assets/images/Sina.jpeg"
-import valentinaUrl from "./assets/images/Valentina.jpg"
-import saharUrl from "./assets/images/Sahar.jpeg"
+import saraUrl from "./assets/images/Sara.webp"
+import sinaUrl from "./assets/images/Sina.webp"
+import valentinaUrl from "./assets/images/Valentina.webp"
+import saharUrl from "./assets/images/Sahar.webp"
 import mohsenUrl from "./assets/images/Mohsen.jpg"
 import ricardoUrl from "./assets/images/Ricardo Ko.jpeg"
 import aliUrl from "./assets/images/Ali Roozbahani.jpeg"
@@ -142,7 +142,7 @@ export default function OurTeam() {
                     <img
                       src={f.photo}
                       alt={f.name}
-                      className="photo-tint relative w-32 h-32 rounded-full object-cover ring-4 ring-white shadow-lg"
+                      className="relative w-32 h-32 rounded-full object-cover ring-4 ring-white shadow-lg"
                       loading="lazy"
                     />
                     <span className="absolute -top-1 -right-1 inline-flex items-center justify-center h-9 w-9 rounded-full bg-amber-400 text-slate-900 shadow-md">
@@ -272,7 +272,7 @@ export default function OurTeam() {
               >
                 <div className="relative inline-block">
                   <div className={`absolute -inset-1 rounded-full bg-gradient-to-br ${m.color} blur-sm opacity-50`} />
-                  <img src={m.photo} alt={m.name} className="photo-tint relative w-28 h-28 rounded-full object-cover ring-4 ring-white shadow-md" loading="lazy" />
+                  <img src={m.photo} alt={m.name} className="relative w-28 h-28 rounded-full object-cover ring-4 ring-white shadow-md" loading="lazy" />
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-slate-900">{m.name}</h3>
                 <p className="mt-2 text-sm text-slate-500 leading-relaxed">{m.role}</p>

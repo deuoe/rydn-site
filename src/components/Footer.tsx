@@ -2,7 +2,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa"
 import { Link } from "../i18n/Link"
 import { Link as RouterLink } from "react-router-dom"
 import { Mail, Phone, MapPin, ArrowLeftRight } from "lucide-react"
-import logoUrl from "../assets/images/logo.jpeg"
+import logoUrl from "../assets/images/rooz-logo-reversed.png"
 import SDGBadges from "./SDGBadges"
 import EmailCaptureForm from "./EmailCaptureForm"
 import RydnSeal from "./RydnSeal"
@@ -72,9 +72,7 @@ export default function Footer() {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-4">
               <Link to="/" className="inline-flex items-center gap-2">
-                <span className="inline-flex items-center rounded-xl bg-white px-3 py-1.5">
-                  <img src={logoUrl} alt={logoAlt} className="h-12 w-auto" />
-                </span>
+                <img src={logoUrl} alt={logoAlt} className="h-12 w-auto" />
               </Link>
               <RydnSeal className="h-14 w-14 shrink-0 text-rydn-gold" />
             </div>

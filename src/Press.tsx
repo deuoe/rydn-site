@@ -5,9 +5,9 @@ import Container from "./components/Container"
 import Heading from "./components/Heading"
 import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
-import saraUrl from "./assets/images/Sara.jpg"
-import sinaUrl from "./assets/images/Sina.jpeg"
-import logoUrl from "./assets/images/logo.jpeg"
+import saraUrl from "./assets/images/Sara.webp"
+import sinaUrl from "./assets/images/Sina.webp"
+import logoUrl from "./assets/images/rooz-logo-transparent.png"
 
 /**
  * /press, public press & media kit page.
@@ -213,7 +213,7 @@ export default function Press() {
                   src={founder.photo}
                   alt={founder.name}
                   shape="rounded-full"
-                  className="photo-tint h-32 w-32 ring-4 ring-slate-100 shadow-md"
+                  className="h-32 w-32 ring-4 ring-slate-100 shadow-md"
                 />
                 <h3 className="mt-5 font-display text-xl font-bold text-slate-900">
                   {founder.name}
@@ -247,16 +247,14 @@ export default function Press() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="rounded-3xl bg-white border border-slate-200 p-7 shadow-sm flex flex-col">
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white border border-slate-200">
-                <img src={logoUrl} alt="RYDN logo" className="h-10 w-auto" />
-              </div>
+              <img src={logoUrl} alt="RYDN logo" className="mb-5 h-14 w-auto" />
               <h3 className="font-bold text-slate-900">RYDN logo</h3>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed flex-1">
                 Right-click → "Save Image As" to download the primary logo.
               </p>
               <a
                 href={logoUrl}
-                download="RYDN_logo.jpg"
+                download="RYDN_logo.png"
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 text-white px-4 py-2.5 text-sm font-semibold hover:bg-sky-600 transition"
               >
                 <Download size={14} />

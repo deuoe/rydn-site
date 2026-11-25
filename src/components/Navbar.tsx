@@ -5,7 +5,9 @@ import { stripLangPrefix, stripBrandPrefix } from "../i18n/useLocalizedNav"
 import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useState, type ComponentProps } from "react"
 import { Calendar, Mail, ArrowLeftRight } from "lucide-react"
-import logoUrl from "../assets/images/logo.jpeg"
+import logoDarkUrl from "../assets/images/rooz-logo-reversed.png"
+import logoLightUrl from "../assets/images/rooz-logo-transparent.png"
+import { useTheme } from "../theme/useTheme"
 import LanguageSwitcher from "./LanguageSwitcher"
 import ThemeToggle from "./ThemeToggle"
 import MedDueLockup from "./MedDueLockup"
@@ -59,6 +61,11 @@ export default function Navbar() {
   // the header stays solid on these brands. Youth/Med keep the transparent
   // hero nav, which is designed for their dark home heroes.
   const transparent = onHome && !scrolled && !isNewBrand
+  // Logo variant follows the background: the reversed (white and gold) mark
+  // on the dark hero and in dark mode, the original navy and gold mark on
+  // the solid white navbar in light mode. No white pill either way.
+  const { theme } = useTheme()
+  const logoSrc = transparent || theme === "dark" ? logoDarkUrl : logoLightUrl
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -116,20 +123,11 @@ export default function Navbar() {
         {/* Logo + Med Due lockup on Med pages */}
         <div className="flex items-center">
           <Link to="/" className="select-none" aria-label="RYDN home">
-            <span
-              className={
-                "inline-flex items-center rounded-xl overflow-hidden bg-white p-1 transition-all duration-300 " +
-                (transparent
-                  ? "ring-1 ring-white/40 shadow-lg shadow-black/20"
-                  : "ring-1 ring-slate-200 shadow-sm")
-              }
-            >
-              <img
-                src={logoUrl}
-                alt="RooZ Youth Development Network logo"
-                className="h-10 w-auto block"
-              />
-            </span>
+            <img
+              src={logoSrc}
+              alt="RooZ Youth Development Network logo"
+              className="h-10 w-auto block"
+            />
           </Link>
           {isMed && (
             <div className="hidden lg:block ml-4">

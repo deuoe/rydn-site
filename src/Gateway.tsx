@@ -18,7 +18,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { motion, useReducedMotion } from "motion/react"
 import { ArrowRight, ChevronDown, GraduationCap, Sparkles } from "lucide-react"
-import logoUrl from "./assets/images/Logo.jpg"
+import logoUrl from "./assets/images/rooz-logo-reversed.png"
 import WorldMap from "./components/WorldMap"
 import RydnSeal from "./components/RydnSeal"
 
