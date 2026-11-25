@@ -29,16 +29,16 @@
  * variant in our components activates. Toggled by ThemeProvider. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* RYDN brand tokens, from the certificate palette (navy #14304f, gold
- * #c0a062). These generate Tailwind utilities: bg-rydn-navy,
+/* RYDN brand tokens, from the certificate palette (navy #14304f, rich
+ * gold #d4af37). These generate Tailwind utilities: bg-rydn-navy,
  * text-rydn-gold, border-rydn-gold-light, font-script, and so on. */
 @theme {
   --color-rydn-navy: #14304f;
   --color-rydn-navy-deep: #0e2238;
   --color-rydn-navy-ink: #1d2b3a;
-  --color-rydn-gold: #c0a062;
-  --color-rydn-gold-dark: #8a6d2f;
-  --color-rydn-gold-light: #d8c491;
+  --color-rydn-gold: #d4af37;
+  --color-rydn-gold-dark: #8a6d0a;
+  --color-rydn-gold-light: #e8c96a;
   --color-rydn-slate-blue: #33475c;
   --color-rydn-ink-soft: #263646;
   --color-rydn-muted-blue: #6b7c8d;
@@ -48,12 +48,12 @@
 :root {
   --rydn-primary: #14304f;     /* navy, was sky-500 */
   --rydn-primary-dark: #0e2238; /* navy deep */
-  --rydn-accent: #c0a062;      /* gold, was amber-500 */
+  --rydn-accent: #d4af37;      /* rich gold, was amber-500 */
   --rydn-navy: #14304f;
   --rydn-navy-deep: #0e2238;
-  --rydn-gold: #c0a062;
-  --rydn-gold-dark: #8a6d2f;
-  --rydn-gold-light: #d8c491;
+  --rydn-gold: #d4af37;
+  --rydn-gold-dark: #8a6d0a;
+  --rydn-gold-light: #e8c96a;
   --rydn-slate-blue: #33475c;
   --rydn-ink-soft: #263646;
   --rydn-muted-blue: #6b7c8d;
@@ -112,7 +112,7 @@ h1, h2, h3, h4, h5 {
 }
 
 /* Script accent, Great Vibes, used only for signature moments: the Med Due
- * sign-off, pull-quote attributions, and the gateway footer micro-copy. */
+ * sign-off and the gateway footer micro-copy. */
 .font-script {
   font-family: "Great Vibes", "Snell Roundhand", cursive;
   letter-spacing: 0;
@@ -123,16 +123,16 @@ h1, h2, h3, h4, h5 {
 .bg-rydn-mesh {
   background-image:
     radial-gradient(at 20% 0%, rgba(20, 48, 79, 0.08) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(192, 160, 98, 0.10) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(212, 175, 55, 0.10) 0px, transparent 50%),
     radial-gradient(at 0% 100%, rgba(20, 48, 79, 0.06) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(192, 160, 98, 0.08) 0px, transparent 50%);
+    radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.08) 0px, transparent 50%);
 }
 .dark .bg-rydn-mesh {
   background-image:
     radial-gradient(at 20% 0%, rgba(20, 48, 79, 0.25) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(192, 160, 98, 0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(212, 175, 55, 0.08) 0px, transparent 50%),
     radial-gradient(at 0% 100%, rgba(20, 48, 79, 0.18) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(192, 160, 98, 0.06) 0px, transparent 50%);
+    radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.06) 0px, transparent 50%);
   background-color: #0f172a;
 }
 
@@ -147,7 +147,7 @@ h1, h2, h3, h4, h5 {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #c0a062 0%, #14304f 50%, #d8c491 100%);
+  background: linear-gradient(135deg, #d4af37 0%, #14304f 50%, #e8c96a 100%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
@@ -162,8 +162,8 @@ h1, h2, h3, h4, h5 {
  * double-rule border. Used on Stories quote cards and the Med Starter Kit
  * panel. Outline follows the border radius in modern browsers. */
 .frame-gold-double {
-  border: 1.5px solid #c0a062;
-  outline: 1px solid #c0a062;
+  border: 1.5px solid #d4af37;
+  outline: 1px solid #d4af37;
   outline-offset: 3px;
 }
 
@@ -171,7 +171,7 @@ h1, h2, h3, h4, h5 {
  * certificate page frame. */
 .frame-cert {
   border: 2px solid #14304f;
-  outline: 1px solid #c0a062;
+  outline: 1px solid #d4af37;
   outline-offset: 4px;
 }
 
@@ -179,8 +179,8 @@ h1, h2, h3, h4, h5 {
  * gold motif for Academy, blue motif for France. */
 .pattern-gold {
   background-image:
-    repeating-linear-gradient(45deg, rgba(192, 160, 98, 0.07) 0 1px, transparent 1px 16px),
-    repeating-linear-gradient(-45deg, rgba(192, 160, 98, 0.07) 0 1px, transparent 1px 16px);
+    repeating-linear-gradient(45deg, rgba(212, 175, 55, 0.07) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(-45deg, rgba(212, 175, 55, 0.07) 0 1px, transparent 1px 16px);
 }
 .pattern-blue {
   background-image:
@@ -231,8 +231,8 @@ h1, h2, h3, h4, h5 {
 
 /* Eye-catching glow pulse for the primary Book Now CTA, gold now */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 160, 98, 0.55), 0 8px 18px -4px rgba(192, 160, 98, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(192, 160, 98, 0), 0 8px 18px -4px rgba(192, 160, 98, 0.6); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.55), 0 8px 18px -4px rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0), 0 8px 18px -4px rgba(212, 175, 55, 0.6); }
 }
 .animate-glow-pulse { animation: glow-pulse 2.4s ease-in-out infinite; }
 

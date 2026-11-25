@@ -39,7 +39,16 @@ export default function Heading({
           }
         >
           {index && (
-            <span className="font-display text-base sm:text-lg font-bold text-rydn-gold">
+            <span
+              className={
+                "font-display text-base sm:text-lg font-bold " +
+                (formal
+                  ? "text-rydn-gold-dark dark:text-rydn-gold"
+                  : onDark
+                    ? "text-rydn-gold-light"
+                    : "text-rydn-gold-dark dark:text-rydn-gold")
+              }
+            >
               {index}
             </span>
           )}
