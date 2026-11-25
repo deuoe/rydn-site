@@ -3,6 +3,7 @@ import { motion } from "motion/react"
 import { Calendar, MapPin, Sparkles, Video, ArrowRight, ExternalLink, Mail } from "lucide-react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
+import { buttonClasses } from "./components/buttonClasses"
 
 const FORM_LINK =
   "https://docs.google.com/forms/d/e/1FAIpQLSfWg443BHU5V5UPaNJiSz40sVgpkl4VCeP8sTC9pWn8uLinNw/viewform?usp=dialog"
@@ -93,6 +94,9 @@ function WorkshopCard({ w, idx }: { w: Workshop; idx: number }) {
   const dateObj = new Date(w.date + "T00:00:00")
   const month = dateObj.toLocaleDateString("en-US", { month: "short" }).toUpperCase()
   const day = dateObj.getDate()
+  // All current workshops are in the past: mute the card so past sessions
+  // read as an archive, not as something to register for.
+  const isPast = dateObj < new Date(new Date().toDateString())
 
   return (
     <motion.article
@@ -100,12 +104,22 @@ function WorkshopCard({ w, idx }: { w: Workshop; idx: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: idx * 0.05 }}
       viewport={{ once: true }}
-      className="group card-ring rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition flex flex-col overflow-hidden"
+      className={
+        "group card-ring rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition flex flex-col overflow-hidden " +
+        (isPast ? "opacity-75 saturate-[0.6]" : "")
+      }
     >
       <div className="flex p-6 gap-5">
-        {/* Date block */}
-        <div className="flex-shrink-0 flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900 text-white shadow-md">
-          <span className="text-[10px] font-bold tracking-wider text-amber-300">{month}</span>
+        {/* Date block, muted slate for past sessions */}
+        <div
+          className={
+            "flex-shrink-0 flex flex-col items-center justify-center w-20 h-20 rounded-2xl text-white shadow-md " +
+            (isPast
+              ? "bg-gradient-to-br from-slate-500 via-slate-600 to-slate-700"
+              : "bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-ink-soft")
+          }
+        >
+          <span className="text-[10px] font-bold tracking-wider text-rydn-gold-light">{month}</span>
           <span className="font-display text-3xl font-semibold leading-none">{day}</span>
         </div>
 
@@ -119,6 +133,11 @@ function WorkshopCard({ w, idx }: { w: Workshop; idx: number }) {
             <TypeIcon size={11} />
             {w.type}
           </span>
+          {isPast && (
+            <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-500 border border-slate-200">
+              Past
+            </span>
+          )}
           {w.topic && (
             <span className="ml-2 inline-block text-[10px] font-bold uppercase tracking-wider text-slate-400">
               {w.topic}
@@ -138,7 +157,7 @@ function WorkshopCard({ w, idx }: { w: Workshop; idx: number }) {
             href={w.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center rounded-full bg-slate-900 text-white px-5 py-2.5 text-sm font-semibold hover:bg-sky-600 transition"
+            className={buttonClasses("primary", "w-full px-5 py-2.5 text-sm")}
           >
             Register <ExternalLink size={14} className="ml-2" />
           </a>
@@ -159,21 +178,21 @@ export default function Workshops() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-sky-900 to-indigo-900">
+      <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl animate-float" />
-        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-rydn-gold/25 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-rydn-gold/15 blur-3xl" />
 
         <Container>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs sm:text-sm font-semibold text-white border border-white/20">
-              <Sparkles size={14} className="text-amber-300" />
+              <Sparkles size={14} className="text-rydn-gold" />
               Free workshops, all 2026
             </span>
             <h1 className="font-display mt-6 text-5xl sm:text-6xl md:text-7xl font-semibold text-white leading-[1.05]">
               Workshops that
               <br />
-              <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-amber-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-rydn-gold-light via-amber-100 to-rydn-gold bg-clip-text text-transparent">
                 set you up.
               </span>
             </h1>
@@ -181,19 +200,19 @@ export default function Workshops() {
               Live, interactive sessions on academic strategy, career exploration, and university prep, taught by students currently living it.
             </p>
             <div className="mt-8 flex items-center gap-6 text-sm text-white/70">
-              <span className="flex items-center gap-2"><Calendar size={16} className="text-amber-300" /> {workshops.length} sessions in 2026</span>
-              <span className="flex items-center gap-2"><Video size={16} className="text-sky-300" /> Online + in-person</span>
+              <span className="flex items-center gap-2"><Calendar size={16} className="text-rydn-gold" /> {workshops.length} sessions in 2026</span>
+              <span className="flex items-center gap-2"><Video size={16} className="text-rydn-gold-light" /> Online + in-person</span>
             </div>
           </motion.div>
         </Container>
       </section>
 
-      {/* UPCOMING WORKSHOPS */}
+      {/* PAST WORKSHOPS */}
       <section className="py-20">
         <Container>
-          <Heading eyebrow="Upcoming sessions" text="Save your seat" />
+          <Heading eyebrow="Past sessions" text="Workshops from 2026" />
           <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
-            All workshops are free. Register through the form and you'll get a confirmation email with the link.
+            These sessions ran in 2026. New dates will be listed here when they are set.
           </p>
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -216,18 +235,18 @@ export default function Workshops() {
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-7">
-                <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">For schools & libraries</p>
-                <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-slate-900 leading-tight">
+                <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold">For schools & libraries</p>
+                <h2 className="mt-3 font-display text-3xl md:text-4xl font-semibold text-slate-900 dark:text-slate-100 leading-tight">
                   Want a workshop at your school?
                 </h2>
-                <p className="mt-4 text-slate-600 leading-relaxed">
+                <p className="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">
                   We tailor workshops for high schools, libraries, and community organizations across Canada and internationally: Canadian university pathways, study skills, and career exploration.
                 </p>
               </div>
               <div className="md:col-span-5 flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 md:items-stretch">
                 <Link
                   to="/partner-with-us"
-                  className="inline-flex items-center justify-center rounded-full bg-slate-900 text-white px-6 py-3 font-semibold hover:bg-sky-600 transition"
+                  className={buttonClasses("primary", "px-6 py-3")}
                 >
                   Partner with us <ArrowRight size={16} className="ml-2" />
                 </Link>

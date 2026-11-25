@@ -22,8 +22,8 @@ export default function ContactUs() {
       {/* HERO */}
       <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-sky-900 to-violet-900">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-violet-500/30 blur-3xl animate-float" />
-        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-400/30 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-violet-500/30 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-400/30 blur-3xl" />
 
         <Container>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
@@ -158,8 +158,8 @@ export default function ContactUs() {
             viewport={{ once: true }}
             className="rounded-[2rem] bg-gradient-to-br from-slate-50 via-white to-sky-50 border border-slate-200 p-8 md:p-12 text-center"
           >
-            <h3 className="font-display text-2xl md:text-3xl font-semibold text-slate-900">Or find us on social</h3>
-            <p className="mt-3 text-slate-600">We share student resources, workshop news, and behind-the-scenes.</p>
+            <h3 className="font-display text-2xl md:text-3xl font-semibold text-slate-900 dark:text-slate-100">Or find us on social</h3>
+            <p className="mt-3 text-slate-600 dark:text-slate-300">We share student resources, workshop news, and behind-the-scenes.</p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               {SOCIALS.map(({ Icon, href, label }) => (

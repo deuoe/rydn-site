@@ -20,6 +20,7 @@ import { motion, useReducedMotion } from "motion/react"
 import { ArrowRight, ChevronDown, GraduationCap, Sparkles } from "lucide-react"
 import logoUrl from "./assets/images/Logo.jpg"
 import WorldMap from "./components/WorldMap"
+import RydnSeal from "./components/RydnSeal"
 
 /** Inline Canadian flag SVG , crisp at any size, no external asset needed. */
 function CanadianFlag({ className = "" }: { className?: string }) {
@@ -86,6 +87,12 @@ type TileProps = {
   ctaClass: string
   /** Side accent stripe color classes */
   stripeClass: string
+  /** Small status chip shown on the tile, e.g. "Free" */
+  chip: string
+  /** Tailwind classes for the chip pill */
+  chipClass: string
+  /** Subtle brand-tinted wash behind the tile content */
+  washClass: string
 }
 
 function BrandTile({
@@ -98,6 +105,9 @@ function BrandTile({
   glowClass,
   ctaClass,
   stripeClass,
+  chip,
+  chipClass,
+  washClass,
 }: TileProps) {
   const navigate = useNavigate()
   return (
@@ -111,6 +121,8 @@ function BrandTile({
       whileTap={{ scale: 0.98 }}
       className="group relative flex flex-col w-full min-w-0 text-left overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/15 hover:border-white/30 transition-all duration-300 shadow-2xl"
     >
+      {/* Brand-tinted wash */}
+      <div className={`pointer-events-none absolute inset-0 ${washClass}`} />
       {/* Hover glow , colored to the brand */}
       <div className={`pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl ${glowClass}`} />
 
@@ -119,14 +131,17 @@ function BrandTile({
 
       {/* Tighter padding at lg so four-across tiles don't feel cramped */}
       <div className="relative p-8 sm:p-10 lg:p-6 flex flex-col h-full gap-6">
-        {/* Flag badge */}
-        <div className="flex items-center justify-between">
+        {/* Flag badge + status chip */}
+        <div className="flex items-center justify-between gap-3">
           <div className="h-10 w-20 rounded-md overflow-hidden ring-2 ring-white/20 shadow-lg">
             {flag}
           </div>
+          <span className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${chipClass}`}>
+            {chip}
+          </span>
           <ArrowRight
             size={22}
-            className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all"
+            className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0"
           />
         </div>
 
@@ -166,7 +181,7 @@ export default function Gateway() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <main className="relative min-h-screen w-full overflow-hidden bg-slate-950">
+    <main className="relative min-h-screen w-full overflow-hidden bg-rydn-navy-deep">
       {/* Animated background: four large soft gradient blobs , one red (Youth),
           one green (Med), one amber (Academy), one blue (France/shared),
           slowly drifting. Covers the whole page, hero + doors. */}
@@ -333,6 +348,9 @@ export default function Gateway() {
             glowClass="bg-red-500/40"
             ctaClass="bg-white text-slate-900 hover:bg-slate-100"
             stripeClass="bg-red-500"
+            chip="Free"
+            chipClass="bg-red-500/20 text-red-100 ring-1 ring-red-400/40"
+            washClass="bg-red-500/[0.06]"
           />
           <BrandTile
             to="/med"
@@ -344,6 +362,9 @@ export default function Gateway() {
             glowClass="bg-emerald-500/40"
             ctaClass="bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 text-white hover:from-emerald-600 hover:to-emerald-600"
             stripeClass="bg-emerald-500"
+            chip="Paid service"
+            chipClass="bg-emerald-500/20 text-emerald-100 ring-1 ring-emerald-400/40"
+            washClass="bg-emerald-500/[0.06]"
           />
           <BrandTile
             to="/academy"
@@ -355,6 +376,9 @@ export default function Gateway() {
             glowClass="bg-amber-500/40"
             ctaClass="bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-900 hover:from-amber-500 hover:to-orange-600"
             stripeClass="bg-amber-500"
+            chip="Coming soon"
+            chipClass="bg-amber-500/20 text-amber-100 ring-1 ring-amber-400/40"
+            washClass="bg-amber-500/[0.06]"
           />
           <BrandTile
             to="/france"
@@ -366,18 +390,22 @@ export default function Gateway() {
             glowClass="bg-blue-500/40"
             ctaClass="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 text-white hover:from-blue-700 hover:to-blue-700"
             stripeClass="bg-blue-600"
+            chip="In formation"
+            chipClass="bg-blue-500/20 text-blue-100 ring-1 ring-blue-400/40"
+            washClass="bg-blue-500/[0.06]"
           />
         </div>
 
-        {/* Footer micro-copy */}
+        {/* Footer micro-copy, script accent with the RYDN 2026 seal */}
         <motion.footer
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-14 text-center text-xs text-white/40"
+          className="mt-14 flex flex-col items-center gap-3 text-center"
         >
-          <p>
+          <RydnSeal className="h-12 w-12 text-rydn-gold" />
+          <p className="font-script text-2xl text-white/70">
             A RooZ initiative · Est. 2026 · Richmond Hill, Ontario
           </p>
         </motion.footer>

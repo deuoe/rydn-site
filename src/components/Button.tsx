@@ -1,35 +1,45 @@
-import type { ButtonHTMLAttributes } from "react"
-import { twMerge } from "tailwind-merge"
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
+import { useBrand } from "../brand/brand"
+import { buttonClasses, variantForBrand, type ButtonVariant } from "./buttonClasses"
 
-type Variant = "primary" | "secondary" | "ghost"
-
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: Variant
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant
 }
 
-const VARIANT_CLASSES: Record<Variant, string> = {
-  primary:
-    "bg-slate-900 text-white hover:bg-sky-600 focus:ring-sky-500 dark:bg-sky-600 dark:hover:bg-sky-500",
-  secondary:
-    "bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 focus:ring-slate-400 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-700 dark:hover:border-slate-600",
-  ghost:
-    "bg-transparent text-slate-700 hover:bg-slate-100 focus:ring-slate-400 dark:text-slate-300 dark:hover:bg-slate-800",
-}
-
+/**
+ * Single button system. With no variant it follows the current brand
+ * (Youth gold, Med emerald, Academy amber, France blue), so CTAs match
+ * the page they sit on without every call site picking a colour.
+ */
 export default function Button({
   children,
   className,
-  variant = "primary",
+  variant,
   ...props
-}: Props) {
-  const merged = twMerge(
-    "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm md:text-base font-semibold cursor-pointer transition shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2",
-    VARIANT_CLASSES[variant],
-    className
-  )
+}: ButtonProps) {
+  const brand = useBrand()
   return (
-    <button className={merged} {...props}>
+    <button className={buttonClasses(variant ?? variantForBrand(brand), className)} {...props}>
       {children}
     </button>
+  )
+}
+
+interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  variant?: ButtonVariant
+}
+
+/** Anchor version of the same system, for mailto links, hashes, and href CTAs. */
+export function ButtonLink({
+  children,
+  className,
+  variant,
+  ...props
+}: ButtonLinkProps) {
+  const brand = useBrand()
+  return (
+    <a className={buttonClasses(variant ?? variantForBrand(brand), className)} {...props}>
+      {children}
+    </a>
   )
 }

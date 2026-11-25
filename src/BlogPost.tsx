@@ -54,10 +54,10 @@ export default function BlogPost() {
       {/* ===================== HERO ===================== */}
       <section className="relative isolate -mt-20 pt-32 pb-12 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl animate-float" />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl" />
         <div
-          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
+          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl"
+         
         />
 
         <Container>

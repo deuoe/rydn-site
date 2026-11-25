@@ -142,7 +142,7 @@ export default function FloatingChat() {
         onClick={() => setOpen(o => !o)}
         aria-label={open ? "Close chat options" : "Open chat options"}
         aria-expanded={open}
-        className="relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-xl hover:shadow-2xl transition focus:outline-none focus:ring-4 focus:ring-sky-300/50"
+        className="relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-rydn-navy to-rydn-navy-deep text-white shadow-xl hover:shadow-2xl transition focus:outline-none focus:ring-4 focus:ring-rydn-gold/50"
       >
         <AnimatePresence mode="wait" initial={false}>
           {open ? (
@@ -167,7 +167,7 @@ export default function FloatingChat() {
             </motion.span>
           )}
         </AnimatePresence>
-        <span className="absolute inset-0 rounded-full bg-sky-500/40 animate-ping pointer-events-none opacity-30" />
+        <span className="absolute inset-0 rounded-full bg-rydn-gold/40 animate-ping pointer-events-none opacity-30" />
       </motion.button>
     </div>
   )

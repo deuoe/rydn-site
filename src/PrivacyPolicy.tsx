@@ -4,7 +4,7 @@ import Paragraph from "./components/Paragraph"
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="max-w-3xl mx-auto mt-10 mb-3 font-display text-xl sm:text-2xl font-semibold text-slate-900">
+    <h3 className="max-w-3xl mx-auto mt-10 mb-3 font-display text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">
       {children}
     </h3>
   )

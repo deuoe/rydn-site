@@ -24,10 +24,10 @@ export default function PourNouveauxArrivants() {
       {/* ===================== HÉROS ===================== */}
       <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl animate-float" />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl" />
         <div
-          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-500/30 blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
+          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-500/30 blur-3xl"
+         
         />
 
         <Container>
@@ -87,22 +87,22 @@ export default function PourNouveauxArrivants() {
               )}
             </div>
             <div className="md:col-span-8">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold">
                 Bâti par un nouvel arrivant, pour les nouveaux arrivants
               </p>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold text-slate-900 leading-tight">
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-slate-100 leading-tight">
                 Sam est arrivé au Canada depuis l'Iran.
                 <br />
                 <span className="text-slate-400">RYDN existe grâce à cela.</span>
               </h2>
               <div className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />
-              <p className="mt-6 text-base md:text-lg text-slate-700 leading-relaxed">
+              <p className="mt-6 text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                 Sam Sina, cofondateur de RYDN, a étudié à l'Université de Guilan en Iran avant de
                 rejoindre George Brown Polytechnic puis l'Université York au Canada. Le parcours
                 était déroutant, coûteux, et souvent solitaire. Il n'y avait personne à qui poser
                 les « petites » questions qui n'étaient finalement pas si petites.
               </p>
-              <p className="mt-4 text-base md:text-lg text-slate-700 leading-relaxed">
+              <p className="mt-4 text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                 RYDN existe pour que le prochain étudiant n'ait pas à le découvrir seul.
               </p>
 
@@ -183,10 +183,10 @@ export default function PourNouveauxArrivants() {
       <section className="py-16">
         <Container>
           <div className="max-w-5xl mx-auto">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 text-center">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold text-center">
               Comment ça fonctionne
             </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 text-center">
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 dark:text-slate-100 text-center">
               Trois étapes. Toujours gratuit.
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />

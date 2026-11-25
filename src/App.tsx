@@ -5,6 +5,7 @@ import { Users, BookOpen, ArrowRight, Sparkles, ChevronDown, MessageSquare, Cale
 import Heading from "./components/Heading"
 import Container from "./components/Container"
 import Button from "./components/Button"
+import { buttonClasses } from "./components/buttonClasses"
 import InstagramFeed from "./components/InstagramFeed"
 import Avatar from "./components/Avatar"
 import { FindMatchButton } from "./components/AIMatchmaker"
@@ -47,20 +48,19 @@ type Testimonial = {
   name: string
   role: string
   initials: string
-  avatarColor: string
 }
 
 const TESTIMONIALS: Testimonial[] = [
-  { quote: "Helped me figure out which pre-med path was actually right for me. Wish I'd done it sooner.", name: "Maya K.", role: "Grade 12 student", initials: "MK", avatarColor: "from-pink-400 to-rose-500" },
-  { quote: "My advisor walked me through the entire MCAT timeline. Game changer.", name: "Daniel R.", role: "First-year pre-med", initials: "DR", avatarColor: "from-sky-400 to-blue-500" },
-  { quote: "I thought I had to go to law school. After two sessions, I realized what I actually wanted.", name: "Aria S.", role: "Grade 11 student", initials: "AS", avatarColor: "from-amber-400 to-orange-500" },
-  { quote: "Honestly the best free resource I've used. They listen, then actually help.", name: "Liam T.", role: "First-year university", initials: "LT", avatarColor: "from-emerald-400 to-teal-500" },
-  { quote: "My advisor was a year ahead of me at the same school. The advice was so specific.", name: "Priya N.", role: "Grade 12 student", initials: "PN", avatarColor: "from-violet-400 to-purple-500" },
-  { quote: "Workshop on biomedical careers opened my eyes to fields I didn't know existed.", name: "Nima B.", role: "Grade 11 student", initials: "NB", avatarColor: "from-indigo-400 to-blue-600" },
-  { quote: "Booking was easy. The session was free. The plan I left with felt real.", name: "Sofia G.", role: "First-year university", initials: "SG", avatarColor: "from-fuchsia-400 to-pink-600" },
-  { quote: "I'm a parent and I asked them tough questions. They were honest, not sales-y.", name: "Hassan M.", role: "Parent", initials: "HM", avatarColor: "from-cyan-400 to-sky-600" },
-  { quote: "Best decision was just booking the call. Got accepted to my top choice.", name: "Layla F.", role: "First-year university", initials: "LF", avatarColor: "from-rose-400 to-red-500" },
-  { quote: "I came in confused about everything. Left with a clear plan for the year.", name: "Owen P.", role: "Grade 12 student", initials: "OP", avatarColor: "from-teal-400 to-emerald-600" },
+  { quote: "Helped me figure out which pre-med path was actually right for me. Wish I'd done it sooner.", name: "Maya K.", role: "Grade 12 student", initials: "MK" },
+  { quote: "My advisor walked me through the entire MCAT timeline. Game changer.", name: "Daniel R.", role: "First-year pre-med", initials: "DR" },
+  { quote: "I thought I had to go to law school. After two sessions, I realized what I actually wanted.", name: "Aria S.", role: "Grade 11 student", initials: "AS" },
+  { quote: "Honestly the best free resource I've used. They listen, then actually help.", name: "Liam T.", role: "First-year university", initials: "LT" },
+  { quote: "My advisor was a year ahead of me at the same school. The advice was so specific.", name: "Priya N.", role: "Grade 12 student", initials: "PN" },
+  { quote: "Workshop on biomedical careers opened my eyes to fields I didn't know existed.", name: "Nima B.", role: "Grade 11 student", initials: "NB" },
+  { quote: "Booking was easy. The session was free. The plan I left with felt real.", name: "Sofia G.", role: "First-year university", initials: "SG" },
+  { quote: "I'm a parent and I asked them tough questions. They were honest, not sales-y.", name: "Hassan M.", role: "Parent", initials: "HM" },
+  { quote: "Best decision was just booking the call. Got accepted to my top choice.", name: "Layla F.", role: "First-year university", initials: "LF" },
+  { quote: "I came in confused about everything. Left with a clear plan for the year.", name: "Owen P.", role: "Grade 12 student", initials: "OP" },
 ]
 
 function ReviewCard({ t }: { t: Testimonial }) {
@@ -69,22 +69,22 @@ function ReviewCard({ t }: { t: Testimonial }) {
       <div className="flex items-center justify-between mb-3">
         <div className="flex gap-1" aria-label="5 out of 5 stars">
           {[0, 1, 2, 3, 4].map(i => (
-            <Star key={i} size={14} className="fill-amber-400 text-amber-400" />
+            <Star key={i} size={14} className="fill-rydn-gold text-rydn-gold" />
           ))}
         </div>
         <Quote size={20} className="text-slate-200" aria-hidden />
       </div>
-      <p className="text-slate-800 leading-relaxed mb-5 text-sm sm:text-base">"{t.quote}"</p>
+      <p className="font-display italic text-slate-800 leading-relaxed mb-5 text-sm sm:text-base">"{t.quote}"</p>
       <div className="flex items-center gap-3">
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${t.avatarColor} text-white font-bold text-sm`}
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-rydn-navy to-rydn-slate-blue ring-2 ring-rydn-gold/60 text-white font-display font-semibold text-sm"
           aria-hidden
         >
           {t.initials}
         </div>
         <div>
-          <p className="font-semibold text-slate-900 text-sm">{t.name}</p>
-          <p className="text-slate-500 text-xs">{t.role}</p>
+          <p className="font-script text-xl leading-none text-rydn-navy">{t.name}</p>
+          <p className="text-slate-500 text-xs mt-1">{t.role}</p>
         </div>
       </div>
     </article>
@@ -122,10 +122,10 @@ function Testimonials() {
   const rowB = TESTIMONIALS.slice(half)
 
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-950 overflow-hidden">
+    <section className="py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden">
       <Container>
-        <Heading eyebrow={t("testimonials.eyebrow")} text={t("testimonials.title")} />
-        <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+        <Heading eyebrow={t("testimonials.eyebrow")} text={t("testimonials.title")} align="left" index="03" />
+        <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed text-base md:text-lg">
           {t("testimonials.subtitle")}
         </p>
       </Container>
@@ -147,8 +147,8 @@ function ProgramsBento() {
   return (
     <section className="py-20 bg-rydn-mesh">
       <Container>
-        <Heading eyebrow={t("programs.eyebrow")} text={t("programs.title")} />
-        <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+        <Heading eyebrow={t("programs.eyebrow")} text={t("programs.title")} align="left" index="01" />
+        <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed text-base md:text-lg">
           {t("programs.subtitle")}
         </p>
 
@@ -159,10 +159,10 @@ function ProgramsBento() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-600 via-sky-700 to-indigo-800 p-8 text-white shadow-lg"
+            className="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-3xl bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink p-8 text-white shadow-lg"
           >
             <div className="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
-            <div className="absolute bottom-0 right-0 h-32 w-32 rounded-full bg-amber-400/20 blur-2xl" />
+            <div className="absolute bottom-0 right-0 h-32 w-32 rounded-full bg-rydn-gold/25 blur-2xl" />
             <div className="relative flex flex-col h-full">
               <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
                 <Users size={28} />
@@ -170,8 +170,8 @@ function ProgramsBento() {
               <h3 className="font-display text-3xl md:text-4xl font-semibold leading-tight">{t("programs.p1Title")}</h3>
               <p className="mt-4 text-white/85 leading-relaxed text-base md:text-lg max-w-md">{t("programs.p1Body")}</p>
               <div className="mt-auto pt-8">
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-amber-200">
-                  <span className="h-1.5 w-1.5 rounded-full bg-amber-300 animate-pulse" />
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-rydn-gold-light">
+                  <span className="h-1.5 w-1.5 rounded-full bg-rydn-gold animate-pulse" />
                   Most popular
                 </span>
               </div>
@@ -189,8 +189,8 @@ function ProgramsBento() {
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-50 text-amber-600">
               <BookOpen size={24} />
             </div>
-            <h3 className="text-xl font-bold text-slate-900">{t("programs.p2Title")}</h3>
-            <p className="mt-2 text-slate-600 leading-relaxed">{t("programs.p2Body")}</p>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">{t("programs.p2Title")}</h3>
+            <p className="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">{t("programs.p2Body")}</p>
           </motion.div>
 
           {/* Card 3, Exam Prep */}
@@ -204,8 +204,8 @@ function ProgramsBento() {
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
               <Target size={24} />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">{t("programs.p3Title")}</h3>
-            <p className="mt-2 text-slate-600 leading-relaxed text-sm">{t("programs.p3Body")}</p>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{t("programs.p3Title")}</h3>
+            <p className="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{t("programs.p3Body")}</p>
           </motion.div>
 
           {/* Card 4, University apps */}
@@ -219,8 +219,8 @@ function ProgramsBento() {
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-50 text-violet-600">
               <FileText size={24} />
             </div>
-            <h3 className="text-lg font-bold text-slate-900">{t("programs.p4Title")}</h3>
-            <p className="mt-2 text-slate-600 leading-relaxed text-sm">{t("programs.p4Body")}</p>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{t("programs.p4Title")}</h3>
+            <p className="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{t("programs.p4Body")}</p>
           </motion.div>
 
           {/* Card 5, Partnerships, full width */}
@@ -229,9 +229,9 @@ function ProgramsBento() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="md:col-span-4 relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white p-8 md:p-10 shadow-lg"
+            className="md:col-span-4 relative overflow-hidden rounded-3xl bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink text-white p-8 md:p-10 shadow-lg"
           >
-            <div className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-amber-400/15 to-transparent" />
+            <div className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-rydn-gold/15 to-transparent" />
             <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div className="md:max-w-xl">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur">
@@ -242,7 +242,7 @@ function ProgramsBento() {
               </div>
               <Link
                 to="/partner-with-us"
-                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-6 py-3 font-semibold hover:bg-amber-100 transition shrink-0"
+                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-6 py-3 font-semibold hover:bg-rydn-gold-light transition shrink-0"
               >
                 Partner with us <ArrowRight size={16} className="ml-2" />
               </Link>
@@ -271,43 +271,36 @@ const PARTNER_NAMES = [
 
 function PartnerStrip() {
   const { t } = useTranslation()
-  // Rendered twice so the loop seams together; the second copy is hidden
-  // from assistive tech so screen readers don't announce each name twice.
+  // Trusted-by lockup with gold rules, no marquee: the names read as a
+  // deliberate list while real partner logos are still pending.
   return (
-    <section className="py-16 bg-white border-y border-slate-200">
+    <section className="py-16 bg-white border-y border-slate-200 dark:bg-rydn-navy-deep dark:border-rydn-gold/20">
       <Container className="text-center">
-        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
           {t("partners.eyebrow")}
         </p>
-        <h2 className="mt-2 font-display text-xl md:text-2xl text-slate-700">
+        <h2 className="mt-2 font-display text-xl md:text-2xl text-slate-700 dark:text-slate-200">
           {t("partners.title")}
         </h2>
-      </Container>
-
-      {/* Wide edge mask so names dissolve gradually instead of reading as
-          half-cut-off labels at the viewport edge. */}
-      <div className="mt-10 relative overflow-hidden marquee-fade">
-        <div className="flex w-max animate-marquee">
-          {PARTNER_NAMES.map((name, i) => (
-            <div
-              key={i}
-              className="mx-8 flex items-center text-slate-400 hover:text-slate-700 transition"
-            >
-              <span className="font-display text-xl md:text-2xl whitespace-nowrap">{name}</span>
-            </div>
-          ))}
-          <div aria-hidden="true" className="flex">
-            {PARTNER_NAMES.map((name, i) => (
-              <div
-                key={`dup-${i}`}
-                className="mx-8 flex items-center text-slate-400 hover:text-slate-700 transition"
-              >
-                <span className="font-display text-xl md:text-2xl whitespace-nowrap">{name}</span>
-              </div>
-            ))}
-          </div>
+        <div className="mx-auto mt-8 flex max-w-3xl items-center gap-4" aria-hidden>
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-rydn-gold to-rydn-gold" />
+          <span className="h-2 w-2 rotate-45 bg-rydn-gold" />
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent via-rydn-gold to-rydn-gold" />
         </div>
-      </div>
+        <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
+          {PARTNER_NAMES.map((name, i) => (
+            <li key={name} className="flex items-center gap-x-8">
+              {i > 0 && <span className="h-1.5 w-1.5 rotate-45 bg-rydn-gold/70 shrink-0" aria-hidden />}
+              <span className="font-display text-xl md:text-2xl whitespace-nowrap text-slate-500 dark:text-slate-300">{name}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mx-auto mt-8 flex max-w-3xl items-center gap-4" aria-hidden>
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-rydn-gold to-rydn-gold" />
+          <span className="h-2 w-2 rotate-45 bg-rydn-gold" />
+          <span className="h-px flex-1 bg-gradient-to-l from-transparent via-rydn-gold to-rydn-gold" />
+        </div>
+      </Container>
     </section>
   )
 }
@@ -327,7 +320,7 @@ function FAQItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
         <span
           className={
             "flex shrink-0 h-9 w-9 items-center justify-center rounded-full transition " +
-            (isOpen ? "bg-sky-600 text-white rotate-45" : "bg-slate-100 text-slate-600")
+            (isOpen ? "bg-rydn-gold text-rydn-navy-deep rotate-45" : "bg-slate-100 text-slate-600")
           }
         >
           <Plus size={18} />
@@ -373,18 +366,20 @@ function FAQ() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">
+            <p className="flex items-center gap-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold">
+              <span className="font-display text-base font-bold text-rydn-gold">06</span>
+              <span className="h-px w-6 bg-rydn-gold/60" aria-hidden />
               {t("faq.eyebrow")}
             </p>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight">
+            <h2 className="mt-3 font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-900 dark:text-slate-100 leading-tight">
               {t("faq.title")}
             </h2>
-            <p className="mt-4 text-slate-600 leading-relaxed">
+            <p className="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">
               {t("faq.subtitle")}
             </p>
             <a
               href="mailto:info@rydn.ca"
-              className="mt-6 inline-flex items-center gap-2 text-sky-700 font-semibold hover:text-sky-900 transition"
+              className="mt-6 inline-flex items-center gap-2 text-rydn-gold-dark dark:text-rydn-gold font-semibold hover:text-rydn-gold-dark dark:hover:text-rydn-gold-light transition"
             >
               <Mail size={16} />
               {t("faq.cta")}
@@ -484,12 +479,12 @@ function HomePage() {
           style={{ backgroundImage: `url(${homeHero})` }}
         />
         {/* Gradient + grain overlay */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-900/85 via-slate-900/70 to-sky-900/60" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-rydn-navy-deep/85 via-rydn-navy/70 to-rydn-navy/60" />
         <div className="grain -z-10" />
 
-        {/* Floating accent blobs */}
-        <div className="absolute -top-24 -left-24 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl animate-float" />
-        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        {/* Floating accent blobs, static now (see motion calming) */}
+        <div className="absolute -top-24 -left-24 -z-10 h-96 w-96 rounded-full bg-rydn-gold/20 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-rydn-gold/15 blur-3xl" />
 
         <Container className="relative">
           <motion.div
@@ -503,10 +498,10 @@ function HomePage() {
               {t("hero.eyebrow")}
             </span>
 
-            <h1 className="font-display mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-white leading-[1.05]">
+            <h1 className="font-display mt-6 text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-white leading-[1.05]">
               {t("hero.titleLine1")}
               <br />
-              <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-amber-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-rydn-gold-light via-amber-100 to-rydn-gold bg-clip-text text-transparent">
                 {t("hero.titleLine2")}
               </span>
             </h1>
@@ -516,15 +511,15 @@ function HomePage() {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-              {/* Primary: Book Now, eye-catching amber gradient with glow pulse */}
-              <button
+              {/* Primary: Book Now, gold with glow pulse (the one pulsing CTA here) */}
+              <Button
                 onClick={() => advisorsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 px-9 py-4 text-base font-bold shadow-xl hover:shadow-2xl transition focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-slate-900 animate-glow-pulse"
+                className="px-9 py-4 text-base animate-glow-pulse"
               >
                 <Calendar size={18} />
                 {t("nav.bookNow")}
                 <ArrowRight size={18} />
-              </button>
+              </Button>
               <Link
                 to="/about-us"
                 className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-white border border-white/30 hover:bg-white/10 transition"
@@ -537,7 +532,7 @@ function HomePage() {
             <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-3 text-white/70 text-sm">
               <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400" /> {t("hero.trustNonprofit")}</span>
               <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-amber-400" /> {t("hero.trustFree")}</span>
-              <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-sky-400" /> {t("hero.trustMultilingual")}</span>
+              <span className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-rydn-gold" /> {t("hero.trustMultilingual")}</span>
             </div>
           </motion.div>
         </Container>
@@ -564,8 +559,8 @@ function HomePage() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">{t("mission.eyebrow")}</p>
-          <p className="font-display text-2xl sm:text-3xl md:text-4xl text-slate-900 leading-snug max-w-4xl mx-auto">
+          <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold">{t("mission.eyebrow")}</p>
+          <p className="font-display text-2xl sm:text-3xl md:text-4xl text-slate-900 dark:text-slate-100 leading-snug max-w-4xl mx-auto">
             {t("mission.line1")} <span className="text-slate-400">{t("mission.line2")}</span> {t("mission.line3")}
           </p>
         </motion.div>
@@ -579,9 +574,9 @@ function HomePage() {
       {/* ============================================== */}
       {/* HOW IT WORKS                                    */}
       {/* ============================================== */}
-      <section className="py-20">
+      <section className="py-24">
         <Container>
-          <Heading eyebrow="How it works" text="Get started in 3 steps" />
+          <Heading eyebrow="How it works" text="Get started in 3 steps" index="02" />
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             {[
@@ -598,15 +593,15 @@ function HomePage() {
                 className="relative text-center"
               >
                 <div className="relative inline-flex">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/30">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-rydn-navy to-rydn-slate-blue text-white shadow-lg shadow-rydn-navy/30">
                     <Icon size={32} />
                   </div>
-                  <span className="absolute -top-2 -right-2 inline-flex items-center justify-center rounded-full bg-amber-400 px-2 py-0.5 text-xs font-bold text-slate-900">
+                  <span className="absolute -top-2 -right-2 inline-flex items-center justify-center rounded-full bg-rydn-gold px-2 py-0.5 text-xs font-bold text-rydn-navy-deep">
                     {step}
                   </span>
                 </div>
-                <h3 className="mt-6 text-xl font-bold text-slate-900">{title}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed max-w-xs mx-auto">{body}</p>
+                <h3 className="mt-6 text-xl font-bold text-slate-900 dark:text-slate-100">{title}</h3>
+                <p className="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs mx-auto">{body}</p>
               </motion.div>
             ))}
           </div>
@@ -616,10 +611,10 @@ function HomePage() {
       {/* ============================================== */}
       {/* WHY ROOZ, STATS                                */}
       {/* ============================================== */}
-      <section className="py-20 bg-slate-900 text-white">
+      <section className="py-20 bg-rydn-navy text-white border-y border-rydn-gold/25">
         <Container>
           <div className="text-center">
-            <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">Why RYDN</p>
+            <p className="mb-3 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold">Why RYDN</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-semibold">A growing community</h2>
             <p className="mt-4 text-slate-300 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
               Built by students, for students, relatable advisors who've recently walked the paths you're considering.
@@ -640,11 +635,11 @@ function HomePage() {
                 viewport={{ once: true }}
                 className="rounded-3xl bg-white/5 backdrop-blur border border-white/10 p-8 text-center"
               >
-                <p className="font-display text-5xl md:text-6xl font-bold bg-gradient-to-br from-sky-300 to-amber-200 bg-clip-text text-transparent">
+                <p className="font-display text-5xl md:text-6xl font-bold bg-gradient-to-br from-rydn-gold-light to-rydn-gold bg-clip-text text-transparent">
                   <StatCounter value={s.value} suffix={s.suffix} />
                 </p>
                 <p className="mt-3 text-lg font-semibold">{s.label}</p>
-                <p className="mt-1 text-sm text-slate-400">{s.desc}</p>
+                <p className="mt-1 text-sm text-slate-300">{s.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -672,8 +667,8 @@ function HomePage() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Heading eyebrow="Our advisors" text="Meet your future advisor" />
-            <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+            <Heading eyebrow="Our advisors" text="Meet your future advisor" align="left" index="04" />
+            <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed text-base md:text-lg">
               Each advisor brings their own background. Find one whose journey lines up with yours.
             </p>
           </motion.div>
@@ -722,10 +717,10 @@ function HomePage() {
                   className={
                     "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition border " +
                     (active
-                      ? "bg-slate-900 text-white border-slate-900 shadow-md"
+                      ? "bg-rydn-navy text-white border-rydn-navy shadow-md"
                       : disabled
                         ? "bg-slate-50 text-slate-300 border-slate-200 cursor-not-allowed"
-                        : "bg-white text-slate-700 border-slate-200 hover:border-sky-400 hover:text-sky-700 hover:shadow-sm")
+                        : "bg-white text-slate-700 border-slate-200 hover:border-rydn-gold hover:text-rydn-gold-dark hover:shadow-sm")
                   }
                 >
                   {t(c.labelKey)}
@@ -762,7 +757,7 @@ function HomePage() {
                   <Avatar
                     src={advisor.photo}
                     name={advisor.name}
-                    className="w-32 h-32 mb-4 ring-4 ring-sky-50"
+                    className="w-32 h-32 mb-4 ring-4 ring-rydn-gold/40"
                   />
                 </div>
                 <h3 className="text-lg font-bold text-center text-slate-900 dark:text-slate-100">{advisor.name}</h3>
@@ -777,7 +772,7 @@ function HomePage() {
                   {advisor.advisingTopics.map((topic: string, idx: number) => (
                     <span
                       key={idx}
-                      className="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold border border-sky-100 dark:bg-sky-950/40 dark:text-sky-300 dark:border-sky-900/60"
+                      className="bg-rydn-gold/10 text-rydn-gold-dark px-3 py-1 rounded-full text-xs font-semibold border border-rydn-gold/30 dark:bg-rydn-gold/15 dark:text-rydn-gold-light dark:border-rydn-gold/30"
                     >
                       {topic}
                     </span>
@@ -833,7 +828,7 @@ function HomePage() {
                 <div className="mt-auto w-full flex gap-2">
                   <Button
                     className="flex-1"
-                    variant={advisor.bookingLink ? "primary" : "secondary"}
+                    variant={advisor.bookingLink ? "youth" : "secondary"}
                     onClick={() => {
                       if (advisor.bookingLink) {
                         setSelectedAdvisor({ name: advisor.name, bookingLink: advisor.bookingLink })
@@ -845,7 +840,7 @@ function HomePage() {
                   </Button>
                   <Link
                     to={`/advisors/${advisor.slug}`}
-                    className="inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-sky-400 hover:text-sky-700 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:border-sky-500 dark:hover:text-sky-300 transition whitespace-nowrap"
+                    className="inline-flex items-center justify-center rounded-full px-4 py-2.5 text-sm font-semibold border border-slate-300 text-slate-700 hover:bg-slate-50 hover:border-rydn-gold hover:text-rydn-gold-dark dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:border-rydn-gold dark:hover:text-rydn-gold-light transition whitespace-nowrap"
                     aria-label={`Read ${advisor.name}'s story`}
                   >
                     Story →
@@ -861,18 +856,18 @@ function HomePage() {
       {/* ============================================== */}
       {/* STORIES PREVIEW                                 */}
       {/* ============================================== */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-950">
+      <section className="py-24 bg-slate-50 dark:bg-slate-950">
         <Container>
-          <Heading eyebrow={t("stories.eyebrow")} text={t("stories.title")} />
-          <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+          <Heading eyebrow={t("stories.eyebrow")} text={t("stories.title")} align="left" index="05" />
+          <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed text-base md:text-lg">
             {t("stories.lede")}
           </p>
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { initials: "MK", student: "Maya K.", outcome: "Accepted to UofT Life Sciences", pull: "I thought I had to figure it all out alone.", gradient: "from-rose-400 via-pink-500 to-fuchsia-600", topic: "Pre-med" },
-              { initials: "DR", student: "Daniel R.", outcome: "Accepted to law combined program", pull: "Sahar walked me through every line of my personal statement.", gradient: "from-amber-400 via-orange-500 to-red-500", topic: "Pre-law" },
-              { initials: "AS", student: "Aria S.", outcome: "Switched intended major after one workshop", pull: "I realized I'd been chasing the wrong thing.", gradient: "from-emerald-400 via-teal-500 to-cyan-600", topic: "Career" },
+              { initials: "MK", student: "Maya K.", outcome: "Accepted to UofT Life Sciences", pull: "I thought I had to figure it all out alone.", topic: "Pre-med" },
+              { initials: "DR", student: "Daniel R.", outcome: "Accepted to law combined program", pull: "Sahar walked me through every line of my personal statement.", topic: "Pre-law" },
+              { initials: "AS", student: "Aria S.", outcome: "Switched intended major after one workshop", pull: "I realized I'd been chasing the wrong thing.", topic: "Career" },
             ].map((s, i) => (
               <motion.div
                 key={i}
@@ -882,18 +877,18 @@ function HomePage() {
                 viewport={{ once: true }}
                 className="card-ring rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition overflow-hidden flex flex-col"
               >
-                <div className={`relative h-40 bg-gradient-to-br ${s.gradient} p-6 text-white flex flex-col justify-between`}>
+                <div className="relative h-40 bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-ink-soft p-6 text-white flex flex-col justify-between">
                   <span className="self-start inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/15 backdrop-blur">
                     {s.topic}
                   </span>
                   <div>
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur font-bold text-sm mb-2">{s.initials}</div>
-                    <p className="font-semibold">{s.student}</p>
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-rydn-gold/20 ring-1 ring-rydn-gold/60 backdrop-blur font-display font-semibold text-sm mb-2">{s.initials}</div>
+                    <p className="font-script text-2xl leading-none">{s.student}</p>
                   </div>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <Quote size={18} className="text-slate-200 mb-2" aria-hidden />
-                  <p className="font-display text-lg text-slate-900 leading-snug">"{s.pull}"</p>
+                  <p className="font-display italic text-lg text-slate-900 leading-snug">"{s.pull}"</p>
                   <p className="mt-4 text-xs font-bold uppercase tracking-wider text-emerald-600">{s.outcome}</p>
                 </div>
               </motion.div>
@@ -903,7 +898,7 @@ function HomePage() {
           <div className="mt-12 flex justify-center">
             <Link
               to="/stories"
-              className="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-8 py-3.5 font-semibold hover:bg-sky-600 transition"
+              className={buttonClasses("primary", "px-8 py-3.5")}
             >
               Read all stories <ArrowRight size={16} />
             </Link>
@@ -931,12 +926,12 @@ function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-sky-900 to-indigo-900 px-8 py-16 md:px-16 md:py-20 text-center text-white"
+            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink px-8 py-16 md:px-16 md:py-20 text-center text-white border border-rydn-gold/25"
           >
-            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-amber-400/20 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
+            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-rydn-gold/25 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-rydn-gold/15 blur-3xl" />
 
-            <Sparkles size={40} className="mx-auto text-amber-300" />
+            <Sparkles size={40} className="mx-auto text-rydn-gold" />
             <h2 className="font-display mt-6 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight max-w-3xl mx-auto">
               Become part of the next generation of advisors
             </h2>
@@ -946,7 +941,7 @@ function HomePage() {
             <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 to="/become-advisor"
-                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-8 py-4 font-semibold hover:bg-sky-50 transition"
+                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-8 py-4 font-semibold hover:bg-rydn-gold-light transition"
               >
                 <MessageSquare size={18} className="mr-2" />
                 Become an Advisor
@@ -1011,7 +1006,7 @@ function HomePage() {
             animate={{ scale: 1, opacity: 1 }}
             className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8 text-center"
           >
-            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 text-white">
+            <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-rydn-navy to-rydn-slate-blue text-rydn-gold-light">
               <Sparkles size={28} />
             </div>
             <h3 className="font-display text-2xl font-bold mb-3 text-slate-900">You're all set</h3>

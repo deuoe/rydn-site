@@ -6,6 +6,7 @@ import Avatar from "./components/Avatar"
 import { Link } from "./i18n/Link"
 import { getAdvisorBySlug } from "./data/advisors"
 import { UNIVERSITIES } from "./data/universities"
+import { ButtonLink } from "./components/Button"
 import NotFound from "./NotFound"
 
 /**
@@ -48,12 +49,11 @@ export default function AdvisorDetail() {
   return (
     <>
       {/* ===================== HERO ===================== */}
-      <section className="relative isolate -mt-20 pt-32 pb-24 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
+      <section className="relative isolate -mt-20 pt-32 pb-24 overflow-hidden bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl animate-float" />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-rydn-gold/25 blur-3xl" />
         <div
-          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
+          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-rydn-gold/15 blur-3xl"
         />
 
         <Container>
@@ -103,15 +103,16 @@ export default function AdvisorDetail() {
               {/* Booking + share row */}
               <div className="mt-8 flex flex-wrap gap-3">
                 {advisor.bookingLink ? (
-                  <a
+                  <ButtonLink
                     href={advisor.bookingLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 px-7 py-3.5 font-bold shadow-lg hover:shadow-xl transition"
+                    variant="youth"
+                    className="px-7 py-3.5"
                   >
                     <Calendar size={18} />
                     Book with {advisor.name.split(" ")[0]}
-                  </a>
+                  </ButtonLink>
                 ) : (
                   <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 text-white/70 px-6 py-3.5 font-semibold">
                     Booking coming soon
@@ -133,18 +134,18 @@ export default function AdvisorDetail() {
 
       {/* ===================== EDUCATION ===================== */}
       {advisor.universities && advisor.universities.length > 0 && (
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-slate-50 dark:bg-rydn-navy-deep">
           <Container>
             <div className="max-w-4xl mx-auto">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 text-center">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold text-center">
                 Education
               </p>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold text-slate-900 text-center">
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-slate-100 text-center">
                 {advisor.universities.length === 1
                   ? "Where they study"
                   : "Their academic journey"}
               </h2>
-              <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />
+              <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-rydn-gold via-rydn-gold-light to-rydn-gold-dark" />
 
               <div className="mt-10 flex items-center justify-center flex-wrap gap-x-10 gap-y-6">
                 {advisor.universities.map((uniKey, idx) => {
@@ -161,7 +162,7 @@ export default function AdvisorDetail() {
                         style={{ height: `${finalHeight}px` }}
                         className="w-auto object-contain"
                       />
-                      <span className="text-sm font-semibold text-slate-700">{uni.name}</span>
+                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{uni.name}</span>
                     </div>
                   )
                 })}
@@ -175,19 +176,19 @@ export default function AdvisorDetail() {
       <section className="py-16">
         <Container>
           <div className="max-w-4xl mx-auto">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 text-center">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold text-center">
               Specializations
             </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold text-slate-900 text-center">
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-slate-100 text-center">
               {advisor.name.split(" ")[0]} can help with
             </h2>
-            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />
+            <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-rydn-gold via-rydn-gold-light to-rydn-gold-dark" />
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               {advisor.advisingTopics.map((topic, idx) => (
                 <span
                   key={idx}
-                  className="bg-sky-50 text-sky-700 px-5 py-2.5 rounded-full text-base font-semibold border border-sky-100"
+                  className="bg-rydn-gold/10 text-rydn-gold-dark px-5 py-2.5 rounded-full text-base font-semibold border border-rydn-gold/30 dark:bg-rydn-gold/15 dark:text-rydn-gold-light dark:border-rydn-gold/30"
                 >
                   {topic}
                 </span>
@@ -199,18 +200,18 @@ export default function AdvisorDetail() {
 
       {/* ===================== BIO ===================== */}
       {advisor.bio && advisor.bio.length > 0 && (
-        <section className="py-16 bg-slate-50">
+        <section className="py-16 bg-slate-50 dark:bg-rydn-navy-deep">
           <Container>
             <div className="max-w-3xl mx-auto">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 text-center">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold text-center">
                 About
               </p>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold text-slate-900 text-center">
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-slate-100 text-center">
                 {advisor.name.split(" ")[0]}'s story
               </h2>
-              <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />
+              <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-rydn-gold via-rydn-gold-light to-rydn-gold-dark" />
 
-              <div className="mt-10 space-y-5 text-base md:text-lg text-slate-700 leading-relaxed">
+              <div className="mt-10 space-y-5 text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                 {advisor.bio.map((paragraph, idx) => (
                   <p key={idx}>{paragraph}</p>
                 ))}
@@ -228,10 +229,10 @@ export default function AdvisorDetail() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-sky-900 to-indigo-900 p-10 md:p-14 text-center text-white"
+            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink p-10 md:p-14 text-center text-white"
           >
-            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-amber-400/20 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
+            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-rydn-gold/25 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-rydn-gold/15 blur-3xl" />
 
             <h2 className="font-display text-3xl md:text-4xl font-semibold relative">
               Ready to book with {advisor.name.split(" ")[0]}?
@@ -242,15 +243,16 @@ export default function AdvisorDetail() {
 
             <div className="mt-8 flex flex-wrap justify-center gap-3 relative">
               {advisor.bookingLink ? (
-                <a
+                <ButtonLink
                   href={advisor.bookingLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900 px-8 py-4 font-bold shadow-lg hover:shadow-xl transition"
+                  variant="youth"
+                  className="px-8 py-4"
                 >
                   <Calendar size={18} />
                   Book with {advisor.name.split(" ")[0]}
-                </a>
+                </ButtonLink>
               ) : (
                 <span className="inline-flex items-center rounded-full bg-white/10 border border-white/20 text-white/70 px-8 py-4 font-semibold">
                   Booking coming soon
