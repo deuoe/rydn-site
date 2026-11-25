@@ -1,8 +1,9 @@
 import { Link as RouterLink } from "react-router-dom"
-import { Globe2, Mail, ArrowLeft } from "lucide-react"
+import { Globe2, ArrowLeft } from "lucide-react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import Paragraph from "./components/Paragraph"
+import EmailCaptureForm from "./components/EmailCaptureForm"
 
 /**
  * RooZ France, bientôt disponible.
@@ -56,15 +57,23 @@ export default function RoozFrance() {
         </ul>
       </div>
 
-      {/* Interest capture + back to gateway */}
+      {/* Interest capture + back to gateway. Real capture via Forminit,
+          not a mailto link: the address is stored, nothing depends on the
+          visitor having a mail client configured. */}
       <div className="mt-10 flex flex-col items-center gap-4">
-        <a
-          href="mailto:info@rydn.ca?subject=RooZ France: Je m'intéresse&body=Bonjour l'équipe RooZ,%0D%0A%0D%0AJ'aimerais être informé(e) de l'évolution de RooZ France. Je m'intéresse à :%0D%0A%0D%0A"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 px-8 py-4 text-base font-bold text-white shadow-lg transition hover:shadow-xl"
-        >
-          <Mail size={18} />
-          Suivre l'actualité de RooZ France
-        </a>
+        <p className="text-center text-sm text-slate-600 dark:text-slate-400">
+          Laissez votre courriel pour suivre l'actualité de RooZ France.
+        </p>
+        <div className="w-full max-w-md">
+          <EmailCaptureForm
+            source="RooZ France interest"
+            placeholder="vous@exemple.com"
+            buttonLabel="S'abonner"
+            successMessage="Merci ! Nous vous préviendrons dès que l'association sera lancée."
+            inputClassName="flex-1 rounded-full border border-blue-300 dark:border-blue-900/60 bg-white dark:bg-slate-900 dark:text-slate-100 px-5 py-4 text-base placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
+            buttonClassName="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 px-6 py-4 text-base font-bold text-white shadow-lg transition hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
+          />
+        </div>
         <RouterLink
           to="/"
           className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"

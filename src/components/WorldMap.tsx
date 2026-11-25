@@ -76,6 +76,10 @@ function MapMarkerPin({ marker }: { marker: MapMarker }) {
         className="group cursor-pointer outline-none"
       >
         <title>{marker.label}</title>
+        {/* Invisible hit area: the visible dot is only ~11px across, too
+            small to tap reliably on a phone, so the link covers a 44px
+            circle around it. Transparent fill still receives pointer events. */}
+        <circle r={22} fill="transparent" />
         {/* Pulse ring, staggered per marker so they do not pulse in lockstep */}
         <motion.circle
           r={6}

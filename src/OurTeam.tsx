@@ -4,6 +4,7 @@ import { Sparkles, ArrowRight, Crown, Heart, ShieldCheck, Stethoscope, Brain } f
 import { FaLinkedinIn } from "react-icons/fa"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
+import { ADVISORS } from "./data/advisors"
 import saraUrl from "./assets/images/Sara.jpg"
 import sinaUrl from "./assets/images/Sina.jpeg"
 import valentinaUrl from "./assets/images/Valentina.jpg"
@@ -292,7 +293,7 @@ export default function OurTeam() {
               <div className="md:col-span-8">
                 <Heart size={36} className="text-amber-300 mb-4" />
                 <h2 className="font-display text-3xl md:text-4xl font-semibold leading-tight">
-                  Plus 25+ advisors and a growing community of volunteers.
+                  {`Plus ${ADVISORS.length}+ advisors and a growing community of volunteers.`}
                 </h2>
                 <p className="mt-4 text-white/85 leading-relaxed max-w-2xl">
                   RYDN runs on people who care. If you're a student, a recent grad, or a professional with experience to share, there's a place for you here.

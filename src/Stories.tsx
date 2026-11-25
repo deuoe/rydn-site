@@ -4,6 +4,7 @@ import { Sparkles, ArrowRight, Calendar, Quote, GraduationCap, Stethoscope, Scal
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import { useTranslation } from "./i18n/useTranslation"
+import { ADVISORS } from "./data/advisors"
 
 type Story = {
   studentName: string
@@ -90,7 +91,7 @@ const STORIES: Story[] = [
 ]
 
 const IMPACT_STATS = [
-  { value: "25+", label: "Student advisors", desc: "across Canada" },
+  { value: `${ADVISORS.length}+`, label: "Student advisors", desc: "across Canada" },
   { value: "11+", label: "Areas of advising", desc: "from medicine to law to arts" },
   { value: "7", label: "Workshops scheduled", desc: "for 2026 alone" },
   { value: "3", label: "Languages supported", desc: "EN · FR · ES" },
