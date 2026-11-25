@@ -22,10 +22,10 @@ export default function ForEducators() {
       {/* ===================== HERO ===================== */}
       <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-amber-400/15 blur-3xl animate-float" />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-amber-400/15 blur-3xl" />
         <div
-          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-500/30 blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
+          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-500/30 blur-3xl"
+         
         />
 
         <Container>
@@ -74,10 +74,10 @@ export default function ForEducators() {
       <section className="py-16">
         <Container>
           <div className="max-w-5xl mx-auto">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 text-center">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold text-center">
               Existing partners
             </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 text-center">
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 dark:text-slate-100 text-center">
               Already trusted across the GTA
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />
@@ -164,10 +164,10 @@ export default function ForEducators() {
       <section className="py-16">
         <Container>
           <div className="max-w-5xl mx-auto">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600 text-center">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-dark dark:text-rydn-gold text-center">
               Why educators pick RYDN
             </p>
-            <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 text-center">
+            <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 dark:text-slate-100 text-center">
               Built for school realities
             </h2>
             <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />

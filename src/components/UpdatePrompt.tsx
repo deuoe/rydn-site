@@ -50,7 +50,7 @@ export default function UpdatePrompt() {
       className="fixed bottom-4 right-4 z-[100] max-w-sm rounded-2xl border border-slate-200 bg-white shadow-2xl ring-1 ring-black/5 dark:border-slate-700 dark:bg-slate-900 dark:ring-white/10"
     >
       <div className="flex items-start gap-3 p-4">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-700 dark:bg-sky-500/20 dark:text-sky-300">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rydn-gold/15 text-rydn-gold-dark dark:bg-rydn-gold/20 dark:text-rydn-gold-light">
           <RefreshCw size={18} />
         </div>
         <div className="flex-1">
@@ -64,7 +64,7 @@ export default function UpdatePrompt() {
             <button
               type="button"
               onClick={() => updateServiceWorker(true)}
-              className="rounded-full bg-sky-600 px-4 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700 active:scale-95"
+              className="rounded-full bg-rydn-navy px-4 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-rydn-navy-deep active:scale-95"
             >
               Reload
             </button>

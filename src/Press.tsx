@@ -5,9 +5,9 @@ import Container from "./components/Container"
 import Heading from "./components/Heading"
 import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
-import saraUrl from "./assets/images/Sara.jpg"
-import sinaUrl from "./assets/images/Sina.jpeg"
-import logoUrl from "./assets/images/logo.jpeg"
+import saraUrl from "./assets/images/Sara.webp"
+import sinaUrl from "./assets/images/Sina.webp"
+import logoUrl from "./assets/images/rooz-logo-transparent.png"
 
 /**
  * /press, public press & media kit page.
@@ -70,10 +70,10 @@ export default function Press() {
       {/* ===================== HERO ===================== */}
       <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl animate-float" />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl" />
         <div
-          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-500/30 blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
+          className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-500/30 blur-3xl"
+         
         />
 
         <Container>
@@ -101,7 +101,7 @@ export default function Press() {
       {/* ===================== QUICK FACTS ===================== */}
       <section className="py-16">
         <Container>
-          <Heading eyebrow="At a glance" text="Quick facts" />
+          <Heading eyebrow="At a glance" text="Quick facts" tone="formal" />
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {QUICK_FACTS.map((fact) => (
@@ -198,7 +198,7 @@ export default function Press() {
       <section className="py-16">
         <Container>
           <Heading eyebrow="Founders" text="Available for interviews" />
-          <p className="mt-6 max-w-3xl mx-auto text-center text-slate-600 leading-relaxed">
+          <p className="mt-6 max-w-3xl mx-auto text-center text-slate-600 dark:text-slate-300 leading-relaxed">
             Both founders are available for interviews on topics including international student
             experiences, multilingual mentorship, nonprofit operations, and AI in education.
           </p>
@@ -247,16 +247,14 @@ export default function Press() {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div className="rounded-3xl bg-white border border-slate-200 p-7 shadow-sm flex flex-col">
-              <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white border border-slate-200">
-                <img src={logoUrl} alt="RYDN logo" className="h-10 w-auto" />
-              </div>
+              <img src={logoUrl} alt="RYDN logo" className="mb-5 h-14 w-auto" />
               <h3 className="font-bold text-slate-900">RYDN logo</h3>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed flex-1">
                 Right-click → "Save Image As" to download the primary logo.
               </p>
               <a
                 href={logoUrl}
-                download="RYDN_logo.jpg"
+                download="RYDN_logo.png"
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 text-white px-4 py-2.5 text-sm font-semibold hover:bg-sky-600 transition"
               >
                 <Download size={14} />

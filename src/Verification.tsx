@@ -5,7 +5,7 @@ import Paragraph from "./components/Paragraph"
 export default function Verification() {
   return (
     <Container>
-      <Heading text="Verification" />
+      <Heading text="Verification" tone="formal" />
 
       <Paragraph>
         RooZ Youth Development Network / Réseau de développement de la jeunesse RooZ

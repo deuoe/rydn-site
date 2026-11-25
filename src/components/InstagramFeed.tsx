@@ -42,10 +42,10 @@ export default function InstagramFeed() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-20 bg-gradient-to-br from-rose-50 via-white to-violet-50">
+    <section className="py-20 bg-gradient-to-br from-rose-50 via-white to-violet-50 dark:from-rydn-navy-deep dark:via-rydn-navy dark:to-rydn-navy-deep">
       <Container>
         <Heading eyebrow={t("instagram.eyebrow")} text={t("instagram.title")} />
-        <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+        <p className="mt-6 text-center text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
           {t("instagram.subtitle")}
         </p>
 
@@ -55,7 +55,7 @@ export default function InstagramFeed() {
             href={IG_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:border-pink-300 transition shadow-sm"
+            className="inline-flex items-center gap-2 rounded-full bg-white border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:border-pink-300 transition shadow-sm dark:bg-white/10 dark:border-white/20 dark:text-white dark:hover:bg-white/15"
           >
             <FaInstagram className="h-4 w-4 text-pink-600" />
             @{IG_HANDLE}

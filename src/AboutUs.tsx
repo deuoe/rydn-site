@@ -1,14 +1,16 @@
 import { Link } from "./i18n/Link"
-import { motion } from "motion/react"
+import { motion, useReducedMotion } from "motion/react"
 import { Heart, Sparkles, Users, Lightbulb, ArrowRight, Globe2, MapPin, Zap, Rocket, TrendingUp } from "lucide-react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import SDGSection from "./components/SDGSection"
+import RydnSeal from "./components/RydnSeal"
 import { useTranslation } from "./i18n/useTranslation"
 import aboutImg from "./assets/images/About Us.jpeg"
 
 export default function AboutUs() {
   const { t } = useTranslation()
+  const reduceMotion = useReducedMotion()
 
   const values = [
     { Icon: Heart, title: t("about.v1Title"), body: t("about.v1Body"), color: "from-rose-400 to-pink-500" },
@@ -20,10 +22,10 @@ export default function AboutUs() {
   return (
     <>
       {/* ===================== HERO ===================== */}
-      <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
+      <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl animate-float" />
-        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-rydn-gold/25 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-rydn-gold/15 blur-3xl" />
 
         <Container>
           <motion.div
@@ -51,16 +53,16 @@ export default function AboutUs() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-sky-600">
+              <p className="font-display italic text-base sm:text-lg text-rydn-gold-dark dark:text-rydn-gold">
                 {t("about.storyTitle")}
               </p>
-              <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 leading-tight">
+              <h2 className="mt-3 font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-900 dark:text-slate-100 leading-tight">
                 {t("mission.line1")} <span className="text-slate-400">{t("mission.line2")}</span>
               </h2>
-              <div className="mt-4 h-1 w-16 rounded-full bg-gradient-to-r from-sky-400 via-indigo-500 to-amber-400" />
+              <div className="mt-4 h-px w-24 rounded-full bg-gradient-to-r from-rydn-gold via-rydn-gold-light to-rydn-gold-dark" />
             </div>
 
-            <div className="lg:col-span-7 space-y-5 text-base md:text-lg text-slate-700 leading-relaxed">
+            <div className="lg:col-span-7 space-y-5 text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
               <p>{t("about.storyP1")}</p>
               <p>{t("about.storyP2")}</p>
               <p>{t("about.storyP3")}</p>
@@ -78,10 +80,21 @@ export default function AboutUs() {
             <img src={aboutImg} alt="Students working together" className="w-full h-72 md:h-[28rem] object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 text-white">
-              <p className="font-display text-2xl md:text-4xl max-w-2xl leading-tight">
+              <p className="font-display italic text-2xl md:text-4xl max-w-2xl leading-tight">
                 "Advising should be approachable, relatable, and empowering."
               </p>
             </div>
+          </motion.div>
+
+          {/* RYDN 2026 seal, stamp-in on scroll into view */}
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, scale: 1.18, rotate: -4 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="mt-12 flex justify-center"
+          >
+            <RydnSeal className="h-20 w-20 text-rydn-gold-dark dark:text-rydn-gold" />
           </motion.div>
         </Container>
       </section>
@@ -89,12 +102,12 @@ export default function AboutUs() {
       {/* ===================== ORIGIN STORY ===================== */}
       <section className="py-20 bg-rydn-mesh">
         <Container>
-          <Heading eyebrow={t("origin.eyebrow")} text={t("origin.title")} />
+          <Heading eyebrow={t("origin.eyebrow")} text={t("origin.title")} tone="formal" />
 
           {/* Three-step timeline: spark → founded → today */}
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 relative">
             {/* Connecting line behind cards on desktop */}
-            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-amber-400 via-sky-500 to-indigo-500 -z-0" />
+            <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-rydn-gold via-rydn-gold-light to-rydn-gold-dark -z-0" />
 
             {[
               { Icon: Zap, label: "01", title: t("origin.sparkTitle"), body: t("origin.sparkBody"), color: "from-amber-400 to-orange-500" },
@@ -115,8 +128,8 @@ export default function AboutUs() {
                   </div>
                   <span className="font-display text-3xl font-bold text-slate-200">{stage.label}</span>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">{stage.title}</h3>
-                <p className="mt-3 text-slate-600 leading-relaxed text-sm">{stage.body}</p>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">{stage.title}</h3>
+                <p className="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{stage.body}</p>
               </motion.div>
             ))}
           </div>
@@ -127,15 +140,15 @@ export default function AboutUs() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-16 relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-sky-900 to-indigo-900 p-10 md:p-16 text-center text-white"
+            className="mt-16 relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink p-10 md:p-16 text-center text-white"
           >
-            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-amber-400/20 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
-            <Sparkles size={36} className="mx-auto text-amber-300 relative" />
-            <p className="font-display mt-6 text-2xl md:text-4xl leading-snug max-w-3xl mx-auto relative">
+            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-rydn-gold/25 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-rydn-gold/15 blur-3xl" />
+            <Sparkles size={36} className="mx-auto text-rydn-gold relative" />
+            <p className="font-display italic mt-6 text-2xl md:text-4xl leading-snug max-w-3xl mx-auto relative">
               "{t("origin.quote")}"
             </p>
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-amber-200 relative">
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-rydn-gold-light relative">
               - {t("origin.quoteAttribution")}
             </p>
           </motion.blockquote>
@@ -145,7 +158,7 @@ export default function AboutUs() {
       {/* ===================== VALUES ===================== */}
       <section className="py-20 bg-rydn-mesh">
         <Container>
-          <Heading eyebrow={t("about.valuesTitle")} text={t("about.valuesTitle")} />
+          <Heading eyebrow={t("about.valuesTitle")} text={t("about.valuesTitle")} tone="formal" />
 
           <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map(({ Icon, title, body, color }, i) => (
@@ -160,8 +173,8 @@ export default function AboutUs() {
                 <div className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${color} text-white shadow-md`}>
                   <Icon size={22} />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">{title}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed text-sm">{body}</p>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">{title}</h3>
+                <p className="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{body}</p>
               </motion.div>
             ))}
           </div>
@@ -180,17 +193,17 @@ export default function AboutUs() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div>
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white mb-5 shadow-md">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-rydn-navy to-rydn-slate-blue text-white mb-5 shadow-md">
                   <Globe2 size={22} />
                 </div>
-                <h3 className="font-display text-2xl md:text-3xl font-semibold text-slate-900">
+                <h3 className="font-display text-2xl md:text-3xl font-semibold text-slate-900 dark:text-slate-100">
                   {t("about.bilingualTitle")}
                 </h3>
-                <p className="mt-4 text-slate-600 leading-relaxed">
+                <p className="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">
                   {t("about.bilingualBody")}
                 </p>
-                <div className="mt-6 flex items-center gap-2 text-sm text-slate-500">
-                  <MapPin size={16} className="text-sky-600" />
+                <div className="mt-6 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                  <MapPin size={16} className="text-rydn-gold-dark dark:text-rydn-gold" />
                   Richmond Hill, Ontario, Canada
                 </div>
               </div>
@@ -226,17 +239,17 @@ export default function AboutUs() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-slate-900 via-sky-900 to-indigo-900 px-8 py-14 md:px-14 md:py-16 text-center text-white"
+            className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-rydn-navy via-rydn-navy-deep to-rydn-navy-ink px-8 py-14 md:px-14 md:py-16 text-center text-white"
           >
-            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-amber-400/20 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-sky-400/20 blur-3xl" />
+            <div className="absolute -top-16 -right-16 h-64 w-64 rounded-full bg-rydn-gold/25 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-rydn-gold/15 blur-3xl" />
             <h2 className="font-display text-3xl md:text-5xl font-semibold leading-tight relative">
               {t("about.ctaTitle")}
             </h2>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center relative">
               <Link
                 to="/"
-                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-8 py-4 font-semibold hover:bg-sky-50 transition"
+                className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-8 py-4 font-semibold hover:bg-rydn-gold-light transition"
               >
                 {t("about.ctaButton")} <ArrowRight size={18} className="ml-2" />
               </Link>

@@ -79,7 +79,7 @@ export default function Donation() {
         transition={{ duration: 0.6 }}
       >
         <Heading text="Support Our Mission" />
-        <p className="mt-6 text-slate-700 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
+        <p className="mt-6 text-slate-700 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed text-base md:text-lg">
           RYDN keeps advising <strong>free</strong> for every student we serve. We can do that
           because of people like you. Whether you give your time, your network, or a one-time
           donation. Every contribution helps a student find direction.
@@ -148,7 +148,7 @@ export default function Donation() {
       >
         <div className="text-center">
           <Heading text="Other Ways to Help" />
-          <p className="mt-4 text-slate-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
+          <p className="mt-4 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
             You don't have to give money to make a difference. Here are other ways to be part of RYDN.
           </p>
         </div>
@@ -199,7 +199,7 @@ export default function Donation() {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <p className="text-slate-700 max-w-2xl mx-auto leading-relaxed text-lg italic">
+        <p className="text-slate-700 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed text-lg italic">
           Together, we can turn potential into opportunity.
         </p>
       </motion.section>

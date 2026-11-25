@@ -5,10 +5,10 @@ import { FaLinkedinIn } from "react-icons/fa"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import { ADVISORS } from "./data/advisors"
-import saraUrl from "./assets/images/Sara.jpg"
-import sinaUrl from "./assets/images/Sina.jpeg"
-import valentinaUrl from "./assets/images/Valentina.jpg"
-import saharUrl from "./assets/images/Sahar.jpeg"
+import saraUrl from "./assets/images/Sara.webp"
+import sinaUrl from "./assets/images/Sina.webp"
+import valentinaUrl from "./assets/images/Valentina.webp"
+import saharUrl from "./assets/images/Sahar.webp"
 import mohsenUrl from "./assets/images/Mohsen.jpg"
 import ricardoUrl from "./assets/images/Ricardo Ko.jpeg"
 import aliUrl from "./assets/images/Ali Roozbahani.jpeg"
@@ -102,8 +102,8 @@ export default function OurTeam() {
       {/* HERO */}
       <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -right-20 -z-10 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl animate-float" />
-        <div className="absolute -bottom-32 -left-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-500/30 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute -top-20 -right-20 -z-10 h-96 w-96 rounded-full bg-amber-400/20 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-500/30 blur-3xl" />
 
         <Container>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">

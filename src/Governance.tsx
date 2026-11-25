@@ -4,8 +4,8 @@ import Container from "./components/Container"
 import Heading from "./components/Heading"
 import SkeletonImage from "./components/SkeletonImage"
 import { Link } from "./i18n/Link"
-import saraUrl from "./assets/images/Sara.jpg"
-import sinaUrl from "./assets/images/Sina.jpeg"
+import saraUrl from "./assets/images/Sara.webp"
+import sinaUrl from "./assets/images/Sina.webp"
 
 /**
  * /governance, the home of RYDN's transparency and accountability documentation.
@@ -97,8 +97,8 @@ export default function Governance() {
       {/* ===================== HERO ===================== */}
       <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-sky-900">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl animate-float" />
-        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl" />
 
         <Container>
           <motion.div
@@ -125,8 +125,8 @@ export default function Governance() {
       {/* ===================== BOARD OF DIRECTORS ===================== */}
       <section className="py-20">
         <Container>
-          <Heading eyebrow="Board of Directors" text="The people accountable for RYDN" />
-          <p className="mt-6 max-w-3xl mx-auto text-center text-slate-600 leading-relaxed text-base md:text-lg">
+          <Heading eyebrow="Board of Directors" text="The people accountable for RYDN" tone="formal" />
+          <p className="mt-6 max-w-3xl mx-auto text-center text-slate-600 dark:text-slate-300 leading-relaxed text-base md:text-lg">
             RYDN's Board of Directors sets strategic direction, approves the annual budget, and
             holds the organization accountable to its mission. The board meets regularly and keeps
             minutes for every meeting.

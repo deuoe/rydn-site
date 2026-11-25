@@ -115,8 +115,8 @@ export default function BecomeAdvisor() {
       {/* HERO */}
       <section className="relative isolate -mt-20 pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-900 to-sky-900">
         <div className="grain -z-10" />
-        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl animate-float" />
-        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute -top-20 -left-20 -z-10 h-96 w-96 rounded-full bg-sky-500/30 blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 -z-10 h-[28rem] w-[28rem] rounded-full bg-amber-400/20 blur-3xl" />
 
         <Container>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-4xl">
@@ -197,7 +197,7 @@ export default function BecomeAdvisor() {
       <section id="apply" className="py-20 scroll-mt-20">
         <Container>
           <Heading eyebrow="Application" text="Apply to advise" />
-          <p className="mt-6 text-center text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-6 text-center text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Fill out the form below. We'll reach out within a few business days.
           </p>
 

@@ -49,13 +49,13 @@ const SDGs = [
 
 export default function SDGSection() {
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-20 bg-slate-50 dark:bg-rydn-navy-deep">
       <Container>
         <Heading
           eyebrow="United Nations"
           text="Aligned with the UN Sustainable Development Goals"
         />
-        <p className="mt-6 max-w-3xl mx-auto text-center text-slate-600 leading-relaxed text-base md:text-lg">
+        <p className="mt-6 max-w-3xl mx-auto text-center text-slate-600 dark:text-slate-400 leading-relaxed text-base md:text-lg">
           The 17 UN SDGs are a shared global blueprint for peace and prosperity, adopted by all
           193 UN member states. RYDN's work directly contributes to four of them.
         </p>
@@ -84,10 +84,10 @@ export default function SDGSection() {
               </div>
               {/* White info block */}
               <div className="p-6 flex flex-col flex-1">
-                <h3 className="font-display text-lg font-bold text-slate-900 leading-tight">
+                <h3 className="font-display text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">
                   {sdg.name}
                 </h3>
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                   {sdg.contribution}
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function SDGSection() {
             href="https://sdgs.un.org/goals"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-sky-700 transition"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-rydn-gold-dark dark:hover:text-rydn-gold-light transition"
           >
             Learn more about the UN Sustainable Development Goals
             <ExternalLink size={14} />

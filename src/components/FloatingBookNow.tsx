@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react"
 import { Calendar, X } from "lucide-react"
 import { useTranslation } from "../i18n/useTranslation"
 import { haptic } from "../lib/rydnNative"
+import { buttonClasses } from "./buttonClasses"
 
 const DISMISS_KEY = "rydn:book-bar-dismissed"
 
@@ -109,7 +110,7 @@ export default function FloatingBookNow() {
             <Link
               to={onHome ? "#advisors" : "/#advisors"}
               onClick={handleClick}
-              className="flex items-center justify-center gap-2 w-full rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-900 pl-6 pr-12 py-4 text-base font-bold shadow-2xl active:shadow-md active:translate-y-0.5 transition animate-glow-pulse"
+              className={buttonClasses("youth", "flex w-full pl-6 pr-12 py-4 text-base shadow-2xl active:shadow-md active:translate-y-0.5 animate-glow-pulse")}
             >
               <Calendar size={18} />
               {t("nav.bookNow")}

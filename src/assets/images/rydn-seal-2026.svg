@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="RYDN 2026 seal">
+  <title>RYDN 2026 seal</title>
+  <style>
+    .seal-spin-ring { animation: seal-spin 90s linear infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes seal-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .seal-spin-ring { animation: none; } }
+  </style>
+  <defs>
+    <path id="seal-arc" d="M 32,100 A 68,68 0 0 1 168,100" fill="none" />
+  </defs>
+  <circle cx="100" cy="100" r="97" fill="none" stroke="#c0a062" stroke-width="2.5" />
+  <circle cx="100" cy="100" r="89" fill="none" stroke="#c0a062" stroke-width="1" />
+  <g class="seal-spin-ring">
+    <circle cx="100" cy="100" r="80" fill="none" stroke="#c0a062" stroke-width="1" stroke-dasharray="1 5" opacity="0.7" />
+  </g>
+  <text font-family="Fraunces, 'Noto Serif', serif" font-weight="700" font-size="15.5" letter-spacing="3" fill="#8a6d2f">
+    <textPath href="#seal-arc" startOffset="50%" text-anchor="middle">RYDN &#8226; 2026</textPath>
+  </text>
+  <path d="M100,74 L106,94 L126,100 L106,106 L100,126 L94,106 L74,100 L94,94 Z" fill="#c0a062" />
+  <path d="M100,146 L104,152 L100,158 L96,152 Z" fill="#c0a062" />
+</svg>

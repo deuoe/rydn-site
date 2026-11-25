@@ -5,9 +5,14 @@ import { stripLangPrefix, stripBrandPrefix } from "../i18n/useLocalizedNav"
 import { AnimatePresence, motion } from "motion/react"
 import { useEffect, useState, type ComponentProps } from "react"
 import { Calendar, Mail, ArrowLeftRight } from "lucide-react"
-import logoUrl from "../assets/images/logo.jpeg"
+import logoDarkUrl from "../assets/images/rooz-logo-reversed.png"
+import logoLightUrl from "../assets/images/rooz-logo-transparent.png"
+import { useTheme } from "../theme/useTheme"
 import LanguageSwitcher from "./LanguageSwitcher"
 import ThemeToggle from "./ThemeToggle"
+import MedDueLockup from "./MedDueLockup"
+import { ButtonLink } from "./Button"
+import { buttonClasses } from "./buttonClasses"
 import { useTranslation } from "../i18n/useTranslation"
 import { haptic } from "../lib/rydnNative"
 import { useBrand } from "../brand/brand"
@@ -34,10 +39,7 @@ export default function Navbar() {
     brand === "academy"
       ? "mailto:info@rydn.ca?subject=RooZ Academy: I'm interested"
       : "mailto:info@rydn.ca?subject=RooZ France: Je m'intéresse"
-  const newBrandCtaClass =
-    brand === "academy"
-      ? "bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-slate-900"
-      : "bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 hover:from-blue-700 hover:to-blue-700 text-white"
+  const newBrandVariant = brand === "academy" ? "academy" as const : "france" as const
   // France is French-first: the minimal nav speaks French on the France
   // brand, whatever the URL language prefix. Academy keeps its English nav.
   const isFrance = brand === "france"
@@ -59,6 +61,11 @@ export default function Navbar() {
   // the header stays solid on these brands. Youth/Med keep the transparent
   // hero nav, which is designed for their dark home heroes.
   const transparent = onHome && !scrolled && !isNewBrand
+  // Logo variant follows the background: the reversed (white and gold) mark
+  // on the dark hero and in dark mode, the original navy and gold mark on
+  // the solid white navbar in light mode. No white pill either way.
+  const { theme } = useTheme()
+  const logoSrc = transparent || theme === "dark" ? logoDarkUrl : logoLightUrl
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -113,23 +120,21 @@ export default function Navbar() {
       }
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8 py-3">
-        {/* Logo */}
-        <Link to="/" className="select-none" aria-label="RYDN home">
-          <span
-            className={
-              "inline-flex items-center rounded-xl overflow-hidden bg-white p-1 transition-all duration-300 " +
-              (transparent
-                ? "ring-1 ring-white/40 shadow-lg shadow-black/20"
-                : "ring-1 ring-slate-200 shadow-sm")
-            }
-          >
+        {/* Logo + Med Due lockup on Med pages */}
+        <div className="flex items-center">
+          <Link to="/" className="select-none" aria-label="RYDN home">
             <img
-              src={logoUrl}
+              src={logoSrc}
               alt="RooZ Youth Development Network logo"
               className="h-10 w-auto block"
             />
-          </span>
-        </Link>
+          </Link>
+          {isMed && (
+            <div className="hidden lg:block ml-4">
+              <MedDueLockup size="sm" tone={transparent ? "dark" : "light"} />
+            </div>
+          )}
+        </div>
 
         {/* Desktop Navbar */}
         <ul className="hidden lg:flex items-center gap-1">
@@ -144,7 +149,7 @@ export default function Navbar() {
                     (active
                       ? transparent
                         ? "text-white"
-                        : "text-sky-700 dark:text-sky-400"
+                        : "text-rydn-gold-dark dark:text-rydn-gold"
                       : transparent
                         ? "text-white/85 hover:text-white hover:bg-white/10"
                         : "text-slate-700 hover:text-slate-900 hover:bg-slate-100 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800")
@@ -156,7 +161,7 @@ export default function Navbar() {
                       layoutId="nav-active"
                       className={
                         "absolute inset-x-2 -bottom-0.5 h-0.5 rounded-full " +
-                        (transparent ? "bg-white" : "bg-sky-600")
+                        (transparent ? "bg-white" : "bg-rydn-gold")
                       }
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
@@ -191,13 +196,14 @@ export default function Navbar() {
               </li>
               {/* Primary Med CTA, emerald gradient instead of amber */}
               <li>
-                <a
+                <ButtonLink
                   href="mailto:med@rydn.ca?subject=RooZ Med: I'm interested"
-                  className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 hover:from-emerald-600 hover:to-emerald-600 text-white px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition"
+                  variant="med"
+                  className="ml-2 px-5 py-2.5 text-sm"
                 >
                   <Mail size={16} />
                   Get started
-                </a>
+                </ButtonLink>
               </li>
             </>
           ) : isNewBrand ? (
@@ -219,16 +225,14 @@ export default function Navbar() {
               </li>
               {/* Primary CTA, interest mailto in the brand's colour */}
               <li>
-                <a
+                <ButtonLink
                   href={newBrandMailto}
-                  className={
-                    "ml-2 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition " +
-                    newBrandCtaClass
-                  }
+                  variant={newBrandVariant}
+                  className="ml-2 px-5 py-2.5 text-sm"
                 >
                   <Mail size={16} />
                   {newBrandContact}
-                </a>
+                </ButtonLink>
               </li>
             </>
           ) : (
@@ -248,12 +252,13 @@ export default function Navbar() {
                 </Link>
               </li>
 
-              {/* PRIMARY: Book Now, bright amber gradient + glow pulse */}
+              {/* PRIMARY: Book Now, gold, no pulse here (the hero and the
+                  floating bar carry the pulse, so only one pulses at a time) */}
               <li>
                 <Link
                   to={bookNowHref(onHome)}
                   onClick={handleBookNow}
-                  className="ml-2 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 hover:from-amber-500 hover:via-amber-500 hover:to-orange-600 text-slate-900 px-5 py-2.5 text-sm font-bold shadow-md hover:shadow-xl transition focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 animate-glow-pulse"
+                  className={buttonClasses("youth", "ml-2 px-5 py-2.5 text-sm shadow-md hover:shadow-xl")}
                 >
                   <Calendar size={16} />
                   {t("nav.bookNow")}
@@ -271,29 +276,28 @@ export default function Navbar() {
             <ThemeToggle transparent={transparent} />
           </div>
           {isMed ? (
-            <a
+            <ButtonLink
               href="mailto:med@rydn.ca?subject=RooZ Med: I'm interested"
-              className="hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg"
+              variant="med"
+              className="hidden sm:inline-flex px-4 py-2 text-xs"
             >
               <Mail size={14} />
               Start
-            </a>
+            </ButtonLink>
           ) : isNewBrand ? (
-            <a
+            <ButtonLink
               href={newBrandMailto}
-              className={
-                "hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg " +
-                newBrandCtaClass
-              }
+              variant={newBrandVariant}
+              className="hidden sm:inline-flex px-4 py-2 text-xs"
             >
               <Mail size={14} />
               {newBrandContactShort}
-            </a>
+            </ButtonLink>
           ) : (
             <Link
               to={bookNowHref(onHome)}
               onClick={handleBookNow}
-              className="hidden sm:inline-flex items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-slate-900 px-4 py-2 text-xs font-bold shadow-md transition hover:shadow-lg animate-glow-pulse"
+              className={buttonClasses("youth", "hidden sm:inline-flex px-4 py-2 text-xs")}
             >
               <Calendar size={14} />
               {t("nav.bookNowShort")}
@@ -356,14 +360,15 @@ export default function Navbar() {
                 {isMed ? (
                   <>
                     <li className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-700">
-                      <a
+                      <ButtonLink
                         href="mailto:med@rydn.ca?subject=RooZ Med: I'm interested"
+                        variant="med"
+                        className="flex w-full px-4 py-3.5 text-base"
                         onClick={toggle}
-                        className="flex items-center justify-center gap-2 w-full text-center rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 px-4 py-3.5 text-base font-bold text-white shadow-md hover:shadow-lg transition"
                       >
                         <Mail size={18} />
                         Get started
-                      </a>
+                      </ButtonLink>
                     </li>
                     <li>
                       <RouterLink
@@ -379,17 +384,15 @@ export default function Navbar() {
                 ) : isNewBrand ? (
                   <>
                     <li className="pt-3 mt-2 border-t border-slate-200 dark:border-slate-700">
-                      <a
+                      <ButtonLink
                         href={newBrandMailto}
+                        variant={newBrandVariant}
+                        className="flex w-full px-4 py-3.5 text-base"
                         onClick={toggle}
-                        className={
-                          "flex items-center justify-center gap-2 w-full text-center rounded-full px-4 py-3.5 text-base font-bold shadow-md hover:shadow-lg transition " +
-                          newBrandCtaClass
-                        }
                       >
                         <Mail size={18} />
                         {newBrandContact}
-                      </a>
+                      </ButtonLink>
                     </li>
                     <li>
                       <RouterLink
@@ -411,7 +414,7 @@ export default function Navbar() {
                           handleBookNow(e)
                           toggle()
                         }}
-                        className="flex items-center justify-center gap-2 w-full text-center rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 px-4 py-3.5 text-base font-bold text-slate-900 shadow-md hover:shadow-lg transition"
+                        className={buttonClasses("youth", "flex w-full px-4 py-3.5 text-base")}
                       >
                         <Calendar size={18} />
                         {t("nav.bookNow")}

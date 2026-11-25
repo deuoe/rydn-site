@@ -39,6 +39,8 @@ import {
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import RoozPlanBuilder from "./components/RoozPlanBuilder"
+import MedDueLockup from "./components/MedDueLockup"
+import { ButtonLink } from "./components/Button"
 
 type ServiceCard = {
   Icon: typeof BookOpen
@@ -71,7 +73,7 @@ const SERVICES: ServiceCard[] = [
       "Personalised study plan, not a generic syllabus",
       "Direct messaging with your tutor between sessions",
     ],
-    accent: "from-slate-700 to-slate-900",
+    accent: "from-rydn-navy to-rydn-navy-deep",
   },
   {
     Icon: MessageSquare,
@@ -194,19 +196,11 @@ export default function RoozMed() {
   return (
     <>
       {/* =============================== HERO =============================== */}
-      <section className="relative isolate -mt-20 pt-32 pb-24 overflow-hidden bg-slate-950">
-        {/* Italian tricolore background wash, subtle */}
+      <section className="relative isolate -mt-20 pt-32 pb-24 overflow-hidden bg-rydn-navy-deep">
+        {/* Italian tricolore background wash, subtle, static */}
         <div className="absolute inset-0 -z-10">
-          <motion.div
-            className="absolute -top-32 -left-32 h-[32rem] w-[32rem] rounded-full bg-emerald-500/30 blur-3xl"
-            animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            className="absolute top-1/3 -right-32 h-[32rem] w-[32rem] rounded-full bg-red-500/25 blur-3xl"
-            animate={{ x: [0, -40, 0], y: [0, -30, 0] }}
-            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          />
+          <div className="absolute -top-32 -left-32 h-[32rem] w-[32rem] rounded-full bg-emerald-500/30 blur-3xl" />
+          <div className="absolute top-1/3 -right-32 h-[32rem] w-[32rem] rounded-full bg-red-500/25 blur-3xl" />
           <div className="grain -z-10" />
         </div>
 
@@ -240,33 +234,29 @@ export default function RoozMed() {
               support, all in one place from 75+ IMAT scorers.
             </p>
 
-            {/* Signature phrase, the moment of brand reveal. The subtle italic
-                footnote is the only time we spell out the pun; after this,
-                "Med Due." stands on its own as a signature mark. */}
-            <div className="mt-8 inline-flex flex-col gap-1">
-              <p className="font-display text-2xl sm:text-3xl font-bold tracking-[0.15em] text-white">
-                MED <span className="bg-gradient-to-r from-emerald-400 via-white to-red-400 bg-clip-text text-transparent">DUE.</span>
-              </p>
-              <p className="text-xs sm:text-sm text-white/55 italic">
-                It's due. (And in Italian, "due" means two.)
-              </p>
+            {/* Signature phrase, the Med Due lockup: type plus tricolore rule
+                plus the script sign-off. */}
+            <div className="mt-8">
+              <MedDueLockup withScript />
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <a
+              <ButtonLink
                 href="#plan-builder"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 via-emerald-400 to-emerald-500 hover:from-emerald-600 hover:to-emerald-600 text-white px-7 py-3.5 font-bold shadow-lg hover:shadow-xl transition"
+                variant="med"
+                className="px-7 py-3.5"
               >
                 <Sparkles size={18} />
                 Build my plan
-              </a>
-              <a
+              </ButtonLink>
+              <ButtonLink
                 href="#free-consultation"
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur border border-white/20 hover:bg-white/15 text-white px-7 py-3.5 font-semibold transition"
+                variant="ghostLight"
+                className="px-7 py-3.5"
               >
                 Free consultation
                 <ArrowRight size={16} />
-              </a>
+              </ButtonLink>
             </div>
 
             {/* Trust row */}
@@ -385,14 +375,12 @@ export default function RoozMed() {
       {/* =============================== FREE CONSULTATION CTA =============================== */}
       <section
         id="free-consultation"
-        className="relative py-24 overflow-hidden bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 text-white"
+        className="relative py-24 overflow-hidden bg-gradient-to-br from-rydn-navy-deep via-emerald-950 to-rydn-navy-deep text-white"
       >
-        {/* Subtle animated glow in the background */}
-        <motion.div
+        {/* Subtle static glow in the background */}
+        <div
           aria-hidden
           className="absolute inset-x-0 top-1/4 h-96 bg-emerald-500/10 blur-3xl -z-10"
-          animate={{ opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <Container>
@@ -418,8 +406,9 @@ export default function RoozMed() {
               <span className="font-bold text-amber-300">{formatDollars(STARTER_KIT_TOTAL)}</span>.
             </p>
 
-            {/* What's in the kit, itemised so the value claim is checkable */}
-            <div className="mt-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur p-6 sm:p-8 text-left">
+            {/* What's in the kit, itemised so the value claim is checkable.
+                Double gold border frame, echoing the certificate. */}
+            <div className="frame-gold-double mt-8 rounded-3xl bg-white/[0.06] border border-white/15 backdrop-blur p-6 sm:p-8 text-left">
               <p className="text-xs font-semibold uppercase tracking-wider text-amber-200">
                 What's in your Starter Kit
               </p>
@@ -457,20 +446,22 @@ export default function RoozMed() {
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <a
+              <ButtonLink
                 href="mailto:med@rydn.ca?subject=RooZ Med: Free initial consultation&body=Hi RooZ Med team,%0D%0A%0D%0AI'd like to book a free initial consultation.%0D%0A%0D%0AMy time zone: %0D%0ABest times to meet: %0D%0AWhat I'm preparing for (medicine / dentistry / pharmacy): %0D%0A%0D%0AThanks!"
-                className="inline-flex items-center gap-2 rounded-full bg-white text-slate-900 hover:bg-slate-100 px-8 py-4 font-bold shadow-lg hover:shadow-xl transition"
+                variant="secondary"
+                className="px-8 py-4"
               >
                 <Calendar size={18} />
                 Book my consultation
-              </a>
-              <a
+              </ButtonLink>
+              <ButtonLink
                 href="#plan-builder"
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur border border-white/20 hover:bg-white/15 px-8 py-4 font-semibold transition"
+                variant="ghostLight"
+                className="px-8 py-4"
               >
                 <Sparkles size={16} />
                 Build my plan first
-              </a>
+              </ButtonLink>
             </div>
 
             {/* Trust footer under the CTA */}
@@ -490,9 +481,9 @@ export default function RoozMed() {
             </div>
 
             {/* Med Due signature as section-end punctuation */}
-            <p className="mt-10 text-xs tracking-[0.25em] uppercase text-white/40">
-              Med Due.
-            </p>
+            <div className="mt-10 flex justify-center">
+              <MedDueLockup size="sm" />
+            </div>
 
             {/* Switch brand escape hatch, native RouterLink */}
             <div className="mt-12">

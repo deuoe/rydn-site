@@ -1,14 +1,62 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Vazirmatn:wght@400;500;600;700;800&family=Heebo:wght@400;500;600;700;800&display=swap");
+/* Self-hosted fonts via Fontsource, no render-blocking Google Fonts request.
+   Plus Jakarta Sans (sans), Fraunces (display serif, normal + italic),
+   Vazirmatn (Persian), Heebo (Hebrew), Great Vibes (script accent). */
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/fraunces/500.css";
+@import "@fontsource/fraunces/600.css";
+@import "@fontsource/fraunces/700.css";
+@import "@fontsource/fraunces/500-italic.css";
+@import "@fontsource/fraunces/600-italic.css";
+@import "@fontsource/fraunces/700-italic.css";
+@import "@fontsource/vazirmatn/400.css";
+@import "@fontsource/vazirmatn/500.css";
+@import "@fontsource/vazirmatn/600.css";
+@import "@fontsource/vazirmatn/700.css";
+@import "@fontsource/vazirmatn/800.css";
+@import "@fontsource/heebo/400.css";
+@import "@fontsource/heebo/500.css";
+@import "@fontsource/heebo/600.css";
+@import "@fontsource/heebo/700.css";
+@import "@fontsource/heebo/800.css";
+@import "@fontsource/great-vibes/400.css";
 @import "tailwindcss";
 
 /* Use class-based dark mode. When `<html>` has class="dark", every `dark:*`
  * variant in our components activates. Toggled by ThemeProvider. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* RYDN brand tokens, from the certificate palette (navy #14304f, gold
+ * #c0a062). These generate Tailwind utilities: bg-rydn-navy,
+ * text-rydn-gold, border-rydn-gold-light, font-script, and so on. */
+@theme {
+  --color-rydn-navy: #14304f;
+  --color-rydn-navy-deep: #0e2238;
+  --color-rydn-navy-ink: #1d2b3a;
+  --color-rydn-gold: #c0a062;
+  --color-rydn-gold-dark: #8a6d2f;
+  --color-rydn-gold-light: #d8c491;
+  --color-rydn-slate-blue: #33475c;
+  --color-rydn-ink-soft: #263646;
+  --color-rydn-muted-blue: #6b7c8d;
+  --font-script: "Great Vibes", "Snell Roundhand", cursive;
+}
+
 :root {
-  --rydn-primary: #0ea5e9;     /* sky-500 */
-  --rydn-primary-dark: #0369a1; /* sky-700 */
-  --rydn-accent: #f59e0b;      /* amber-500 - warm highlight */
+  --rydn-primary: #14304f;     /* navy, was sky-500 */
+  --rydn-primary-dark: #0e2238; /* navy deep */
+  --rydn-accent: #c0a062;      /* gold, was amber-500 */
+  --rydn-navy: #14304f;
+  --rydn-navy-deep: #0e2238;
+  --rydn-gold: #c0a062;
+  --rydn-gold-dark: #8a6d2f;
+  --rydn-gold-light: #d8c491;
+  --rydn-slate-blue: #33475c;
+  --rydn-ink-soft: #263646;
+  --rydn-muted-blue: #6b7c8d;
   --rydn-ink: #0f172a;         /* slate-900 */
   --rydn-muted: #475569;       /* slate-600 */
   --rydn-bg: #fafafa;
@@ -63,24 +111,32 @@ h1, h2, h3, h4, h5 {
   letter-spacing: -0.03em;
 }
 
-/* Subtle decorative gradient utility */
+/* Script accent, Great Vibes, used only for signature moments: the Med Due
+ * sign-off, pull-quote attributions, and the gateway footer micro-copy. */
+.font-script {
+  font-family: "Great Vibes", "Snell Roundhand", cursive;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* Subtle decorative gradient utility, navy and gold mesh */
 .bg-rydn-mesh {
   background-image:
-    radial-gradient(at 20% 0%, rgba(14, 165, 233, 0.18) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(14, 165, 233, 0.10) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.10) 0px, transparent 50%);
+    radial-gradient(at 20% 0%, rgba(20, 48, 79, 0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(192, 160, 98, 0.10) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(20, 48, 79, 0.06) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(192, 160, 98, 0.08) 0px, transparent 50%);
 }
 .dark .bg-rydn-mesh {
   background-image:
-    radial-gradient(at 20% 0%, rgba(14, 165, 233, 0.10) 0px, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(245, 158, 11, 0.06) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(14, 165, 233, 0.06) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.08) 0px, transparent 50%);
+    radial-gradient(at 20% 0%, rgba(20, 48, 79, 0.25) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(192, 160, 98, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(20, 48, 79, 0.18) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(192, 160, 98, 0.06) 0px, transparent 50%);
   background-color: #0f172a;
 }
 
-/* Card with gradient ring on hover */
+/* Card with gradient ring on hover, navy to gold */
 .card-ring {
   position: relative;
   isolation: isolate;
@@ -91,7 +147,7 @@ h1, h2, h3, h4, h5 {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 50%, #f59e0b 100%);
+  background: linear-gradient(135deg, #c0a062 0%, #14304f 50%, #d8c491 100%);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
           mask-composite: exclude;
@@ -101,6 +157,36 @@ h1, h2, h3, h4, h5 {
   z-index: -1;
 }
 .card-ring:hover::before { opacity: 1; }
+
+/* Certificate-style double gold border frame, echoing the certificate's
+ * double-rule border. Used on Stories quote cards and the Med Starter Kit
+ * panel. Outline follows the border radius in modern browsers. */
+.frame-gold-double {
+  border: 1.5px solid #c0a062;
+  outline: 1px solid #c0a062;
+  outline-offset: 3px;
+}
+
+/* Certificate-style frame, navy border with a gold outline, echoing the
+ * certificate page frame. */
+.frame-cert {
+  border: 2px solid #14304f;
+  outline: 1px solid #c0a062;
+  outline-offset: 4px;
+}
+
+/* Subtle geometric pattern backgrounds for the coming-soon pages:
+ * gold motif for Academy, blue motif for France. */
+.pattern-gold {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(192, 160, 98, 0.07) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(-45deg, rgba(192, 160, 98, 0.07) 0 1px, transparent 1px 16px);
+}
+.pattern-blue {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(37, 99, 235, 0.07) 0 1px, transparent 1px 16px),
+    repeating-linear-gradient(-45deg, rgba(37, 99, 235, 0.07) 0 1px, transparent 1px 16px);
+}
 
 /* Animated underline link */
 .link-underline {
@@ -143,12 +229,31 @@ h1, h2, h3, h4, h5 {
 }
 .animate-float { animation: float 8s ease-in-out infinite; }
 
-/* Eye-catching glow pulse for the Book Now CTA */
+/* Eye-catching glow pulse for the primary Book Now CTA, gold now */
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.55), 0 8px 18px -4px rgba(245, 158, 11, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0), 0 8px 18px -4px rgba(245, 158, 11, 0.6); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 160, 98, 0.55), 0 8px 18px -4px rgba(192, 160, 98, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(192, 160, 98, 0), 0 8px 18px -4px rgba(192, 160, 98, 0.6); }
 }
 .animate-glow-pulse { animation: glow-pulse 2.4s ease-in-out infinite; }
+
+/* Slow seal-ring rotation for the RYDN 2026 seal badge. Only the dashed
+ * decorative ring rotates; the seal text stays still and readable. */
+@keyframes seal-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-seal-spin {
+  animation: seal-spin 90s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Stamp-in effect for the seal on the About page: a single settle, not a loop. */
+@keyframes stamp-in {
+  from { opacity: 0; transform: scale(1.18) rotate(-4deg); }
+  to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+.animate-stamp-in { animation: stamp-in 0.55s ease-out both; }
 
 /* Respect reduced motion: stop the looping CSS animations for visitors
    who ask for less motion. Motion-based (JS) animations are gated
@@ -157,7 +262,9 @@ h1, h2, h3, h4, h5 {
   .animate-marquee,
   .animate-marquee-reverse,
   .animate-float,
-  .animate-glow-pulse {
+  .animate-glow-pulse,
+  .animate-seal-spin,
+  .animate-stamp-in {
     animation: none;
   }
   html {

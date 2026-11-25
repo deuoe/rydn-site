@@ -29,7 +29,7 @@ export default function Avatar({ src, name, className = "" }: Props) {
   if (!src || failed) {
     const bg = brand === "med"
       ? "bg-gradient-to-br from-emerald-500 to-emerald-700"
-      : "bg-gradient-to-br from-sky-500 to-sky-700"
+      : "bg-gradient-to-br from-rydn-navy to-rydn-navy-deep"
     return (
       <div
         role="img"
