@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      // Auto-register the service worker in the app — no extra code needed
+      // Auto-register the service worker in the app, no extra code needed
       registerType: "autoUpdate",
       injectRegister: "auto",
       // Don't generate site.webmanifest because we already have a public/site.webmanifest
@@ -85,14 +85,14 @@ export default defineConfig({
             sizes: "512x512",
             type: "image/png",
             form_factor: "wide",
-            label: "RYDN home — free 1-on-1 advising",
+            label: "RYDN home, free 1-on-1 advising",
           },
           {
             src: "/web-app-manifest-512x512.png",
             sizes: "512x512",
             type: "image/png",
             form_factor: "narrow",
-            label: "RYDN home — free 1-on-1 advising",
+            label: "RYDN home, free 1-on-1 advising",
           },
         ],
         prefer_related_applications: false,
@@ -105,9 +105,9 @@ export default defineConfig({
         },
         handle_links: "preferred",
       },
-      // Workbox config — pre-caches the built assets + handles runtime caching
+      // Workbox config: pre-caches the built assets + handles runtime caching
       workbox: {
-        globPatterns: ["**/*.{js,css,html,svg,png,jpg,jpeg,webp,woff,woff2,ico,webmanifest}"],
+        globPatterns: ["**/*.{js,css,html,json,svg,png,jpg,jpeg,webp,woff,woff2,ico,webmanifest}"],
         // Make sure SPA routes always work offline by serving index.html
         navigateFallback: "/index.html",
         navigateFallbackDenylist: [/^\/api\//, /^\/_/],
@@ -116,7 +116,7 @@ export default defineConfig({
         // CRITICAL: take over from the old service worker immediately on update,
         // and start controlling all open pages right away. Without these two flags
         // a new SW sits in "waiting" state and never activates until every tab/
-        // PWA window is fully closed — which is why our phone PWAs were stuck
+        // PWA window is fully closed, which is why our phone PWAs were stuck
         // on the very first deployed version forever.
         skipWaiting: true,
         clientsClaim: true,

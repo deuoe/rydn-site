@@ -181,7 +181,7 @@ export default function Workshops() {
               Live, interactive sessions on academic strategy, career exploration, and university prep, taught by students currently living it.
             </p>
             <div className="mt-8 flex items-center gap-6 text-sm text-white/70">
-              <span className="flex items-center gap-2"><Calendar size={16} className="text-amber-300" /> {workshops.length} sessions scheduled</span>
+              <span className="flex items-center gap-2"><Calendar size={16} className="text-amber-300" /> {workshops.length} sessions in 2026</span>
               <span className="flex items-center gap-2"><Video size={16} className="text-sky-300" /> Online + in-person</span>
             </div>
           </motion.div>

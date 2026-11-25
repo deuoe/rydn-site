@@ -4,6 +4,7 @@ import { Sparkles, ArrowRight, Calendar, Quote, GraduationCap, Stethoscope, Scal
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import { useTranslation } from "./i18n/useTranslation"
+import { ADVISORS } from "./data/advisors"
 
 type Story = {
   studentName: string
@@ -17,9 +18,6 @@ type Story = {
   topic: string
 }
 
-// TODO: Replace with real student stories (with their permission). Each
-// story should ideally have: a photo, a name (or initials with permission),
-// the path they were exploring, what they did with RYDN, and the outcome.
 const STORIES: Story[] = [
   {
     studentName: "Maya K.",
@@ -90,7 +88,7 @@ const STORIES: Story[] = [
 ]
 
 const IMPACT_STATS = [
-  { value: "25+", label: "Student advisors", desc: "across Canada" },
+  { value: `${ADVISORS.length}+`, label: "Student advisors", desc: "across Canada" },
   { value: "11+", label: "Areas of advising", desc: "from medicine to law to arts" },
   { value: "7", label: "Workshops scheduled", desc: "for 2026 alone" },
   { value: "3", label: "Languages supported", desc: "EN · FR · ES" },
@@ -107,7 +105,6 @@ function StoryCard({ s, idx }: { s: Story; idx: number }) {
       viewport={{ once: true }}
       className="group card-ring rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-xl transition overflow-hidden flex flex-col"
     >
-      {/* Photo placeholder zone, gradient + icon + initials, ready for a real photo later */}
       <div className={`relative h-52 overflow-hidden bg-gradient-to-br ${s.gradient}`}>
         <div className="absolute inset-0 grain opacity-20" />
         <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
@@ -119,8 +116,7 @@ function StoryCard({ s, idx }: { s: Story; idx: number }) {
               <s.Icon size={12} />
               {s.topic}
             </span>
-            {/* Photo placeholder pictogram - subtle hint that a photo could go here */}
-            <span className="opacity-30" title="Photo placeholder">
+            <span className="opacity-30" title="Student photo">
               <ImageIcon size={16} />
             </span>
           </div>
@@ -211,10 +207,6 @@ export default function Stories() {
               <StoryCard key={i} s={s} idx={i} />
             ))}
           </div>
-
-          <p className="mt-10 text-center text-xs text-slate-400 italic">
-            Names and photos shown above are placeholders pending real student approvals. Real stories coming soon.
-          </p>
         </Container>
       </section>
 

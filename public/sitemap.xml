@@ -124,4 +124,54 @@
     <changefreq>weekly</changefreq>
   </url>
 
+  <!-- =============================================================
+       ROOZ ACADEMY: courses & training (coming soon)
+       Routes exist for English and every /<lang> prefix, see main.tsx.
+       ============================================================= -->
+  <url>
+    <loc>https://www.rydn.ca/academy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rydn.ca/academy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.rydn.ca/fr/academy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.rydn.ca/es/academy" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.rydn.ca/fa/academy" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.rydn.ca/he/academy" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.rydn.ca/zh/academy" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.rydn.ca/ko/academy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.rydn.ca/ar/academy" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.rydn.ca/ur/academy" />
+    <xhtml:link rel="alternate" hreflang="pa" href="https://www.rydn.ca/pa/academy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rydn.ca/academy" />
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url><loc>https://www.rydn.ca/fr/academy</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/academy</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/academy</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/academy</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- =============================================================
+       ROOZ FRANCE: French youth association (in formation)
+       Routes exist for English and every /<lang> prefix, see main.tsx.
+       ============================================================= -->
+  <url>
+    <loc>https://www.rydn.ca/france</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.rydn.ca/france" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.rydn.ca/fr/france" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.rydn.ca/es/france" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://www.rydn.ca/fa/france" />
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.rydn.ca/he/france" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.rydn.ca/zh/france" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://www.rydn.ca/ko/france" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.rydn.ca/ar/france" />
+    <xhtml:link rel="alternate" hreflang="ur" href="https://www.rydn.ca/ur/france" />
+    <xhtml:link rel="alternate" hreflang="pa" href="https://www.rydn.ca/pa/france" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.rydn.ca/france" />
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url><loc>https://www.rydn.ca/fr/france</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/es/france</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/fa/france</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.rydn.ca/he/france</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
 </urlset>

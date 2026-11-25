@@ -1,8 +1,9 @@
 import { Link as RouterLink } from "react-router-dom"
-import { GraduationCap, Mail, ArrowLeft } from "lucide-react"
+import { GraduationCap, ArrowLeft } from "lucide-react"
 import Container from "./components/Container"
 import Heading from "./components/Heading"
 import Paragraph from "./components/Paragraph"
+import EmailCaptureForm from "./components/EmailCaptureForm"
 
 /**
  * RooZ Academy, coming soon.
@@ -56,15 +57,22 @@ export default function RoozAcademy() {
         </ul>
       </div>
 
-      {/* Interest capture + back to gateway */}
+      {/* Interest capture + back to gateway. Real capture via Forminit,
+          not a mailto link: the address is stored, nothing depends on the
+          visitor having a mail client configured. */}
       <div className="mt-10 flex flex-col items-center gap-4">
-        <a
-          href="mailto:info@rydn.ca?subject=RooZ Academy: I'm interested&body=Hi RooZ team,%0D%0A%0D%0AI'd like to hear when RooZ Academy programs open. Here's what I'd like to learn:%0D%0A%0D%0A"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 px-8 py-4 text-base font-bold text-slate-900 shadow-lg transition hover:shadow-xl"
-        >
-          <Mail size={18} />
-          Tell us what you'd like to learn
-        </a>
+        <p className="text-center text-sm text-slate-600 dark:text-slate-400">
+          Leave your email and we will tell you when the first programs open.
+        </p>
+        <div className="w-full max-w-md">
+          <EmailCaptureForm
+            source="RooZ Academy interest"
+            buttonLabel="Notify me"
+            successMessage="Thanks! We'll let you know when the first programs open."
+            inputClassName="flex-1 rounded-full border border-amber-300 dark:border-amber-900/60 bg-white dark:bg-slate-900 dark:text-slate-100 px-5 py-4 text-base placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 disabled:opacity-60"
+            buttonClassName="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 px-6 py-4 text-base font-bold text-slate-900 shadow-lg transition hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
+          />
+        </div>
         <RouterLink
           to="/"
           className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"

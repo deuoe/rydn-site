@@ -3,6 +3,10 @@
 // translations are fine, any missing keys silently fall back to English at
 // runtime (see LanguageProvider's `t()`).
 
+// Advisor count in the About copy is computed from the registry, never
+// hardcoded, so it stays true as advisors join or leave.
+import { ADVISORS } from "../data/advisors"
+
 export type Lang =
   | "en"
   | "fr"
@@ -304,9 +308,9 @@ export const TRANSLATIONS: Record<Lang, DeepPartial<Dict>> & { en: Dict } = {
       sparkTitle: "The spark",
       sparkBody: "It started in the middle of a tutoring session. Out of nowhere, one of Sam's students paused and asked, \"Can I ask you some questions about university?\" He wanted to know about medical school, how it worked, how you got in. Sara was nearby, and as a pre-med student she pulled up a chair to help. Between us, we answered everything he needed to know about medicine. Then he asked the same kind of questions about engineering and aerospace, and we didn't have the answers. That's the moment Sara turned to Sam and said: imagine if every student could just sit down with someone who'd already walked the path they were curious about. Any field. Always free. That's the moment RYDN was born.",
       foundedTitle: "Making it real",
-      foundedBody: "We officially founded RooZ Youth Development Network in March 2026. In the early days it was just the two of us, a shared calendar, and a handful of friends willing to advise. We started by reaching out to students we knew in fields we couldn't speak to, engineering, law, nursing, business, the sciences, and asked if they'd give one hour a month. Within weeks we had a small network. Today there are 25+ advisors, and growing.",
+      foundedBody: `We officially founded RooZ Youth Development Network in March 2026. In the early days it was just the two of us, a shared calendar, and a handful of friends willing to advise. We started by reaching out to students we knew in fields we couldn't speak to, engineering, law, nursing, business, the sciences, and asked if they'd give one hour a month. Within weeks we had a small network. Today there are ${ADVISORS.length} advisors, and growing.`,
       todayTitle: "Where we are now",
-      todayBody: "Today RYDN connects 25+ student advisors with students across Canada. We run free workshops, partner with schools and libraries, and operate in three languages, and we're just getting started.",
+      todayBody: `Today RYDN connects ${ADVISORS.length} student advisors with students across Canada. We run free workshops, partner with schools and libraries, and operate in three languages, and we're just getting started.`,
       quote: "It started with one student asking a question we couldn't answer. No student should have to ask it alone.",
       quoteAttribution: "Sara Roozbahani & Sam Sina, Founders",
     },
@@ -482,9 +486,9 @@ export const TRANSLATIONS: Record<Lang, DeepPartial<Dict>> & { en: Dict } = {
       sparkTitle: "L'étincelle",
       sparkBody: "Tout a commencé au milieu d'une séance de tutorat. Sans prévenir, un des étudiants de Sam s'est arrêté et a demandé : « Est-ce que je peux te poser des questions sur l'université ? » Il voulait savoir comment fonctionnait la médecine, le processus, l'admission. Sara, étudiante en pré-médecine, s'est rapprochée pour aider. Ensemble, nous avons répondu à toutes ses questions sur la médecine. Puis il a posé le même genre de questions sur l'ingénierie et l'aérospatiale, et nous n'avions pas les réponses. C'est le moment où Sara s'est tournée vers Sam et a dit : et si chaque étudiant pouvait simplement s'asseoir avec quelqu'un qui avait déjà parcouru le chemin qui l'intriguait ? N'importe quel domaine. Toujours gratuitement. C'est le moment où RYDN est né.",
       foundedTitle: "Le concrétiser",
-      foundedBody: "Nous avons officiellement fondé le Réseau de développement de la jeunesse RooZ en mars 2026. Au début, c'était juste nous deux, un calendrier partagé et une poignée d'amis prêts à conseiller. Nous avons commencé par contacter des étudiants que nous connaissions dans des domaines que nous ne maîtrisions pas, ingénierie, droit, sciences infirmières, commerce, sciences, et leur avons demandé une heure par mois. En quelques semaines, nous avions un petit réseau. Aujourd'hui, plus de 25 conseillers, et ça grandit.",
+      foundedBody: `Nous avons officiellement fondé le Réseau de développement de la jeunesse RooZ en mars 2026. Au début, c'était juste nous deux, un calendrier partagé et une poignée d'amis prêts à conseiller. Nous avons commencé par contacter des étudiants que nous connaissions dans des domaines que nous ne maîtrisions pas, ingénierie, droit, sciences infirmières, commerce, sciences, et leur avons demandé une heure par mois. En quelques semaines, nous avions un petit réseau. Aujourd'hui, ${ADVISORS.length} conseillers, et ça grandit.`,
       todayTitle: "Où nous en sommes maintenant",
-      todayBody: "Aujourd'hui, RYDN met en relation plus de 25 conseillers étudiants avec des étudiants partout au Canada. Nous offrons des ateliers gratuits, nouons des partenariats avec des écoles et bibliothèques, et opérons en trois langues, et nous ne faisons que commencer.",
+      todayBody: `Aujourd'hui, RYDN met en relation ${ADVISORS.length} conseillers étudiants avec des étudiants partout au Canada. Nous offrons des ateliers gratuits, nouons des partenariats avec des écoles et bibliothèques, et opérons en trois langues, et nous ne faisons que commencer.`,
       quote: "Tout a commencé avec un étudiant qui nous a posé une question à laquelle nous ne pouvions pas répondre. Aucun étudiant ne devrait avoir à la poser seul.",
       quoteAttribution: "Sara Roozbahani et Sam Sina, fondateurs",
     },
@@ -660,9 +664,9 @@ export const TRANSLATIONS: Record<Lang, DeepPartial<Dict>> & { en: Dict } = {
       sparkTitle: "La chispa",
       sparkBody: "Empezó en medio de una sesión de tutoría. Sin previo aviso, uno de los estudiantes de Sam hizo una pausa y preguntó: « ¿Puedo hacerte algunas preguntas sobre la universidad? » Quería saber sobre la facultad de medicina, cómo funcionaba, cómo entrar. Sara, estudiante de pre-medicina, se acercó para ayudar. Entre los dos respondimos todo lo que necesitaba saber sobre medicina. Luego hizo el mismo tipo de preguntas sobre ingeniería y aeroespacial, y no teníamos las respuestas. Ese fue el momento en que Sara se volvió hacia Sam y dijo: imagina si cada estudiante pudiera simplemente sentarse con alguien que ya hubiera recorrido el camino que le intrigaba. Cualquier campo. Siempre gratis. Ese es el momento en que nació RYDN.",
       foundedTitle: "Hacerlo realidad",
-      foundedBody: "Fundamos oficialmente RooZ Youth Development Network en marzo de 2026. Al principio éramos solo nosotros dos, un calendario compartido y un puñado de amigos dispuestos a asesorar. Empezamos contactando a estudiantes que conocíamos en campos en los que no podíamos hablar, ingeniería, derecho, enfermería, negocios, ciencias, y les pedimos una hora al mes. En semanas teníamos una pequeña red. Hoy son más de 25 asesores, y sigue creciendo.",
+      foundedBody: `Fundamos oficialmente RooZ Youth Development Network en marzo de 2026. Al principio éramos solo nosotros dos, un calendario compartido y un puñado de amigos dispuestos a asesorar. Empezamos contactando a estudiantes que conocíamos en campos en los que no podíamos hablar, ingeniería, derecho, enfermería, negocios, ciencias, y les pedimos una hora al mes. En semanas teníamos una pequeña red. Hoy son ${ADVISORS.length} asesores, y sigue creciendo.`,
       todayTitle: "Dónde estamos hoy",
-      todayBody: "Hoy RYDN conecta a más de 25 asesores estudiantiles con estudiantes en todo Canadá. Realizamos talleres gratuitos, nos asociamos con escuelas y bibliotecas, y operamos en tres idiomas, y apenas estamos comenzando.",
+      todayBody: `Hoy RYDN conecta a ${ADVISORS.length} asesores estudiantiles con estudiantes en todo Canadá. Realizamos talleres gratuitos, nos asociamos con escuelas y bibliotecas, y operamos en tres idiomas, y apenas estamos comenzando.`,
       quote: "Empezó con un estudiante que nos hizo una pregunta que no pudimos responder. Ningún estudiante debería tener que hacerla solo.",
       quoteAttribution: "Sara Roozbahani y Sam Sina, fundadores",
     },
@@ -859,9 +863,9 @@ export const TRANSLATIONS: Record<Lang, DeepPartial<Dict>> & { en: Dict } = {
       sparkTitle: "جرقه",
       sparkBody: "همه‌چیز در میانه یک جلسه تدریس شروع شد. ناگهان یکی از شاگردان سم مکث کرد و پرسید: «می‌توانم چند سوال درباره دانشگاه بپرسم؟» او می‌خواست درباره دانشکده پزشکی بداند, اینکه چگونه کار می‌کند، چطور پذیرفته می‌شوند. سارا که آنجا بود، به‌عنوان دانشجوی پیش‌پزشکی صندلی‌اش را کشید و کنار ما نشست. با هم به همه سوال‌های او درباره پزشکی پاسخ دادیم. سپس همان نوع سوال را درباره مهندسی و هوافضا پرسید, و ما پاسخ نداشتیم. آن لحظه‌ای بود که سارا به سم گفت: تصور کن اگر هر دانشجویی می‌توانست با کسی بنشیند که قبلاً همان مسیر را رفته است. در هر رشته‌ای. همیشه رایگان. این لحظه‌ای بود که RYDN متولد شد.",
       foundedTitle: "تبدیل ایده به واقعیت",
-      foundedBody: "ما RooZ Youth Development Network را به‌طور رسمی در مارس ۲۰۲۶ تأسیس کردیم. روزهای اول فقط ما دو نفر بودیم، یک تقویم مشترک، و چند دوست که حاضر بودند مشاوره دهند. شروع کردیم با تماس با دانشجویانی که می‌شناختیم در رشته‌هایی که خودمان نمی‌توانستیم در آن‌ها صحبت کنیم, مهندسی، حقوق، پرستاری، تجارت، علوم, و از آن‌ها خواستیم یک ساعت در ماه بدهند. ظرف چند هفته شبکه‌ای کوچک داشتیم. امروز بیش از ۲۵ مشاور داریم و در حال رشد هستیم.",
+      foundedBody: `ما RooZ Youth Development Network را به‌طور رسمی در مارس ۲۰۲۶ تأسیس کردیم. روزهای اول فقط ما دو نفر بودیم، یک تقویم مشترک، و چند دوست که حاضر بودند مشاوره دهند. شروع کردیم با تماس با دانشجویانی که می‌شناختیم در رشته‌هایی که خودمان نمی‌توانستیم در آن‌ها صحبت کنیم, مهندسی، حقوق، پرستاری، تجارت، علوم, و از آن‌ها خواستیم یک ساعت در ماه بدهند. ظرف چند هفته شبکه‌ای کوچک داشتیم. امروز ${ADVISORS.length} مشاور داریم و در حال رشد هستیم.`,
       todayTitle: "اکنون کجا هستیم",
-      todayBody: "امروز RYDN بیش از ۲۵ مشاور دانشجویی را با دانشجویان سراسر کانادا مرتبط می‌کند. کارگاه‌های رایگان برگزار می‌کنیم، با مدارس و کتابخانه‌ها همکاری داریم، و در سه زبان فعالیت می‌کنیم, و این فقط آغاز کار است.",
+      todayBody: `امروز RYDN ${ADVISORS.length} مشاور دانشجویی را با دانشجویان سراسر کانادا مرتبط می‌کند. کارگاه‌های رایگان برگزار می‌کنیم، با مدارس و کتابخانه‌ها همکاری داریم، و در سه زبان فعالیت می‌کنیم, و این فقط آغاز کار است.`,
       quote: "همه‌چیز با یک دانشجو شروع شد که سوالی پرسید و ما پاسخ نداشتیم. هیچ دانشجویی نباید تنها این سوال را بپرسد.",
       quoteAttribution: "سارا روزبهانی و سم سینا، بنیان‌گذاران",
     },
@@ -1028,10 +1032,10 @@ export const TRANSLATIONS: Record<Lang, DeepPartial<Dict>> & { en: Dict } = {
         "זה התחיל באמצע פגישת תגבור. בלי שום הקדמה, אחד מהסטודנטים של סם עצר ושאל: 'אפשר לשאול אותך כמה שאלות על האוניברסיטה?' הוא רצה לדעת על בית הספר לרפואה, איך זה עובד, איך נכנסים. שרה הייתה בקרבת מקום, וכסטודנטית לקראת רפואה היא התקרבה כדי לעזור. בינינו, ענינו על כל מה שהוא היה צריך לדעת על רפואה. אחר כך הוא שאל את אותו סוג שאלות על הנדסה ואווירונאוטיקה, ולא היו לנו תשובות. זה היה הרגע שבו שרה הסתכלה על סם ואמרה: דמיין אם כל סטודנט יכול היה פשוט לשבת עם מישהו שכבר עבר את הדרך שמסקרנת אותו. בכל תחום. תמיד בחינם. זה הרגע שבו RYDN נולד.",
       foundedTitle: "להפוך את זה למציאות",
       foundedBody:
-        "ייסדנו רשמית את RooZ Youth Development Network במרץ 2026. בימים הראשונים זה היה רק שנינו, יומן משותף, וכמה חברים שהיו מוכנים לייעץ. התחלנו ביצירת קשר עם סטודנטים שהכרנו בתחומים שלא יכולנו לדבר עליהם, הנדסה, משפטים, סיעוד, עסקים, מדעים, וביקשנו מהם לתת שעה אחת בחודש. תוך שבועות הייתה לנו רשת קטנה. היום יש 25+ יועצים, וזה גדל.",
+        `ייסדנו רשמית את RooZ Youth Development Network במרץ 2026. בימים הראשונים זה היה רק שנינו, יומן משותף, וכמה חברים שהיו מוכנים לייעץ. התחלנו ביצירת קשר עם סטודנטים שהכרנו בתחומים שלא יכולנו לדבר עליהם, הנדסה, משפטים, סיעוד, עסקים, מדעים, וביקשנו מהם לתת שעה אחת בחודש. תוך שבועות הייתה לנו רשת קטנה. היום יש ${ADVISORS.length} יועצים, וזה גדל.`,
       todayTitle: "איפה אנחנו עכשיו",
       todayBody:
-        "היום RYDN מחבר 25+ יועצי סטודנטים עם סטודנטים ברחבי קנדה. אנחנו מקיימים סדנאות חינם, שותפים עם בתי ספר וספריות, ופועלים בארבע שפות, וזה רק ההתחלה.",
+        `היום RYDN מחבר ${ADVISORS.length} יועצי סטודנטים עם סטודנטים ברחבי קנדה. אנחנו מקיימים סדנאות חינם, שותפים עם בתי ספר וספריות, ופועלים בארבע שפות, וזה רק ההתחלה.`,
       quote:
         "זה התחיל עם סטודנט אחד ששאל שאלה שלא יכולנו לענות עליה. אף סטודנט לא צריך לשאול אותה לבד.",
       quoteAttribution: "שרה רוזבהאני וסם סינה, מייסדים",
@@ -1217,9 +1221,9 @@ export const TRANSLATIONS: Record<Lang, DeepPartial<Dict>> & { en: Dict } = {
       sparkTitle: "灵感的火花",
       sparkBody: "故事开始于一次辅导中途。Sam 的一位学生突然停下来问道：「我能问你一些关于大学的问题吗？」他想了解医学院，怎么运作、如何进入。Sara 正好在附近，作为预医学生，她拉过椅子帮忙解答。两人合力回答了他关于医学的所有疑问。接着他又问起工程和航空航天方面同样的问题，而我们答不上来。就在那一刻，Sara 转头对 Sam 说：试想一下，如果每位学生都能与已经走过他所好奇之路的人坐下来聊聊，会怎样？任何领域。永远免费。那一刻，RYDN 便诞生了。",
       foundedTitle: "让梦想成真",
-      foundedBody: "我们于2026年3月正式创立 RooZ Youth Development Network。最初只有我们两人、一份共享日历和几位愿意提供咨询的朋友。我们开始联络我们认识的、但我们自己无法提供建议的领域的学生，工程、法律、护理、商业、理科，询问他们是否愿意每月贡献一小时。几周内，我们就建立了一个小型网络。如今已有25多位顾问，并在持续增长。",
+      foundedBody: `我们于2026年3月正式创立 RooZ Youth Development Network。最初只有我们两人、一份共享日历和几位愿意提供咨询的朋友。我们开始联络我们认识的、但我们自己无法提供建议的领域的学生，工程、法律、护理、商业、理科，询问他们是否愿意每月贡献一小时。几周内，我们就建立了一个小型网络。如今已有${ADVISORS.length}位顾问，并在持续增长。`,
       todayTitle: "我们现在的位置",
-      todayBody: "如今，RYDN 连接了25多位学生顾问与加拿大各地的学生。我们举办免费讲座，与学校和图书馆合作，并以三种语言运营，而这仅仅是开始。",
+      todayBody: `如今，RYDN 连接了${ADVISORS.length}位学生顾问与加拿大各地的学生。我们举办免费讲座，与学校和图书馆合作，并以三种语言运营，而这仅仅是开始。`,
       quote: "一切始于一位学生提出我们当时无法回答的问题。没有学生应该独自面对这样的问题。",
       quoteAttribution: "Sara Roozbahani 与 Sam Sina，创始人",
     },
@@ -1398,9 +1402,9 @@ export const TRANSLATIONS: Record<Lang, DeepPartial<Dict>> & { en: Dict } = {
       sparkTitle: "그 순간의 불씨",
       sparkBody: "한 과외 시간 중간에 시작됐어요. Sam의 학생 중 한 명이 갑자기 멈춰서 물었죠. “대학에 대해 몇 가지 물어봐도 될까요?” 그 학생은 의대에 대해 알고 싶어 했어요, 어떻게 운영되는지, 어떻게 들어가는지. 마침 근처에 있던 Sara가 예비 의대생으로서 의자를 끌어와 함께 답해줬어요. 우리 둘이서 의학에 대해 그가 필요한 모든 것을 알려줬죠. 그러더니 그 학생이 공학과 항공우주에 대해 같은 종류의 질문을 했어요, 그건 우리도 답할 수 없었어요. 그 순간 Sara가 Sam에게 돌아서며 말했어요: 모든 학생이 자기가 궁금해하는 길을 이미 걸어본 사람과 그냥 앉아서 이야기할 수 있다면 어떨까? 어떤 분야든. 언제나 무료로. 그 순간 RYDN이 태어났습니다.",
       foundedTitle: "현실로 만들기",
-      foundedBody: "우리는 2026년 3월에 RooZ Youth Development Network를 공식적으로 설립했어요. 초기에는 우리 둘과 공유 캘린더, 그리고 기꺼이 조언해 줄 친구들 몇 명이 전부였어요. 우리는 우리가 잘 모르는 분야, 공학, 법학, 간호학, 비즈니스, 과학, 의 학생들에게 연락해 한 달에 한 시간만 내달라고 부탁했어요. 몇 주 만에 작은 네트워크가 생겼어요. 오늘날에는 25명 이상의 어드바이저가 있고, 계속 늘어나고 있어요.",
+      foundedBody: `우리는 2026년 3월에 RooZ Youth Development Network를 공식적으로 설립했어요. 초기에는 우리 둘과 공유 캘린더, 그리고 기꺼이 조언해 줄 친구들 몇 명이 전부였어요. 우리는 우리가 잘 모르는 분야, 공학, 법학, 간호학, 비즈니스, 과학, 의 학생들에게 연락해 한 달에 한 시간만 내달라고 부탁했어요. 몇 주 만에 작은 네트워크가 생겼어요. 오늘날에는 ${ADVISORS.length}명의 어드바이저가 있고, 계속 늘어나고 있어요.`,
       todayTitle: "지금 우리의 위치",
-      todayBody: "오늘날 RYDN은 25명 이상의 학생 어드바이저와 캐나다 전역의 학생들을 연결합니다. 무료 워크숍을 운영하고, 학교와 도서관과 협력하며, 세 가지 언어로 운영합니다, 이제 시작일 뿐입니다.",
+      todayBody: `오늘날 RYDN은 ${ADVISORS.length}명의 학생 어드바이저와 캐나다 전역의 학생들을 연결합니다. 무료 워크숍을 운영하고, 학교와 도서관과 협력하며, 세 가지 언어로 운영합니다, 이제 시작일 뿐입니다.`,
       quote: "한 학생이 우리가 답할 수 없는 질문을 한 데서 시작됐어요. 어떤 학생도 그 질문을 혼자 해야 해선 안 됩니다.",
       quoteAttribution: "Sara Roozbahani & Sam Sina, 공동 설립자",
     },

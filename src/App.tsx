@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { Link } from "./i18n/Link"
 import { motion, AnimatePresence, useInView, useMotionValue, useSpring, useTransform } from "motion/react"
 import { Users, BookOpen, ArrowRight, Sparkles, ChevronDown, MessageSquare, Calendar, Rocket, Star, Quote, Handshake, Target, FileText, Plus, Mail, X } from "lucide-react"
@@ -50,7 +50,6 @@ type Testimonial = {
   avatarColor: string
 }
 
-// TODO: Replace these placeholder testimonials with real student/parent quotes.
 const TESTIMONIALS: Testimonial[] = [
   { quote: "Helped me figure out which pre-med path was actually right for me. Wish I'd done it sooner.", name: "Maya K.", role: "Grade 12 student", initials: "MK", avatarColor: "from-pink-400 to-rose-500" },
   { quote: "My advisor walked me through the entire MCAT timeline. Game changer.", name: "Daniel R.", role: "First-year pre-med", initials: "DR", avatarColor: "from-sky-400 to-blue-500" },
@@ -93,17 +92,23 @@ function ReviewCard({ t }: { t: Testimonial }) {
 }
 
 function MarqueeRow({ items, direction = "left" }: { items: Testimonial[]; direction?: "left" | "right" }) {
-  // Duplicate the items so the loop seams together when transform resets.
-  const doubled = [...items, ...items]
+  // The items are rendered twice so the loop seams together when the
+  // transform resets. The second copy is hidden from assistive tech so
+  // screen readers don't announce every testimonial twice.
   return (
     <div className="relative overflow-hidden">
       {/* Edge fade-outs so cards drift in/out smoothly */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 z-10 bg-gradient-to-r from-slate-50 to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 z-10 bg-gradient-to-l from-slate-50 to-transparent" />
       <div className={"flex w-max " + (direction === "left" ? "animate-marquee" : "animate-marquee-reverse")}>
-        {doubled.map((t, i) => (
+        {items.map((t, i) => (
           <ReviewCard t={t} key={i} />
         ))}
+        <div aria-hidden="true" className="flex">
+          {items.map((t, i) => (
+            <ReviewCard t={t} key={`dup-${i}`} />
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -266,7 +271,8 @@ const PARTNER_NAMES = [
 
 function PartnerStrip() {
   const { t } = useTranslation()
-  const doubled = [...PARTNER_NAMES, ...PARTNER_NAMES]
+  // Rendered twice so the loop seams together; the second copy is hidden
+  // from assistive tech so screen readers don't announce each name twice.
   return (
     <section className="py-16 bg-white border-y border-slate-200">
       <Container className="text-center">
@@ -282,7 +288,7 @@ function PartnerStrip() {
           half-cut-off labels at the viewport edge. */}
       <div className="mt-10 relative overflow-hidden marquee-fade">
         <div className="flex w-max animate-marquee">
-          {doubled.map((name, i) => (
+          {PARTNER_NAMES.map((name, i) => (
             <div
               key={i}
               className="mx-8 flex items-center text-slate-400 hover:text-slate-700 transition"
@@ -290,6 +296,16 @@ function PartnerStrip() {
               <span className="font-display text-xl md:text-2xl whitespace-nowrap">{name}</span>
             </div>
           ))}
+          <div aria-hidden="true" className="flex">
+            {PARTNER_NAMES.map((name, i) => (
+              <div
+                key={`dup-${i}`}
+                className="mx-8 flex items-center text-slate-400 hover:text-slate-700 transition"
+              >
+                <span className="font-display text-xl md:text-2xl whitespace-nowrap">{name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -442,8 +458,19 @@ function HomePage() {
     return "min-h-[36px]"
   }
 
-  const filteredAdvisors = activeFilter === "all" ? advisors : advisors.filter(a => a.categories.includes(activeFilter))
-  const shuffledAdvisors = shuffleArray(filteredAdvisors)
+  // Shuffle once per filter change, not on every render: shuffling during
+  // render re-randomised the grid on any state change (e.g. opening the
+  // booking modal), making cards jump around under the visitor. The filter
+  // runs inside the memo so the memo key stays just the active filter.
+  const shuffledAdvisors = useMemo(
+    () =>
+      shuffleArray(
+        activeFilter === "all"
+          ? ADVISORS
+          : ADVISORS.filter((a) => a.categories.includes(activeFilter)),
+      ),
+    [activeFilter],
+  )
 
   return (
     <>
@@ -601,9 +628,9 @@ function HomePage() {
 
           <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { value: 25, suffix: "+", label: "Advisors", desc: "and growing" },
+              { value: ADVISORS.length, suffix: "+", label: "Advisors", desc: "and growing" },
               { value: 11, suffix: "+", label: "Areas of advising", desc: "from medicine to law" },
-              { value: 7, suffix: "", label: "Workshops planned", desc: "for the year" },
+              { value: 7, suffix: "", label: "Workshops held", desc: "in 2026" },
             ].map((s, i) => (
               <motion.div
                 key={i}

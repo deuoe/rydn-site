@@ -177,7 +177,7 @@ export const ADVISORS: Advisor[] = [
   {
     slug: "iman",
     name: "Iman",
-    // No photo yet (Iman.png is a blank placeholder), so <Avatar> shows initials.
+    // No photo yet, so <Avatar> shows initials.
     description: "Bachelor of Arts student",
     advisingTopics: ["Psychology", "Game Development"],
     bookingLink: "https://outlook.office.com/book/RYDN1@rydn.ca/s/Nl-k9rS70EiUi53ylFUU5A2",

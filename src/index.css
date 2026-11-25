@@ -150,6 +150,21 @@ h1, h2, h3, h4, h5 {
 }
 .animate-glow-pulse { animation: glow-pulse 2.4s ease-in-out infinite; }
 
+/* Respect reduced motion: stop the looping CSS animations for visitors
+   who ask for less motion. Motion-based (JS) animations are gated
+   separately where they live, e.g. the gateway blobs in Gateway.tsx. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-float,
+  .animate-glow-pulse {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Subtle attention wiggle every few seconds */
 @keyframes attention-wiggle {
   0%, 92%, 100% { transform: rotate(0deg); }

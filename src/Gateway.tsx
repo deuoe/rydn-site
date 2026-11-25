@@ -15,8 +15,8 @@
  *   RooZ Academy  → /academy  (courses & training, coming soon, amber)
  *   RooZ France   → /france   (French youth association, in formation, blue)
  */
-import { useNavigate } from "react-router-dom"
-import { motion } from "motion/react"
+import { Link, useNavigate } from "react-router-dom"
+import { motion, useReducedMotion } from "motion/react"
 import { ArrowRight, ChevronDown, GraduationCap, Sparkles } from "lucide-react"
 import logoUrl from "./assets/images/Logo.jpg"
 import WorldMap from "./components/WorldMap"
@@ -161,6 +161,9 @@ export default function Gateway() {
   const scrollToPaths = () => {
     document.getElementById("paths")?.scrollIntoView({ behavior: "smooth" })
   }
+  // Visitors who ask for less motion get a still background: the blobs
+  // render in place instead of drifting forever.
+  const reduceMotion = useReducedMotion()
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-slate-950">
@@ -170,22 +173,22 @@ export default function Gateway() {
       <div className="absolute inset-0 -z-10">
         <motion.div
           className="absolute -top-32 -left-32 h-[32rem] w-[32rem] rounded-full bg-red-500/25 blur-3xl"
-          animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
+          animate={reduceMotion ? undefined : { x: [0, 40, 0], y: [0, 30, 0] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute top-1/3 -right-32 h-[36rem] w-[36rem] rounded-full bg-emerald-500/25 blur-3xl"
-          animate={{ x: [0, -50, 0], y: [0, -40, 0] }}
+          animate={reduceMotion ? undefined : { x: [0, -50, 0], y: [0, -40, 0] }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute bottom-0 left-1/3 h-[28rem] w-[28rem] rounded-full bg-sky-500/15 blur-3xl"
-          animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+          animate={reduceMotion ? undefined : { x: [0, 30, 0], y: [0, -20, 0] }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
           className="absolute -bottom-24 -right-24 h-[26rem] w-[26rem] rounded-full bg-amber-500/15 blur-3xl"
-          animate={{ x: [0, -30, 0], y: [0, 25, 0] }}
+          animate={reduceMotion ? undefined : { x: [0, -30, 0], y: [0, 25, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Subtle grain / noise overlay */}
@@ -252,6 +255,33 @@ export default function Gateway() {
         >
           <WorldMap />
         </motion.div>
+
+        {/* On small screens the map markers are small tap targets, so the
+            three destinations are also listed as plain links below the map.
+            Hidden on sm and up, where the map itself is the navigation. */}
+        <div className="mt-4 flex w-full max-w-4xl flex-col gap-2 sm:hidden">
+          <Link
+            to="/youth"
+            className="flex items-center gap-3 rounded-2xl bg-white/5 px-4 py-3 text-left text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/10"
+          >
+            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-red-500" />
+            Toronto: free mentorship in Canada
+          </Link>
+          <Link
+            to="/med"
+            className="flex items-center gap-3 rounded-2xl bg-white/5 px-4 py-3 text-left text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/10"
+          >
+            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-500" />
+            Ancona, Italy: study medicine
+          </Link>
+          <Link
+            to="/france"
+            className="flex items-center gap-3 rounded-2xl bg-white/5 px-4 py-3 text-left text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-white/10"
+          >
+            <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-blue-500" />
+            France: youth exchanges
+          </Link>
+        </div>
 
         {/* Scroll cue to the doors */}
         <motion.a
